@@ -1,0 +1,58 @@
+/* pages/waterMeterHistoricalRecord/waterMeterHistoricalRecord.wxss */
+page{
+  background: #f7f7f7
+}
+.waterMeter-box{
+  margin-top: 20rpx;
+  width: 100%;
+  background: white;
+}
+.header{
+  height: 100rpx;
+  font-size: 30rpx;
+  font-weight: bold;
+  position: relative;
+  border-bottom: 1rpx solid #e1e1e1
+
+}
+.header image{
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+  top: 35rpx;
+  left: 30rpx;
+}
+.header text{
+  width: 650rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  position: absolute;
+  left: 80rpx;
+}
+.content{
+  background: white;
+  font-size: 28rpx;
+  color: black;
+  padding-left: 30rpx;
+  padding-top: 25rpx;
+  padding-bottom: 25rpx;
+}
+.content-item{
+  margin-top: 10rpx;
+}
+.text-right{
+  float: right;
+  padding-right: 30rpx;
+}
+
+.houseList-box{
+  background: white
+}
+.content-item-header{
+  font-weight: bold;
+  font-size: 32rpx;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+}
+
+

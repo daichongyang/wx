@@ -1,0 +1,38 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+}
+page{
+  min-height:100%;
+}
+.calcel_bottom{
+  border:0!important;
+}
+.gray{
+  height:20rpx;
+  background:#f7f7f7;
+}
+view{
+  line-height: 100%;
+}
+.contant{
+  background:#f7f7f7;
+  height:100%;
+}
+.button{
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 30rpx;
+  background: #1fc2b2;
+  color: white;
+  margin:0 24rpx 0 24rpx;
+}
+.red{
+  color:#fe615a;
+}

@@ -1,0 +1,52 @@
+<view class='houseBox'>
+        <view class='wrapper-item'>
+          <view class='left-item'>
+            <image src='{{oneHouseData.picture}}'></image>
+          </view>
+
+          <view class='right-item'>
+            <view class='nowrap'>{{oneHouseData.name}}</view>
+            <view class='nowrap'>{{oneHouseData.layout}}</view>
+            <view class='nowrap'>{{oneHouseData.nearby}}</view>
+            <view class='nowrap'>
+              <block wx:for='{{oneHouseData.label}}' wx:key='key'>
+                  <text class='label-item'>{{item}}</text>
+              </block>
+            </view>
+             <text class='label-right-item'>{{oneHouseData.rentCost}}元/月</text>
+          </view>
+
+          <view class='bottom-view'></view>
+        </view>
+
+
+        <view class='bottom-item'><text>看房时间</text>
+          <picker
+          bindcolumnchange='bindcolumnchange'
+          bindchange='bindchange'
+          bindtap='selectTimeClick'
+          mode='multiSelector' 
+          value="{{multiIndex}}"
+          range="{{multiArray}}"
+          class='right-text'>{{time}} ▾
+          </picker>
+         </view>
+
+        <view class='bottom-item'><text>看房方式</text><text bindtap='lookTypeClick' class='right-text'>{{lookType}} ▾
+        </text></view>
+        <view class='bottom-item'><text>联系人</text><input bindinput='getNicenameValue' value='{{nickName}}' placeholder='请输入联系人姓名'></input></view>
+        <view class='bottom-item'><text>联系电话</text><input bindinput='getPhoneValue' value='{{phone}}' maxlength='11' type='number' placeholder='请输入联系人电话'></input></view>
+
+
+       <view class='textarea'><textarea bindinput='getCommentValue' value='{{comment}}' placeholder='请输入留言'> </textarea>
+        <view class='maxLength'>最大输入140个字</view>
+       </view> 
+
+       <view class='gd-zc'></view>
+</view>
+
+<cover-view class='yylookCss'>
+  <button bindtap='yyAction'>立即预约</button>
+</cover-view>
+
+

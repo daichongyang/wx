@@ -1,0 +1,60 @@
+<!--pages/informationTypePage/informationTypePage.wxml-->
+<view bindtap='msgListClick' data-id='1' class='item'>
+  <view class='img_view'>
+    <image src='../../img/msg/bb_wdxx_01@2x.png'></image>
+    <view class='biaoji' wx:if="{{listMsg.platformMsg.unread != 0}}">{{listMsg.platformMsg.unread}}</view>
+  </view>
+  <view class='item-top' >平台消息</view>
+  <view class='item-right' >{{gmtCreate1}}</view>
+  <view class='item-bottom'>{{title1}}</view>
+</view>
+
+<view bindtap='msgListClick' data-id='2' class='item'>
+  <view class='img_view'>
+    <image src='../../img/msg/bb_wdxx_05@2x.png'></image>
+    <view class='biaoji' wx:if="{{listMsg.billMsg.unread != 0}}">{{listMsg.billMsg.unread}}</view>
+  </view>
+  <view class='item-top' >账单消息</view>
+  <view class='item-right' >{{gmtCreate2}}</view>
+  <view class='item-bottom'>{{title2}}</view>
+</view>
+
+<view bindtap='msgListClick' data-id='3' class='item'>
+  <view class='img_view'>
+  <image src='../../img/msg/bb_wdxx_08@2x.png'></image>
+    <view class='biaoji' wx:if="{{listMsg.leaseMsg.unread != 0}}">{{listMsg.leaseMsg.unread}}</view>
+  </view>
+  <view class='item-top' >租约消息</view>
+  <view class='item-right' >{{gmtCreate3}}</view>
+  <view class='item-bottom'>{{title3}}</view>
+</view>
+
+<view bindtap='msgListClick' data-id='4' class='item'>
+  <view class='img_view'>
+    <image src='../../img/msg/bb_wdxx_10@2x.png'></image>
+    <view class='biaoji' wx:if="{{listMsg.serviceMsg.unread != 0}}">{{listMsg.serviceMsg.unread}}</view>
+  </view>
+  <view class='item-top' >服务消息</view>
+  <view class='item-right' >{{gmtCreate4}}</view>
+  <view class='item-bottom'>{{title4}}</view>
+</view>
+
+<view bindtap='msgListClick' data-id='5' class='item'>
+  <view class='img_view'>
+    <image src='../../img/msg/bb_wdxx_12@2x.png'></image>
+    <view class='biaoji' wx:if="{{listMsg.bulletinMsg.unread != 0}}">{{listMsg.bulletinMsg.unread}}</view>
+  </view>
+  <view class='item-top' >公告通知</view>
+  <view class='item-right' >{{gmtCreate5}}</view>
+  <view class='item-bottom'>{{title5}}</view>
+</view>
+
+<view bindtap='msgListClick' data-id='6' class='item'>
+  <view class='img_view'>
+    <image src='../../img/msg/bb_wdxx_13@2x.png'></image>
+    <view class='biaoji' wx:if="{{listMsg.communityMsg.unread != 0}}">{{listMsg.communityMsg.unread}}</view>
+  </view>
+  <view class='item-top' >社区消息</view>
+  <view class='item-right' >{{gmtCreate6}}</view>
+  <view class='item-bottom'>{{title6}}</view>
+</view>

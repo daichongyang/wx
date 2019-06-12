@@ -1,0 +1,11 @@
+<!--pages/informationTypeListPage/informationTypeListPage.wxml-->
+<view class='swiper'>
+  <view class='header'><text class='left'>{{title}}</text></view>
+  <block wx:for='{{arr}}' wx:key='key' wx:for-item="item">
+    <view class='item' data-item='{{item}}' bindtap='readNoticee'>
+      <view >{{item.gmtCreate}}</view>
+      <view >{{item.message}}</view>
+      <view wx:if="{{item.unread == 1}}" class='reddian'></view>
+    </view>
+  </block>
+</view>

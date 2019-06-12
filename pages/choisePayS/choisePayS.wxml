@@ -1,0 +1,8 @@
+<!--pages/choisePayS/choisePayS.wxml-->
+<view class='contant'>
+  <view class='pay_infor'>
+    <image class='pay_succese' mode="widthFix" src='../../img/my/pay_succese.png'></image>
+    <text class='red'>支付成功</text>
+  </view>
+  <button class='button' bindtap='bindingCarNext'>查看详情</button>
+</view>

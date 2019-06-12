@@ -1,0 +1,16 @@
+<!--pages/adminSDBPage/adminSDBPage.wxml-->
+
+<block wx:if='{{houseList.length}}'>
+<view class='box'>
+  <block wx:for='{{houseList}}' wx:key='key'>
+     <view class='item' bindtap='gyClick' data-id='{{index}}'>
+        <text>{{item.name}}</text>
+        <text>▸</text>
+     </view> 
+  </block>
+
+</view>
+ </block>
+<block wx:else>
+<view class='noData'>暂无数据...</view>
+</block>

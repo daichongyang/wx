@@ -1,0 +1,117 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"autoAudits": false,
+		"checkInvalidKey": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.4.1",
+	"appid": "wx24f422d495905093",
+	"projectname": "%E5%AE%9D%E5%AE%9D%E5%9C%A8%E7%BA%BF%E5%85%AC%E5%AF%93",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 9,
+			"list": [
+				{
+					"id": -1,
+					"name": "首页",
+					"pathName": "pages/homePage/homePage",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "个人资料",
+					"pathName": "pages/myData/myData",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "绑定银行卡",
+					"pathName": "pages/myBackCard/myBackCard",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "设置",
+					"pathName": "pages/setUpPage/setUpPage",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "选择支付方式",
+					"pathName": "pages/choisePay/choisePay",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "选择支付方式",
+					"pathName": "pages/choisePayS/choisePayS",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "入户密码修改",
+					"pathName": "pages/setUserPassward/setUserPassward",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "支付详情",
+					"pathName": "pages/paydetalis/paydetalis",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "二维码收款",
+					"pathName": "pages/logoQRCode/logoQRCode",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "入户修改密码2",
+					"pathName": "pages/setUserPassward2/setUserPassward2",
+					"scene": null
+				}
+			]
+		}
+	}
+}

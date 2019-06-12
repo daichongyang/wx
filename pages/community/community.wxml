@@ -1,0 +1,79 @@
+<!--pages/community/community.wxml-->
+<view class='header'>
+  <view class='leftView'>
+    <image src='../../img/home/bb_sy_01@2x.png'></image>
+    <text>搜索你感兴趣的话题</text>
+  </view>
+  <image class='midimg' src='../../img/community/bb_hd_01@3x.png'></image>
+  <image class='rightimg' src='../../img/home/bb_sy_03@2x.png'></image>
+</view>
+
+
+<view class='content'>
+  <view class='contentHeader'>
+    <image class='contentHeaderimg' src='../../img/my/bb_wd_04@2x.png'></image>
+    <view class='contentName'>一生无悔</view>
+    <view class='contentTime'>49分钟前</view>
+  </view>
+  <view class='descCss'>澳门中联办主任傅自应在致辞时说，新的一年对澳门来说具有特殊的意义，随着澳门回归祖国20周年及即将完成政府换届，澳门发展将进入新的阶段，也会迎来新的机遇。他勉励澳门要有创新精神，为共同推动澳门与内地深化合作，充分发挥“一国两制”的内在优势，大胆地闯、大胆地试，合力破解制度性的差异。</view>
+
+<view class='contentImageBox'>
+  <image class='contenImage' src='../../img/community/bb_hd_03@2x.png'></image>
+  <image class='contenImage' src='../../img/community/bb_fyxq_18@2x.png'></image>
+</view>
+
+<view class='footer'>
+
+  <view class='actionbtn'>
+    <image src='../../img/community/bb_hd_05@2x.png'></image>
+    <text>1688</text>
+  </view>
+
+  <view class='actionbtn'>
+    <image src='../../img/community/bb_hd_07@3x.png'></image>
+    <text>82</text>
+  </view>
+</view>
+</view>
+
+
+<!-- 第二个虚拟数据 -->
+<view class='content'>
+  <view class='contentHeader'>
+    <image class='contentHeaderimg' src='../../img/home/bb_sy_16@2x.png'></image>
+    <view class='contentName'>宝宝在线公寓管理员</view>
+    <view class='contentTime'>2小时前</view>
+  </view>
+  <view class='descCss'>    
+惦记无声，却很甘甜；问侯平常，却很温暖；信任无言，却最真切；友情无形，却最珍贵；祝福简单，却常留心间！祝新春快乐！全家幸福！
+再换一本日历，页页美丽；再盼一次嫩绿，年年新意；再送一次祝福，初衷如一；再说一句心语，保重身体！还有一个心愿：祝您新年吉祥如意！
+</view>
+
+<view class='contentImageBox'>
+  <!-- <image class='contenImage' src='../../img/community/bb_hd_03@2x.png'></image>
+  <image class='contenImage' src='../../img/community/bb_fyxq_18@2x.png'></image> -->
+</view>
+
+<view class='footer'>
+
+  <view class='actionbtn'>
+    <image src='../../img/community/bb_hd_05@2x.png'></image>
+    <text>666</text>
+  </view>
+
+  <view class='actionbtn'>
+    <image src='../../img/community/bb_hd_07@3x.png'></image>
+    <text>17</text>
+  </view>
+</view>
+</view>
+
+
+
+
+<!-- 门禁权限 -->
+<block wx:if='{{isTenant == 1}}'>
+  <view class='passCss' bindtap='passClick'>
+    <image src='../../img/home/bb_sy_21mj@2x.png'></image>
+  </view>
+</block>

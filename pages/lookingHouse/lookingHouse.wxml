@@ -1,0 +1,157 @@
+<!-- 区域 租金 户型 更多筛选 排序 -->
+<view class='header'>
+<block wx:for="{{array}}" wx:for-item="item" wx:key='key'>
+  <view class='tab-list' bindtap='choseTxtColor' data-id='{{index}}' style="{{index == id?'color: #1fc2b2':'color:gray'}}">{{item}}</view>
+</block>
+</view>
+
+<!-- 蒙版 -->
+<view catchtouchmove="doNotMove" catchtap='maskShow' class='mask' hidden='{{flag}}'>
+<!-- 排序 -->
+  <view catchtap='stopTap' class='swarp' wx:if='{{id == 4}}'>
+    <block wx:for="{{sortingArr}}" wx:for-item="item" wx:key='key'>
+      <view bindtap='pxClick' class='sorting' data-id='{{index}}' style="{{index == pxId?'color:    #1fc2b2':'color:gray'}}">{{item}}</view>
+    </block>
+  </view>
+
+<!-- 更多筛选 -->
+  <view catchtap='stopTap' class='swarp' hidden='{{id != 3}}'>
+    <form bindsubmit='bindsubmit'  bindreset='bindreset'>
+      <scroll-view scroll-y='ture' style="height:600rpx">
+        <view class='sx'>
+            <checkbox-group bindchange='checkboxChange'>
+                <view class='title'>面积</view>
+                <block wx:for="{{mjArr}}" wx:for-item="item" wx:key='key'>
+                  <block wx:if='{{index<=5}}'>
+                  <checkbox id='11' class='{{item.select? "selectCheckbox":"checkbox"}}' value='{{index}}'> {{item.name}}</checkbox>
+                  </block>
+                </block>
+
+                <view class='title'>电梯</view>
+                <block wx:for="{{mjArr}}" wx:for-item="item" wx:key='key'>
+                  <block wx:if='{{5 < index && index <= 7}}'>
+                    <checkbox class='{{item.select? "selectCheckbox":"checkbox"}}' value='{{index}}'> {{item.name}}</checkbox>
+                  </block>
+                </block>
+
+                <view class='title'>付款方式</view>
+                <block wx:for="{{mjArr}}" wx:for-item="item" wx:key='key'>
+                  <block wx:if='{{7 < index && index <= 9}}'>
+                    <checkbox class='{{item.select? "selectCheckbox":"checkbox"}}' value='{{index}}'> {{item.name}}</checkbox>
+                  </block>
+                </block>
+
+                <view class='title'>楼层</view>
+                <block wx:for="{{mjArr}}" wx:for-item="item" wx:key='key'>
+                  <block wx:if='{{9 < index && index <= 12}}'>
+                    <checkbox class='{{item.select? "selectCheckbox":"checkbox"}}' value='{{index}}'> {{item.name}}</checkbox>
+                  </block>
+                </block>
+
+
+                <view class='title'>其他筛选</view>
+                <block wx:for="{{mjArr}}" wx:for-item="item" wx:key='key'>
+                  <block wx:if='{{12 < index && index <= 14}}'>
+                    <checkbox class='{{item.select? "selectCheckbox":"checkbox"}}' value='{{index}}'> {{item.name}}</checkbox>
+                  </block>
+                </block>
+
+            </checkbox-group>
+        </view>
+      </scroll-view>
+      <view class='btn-group'>
+        <button form-type='reset'>重置</button>
+        <button form-type='submit'>确定</button>
+        <view style='height:10rpx'></view>
+      </view>
+    </form>
+  </view>
+  
+
+<!-- 户型 -->
+  <view catchtap='stopTap' class='swarp' wx:if='{{id == 2}}'>
+    <block wx:for="{{doorModelArr}}" wx:for-item="item" wx:key='key'>
+      <view bindtap='hxClick' class='doorMode' data-id='{{index}}' style="{{index == hxId?'color:#1fc2b2':'color:gray'}}">{{item}}</view>
+    </block>
+  </view>
+
+<!-- 租金 -->
+   <view catchtap='stopTap' class='swarp' wx:if='{{id == 1}}'>
+    <block wx:for="{{rentArr}}" wx:for-item="item" wx:key='key'>
+      <view bindtap='rentClick' class='rent' data-id='{{index}}' style="{{index == zjId?'color: #1fc2b2':'color:gray'}}">{{item}}</view>
+    </block>
+
+    <view style='height:2rpx;background:#f2f2f2'></view>
+
+    <view class='slider'>
+      <view style="{{zjId == 6?'color: #1fc2b2':'color:gray'}}">{{money}}</view>
+      <slider value='{{moneyValue}}' activeColor='#1fc2b2' min='0' max='20000' bindchanging='bindchanging' backgroundColor='#b3b3b3' block-color='#1fc2b2' step='500'></slider>
+      <button bindtap='okMoneyClick' class='ok'>确定</button> 
+      <view style='height:1rpx'></view>
+    </view>
+
+  </view>
+
+<!-- 区域 -->
+  <view catchtap='stopTap' class='swarp' wx:if='{{id == 0}}'>
+  <!--  -->
+      <view style='background: #ffffff;width:{{width}}rpx'class='qy-item'>
+        <scroll-view scroll-y='ture' style="height:100%;width:100%">
+          <view class='qy-item-one'><text>区域</text></view>
+        </scroll-view>
+      </view>
+
+<!--  -->
+      <view style='background: #f4f4f4;width:{{width}}rpx'class='qy-item'>
+        <scroll-view scroll-y='ture' style="height:100%;width:100%">
+          <block wx:for='{{locationData}}' wx:key='key'>
+            <view style="{{index == qyId?'color:#1fc2b2':'color:#bbbbbb'}}" bindtap='areaClick' data-id='{{index}}' class='qy-item-two'>{{item.name}}</view>
+          </block>
+        </scroll-view>
+      </view>
+<!--  -->
+
+        <view style='background: #e7e7e7;width:{{widthSelcet}}rpx' class='qy-item'>
+          <scroll-view scroll-y='ture' style="height:100%;width:100%">
+             <block wx:for='{{locationList}}' wx:key='key'>
+              <view style="{{index == sqId?'color:#1fc2b2':'color:#bbbbbb'}}" bindtap='businessClick' data-id='{{index}}' class='qy-item-two'>{{item.name}}</view>
+          </block>
+          </scroll-view>
+        </view>
+  </view>
+    <!--  -->
+
+    <!-- 蒙板结束 -->
+</view>
+
+<!-- 内容 -->
+<view class='content'>
+  <!-- 房源 -->
+<block>
+  <view class='wrapper-jx'>
+      <block wx:for='{{houseList}}' wx:key='key'>
+        <view bindtap='houseInfoClick' data-id='{{index}}' class='wrapper-item'>
+          <view class='left-item'>
+            <view><image src='{{item.picture}}'></image></view>
+          </view>
+          <view class='right-item'>
+            <view class='nowrap'>{{item.name}}</view>
+            <view class='nowrap'>{{item.layout}}</view>
+            <view class='nowrap'>{{item.nearby}}</view>
+            <view class='nowrap'>
+              <block wx:for='{{item.label}}' wx:key='key'>
+                <block wx:if='{{0<=index && index <= 2}}'>
+                  <text class='label-item'>{{item}}</text>
+                </block>
+              </block>
+            </view>
+             <text class='label-right-item'>{{item.rentCost}}元/月</text>
+          </view>
+        </view>
+      </block>
+  </view>
+</block>
+</view>
+
+
+

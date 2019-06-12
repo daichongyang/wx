@@ -1,0 +1,53 @@
+<!--pages/adminSDBonePage/adminSDBonePage.wxml-->
+<block wx:if='{{dataSource.length > 0}}'>
+  <view class='header'><text>房间信息</text><text>类型</text><text>上次读数</text><text>本次读数</text><text>抄表保存</text></view>
+  <scroll-view class='scrollView' scroll-y='true' enable-back-to-top='true'>
+  <block wx:for='{{dataSource}}' wx:key='key'>
+    <view class='itemBox'>
+
+      <view class='item'>
+        <view>{{item.houseName}}</view>
+        <view wx:if='{{item.tenantName[0] == null}}'>空房</view>
+        <view style='color:red;' wx:else>{{item.tenantName[0]}}</view>
+        <view>{{item.year}}-{{item.month}}</view>
+      </view>
+
+      <view class='item oneItem'>
+        <view>冷水表</view>
+        <view>电表</view>
+        <view>热水表</view>
+      </view>
+
+      <view class='item oneItem'>
+       <view wx:if='{{item.lastNum[0] == null}}'>无数据</view>
+        <view wx:else>{{item.lastNum[0]}}</view>
+        <view wx:if='{{item.lastNum[1] == null}}'>无数据</view>
+        <view wx:else>{{item.lastNum[1]}}</view>
+        <view wx:if='{{item.lastNum[2] == null}}'>无数据</view>
+        <view wx:else>{{item.lastNum[2]}}</view>
+      </view>
+      
+      <view class='item oneItem twoItem'>
+        <view wx:if='{{item.currentNum[0] == null}}'><input placeholder='输入读数' value='{{}}'></input></view>
+         <view wx:else><input placeholder='输入读数' value='{{item.currentNum[0]}}'></input></view>
+        <view wx:if='{{item.currentNum[1] == null}}'><input placeholder='输入读数' value='{{}}'></input></view>
+         <view wx:else><input placeholder='输入读数' value='{{item.currentNum[1]}}'></input></view>
+        <view wx:if='{{item.currentNum[2] == null}}'><input placeholder='输入读数' value='{{}}'></input></view>
+         <view wx:else><input placeholder='输入读数' value='{{item.currentNum[2]}}'></input></view>
+      </view>
+
+      
+       <view class='item'>
+        <view>{{text}}</view>
+        <view class='save'>保存</view>
+        <view>{{text}}</view>
+      </view>
+
+    </view>
+  </block>
+  </scroll-view>
+
+</block>
+<block wx:else>
+  <view class='nodata'>{{nodata}}</view>
+</block>

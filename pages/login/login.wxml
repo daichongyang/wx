@@ -1,0 +1,10 @@
+<view class='changeInfo'>
+  <view class='changeInfoName'>
+     <input maxlength='11' type='number' placeholder='请输入手机号码' bindinput='getPhoneValue' value='{{phone}}'/> 
+  </view>
+  <view class='changeInfoName'>
+     <input maxlength='6' type='number' placeholder='请输入验证码' bindinput='getCodeValue' value='{{code}}' style='width:70%;'/> 
+     <button class='codeBtn' bindtap='getVerificationCode' disabled='{{disabled}}' >{{codename}}</button>
+  </view>
+  <button class='changeBtn' bindtap='submit'>登录</button>
+</view>

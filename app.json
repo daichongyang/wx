@@ -1,0 +1,100 @@
+{
+  "pages": [
+    "pages/homePage/homePage",
+    "pages/community/community",
+    "pages/businessCircle/businessCircle",
+    "pages/my/my",
+    "pages/login/login",
+    "pages/myData/myData",
+    "pages/selectCity/selectCity",
+    "pages/search/search",
+    "pages/lookingHouse/lookingHouse",
+    "pages/houseDetails/houseDetails",
+    "pages/reservationlist/reservationlist",
+    "pages/reservationDetails/reservationDetails",
+    "pages/textIntroduce/textIntroduce",
+    "pages/seeLookHouse/seeLookHouse",
+    "pages/apartmentIntroduced/apartmentIntroduced",
+    "pages/costDetail/costDetail",
+    "pages/myAttention/myAttention",
+    "pages/dueTohousing/dueTohousing",
+    "pages/advancePage/advancePage",
+    "pages/yddetailsPage/yddetailsPage",
+    "pages/myLeasePage/myLeasePage",
+    "pages/myLeaseDetails/myLeaseDetails",
+    "pages/lookingContractPage/lookingContractPage",
+    "pages/lookingLeaseBillsPage/lookingLeaseBillsPage",
+    "pages/firstLeaseBillsPage/firstLeaseBillsPage",
+    "pages/payHouseMoney/payHouseMoney",
+    "pages/waterMeterList/waterMeterList",
+    "pages/waterMeterHistoricalRecord/waterMeterHistoricalRecord",
+    "pages/mjPassPage/mjPassPage",
+    "pages/leaseTenant/leaseTenant",
+    "pages/myRepairListPage/myRepairListPage",
+    "pages/myRepairPage/myRepairPage",
+    "pages/setUpPage/setUpPage",
+    "pages/bindingPage/bindingPage",
+    "pages/informationTypePage/informationTypePage",
+    "pages/informationTypeListPage/informationTypeListPage",
+    "pages/houseLastDetails/houseLastDetails",
+    "pages/myRepairDetailsPage/myRepairDetailsPage",
+    "pages/myAdminPage/myAdminPage",
+    "pages/roomStatePage/roomStatePage",
+    "pages/dataReportPage/dataReportPage",
+    "pages/myAdminYyYdPage/myAdminYyYdPage",
+    "pages/myAdminYyYdXqPage/myAdminYyYdXqPage",
+    "pages/adminLeaseListPage/adminLeaseListPage",
+    "pages/adminBxByPage/adminBxByPage",
+    "pages/adminSDBPage/adminSDBPage",
+    "pages/adminSDBonePage/adminSDBonePage",
+    "pages/adminIntelligentSystemPage/adminIntelligentSystemPage",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/myBackCard/myBackCard",
+    "pages/myBackCard1/myBackCard1",
+    "pages/choisePay/choisePay",
+    "pages/choisePayS/choisePayS",
+    "pages/paydetalis/paydetalis",
+    "pages/setUserPassward/setUserPassward",
+    "pages/setUserPassward2/setUserPassward2",
+    "pages/logoQRCode/logoQRCode",
+    "pages/logoQRCode2/logoQRCode2"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#bfbfbf",
+    "selectedColor": "#000000",
+    "list": [
+      {
+        "pagePath": "pages/homePage/homePage",
+        "text": "首页",
+        "iconPath": "./img/tabBarImg/bb_sy_31@2x.png",
+        "selectedIconPath": "./img/tabBarImg/bb_sy_30@2x.png"
+      },
+      {
+        "pagePath": "pages/community/community",
+        "text": "互动",
+        "iconPath": "./img/tabBarImg/bb_sy_28@2x.png",
+        "selectedIconPath": "./img/tabBarImg/bb_sy_29@2x.png"
+      },
+      {
+        "pagePath": "pages/businessCircle/businessCircle",
+        "text": "发现",
+        "iconPath": "./img/tabBarImg/bb_sy_25@2x.png",
+        "selectedIconPath": "./img/tabBarImg/bb_sy_26@2x.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "./img/tabBarImg/bb_sy_23@2x.png",
+        "selectedIconPath": "./img/tabBarImg/bb_sy_22@2x.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

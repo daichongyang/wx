@@ -1,0 +1,34 @@
+/* pages/myBackCard1/myBackCard1.wxss */
+page{
+  background: #f7f7f7;
+}
+.contant{
+  margin:0 24rpx;
+}
+.contant_item{
+  height:224rpx;
+  background-size:cover;
+  overflow: hidden;
+  margin-top:20rpx;
+}
+.item_car{
+  font-size:30rpx;
+  color:#fff;
+  margin-left:60rpx;
+}
+.item_car text{
+  margin-right:30rpx;
+}
+.item_car1{
+  margin-top:60rpx;
+  margin-bottom:50rpx;
+}
+.add_car{
+  margin-top:60rpx;
+  height:224rpx;
+  background-size:cover;
+  font-size:30rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

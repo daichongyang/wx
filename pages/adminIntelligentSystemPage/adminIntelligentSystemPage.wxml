@@ -1,0 +1,11 @@
+<!--pages/adminIntelligentSystemPage/adminIntelligentSystemPage.wxml-->
+<view class='box'>
+  <view class='contentBox'>
+    <image src='../../img/my/bb_znsd_02@2x.png'></image>
+    <text>智能水表</text>
+  </view>
+   <view class='contentBox'>
+    <image src='../../img/my/bb_znsd_01@2x.png'></image>
+    <text>智能电表</text>
+  </view>
+</view>

@@ -1,0 +1,15 @@
+<!--pages/logoQRCode2/logoQRCode2.wxml-->
+  <view class='choise_car'>
+    <view class='item calcel_bottom'>
+      <view class='item_view'>
+        <view class='item_view_right2'>
+          <text>金额</text>
+          <input placeholder='请输入收款金额'></input>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 去付款 -->
+
+  <button class='button'>收款</button>

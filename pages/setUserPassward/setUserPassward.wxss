@@ -1,0 +1,61 @@
+/* pages/setUserPassward/setUserPassward.wxss */
+page{
+  background: #f7f7f7;
+}
+.choise_car{
+  background:#fff;
+  margin-top:20rpx;
+}
+.item{
+  margin-left:32rpx;
+  font-size: 30rpx;
+  height:100rpx;
+  border-bottom: 1rpx solid #e1e1e1;
+  overflow:hidden;
+  display:flex;
+  align-items: center;
+  justify-content:space-between; 
+}
+.green{
+  color:#00c3b2;
+  font-size:24rpx;
+  padding:20rpx 35rpx;
+  min-width:120rpx;
+}
+.choise_img{
+  width:34rpx;
+  margin-right:30rpx;
+}
+.item_view{
+  width:100%;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.item_view_right{
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+  flex:1;
+}
+.item_view_right2{
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+  flex:1;
+}
+.item_view_right input{
+  margin-right:20rpx;
+}
+.item_view_right2 input{
+  margin-right:20rpx;
+}
+.button{
+  margin-top:100rpx;
+}
+.white{
+  color:#fff;
+  font-size:24rpx;
+  padding:20rpx 35rpx;
+  min-width:120rpx;
+}

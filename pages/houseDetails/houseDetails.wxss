@@ -1,0 +1,624 @@
+
+.wrapper{
+  width: 100%;
+  height: 100%;
+  /* background: #f9f9f9 */
+}
+
+.baner{
+  width: 100%;
+  height: 400rpx;
+  position: relative;
+}
+.baner swiper{
+  width: 100%;
+  height: 100%;
+}
+.baner swiper image{
+  width: 100%;
+  height: 100%;
+}
+.indexView{
+  position: absolute;
+  bottom: 80rpx;
+  right: 20rpx;
+  background: rgba(1, 1, 1, 0.3);
+  color: white;
+  font-size: 28rpx;
+  padding: 5rpx 30rpx;
+  border-radius:10rpx;
+}
+.index-wrapper{
+  background: #f7f7f7;
+  height: 280rpx;
+  width: 100%;
+  position: relative;
+}
+.index{
+  position: absolute;
+  width: 730rpx;
+  height: 305rpx;
+  background:white;
+  top: -50rpx;
+  left: 10rpx;
+  border-radius: 10rpx;
+}
+.index-one{
+  padding-left: 30rpx;
+  padding-top: 20rpx;
+  font-size: 30rpx;
+}
+.index view:nth-child(1){
+  font-weight: bold;
+}
+.index view:nth-child(2){
+   color: #fb625e;
+}
+.index view:nth-child(3){
+   color: #8f8f8f;
+   font-size: 25rpx;
+}
+.index-two text:nth-child(1){
+  float: left;
+}
+.index-two text:nth-child(2){
+  float: right;
+  display: block;
+  margin-right: 20rpx;
+}
+.index-four{
+  width: 95%;
+  height: 2rpx;
+  margin: 0 auto;
+  background: #f3f3f3;
+  margin-top: 30rpx;
+}
+.index-five{
+  font-size: 30rpx;
+  color: darkgray;
+  width: 100%;
+  height: 80rpx;
+  margin: 10rpx;
+}
+.five-one{
+ float: left;
+ height: 100%;
+ line-height: 80rpx;
+ color: #9c9c9c;
+ width: 150rpx;
+ text-align: center;
+}
+.five-two{
+ float: left;
+  height: 100%;
+ line-height: 80rpx;
+ margin-left: 10rpx;
+ font-weight: normal;
+width: 500rpx;
+text-align: center;
+}
+.five-two text{
+  display: block;
+  height: 100%;
+  width: 100%;
+  overflow:hidden; 
+  text-overflow:ellipsis;
+  white-space:nowrap; 
+  color: #9c9c9c
+}
+.index-five > text{
+  display: block;
+  float: right;
+  height: 100%;
+  line-height: 80rpx;
+  margin-right: 30rpx;
+  color: black;
+}
+
+.clear_fix:after{
+  content: "";
+  display: block;
+  clear: both;
+}
+.bq-wrapper{
+  margin-top: 20rpx;
+  text-align: center;
+}
+.bq-wrapper text{
+  display: inline-block;
+  border-radius: 8rpx;
+  margin: 5rpx;
+  padding: 10rpx 10px;
+  background: #e0f3f2;
+  color: #518e8a;
+  font-size: 22rpx;
+}
+.fy-wrapper{
+  margin-top: 30rpx;
+}
+.fy-xx{
+  font-size: 30rpx;
+}
+.bh-number{
+  font-size: 25rpx;
+  color: darkgray
+}
+.fy-xx{
+  padding-left: 30rpx;
+}
+.fy-details{
+  width: 90%;
+  margin: 0 auto;
+}
+.fy-details text{
+  display: inline-block;
+  width: 50%;
+  height: 50rpx;
+  line-height: 50rpx;
+  font-size: 26rpx;
+  color: darkgray;
+}
+
+.ss-details{
+  width: 100%;
+  height: 100%;
+}
+
+.ss-itme{
+  display: inline-block;
+  width: 150rpx;
+  height: 120rpx;
+  text-align: center;
+}
+.ss-top{
+  margin-top: 15rpx;
+  width: 100%;
+  height: 50rpx;
+}
+.ss-top image{
+  width: 50rpx;
+  height: 50rpx;
+}
+.ss-bottom{
+  margin-top: 5rpx;
+  width: 100%;
+  height: 50rpx;
+  font-size: 28rpx;
+  color: darkgray;
+}
+
+.dl-details{
+  width: 100%;
+  height: 100%;
+}
+.dl-details view{
+  margin-left: 30rpx;
+  margin-top: 20rpx;
+  font-size: 30rpx;
+  color: darkgray;
+  word-wrap:break-word;
+  word-break: break-all;
+}
+
+.dl-top image{
+  width: 30rpx;
+  height: 30rpx;
+}
+.dl-bottom image{
+   width: 30rpx;
+  height: 30rpx;
+}
+
+.mapView{
+  width: 95%;
+  height: 300rpx;
+  margin: 0 auto;
+  margin-top: 30rpx;
+}
+map{
+  width: 100%;
+  height: 100%;
+}
+
+.xq-details{
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  margin-top: 20rpx;
+  font-size: 35rpx;
+  line-height: 55rpx;
+  color: darkgray;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4
+  }
+  .fy-gyzp {
+    position: relative;
+  }
+  
+  .fy-gyzp text{
+    font-size: 30rpx;
+    line-height: 30rpx;
+  }
+  .fy-gyzp text:nth-child(1){
+    margin-left: 30rpx;
+  }
+  .fy-gyzp text:nth-child(2){
+    line-height: 30rpx;
+    margin-right: 30rpx;
+    color: red;
+    margin-left: 400rpx;
+  }
+  .scroll-view{
+    display: flex;
+    white-space: nowrap;
+    margin-top: 20rpx;
+    width: 750rpx;
+    height: 240rpx;
+  }
+  .scroll-view image{
+    width: 100%;
+    height: 100%;
+  }
+  .apartmentPicture-item{
+    display: inline-block;
+    width: 300rpx;
+    height: 220rpx;
+    margin-top: 10rpx;
+    margin-left: 30rpx;
+    border-radius: 10rpx;
+    overflow: hidden;
+  }
+  .bz-details{
+    margin-top: 20rpx;
+    width: 100%;
+    height: 100rpx;
+  }
+  
+  .bz-item{
+    float: left;
+    text-align: center;
+    font-size: 28rpx;
+    color: #8f8f8f;
+    height: 50rpx;
+    line-height: 50rpx;
+    width: 200rpx;
+    position: relative;
+    margin-top: 25rpx;
+    margin-left: 40rpx;
+
+  }
+  .bz-details view image{
+    position: absolute;
+    width: 50rpx;
+    height: 50rpx;
+    left: 0rpx;
+  }
+  .bz-details view text{
+    height: 100%;
+    width: 150rpx;
+    position: absolute;
+    top: 0rpx;
+    right: 0rpx;
+  }
+
+
+
+
+/* 同公寓房源 */
+  .wrapper-item{
+  width: 100%;
+  height: 260rpx;
+  border-bottom: 1px solid #e5e5e5;
+ overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; 
+}
+ .left-item{
+   float: left;
+   /* background: red; */
+   height: 100%;
+   width: 35%;
+ }
+.right-item{
+  float: left;
+  /* background: blue; */
+  height: 80%;
+  width: 65%;
+  margin-top: 20rpx;
+}
+.left-item view{
+  height: 160rpx;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 20rpx;
+  text-align: center;
+  line-height: 160rpx;
+}
+.left-item view image{
+  width: 100%;
+  height: 100%;
+  border-radius: 10rpx;
+}
+.right-item view{
+  line-height: 40rpx;
+  font-size: 22rpx;
+}
+.right-item view:nth-child(1){
+  font-size: 30rpx;
+}
+.right-item view:nth-child(2){
+  color: darkgray
+}
+.right-item view:nth-child(3){
+  color: darkgray
+}
+.label-item{
+  margin-right: 10rpx;
+  border-radius: 8rpx;
+  padding: 6rpx;
+  background: #e0f3f2;
+  color: #518e8a;
+  font-size: 22rpx;
+}
+.label-right-item{
+  display: block;
+  font-size: 35rpx;
+  color: #fb625e;
+  margin-top: 15rpx;
+}
+.tgy-details{
+  margin-top: 20rpx;
+}
+
+/* 高度支撑 */
+.highlySupport{
+  width: 100%;
+  height: 100rpx;
+}
+
+
+/* 预约房源 预定房子 */
+.house-yy{
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  height: 100rpx;
+  border-top: 1rpx solid #e5e5e5;
+  background: white;
+}
+.sc-item{
+  margin-top: 10rpx;
+  margin-left: 20rpx;
+  width: 80rpx;
+  height: 80rpx;
+  float: left;
+}
+.yy-item{
+  margin-top: 10rpx;
+  margin-left: 10rpx;
+   width: 200rpx;
+  height: 80rpx;
+  background: #eaaf5b;
+  float: left;
+  border-radius: 8rpx;
+  color: white;
+  font-size: 30rpx;
+  line-height: 80rpx;
+  text-align: center;
+}
+.yd-item{
+  margin-top: 10rpx;
+  margin-left: 10rpx;
+  width: 200rpx;
+  height: 80rpx;
+  background: #1fc0b1;
+  float: left;
+  border-radius: 8rpx;
+  color: white;
+  font-size: 30rpx;
+  line-height: 80rpx;
+  text-align: center;
+}
+.lx-item{
+  margin-top: 10rpx;
+  margin-right: 20rpx;
+  width: 200rpx;
+  height: 80rpx;
+  background: #40b0b9;
+  float: right;
+  border-radius: 8rpx;
+   color: white;
+  font-size: 30rpx;
+  line-height: 80rpx;
+  text-align: center;
+  position: relative;
+}
+.lx-item-s{
+  position: absolute;
+  width: 100%;
+  height: 40rpx;
+  top: 20rpx;
+}
+.lx-item-sleft{
+  float: left;
+  line-height: 40rpx;
+  width: 50%;
+}
+.lx-item-sleft view{
+  text-align: right;
+  margin-right: 10rpx;
+}
+
+.lx-item-sright{
+  float: left;
+  height: 40rpx;
+  width: 50%;
+  position: relative;
+
+}
+.lx-item-sright image{
+  width: 35rpx;
+  height: 35rpx;
+  position: absolute;
+  top: 0;
+  left: 10rpx;
+}
+.sc-item-top{
+  margin-top: 5rpx;
+  width: 100%;
+  height: 40rpx;
+  text-align: center;
+}
+.sc-item-top image{
+  width: 40rpx;
+  height: 40rpx;
+}
+.sc-item-bottom{
+  width: 100%;
+  height: 30rpx;
+  font-size: 22rpx;
+  color: darkgray;
+  text-align: center;
+  padding-top: 5rpx;
+}
+
+/* 点击查看全部房源 */
+.moreHouseList{
+  width: 100%;
+  margin: 0 auto;
+  height: 120rpx;
+  margin-top: 20rpx;
+}
+.moreHouseList button{
+  width: 95%;
+  height: 100rpx;
+  color: darkgray;
+  line-height: 100rpx;
+  font-size: 30rpx;
+  background: white;
+}
+
+
+/* 选择房型 */
+.chooseHouseModel-box{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  background: rgba(1, 1, 1, 0.5);
+}
+.chooseHouseModel{
+  width: 100%;
+  background: white;
+  position: absolute;
+  height: 800rpx;
+  bottom: 0;
+}
+.header{
+  width: 100%;
+  height: 150rpx;
+  position: relative;
+}
+.headerImg{
+  position: absolute;
+  width: 200rpx;
+  height: 180rpx;
+  top: -30rpx;
+  left: 30rpx;
+  background: white;
+  text-align: center;
+}
+.headerImg image{
+  width: 180rpx;
+  height: 160rpx;
+  margin: 10rpx;
+}
+.headerClose{
+  position: absolute;
+  color: red;
+  width: 80rpx;
+  height: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+  font-size: 35rpx;
+  top: 0rpx;
+  right: 0rpx;
+}
+.headerTitle{
+  position: absolute;
+  font-size: 35rpx;
+  top: 60rpx;
+  left: 260rpx;
+}
+.content-model{
+  width: 100%;
+  height: 550rpx;
+}
+.content-model scroll-view{
+  width: 100%;
+  height: 540rpx;
+  margin-top: 0;
+}
+.foot{
+  width: 100%;
+  height: 100rpx;
+  background: #1fc2b2;
+  font-size: 30rpx;
+  text-align: center;
+  color: white;
+  line-height: 100rpx;
+}
+
+.content-model-top{
+  margin-top: 30rpx;
+  margin-left: 30rpx;
+  font-size: 30rpx;
+
+}
+
+.content-model-topItem{
+  font-size: 30rpx;
+  color: #9c9c9c;
+  border: 1rpx solid #9c9c9c;
+  margin-top: 20rpx;
+  margin-left: 30rpx;
+  padding: 10rpx 30rpx;
+  border-radius: 10rpx;
+  text-align: center;
+  display: inline-block; 
+}
+.content-model-topItemSelcet{
+  font-size: 30rpx;
+  color: #1fc2b2;
+  border: 1rpx solid #1fc2b2;
+  margin-top: 20rpx;
+  margin-left: 30rpx;
+  padding: 10rpx 30rpx;
+  border-radius: 10rpx;
+  text-align: center;
+  display: inline-block; 
+}
+  
+
+.content-model-footItem{
+  margin: 30rpx;
+  border: 1rpx solid #9c9c9c;
+  text-align: center;
+  font-size: 30rpx;
+  padding: 10rpx;
+  border-radius: 10rpx;
+  color: #9c9c9c;
+}
+.content-model-footItemSelcet{
+  margin: 30rpx;
+  border: 1rpx solid #1fc2b2;
+  text-align: center;
+  font-size: 30rpx;
+  padding: 10rpx;
+  border-radius: 10rpx;
+  color: #1fc2b2;
+}

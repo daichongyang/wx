@@ -1,0 +1,46 @@
+/* pages/choisePay/choisePay.wxss */
+page{
+  background: #f7f7f7;
+}
+.pay_money{
+  background: #fff;
+  text-align: center;
+  color:34rpx;
+  padding:40rpx 0;
+}
+.pay_money_view{
+  margin-bottom:20rpx;
+}
+.red_money{
+  color:#fe615a;
+  margin-left:20rpx;
+}
+.choise_car{
+  background:#fff;
+}
+.item{
+  margin-left:32rpx;
+  font-size: 30rpx;
+  height:100rpx;
+  border-bottom: 1rpx solid #e1e1e1;
+  overflow:hidden;
+  display:flex;
+  align-items: center;
+  justify-content:space-between; 
+}
+.green{
+  color:#00c3b2;
+  font-size:24rpx;
+  padding:20rpx 35rpx;
+}
+.choise_img{
+  width:34rpx;
+  margin-right:30rpx;
+}
+.item_view{
+  display:flex;
+  align-items: center;
+}
+.button{
+  margin-top:100rpx;
+}

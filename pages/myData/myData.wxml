@@ -1,0 +1,25 @@
+<view class='swiper'>
+  <view bindtap='lookImageClick' class='header'>
+    <text>头像</text>
+    <image src='{{headerImage}}'></image>
+  </view>
+
+  <view bindtap='setNameClick' class='item'><text>姓名</text><text class='right'>{{name}} ▸</text></view>
+  <picker bindchange='bindchange' model='selector' range='{{range}}' class='item'><text>性别</text><text  class='right'>{{sex}} ▾</text></picker>
+  <picker bindchange="bindDateChange" mode="date" class='item'><text>生日</text><text class='right'>{{birthday}} ▾</text></picker>
+  <view class='item'><text>证件号码</text><text class='right'>{{idCard}}</text></view>
+  <view bindtap='gomyBackCard' class='item'><text>银行卡</text><text class='right'>绑定银行卡 ▸</text></view>
+
+</view>
+
+
+
+
+<view catchtouchmove="doNotMove" catchtap='offMaskClick' class='changeHeaderImage' hidden='{{maskFlag}}'>
+  <view class='changeHeader' catchtap='stopClick'>
+    <view><image class='selcetdHeaderImage' bindtap='bigImageClick' src='{{selcetHeaderImage}}'></image></view> 
+    <view class='offMask' bindtap='offMaskClick'>X</view>
+    <button class='oneBtn' bindtap='selcetdHeaderImageClick'>选择头像</button>
+    <button bindtap='loadHeaderImageClick'>确定修改</button>
+  </view>
+</view>

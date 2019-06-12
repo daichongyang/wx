@@ -1,0 +1,30 @@
+/* pages/adminIntelligentSystemPage/adminIntelligentSystemPage.wxss */
+page{
+  background: #f7f7f7;
+}
+.box{
+  background: white;
+  margin-top: 30rpx;
+}
+.contentBox{
+  margin: 0 auto;
+  font-size: 30rpx;
+  width: 90%;
+  border-bottom: 1rpx solid #e1e1e1;
+  color: darkgray;
+  height: 90rpx;
+  position: relative;
+}
+.contentBox image{
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  top: 25rpx;
+  left: 0rpx;
+}
+.contentBox text{
+  height: 100%;
+  position: absolute;
+  line-height: 90rpx;
+  left: 60rpx;
+}

@@ -1,0 +1,200 @@
+/* pages/dataReportPage/dataReportPage.wxss */
+page{
+  background: #f7f7f7;
+}
+
+.headerBox{
+  position: fixed;
+  top: 10rpx;
+  display: -webkit-flex; /* Safari */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 80rpx;
+  align-items: center;
+  background: white;
+  left: 0;
+  right: 0;
+   
+}
+.headerBox text{
+  text-align: center;
+  flex-grow: 1;
+  font-size: 30rpx;
+  line-height: 80rpx;
+}
+.textCss1{
+    border-bottom: 5rpx solid #1fc2b2
+
+}
+.textCss2{
+    border-bottom: none
+}
+
+.swiper{
+  position: fixed;
+  top: 90rpx;
+}
+.scrollView{
+  width: 100%;
+  height: 100%;
+}
+
+
+
+
+
+/* 总账单 */
+.zzdCss{
+  margin-top: 30rpx;
+  text-align: center;
+  padding: 25rpx;
+  font-size: 30rpx;
+}
+.xqCssBox{
+  width: 90%;
+  border-radius: 10rpx;
+  background: white;
+  margin: 0 auto;
+  font-size: 30rpx;
+}
+
+.sjCssBOx{
+  display: -webkit-flex; /* Safari */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1rpx solid #e1e1e1;
+}
+.sjCss{
+  text-align: center;
+  display: inline-block;
+  padding: 30rpx;
+  width: 50%;
+  border-right: 1rpx solid #e1e1e1;
+}
+.jeCss{
+  padding: 40rpx;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* 房源数据 */
+.fysjCss{
+  width: 220rpx;
+  height: 220rpx;
+  display: inline-block;
+  margin-left: 22rpx;
+  background: white;
+  margin-top: 50rpx;
+  border-radius: 10rpx;
+  font-size: 30rpx;
+}
+.item{
+  padding-left: 10rpx;
+  padding-top: 6rpx;
+}
+
+.canvas-content{
+  background: white;
+  text-align: center;
+  width: 90%;
+  margin:  0 auto;
+  margin-top: 50rpx;
+  border-radius: 10rpx;
+}
+
+canvas{
+  margin: 0 auto;
+  text-align: center;
+}
+
+
+/* 日报月报 */
+.rbybCssBox{
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 50rpx;
+}
+.rbybCssBox text{
+  display: inline-block;
+  width: 50%;
+  text-align: center;
+  font-size: 30rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.rbybCssBox text:nth-child(1){
+  border-top-left-radius: 15rpx;
+  border-bottom-left-radius: 15rpx;
+
+}
+.rbybCssBox text:nth-child(2){
+   border-top-right-radius: 15rpx;
+  border-bottom-right-radius: 15rpx;
+}
+
+.itemOneCss{
+  background: #1fc2b1;
+  color: white;
+}
+.itemTwoCss{  
+  background: white;
+  color: black;
+}
+
+
+/* 日报月报明细 */
+.rbybMxCssBox{
+  width: 95%;
+  margin: 0 auto;
+  background: white;
+  margin-top: 50rpx;
+  border-radius: 10rpx;
+}
+.mxTitleCss{
+  display: -webkit-flex; /* Safari */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1rpx solid #e1e1e1;
+}
+
+.mxTitleCss text:nth-child(1){
+  display: inline-block;
+  text-align: center;
+  border-bottom: 5rpx solid #1fc2b2;
+   flex-grow: 1;
+  font-size: 30rpx;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+.mxTitleCss text:nth-child(2){
+  display: inline-block;
+  text-align: center;
+   flex-grow: 1;
+  font-size: 30rpx;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+
+.mxItem{
+   display: -webkit-flex; /* Safari */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1rpx solid #e1e1e1;
+}
+.mxItem text{
+  display: inline-block;
+  text-align: center;
+  flex-grow: 1;
+  font-size: 30rpx;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  color: darkgray
+}

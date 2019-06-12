@@ -1,0 +1,33 @@
+<view class='wrapper' wx:if='{{reservationlist.length > 0}}'>
+  <!-- 我的预约列表 -->
+  <block wx:for='{{reservationlist}}' wx:key='key'>
+    <view class='wrapper-jx'>
+          <view class='jxfy'>预约成功</view>
+          <view class='wrapper-item'>
+            <view class='left-item'>
+              <view><image src='{{item.picture}}'></image></view>
+            </view>
+            <view class='right-item'>
+            <view class='nowrap'>{{item.name}}</view>
+            <view class='nowrap'>{{item.nearby}}</view>
+            <view class='nowrap'>{{item.layout}}</view>
+            <view class='nowrap'>
+              <block wx:for='{{item.label}}' wx:key='key'>
+                <block wx:if='{{0<=index && index <= 2}}'>
+                  <text class='label-item'>{{item}}</text>
+                </block>
+              </block>
+               <block wx:if='{{!item.label}}'>
+                  <text class='label-item'>无标签</text>
+              </block>
+            </view>
+             <text class='label-right-item'>{{item.rentCost}}元/月</text>
+          </view>
+          </view>
+          <view class='jxfy ckxq-box'><view bindtap='reservationDetailsClick' data-id='{{index}}' class='ckxq'>查看详情</view></view>
+    </view>
+  </block>
+  <view bindtap='refreshClick' class='refreshClick' hidden='{{refreshFlag}}'>点击加载更多</view>
+</view>
+
+<view wx:else class='noReservationlist'>空空如也</view>

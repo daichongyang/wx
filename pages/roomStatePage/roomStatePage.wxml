@@ -1,0 +1,49 @@
+<!--pages/roomStatePage/roomStatePage.wxml-->
+<!-- 内容 -->
+<view hidden='{{xqflag}}' class='xqCssBox'>nihao</view>
+<scroll-view class="{{xqflag == true? 'scrollViewOne':'scrollViewTwo'}}" scroll-y='true' enable-back-to-top='true'>
+<view class='contentView'>
+  <block wx:if='{{dataList.length > 0}}'>
+    <block  wx:for='{{dataList}}' wx:key='key' wx:for-item='titleItem'>
+      <view class='houseHeaderItem'>{{titleItem.address}}({{titleItem.name}},共{{titleItem.houseTotal}}间房)</view>
+      <block  wx:for='{{titleItem.floors}}' wx:key='key' wx:for-item='floorItem'>
+        <view class='floorItemItem'>---{{floorItem.floor}}层,共{{floorItem.count}}间房---</view>
+          <block  wx:for='{{floorItem.houses}}' wx:key='key'>
+            <view class='houseItem'>
+              
+            </view>
+          </block>
+      </block>
+      <view style='text-align: center;font-size: 25rpx;color: darkgrey;padding: 10rpx;'>没有更多了</view>
+    </block>
+  </block>
+  <block  wx:else>
+    <view style='height:300rpx;width:100%;text-align:center;font-size: 30rpx;line-height:300rpx'>空空如也...</view>
+  </block>
+</view>
+</scroll-view>
+
+
+<!-- 头部筛选 -->
+<view class='header'>
+  <block wx:for="{{sxArray}}"  wx:key='key'>
+    <text bindtap='sxClcik' data-id='{{index}}' >{{item}}</text>
+   </block>
+</view>
+
+
+
+
+
+<!-- 蒙版 -->
+<view class='maskView' hidden='{{flag}}' catchtap='maskClick'>
+  <view catchtap='stopClick'>
+      <view class='xsItem'>1</view>
+      <view class='xsItem'>1</view>
+      <view class='xsItem'>1</view>
+      <view class='xsItem'>1</view>
+      <view class='xsItem'>1</view>
+      <view class='xsItem'>1</view>
+      <view class='xsItem'>1</view>
+  </view>
+</view>

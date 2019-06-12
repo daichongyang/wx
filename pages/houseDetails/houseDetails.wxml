@@ -1,0 +1,200 @@
+
+<view class='wrapper'>
+
+      <!-- 轮播图 -->
+      <view class='baner'>
+          <swiper interval='3000' bindchange='swiperbindtransition'>
+          <block wx:for="{{houseInfoData.pictureVO.pictures}}" wx:key="key">
+            <swiper-item >
+              <image src='{{item}}'></image>
+            </swiper-item>
+          </block>
+        </swiper>
+        <view class='indexView'>{{currentImg}}/{{houseInfoData.pictureVO.pictures.length}}</view>
+      </view>
+
+
+     <!-- 地址栏 -->
+      <view class='index-wrapper'>
+        <view class='index'>
+          <view class='index-one'>{{houseInfoData.name}}</view>
+          <view class='index-one index-two clear_fix'><text>{{houseInfoData.rentCost}}元/月</text><text bindtap='costDetailClick'>费用详情</text></view>
+          <block wx:if='{{houseInfoData.nearby.length > 0}}'>
+            <view class='index-one' >{{houseInfoData.nearby}}</view>
+          </block>
+          <block wx:else>
+            <view class='index-one' >无</view>
+          </block>
+          
+          <!-- <view class='index-one'>{{houseInfoData.nearby}}</view> -->
+          <view class='index-four'></view>
+          <view bindtap='chooseHouseModelClick' class='index-five clear_fix'>
+            <view class='five-one'><text>已选房型</text></view>
+            <view class='five-two'><text>{{selectHouse}}</text></view>
+            <text>▾</text>
+          </view>
+        </view>
+      </view>
+
+  <!-- 标签 -->
+  <view class='bq-wrapper'>
+    <block wx:for='{{houseInfoData.labels}}' wx:key='key'>
+        <text>{{item}}</text>
+    </block>
+  </view>
+
+  <!-- 房源信息 -->
+  <view class='fy-wrapper'>
+    <view class='fy-xx'><text >房源信息</text><text decode="true" class='bh-number'>&nbsp;&nbsp;(&nbsp;编号&nbsp;:&nbsp;{{houseInfoData.number}}&nbsp;)</text></view>
+    <view class='fy-details'>
+      <text decode="true">户型&nbsp;&nbsp;{{houseInfoData.layout}}</text>
+      <text decode="true">面积&nbsp;&nbsp;{{houseInfoData.area}}</text>
+      <text decode="true">楼层&nbsp;&nbsp;{{houseInfoData.floorNumber}}</text>
+      <text decode="true">电梯&nbsp;&nbsp;{{isElevator}}</text>
+      <text decode="true">区域&nbsp;&nbsp;{{houseInfoData.region}}</text>
+    </view>
+  </view>
+
+   <!-- 房源设施 -->
+  <view class='fy-wrapper'>
+    <view class='fy-xx'><text>房源设施</text></view>
+    <view class='ss-details'>
+      <block wx:for='{{houseInfoData.facility}}' wx:key='key'>
+        <view class='ss-itme'>
+          <view class='ss-top'><image src='{{item.picture}}'></image></view>
+          <view class='ss-bottom'>{{item.name}}</view>
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <!-- 地理位置 -->
+   <view class='fy-wrapper'>
+    <view class='fy-xx'><text>地理位置</text></view>
+    <view class='dl-details'>
+        <view class='dl-top'><image src='../../img/houseDetails/bb_fyxq_14@2x.png'></image><text decode="true">&nbsp;&nbsp;&nbsp;&nbsp;{{houseInfoData.address}}</text></view>
+        <view class='dl-bottom'><image src='../../img/houseDetails/bb_fyxq_15@2x.png'></image><text decode="true">&nbsp;&nbsp;&nbsp;&nbsp;{{houseInfoData.nearby}}</text></view>
+    </view>
+
+    <view hidden='{{mapHidden}}' class='mapView'><map 
+    id="myMap"
+    latitude='{{houseInfoData.latitude}}'
+    longitude='{{houseInfoData.longitude}}'
+    markers='{{markers}}'
+    show-location="true"
+    ></map></view>
+
+  </view>
+
+  <!-- 房源详情 -->
+  <view class='fy-wrapper'>
+    <view class='fy-gyzp'><text>房源详情</text><text bindtap='textIntroduceClick'>房源详情 ▸</text></view>
+    <view class='xq-details'>{{houseInfoData.intro}}</view>
+  </view>
+
+   <!-- 公寓照片 -->
+  <view class='fy-wrapper'>
+    <view class='fy-gyzp'><text>公寓照片</text><text bindtap='introduceClick'>公寓介绍 ▸</text></view>
+    <scroll-view class='scroll-view' scroll-x='true' >
+      <block wx:for='{{houseInfoData.apartmentPicture}}' wx:key='key'>
+        <view data-id='{{index}}' bindtap='previewlmg' class='apartmentPicture-item'><image src='{{item}}'></image></view>
+      </block>
+    </scroll-view>
+  </view>
+
+  <!-- 平台保障 -->
+  <view class='fy-wrapper'>
+    <view class='fy-xx'><text>平台保障</text></view>
+    <view class='bz-details'>
+      <view class='bz-item'>
+        <image src='../../img/houseDetails/bb_fyxq_19@2x.png'></image>
+        <text>真实房源</text>
+      </view>
+      <view class='bz-item'>
+        <image src='../../img/houseDetails/bb_fyxq_21@2x.png'></image>
+        <text>认证房东</text>
+      </view>
+      <view class='bz-item'>
+        <image src='../../img/houseDetails/bb_fyxq_23@2x.png'></image>
+        <text>支付保障</text>
+      </view>
+    </view>
+  </view>
+
+   <!-- 同公寓全部房源 -->
+  <view class='fy-wrapper'>
+    <view class='fy-xx'><text>同公寓全部房源</text></view>
+    <view class='tgy-details'>
+      <block wx:for='{{sameTypeHousList.houses}}' wx:key='key'>
+          <view bindtap='houseInfoClick' data-id='{{index}}' class='wrapper-item'>
+            <view class='left-item'>
+              <view><image src='{{item.picture}}'></image></view>
+            </view>
+            <view class='right-item'>
+              <view class='nowrap'>{{item.name}}</view>
+              <view class='nowrap'>{{item.layout}}</view>
+              <view class='nowrap'>{{item.nearby}}</view>
+              <view class='nowrap'>
+                <block wx:for='{{item.label}}' wx:key='key'>
+                  <block wx:if='{{0<=index && index <= 2}}'>
+                    <text class='label-item'>{{item}}</text>
+                  </block>
+                </block>
+              </view>
+              <text class='label-right-item'>{{item.rentCost}}元/月</text>
+            </view>
+          </view>
+        </block>
+      </view>
+  </view>
+
+  <view hidden='{{moreHouseListAction}}'class='moreHouseList'><button bindtap='lookAllHouseListClick'>查看全部{{sameTypeHousList.count}}个房源</button></view>
+
+  <!-- 下面的挡板避免底部浮动 -->
+  <view class='highlySupport'></view>
+
+
+</view>
+
+
+ <!-- 预约看房 预定看房 联系 -->
+  <view class='house-yy'>
+    <view class='sc-item' bindtap='collectClick'>
+      <view class='sc-item-top'><image src='{{scImage}}'></image></view>
+      <view class='sc-item-bottom' >收藏</view>
+    </view>
+    <view bindtap='yyLookHouse' class='yy-item'>预约看房</view>
+    <view bindtap='ydLookHouse' class='yd-item'>预定房源</view>
+    <view class='lx-item'>
+      <view bindtap='contactClick' class='lx-item-s'>
+        <view class='lx-item-sleft' ><view>联系</view></view>
+        <view class='lx-item-sright'><image src='../../img/houseDetails/bb_fyxq_29@2x.png'></image></view>
+      </view>
+    </view>
+  </view>
+
+
+<!-- 选择房型 -->
+  <view catchtouchmove="doNotMove" catchtap='closeMastClick' hidden='{{flag}}' class='chooseHouseModel-box'>
+    <view catchtap='stopTap' class='chooseHouseModel'>
+    <view class='header'>
+        <view class='headerImg'><image src='{{houseModel[indexTwo].picture}}'></image></view>
+        <view class='headerTitle'>{{houseModel[indexTwo].rentCost}}元/月</view>
+        <view bindtap='closeMaskClick' class='headerClose'>X</view>
+    </view>
+      <view class='content-model'><scroll-view  scroll-y='ture' style="height:540rpx">
+        
+        <view class='content-model-top'>付款</view>
+        <block wx:for='{{houseInfoData.roomTypes}}' wx:key='key'>
+          <view bindtap='roomTypesClick' data-id='{{index}}' class="{{index == indexOne?'content-model-topItemSelcet':'content-model-topItem'}}">{{item.payment}}</view>
+        </block>
+
+        <view class='content-model-top'>房型</view>
+
+        <block wx:for='{{houseModel}}' wx:key='key'>
+          <view bindtap='roomTypeClick' data-id='{{index}}' class="{{index == indexTwo?'content-model-footItemSelcet':'content-model-footItem'}}">{{item.type}}</view>
+        </block>
+      </scroll-view></view>
+      <view bindtap='selcetHouseModelAction' class='foot'>确定</view>
+    </view>
+  </view>

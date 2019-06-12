@@ -1,0 +1,5 @@
+<view class='box'>
+  <block wx:for='{{costDetail}}' wx:key='key'>
+    <view class='item'><text decode='ture'>{{item.costItem}}&nbsp;:</text><text decode='ture'>&nbsp;&nbsp;&nbsp;{{item.cost}}</text></view>
+  </block>
+</view>

@@ -1,0 +1,20 @@
+/* pages/choisePayS/choisePayS.wxss */
+page{
+  background: #f7f7f7;
+}
+.pay_infor{
+  margin-top:20rpx;
+  background:#fff;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  font-size:34rpx;
+  height:164rpx;
+}
+.button{
+  margin-top:100rpx;
+}
+.pay_succese{
+  width:37rpx;
+  margin-right:20rpx;
+}

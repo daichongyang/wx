@@ -1,0 +1,21 @@
+<!--pages/adminBxByPage/adminBxByPage.wxml-->
+
+<picker class='headerCss' bindchange='bindchange' mode='multiSelector' value="{{multiIndex}}"
+range="{{multiArray}}">
+  <text> {{title}}</text> 
+</picker>
+
+<scroll-view class='scrollView' scroll-y='true' enable-back-to-top='true'>
+         <block  wx:for='{{adminReservationList}}' wx:key='key' wx:for-index='id'>
+            <view class='itemBox'>
+                <view class='titel'>{{item.status}}</view>
+                <view class='content contentType'>{{item.tdesc}}</view>
+                <view class='content'>报修房源:{{item.houseName}}</view>
+                <view class='foot'>
+                  <text data-id='{{id}}' bindtap='bxbyClick'>查看详情</text>
+                </view>
+            </view>
+        </block>
+        <view bindtap='loadMoreClick' class='footerLoad' wx:if='{{show}}'>{{showTitel}}</view>
+        <view class='footerLoad' wx:else>{{noShowTitel}}</view>
+</scroll-view>

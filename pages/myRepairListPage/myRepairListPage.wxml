@@ -1,0 +1,63 @@
+<!--pages/myRepairListPage/myRepairListPage.wxml-->
+<block wx:if='{{repairList.length}}'>
+
+    <block wx:for='{{repairList}}' wx:key='key'>
+      <view class='swiper'>
+        <view class='header'>{{item.status}}</view>
+        <view class='content'>
+          <view class='content-item'>{{item.tdesc}}</view>
+          <view class='content-item'>报修房源 : {{item.houseName}}</view>
+
+          <block wx:if='{{item.pay_status == "待定"}}'>
+             <view class='content-item' style='color:red'>支付状态: {{item.pay_status}}</view>
+          </block>
+
+          <block wx:elif='{{item.pay_status == "已支付"}}'>
+             <view class='content-item' style='color:darkgray'>已支付 : {{item.pay_count}}</view>
+          </block>
+
+           <block wx:elif='{{item.pay_status == "未支付"}}'>
+             <view class='content-item' style='color:red'>未支付 : {{item.pay_count}}</view>
+            </block>
+        </view>
+
+
+
+        <block wx:if='{{item.pay_status == "待定" && item.status == "正在申请"}}'>
+          <view class='footerBox'>
+            <view bindtap='lookDetails' data-id='{{index}}' class='footer'>查看详情</view>
+            <view bindtap='cancelRequest' class='footer' data-id='{{index}}'>取消申请</view>
+          </view>
+        </block>
+
+        <block wx:elif='{{item.pay_status == "已支付"}}'>
+          <view class='footerBox'>
+            <view bindtap='lookDetails' data-id='{{index}}' class='footer'>查看详情</view>
+            <!-- <view class='footer'>去支付</view> -->
+          </view>        
+        </block>
+
+        <block wx:elif='{{item.pay_status == "未支付"}}'>
+           <view class='footerBox'>
+            <view class='footer' data-id='{{index}}'>查看详情</view>
+            <view class='footer' data-id='{{index}}'>去支付</view>
+          </view>
+        </block>
+
+      </view>
+    </block> 
+</block>
+
+  <block wx:else>
+    <view class='noDataListCss'>空空如也...</view>
+  </block>
+
+    <view class='indexView'></view>
+
+    <view class='applyCss'>
+      <view bindtap='repairClick'>申请报修保养</view>
+    </view>
+
+
+
+

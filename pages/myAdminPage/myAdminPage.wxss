@@ -1,0 +1,83 @@
+/* pages/myAdminPage/myAdminPage.wxss */
+page{
+  background: #f7f7f7;
+}
+
+.scrollView{
+  position: fixed;
+  top: 10rpx;
+  width: 100%;
+  bottom: 0;
+}
+
+
+.swaper-item{
+  display: inline-block;
+  width: 25%;
+  height: 188rpx;
+  border: 0.5rpx solid #f7f7f7;
+  background: white;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.swaper-item view{
+  width: 60rpx;
+  height: 60rpx;
+  margin: 0 auto;
+  margin-top: 30rpx;
+}
+.swaper-item view image{
+  width: 100%;
+  height: 100%;
+}
+
+.swaper-item text{
+  display: block;
+  font-size: 25rpx;
+  width: 100%;
+  padding-top: 20rpx;
+}
+
+.todoBox{
+  margin-top: 10rpx;
+}
+
+.todoTitle{
+  background: white;
+  padding:30rpx;
+  font-weight: bold;
+  font-size: 30rpx;
+}
+.todoTitleHeader{
+  padding: 20rpx 30rpx;
+  font-size: 30rpx;
+  background: white;
+}
+
+.todoItemBox{
+  width: 650rpx;
+  margin: 0 auto;
+}
+
+.todoItem{
+  display: inline-block;
+  width: 305rpx;
+  border-radius: 10rpx;
+  background: white;
+  margin: 10rpx;
+  position: relative;
+}
+.item{
+  font-size: 28rpx;
+  padding: 10rpx;
+}
+
+.footer{
+  text-align: center;
+  font-size: 26rpx;
+  line-height: 60rpx;
+  color: darkgray
+}

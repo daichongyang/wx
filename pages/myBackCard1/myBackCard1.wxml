@@ -1,0 +1,21 @@
+<!--pages/myBackCard1/myBackCard1.wxml-->
+<view class='contant'>
+<!-- 这是一个银行卡 -->
+  <view class='contant_item' style='background-image: url("../../img/my/backBG.jpg");'>
+    <view class='item_car item_car1'>
+      <text>平安银行</text>
+      <text>储蓄卡</text>
+    </view>
+    <view class='item_car'>
+      <text>****</text>
+      <text>****</text>
+      <text>****</text>
+      <text>2181</text>
+    </view>
+  </view>
+  <!-- 结束 -->
+  <!-- 添加银行卡块 -->
+  <view class='add_car' style='background-image: url("../../img/my/carBg.png");'>
+    <text>＋ 添加银行卡</text>
+  </view>
+</view> 

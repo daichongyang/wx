@@ -1,0 +1,242 @@
+
+.wrapper{
+  width: 100%;
+  height: 100%;
+  /* background: #f9f9f9 */
+}
+
+.baner{
+  width: 100%;
+  height: 400rpx;
+  position: relative;
+}
+.baner swiper{
+  width: 100%;
+  height: 100%;
+}
+.baner swiper image{
+  width: 100%;
+  height: 100%;
+}
+.indexView{
+  position: absolute;
+  bottom: 30rpx;
+  left: 30rpx;
+  background: rgba(1, 1, 1, 0.3);
+  color: white;
+  font-size: 28rpx;
+  padding: 5rpx 30rpx;
+  border-radius:10rpx;
+}
+.index-wrapper{
+  width: 100%;
+}
+.clear_fix:after{
+  content: "";
+  display: block;
+  clear: both;
+}
+.bq-wrapper{
+  margin-top: 20rpx;
+  text-align: center;
+}
+.bq-wrapper text{
+  display: inline-block;
+  border-radius: 8rpx;
+  margin: 5rpx;
+  padding: 10rpx 10px;
+  background: #e0f3f2;
+  color: #518e8a;
+  font-size: 22rpx;
+}
+.fy-wrapper{
+  margin-top: 30rpx;
+}
+.fy-xx{
+  font-size: 30rpx;
+  padding-left: 30rpx;
+}
+.bh-number{
+  font-size: 25rpx;
+  color: darkgray
+}
+
+.fy-details{
+  width: 90%;
+  margin: 0 auto;
+}
+.fy-details text{
+  display: inline-block;
+  width: 50%;
+  height: 50rpx;
+  line-height: 50rpx;
+  font-size: 26rpx;
+  color: darkgray;
+}
+
+.ss-details{
+  width: 100%;
+  height: 100%;
+}
+
+.ss-itme{
+  display: inline-block;
+  width: 150rpx;
+  height: 120rpx;
+  text-align: center;
+}
+.ss-top{
+  margin-top: 15rpx;
+  width: 100%;
+  height: 50rpx;
+}
+.ss-top image{
+  width: 50rpx;
+  height: 50rpx;
+}
+.ss-bottom{
+  margin-top: 5rpx;
+  width: 100%;
+  height: 50rpx;
+  font-size: 28rpx;
+  color: darkgray;
+}
+
+.dl-details{
+  width: 100%;
+  height: 100%;
+}
+.dl-details view{
+  margin-left: 30rpx;
+  margin-top: 20rpx;
+  font-size: 30rpx;
+  color: darkgray;
+  word-wrap:break-word;
+  word-break: break-all;
+}
+
+.dl-top image{
+  width: 30rpx;
+  height: 30rpx;
+}
+.dl-bottom image{
+   width: 30rpx;
+  height: 30rpx;
+}
+
+.mapView{
+  width: 95%;
+  height: 300rpx;
+  margin: 0 auto;
+  margin-top: 30rpx;
+}
+map{
+  width: 100%;
+  height: 100%;
+}
+
+
+/* 同公寓房源 */
+  .wrapper-item{
+  width: 100%;
+  height: 260rpx;
+  border-bottom: 1px solid #e5e5e5;
+ overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; 
+}
+ .left-item{
+   float: left;
+   height: 100%;
+   width: 35%;
+ }
+.right-item{
+  float: left;
+  height: 80%;
+  width: 65%;
+  margin-top: 20rpx;
+}
+.left-item view{
+  height: 160rpx;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 20rpx;
+  text-align: center;
+  line-height: 160rpx;
+}
+.left-item view image{
+  width: 100%;
+  height: 100%;
+  border-radius: 10rpx;
+}
+.right-item view{
+  line-height: 40rpx;
+  font-size: 22rpx;
+}
+.right-item view:nth-child(1){
+  font-size: 30rpx;
+}
+.right-item view:nth-child(2){
+  color: darkgray
+}
+.right-item view:nth-child(3){
+  color: darkgray
+}
+.label-item{
+  margin-right: 10rpx;
+  border-radius: 8rpx;
+  padding: 6rpx;
+  background: #e0f3f2;
+  color: #518e8a;
+  font-size: 22rpx;
+}
+.label-right-item{
+  display: block;
+  font-size: 35rpx;
+  color: #fb625e;
+  margin-top: 15rpx;
+}
+.tgy-details{
+  margin-top: 20rpx;
+}
+
+
+/* 点击查看全部房源 */
+.moreHouseList{
+  width: 100%;
+  margin: 0 auto;
+  height: 120rpx;
+  margin-top: 20rpx;
+}
+.moreHouseList button{
+  width: 95%;
+  height: 100rpx;
+  color: darkgray;
+  line-height: 100rpx;
+  font-size: 30rpx;
+  background: white;
+}
+.index-one{
+  font-size: 35rpx;
+  padding-top: 40rpx;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+}
+.index-two{
+   font-size: 30rpx;
+   padding-left: 30rpx;
+   padding-right: 30rpx;
+   padding-top: 20rpx;
+   padding-bottom: 20rpx;
+   color: darkgray;
+   border-bottom: 1rpx solid #e1e1e1
+}
+.index-three{
+   font-size: 30rpx;
+    padding: 30rpx;
+    border-bottom: 10rpx solid #f7f7f7
+}
+.bottomView{
+  width: 100%;
+  height: 30rpx;
+}

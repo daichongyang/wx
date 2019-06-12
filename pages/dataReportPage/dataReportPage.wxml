@@ -1,0 +1,113 @@
+<!--pages/dataReportPage/dataReportPage.wxml-->
+<view class='headerBox'>
+  <block wx:for='{{titleArray}}' wx:key='key'>
+      <text bindtap='chooseTypeClick' data-id='{{index}}'  class="{{index == id ? 'textCss1':'textCss2'}}">{{item}}</text>
+  </block>
+</view>
+
+
+<swiper bindchange='bindchange' current='{{current}}' class='swiper' style='width: {{windowWidth}}px;height:{{windowHeight}}px'>
+  <swiper-item>
+    <scroll-view class='scrollView' scroll-y='true' enable-back-to-top='true'>
+
+
+      <view class='zzdCss'>总账单</view>
+      <view class='xqCssBox'>
+      <view class='sjCssBOx'>
+        <text class='sjCss'>2019-03-01</text><text class='sjCss'>2019-03-27</text>
+      </view>
+        <view class='jeCss'>16309003.00元</view>
+      </view>
+
+
+      <view class='zzdCss'>未来预计收入</view>
+      <view class='xqCssBox'>
+      <view class='sjCssBOx'>
+        <text class='sjCss'>2019-03-01</text><text class='sjCss'>2019-03-27</text>
+      </view>
+        <view class='jeCss'>16309003.00元</view>
+      </view>
+
+
+    </scroll-view>
+  </swiper-item>
+
+
+  <swiper-item>
+    <scroll-view class='scrollView' scroll-y='true' enable-back-to-top='true'>
+        <view class='fysjCss'>
+          <view class='item' style='color: darkgray;'>总房源</view>
+          <view class='item'>15600间</view>
+          <view style='font-size:10rpx;' class='item'><text  decode='true'>&nbsp;</text></view>
+          <view class='item'><text  decode='true'>&nbsp;</text></view>
+          <view class='item'><text decode='true'>&nbsp;</text></view>
+
+        </view>
+        <view class='fysjCss'>
+          <view class='item' style='color: darkgray;'>空置房</view>
+          <view class='item'>136间</view>
+          <view style='font-size:10rpx;' class='item'><text  decode='true'>&nbsp;</text></view>
+          <view class='item'style='color: pink;'>空置率</view>
+          <view class='item'>13%</view>
+        </view>
+        <view class='fysjCss'>
+          <view class='item' style='color: darkgray;'>已租房</view>
+          <view class='item'>12450间</view>
+          <view style='font-size:10rpx;' class='item'><text  decode='true'>&nbsp;</text></view>
+          <view class='item' style='color: #228B22;'>出租率</view>
+          <view class='item'>87%</view>
+        </view>
+
+       <view class="canvas-content">
+        <canvas canvas-id="Canvas" style="width:200px;height:200px;"></canvas>
+    </view>
+        
+
+    </scroll-view>
+  </swiper-item>
+
+
+
+
+    <swiper-item>
+    <scroll-view class='scrollView' scroll-y='true' enable-back-to-top='true'>
+
+       <view class='zzdCss'>快到期合同</view>
+      <view class='xqCssBox'>
+      <view class='sjCssBOx'>
+        <text class='sjCss'>2019-03-01</text><text class='sjCss'>2019-03-27</text>
+      </view>
+        <view class='jeCss'>16309个</view>
+      </view>
+
+
+      <view class='zzdCss'>已到期合同</view>
+      <view class='xqCssBox'>
+        <view class='jeCss'>163个</view>
+      </view>
+
+    </scroll-view>
+  </swiper-item>
+
+
+    <swiper-item>
+    <scroll-view class='scrollView' scroll-y='true' enable-back-to-top='true'>
+      <view class='rbybCssBox'>
+        <text bindtap='lstjClick' class="{{index == 0? 'itemOneCss':'itemTwoCss'}}">流水统计</text><text bindtap='zdtjClick' class="{{index == 1? 'itemOneCss':'itemTwoCss'}}">账单统计</text>
+      </view>
+
+        <view class='rbybMxCssBox'>
+          <view class='mxTitleCss'><text>日报(近6日)</text><text>月报(近6月)</text></view>
+          <block>
+             <view class='mxItem'><text>实际收款日</text><text>进账流水</text><text>出账流水</text></view>
+             <view class='mxItem'><text>今天</text><text>+7562.22</text><text>-56.76</text></view>
+             <view class='mxItem'><text>03-31</text><text>+89274.66</text><text>-7899.81</text></view>
+          </block>
+        </view>
+
+
+    </scroll-view>
+  </swiper-item>
+
+
+</swiper>

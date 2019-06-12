@@ -1,0 +1,52 @@
+<!--pages/adminLeaseListPage/adminLeaseListPage.wxml-->
+
+<scroll-view class='scrollView' scroll-y='true' enable-back-to-top='true'>
+        <block  wx:for='{{dataList}}' wx:key='key' wx:for-index='id'>
+            <view class='itemBox'>
+                <view class='titel'>
+                  <text>{{item.houseName}}</text>
+                  <block wx:if="{{item.status == '签约成功'}}">
+                      <text  class='titleRightOne'>{{item.status}}</text>
+                  </block>
+                    <block wx:else>
+                      <text  class='titleRightTwo'>{{item.status}}</text>
+                  </block>                
+                </view>
+                <view class='content'>租期:{{item.startTime}}-{{item.endTime}}</view>
+                <view class='content'>签约人:{{item.tenant}}</view>
+                <view class='content bqcontent'>{{item.contractType}}</view>
+                <view class='foot'>
+                  <text data-id='{{id}}' bindtap='ydXqClick'>查看合同</text>
+                  <text data-id='{{id}}' bindtap='ydXqClick'>租约详情</text>
+                </view>
+            </view>
+        </block>
+        <view bindtap='loadMoreClick' class='footerLoad' wx:if='{{show}}'>{{showTitel}}</view>
+        <view class='footerLoad' wx:else>{{noShowTitel}}</view>
+        
+    </scroll-view>
+
+
+    <!-- 头部筛选 -->
+<view class='header'>
+  <block wx:for="{{sxArray}}"  wx:key='key'>
+    <text bindtap='sxClcik' data-id='{{index}}' >{{item}}</text>
+   </block>
+</view>
+
+
+
+
+
+<!-- 蒙版 -->
+<view class='maskView' hidden='{{flag}}' catchtap='maskClick'>
+  <view catchtap='stopClick'>
+      <view class='xsItem'>1</view>
+      <view class='xsItem'>1</view>
+      <view class='xsItem'>1</view>
+      <view class='xsItem'>1</view>
+      <view class='xsItem'>1</view>
+      <view class='xsItem'>1</view>
+      <view class='xsItem'>1</view>
+  </view>
+</view>

@@ -1,0 +1,91 @@
+
+<view class='wrapper'>
+
+      <!-- 轮播图 -->
+      <view class='baner'>
+          <swiper interval='3000' bindchange='swiperbindtransition'>
+          <block wx:for="{{houseInfoData.pictureVO.pictures}}" wx:key="key">
+            <swiper-item>
+              <image src='{{item}}'></image>
+            </swiper-item>
+          </block>
+        </swiper>
+        <view class='indexView'>{{currentImg}}/{{houseInfoData.pictureVO.pictures.length}}</view>
+      </view>
+
+
+     <!-- 地址栏 -->
+      <view class='index-wrapper'>
+          <view class='index-one'>{{houseInfoData.name}}</view>
+          <view class='index-two'>{{houseInfoData.address}}</view>
+          <view class='index-three'>{{houseInfoData.intro}}</view>
+      </view>
+
+
+       <!-- 同公寓全部房源 -->
+  <view class='fy-wrapper'>
+    <view class='fy-xx'><text>在租房源</text></view>
+    <view class='tgy-details'>
+      <block wx:for='{{sameTypeHousList.houses}}' wx:key='key'>
+          <view bindtap='houseInfoClick' data-id='{{index}}' class='wrapper-item'>
+            <view class='left-item'>
+              <view><image src='{{item.picture}}'></image></view>
+            </view>
+            <view class='right-item'>
+              <view class='nowrap'>{{item.name}}</view>
+              <view class='nowrap'>{{item.layout}}</view>
+              <view class='nowrap'>{{item.nearby}}</view>
+              <view class='nowrap'>
+                <block wx:for='{{item.label}}' wx:key='key'>
+                  <block wx:if='{{0<=index && index <= 2}}'>
+                    <text class='label-item'>{{item}}</text>
+                  </block>
+                </block>
+              </view>
+              <text class='label-right-item'>{{item.rentCost}}元/月</text>
+            </view>
+          </view>
+        </block>
+      </view>
+  </view>
+
+  <view hidden='{{moreHouseListAction}}'class='moreHouseList'><button bindtap='lookAllHouseListClick'>查看全部{{sameTypeHousList.count}}个房源</button></view>
+
+  
+   <!-- 房源设施 -->
+  <view class='fy-wrapper'>
+    <view class='fy-xx'><text>公寓设施</text></view>
+    <view class='ss-details'>
+      <block wx:for='{{houseInfoData.facility}}' wx:key='key'>
+        <view class='ss-itme'>
+          <view class='ss-top'><image src='{{item.picture}}'></image></view>
+          <view class='ss-bottom'>{{item.name}}</view>
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <!-- 地理位置 -->
+   <view class='fy-wrapper'>
+    <view class='fy-xx'><text>地理位置</text></view>
+    <view class='dl-details'>
+        <view class='dl-top'><image src='../../img/houseDetails/bb_fyxq_14@2x.png'></image><text decode="true">&nbsp;&nbsp;&nbsp;&nbsp;{{houseInfoData.address}}</text></view>
+        <view class='dl-bottom'><image src='../../img/houseDetails/bb_fyxq_15@2x.png'></image><text decode="true">&nbsp;&nbsp;&nbsp;&nbsp;{{houseInfoData.nearby}}</text></view>
+    </view>
+
+    <view class='mapView'><map 
+    id="myMap"
+    latitude='{{houseInfoData.latitude}}'
+    longitude='{{houseInfoData.longitude}}'
+    markers='{{markers}}'
+    show-location="true"
+    ></map></view>
+  </view>
+
+  <view class='bottomView'></view>
+
+ 
+</view>
+
+
+ 

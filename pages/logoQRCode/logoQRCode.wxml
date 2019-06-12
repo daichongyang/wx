@@ -1,0 +1,12 @@
+
+<view class="container_box">
+    <view class="logoQRCode">
+      <view>扫一扫，支付房租及生活费</view>
+      <view class='money'>￥1400.00</view>
+      <canvas class='logocc' style="width: 248px;height: 248px;" canvas-id="logoQRCode" />
+      <view class='money_ewm'>
+        <text bindtap='goLogoQRCode2'>设置金额</text>
+        <text>保存收款码</text>
+      </view>
+    </view>
+</view>

@@ -1,0 +1,147 @@
+<!--pages/myAdminPage/myAdminPage.wxml-->
+
+<scroll-view class='scrollView' scroll-y='true' enable-back-to-top='true' bindscrolltoupper='bindscrolltoupper'>
+<view class='swaper'>
+  <view bindtap='adminClick' data-data='数据报表' class='swaper-item'>
+  <view><image src='../../img/my/gy_03_05.png'></image>
+</view>
+    <text>数据报表</text>
+  </view>
+
+  <view bindtap='adminClick' data-data='房态图' class='swaper-item'>
+  <view><image src='../../img/my/gy_03_05.png'></image>
+</view>
+    <text>房态图</text>
+  </view>
+
+
+  <view bindtap='adminClick' data-data='租约' class='swaper-item'>
+  <view><image src='../../img/my/gy_03_05.png'></image>
+</view>
+    <text>租约</text>
+  </view>
+
+
+  <view bindtap='adminClick' data-data='预约预定' class='swaper-item'>
+  <view><image src='../../img/my/gy_03_05.png'></image>
+</view>
+    <text>预约预定</text>
+  </view>
+
+
+  <view bindtap='adminClick' data-data='报修保养' class='swaper-item'>
+  <view><image src='../../img/my/gy_03_05.png'></image>
+</view>
+    <text>报修保养</text>
+  </view>
+
+<view bindtap='adminClick' data-data='智能系统'  class='swaper-item'>
+  <view><image src='../../img/my/gy_03_05.png'></image>
+</view>
+    <text>智能系统</text>
+  </view>
+
+<view bindtap='adminClick' data-data='水电表抄表' class='swaper-item'>
+  <view><image src='../../img/my/gy_03_05.png'></image>
+</view>
+    <text>水电表抄表</text>
+  </view>
+
+<view bindtap='adminClick' data-data='账单/流水' class='swaper-item'>
+  <view><image src='../../img/my/gy_03_05.png'></image>
+</view>
+    <text>账单/流水</text>
+  </view>
+</view>
+
+
+<!-- 待办事项 -->
+<view class='todoBox'>
+  <view class='todoTitle'>待办事项</view>
+
+  <!-- 财务 -->
+  <view class='todoTitleHeader'>• 财务</view>
+  <view class='todoItemBox'>
+  
+    <view class='todoItem'>
+      <view class='item'>{{adminTodo.hydroelectricCount}}笔</view>
+      <view class='item' style='color: darkgray;'>欠款(近30天)</view>
+      <view class='item' style='color: red;'>{{adminTodo.hydroelectricCost}}/元</view>
+    </view>
+
+     <view class='todoItem'>
+      <view class='item'>{{adminTodo.futureCount}}笔</view>
+      <view class='item' style='color: darkgray;'>未来预计收入(近三天)</view>
+      <view class='item' style='color: red;'>{{adminTodo.futureCost}}/元</view>
+    </view>
+
+  </view>
+
+<!-- 租约 -->
+  <view class='todoTitleHeader'>• 租约</view>
+  <view class='todoItemBox'>
+    <view class='todoItem'>
+      <view class='item'>{{adminTodo.advanceCount}}个</view>
+      <view class='item' style='color: darkgray;'>预定待处理</view>
+    </view>
+
+     <view class='todoItem'>
+      <view class='item'>{{adminTodo.registerCount}}个</view>
+      <view class='item' style='color: darkgray;'>预约待处理</view>
+    </view>
+
+
+    <view class='todoItem'>
+      <view class='item'>{{adminTodo.advanceCount}}个</view>
+      <view class='item' style='color: darkgray;'>已到期租约</view>
+    </view>
+
+     <view class='todoItem'>
+      <view class='item'>{{adminTodo.registerCount}}个</view>
+      <view class='item' style='color: darkgray;'>快到期租约</view>
+    </view>
+
+     <view class='todoItem'>
+      <view class='item'>{{adminTodo.changeRoomCount}}个</view>
+      <view class='item' style='color: darkgray;'>需要租客登记</view>
+    </view>
+
+  </view>
+
+  <!--房源  -->
+  <view class='todoTitleHeader'>• 房源</view>
+  <view class='todoItemBox'>
+    <view class='todoItem'>
+      <view class='item'>{{adminTodo.repairCount}}间</view>
+      <view class='item' style='color: darkgray;'>空置房(集中式)</view>
+    </view>
+  </view>
+
+<!--  服务-->
+    <view class='todoTitleHeader'>• 服务</view>
+  <view class='todoItemBox'>
+    <view class='todoItem'>
+      <view class='item'>{{adminTodo.repairCount}}个</view>
+      <view class='item' style='color: darkgray;'>报修待处理</view>
+    </view>
+
+       <view class='todoItem'>
+      <view class='item'>{{adminTodo.onlineCount}}个</view>
+      <view class='item' style='color: darkgray;'>在线申请待处理</view>
+    </view>
+
+      <view class='todoItem'>
+      <view class='item'>{{adminTodo.checkCount}}个</view>
+      <view class='item' style='color: darkgray;'>内容待审核</view>
+    </view>
+
+  </view>
+
+  <view class='footer'>没有更多了</view>
+
+</view>
+
+
+  
+
+</scroll-view>

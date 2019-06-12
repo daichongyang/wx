@@ -1,0 +1,68 @@
+/* pages/paydetalis/paydetalis.wxss */
+page{
+  background:#f7f7f7;
+}
+.status_money{
+  background:#fff;
+}
+.item{
+  margin-left:32rpx;
+  font-size: 30rpx;
+  height:100rpx;
+  border-bottom: 1rpx solid #e1e1e1;
+  overflow:hidden;
+  display:flex;
+  align-items: center;
+  justify-content:space-between; 
+}
+.green{
+  color:#00c3b2;
+  font-size:24rpx;
+  padding:20rpx 35rpx;
+}
+.phone_img{
+  width:40rpx;
+  margin-right:40rpx;
+}
+.font_size26{
+  font-size:26rpx;
+}
+.font_size40{
+  font-size:40rpx;
+}
+.font_size80{
+  font-size:80rpx;
+  margin-right:40rpx;
+}
+.item_details{
+  margin-left:32rpx;
+  border-bottom: 1rpx solid #e1e1e1;
+
+}
+.item_details_cont{
+  overflow: hidden;
+  margin:45rpx 0;
+}
+.item_details_cont text{
+  line-height:100%;
+}
+.item_time{
+  color:#777777;
+  font-size:26rpx;
+  margin-bottom:35rpx;
+}
+.item_pay_details{
+  padding:60rpx 0;
+  margin-left:35rpx;
+  margin-right:34rpx;
+}
+.pay_item{
+  display:flex;
+  font-size:28rpx;
+  justify-content: space-between;
+  margin-bottom:30rpx;
+
+}
+.item_pay_details_last{
+  margin-bottom:0rpx;
+}

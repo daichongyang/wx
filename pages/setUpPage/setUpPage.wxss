@@ -1,0 +1,47 @@
+/* pages/setUpPage/setUpPage.wxss */
+page{
+  background: #f7f7f7;
+}
+
+.header{
+  margin-top: 30rpx;
+}
+.header2{
+  margin-top:20rpx;
+}
+.header,.header2 text{
+  padding-left: 30rpx;
+  color: darkgray;
+  font-size: 30rpx;
+  padding-bottom: 10rpx;
+}
+
+.item{
+  font-size: 30rpx;
+  padding: 30rpx;
+  background: white;
+  border-bottom: 1rpx solid #e1e1e1
+}
+.right{
+  float: right;
+  color: dimgray;
+}
+
+.footer{
+  position: fixed;
+  height: 120rpx;
+  width: 100%;
+  bottom: 0rpx;
+  background: white;
+  text-align: center;
+}
+
+.footer button{
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 30rpx;
+  width: 95%;
+  margin-top: 10rpx;
+  background: #1fc2b2;
+  color: white;
+}

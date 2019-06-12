@@ -1,0 +1,148 @@
+/* pages/mjPassPage/mjPassPage.wxss */
+page{
+  background: #f7f7f7
+}
+.headerCss{
+  margin-top: 10px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  font-size: 15px;
+  background: white;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; 
+}
+.headerCss image{
+  width: 15px;
+  height: 15px;
+}
+
+.swiper{
+  background: white;
+  text-align: center;
+}
+
+
+.leftBtn{
+  position: fixed;
+  width: 15px;
+  height: 30px;
+  top: 150px;
+  left: 15px;
+}
+.leftBtn image{
+  width: 100%;
+  height: 100%;
+
+}
+
+.rightBtn{
+  position: fixed;
+  width: 15px;
+  height: 30px;
+  top: 150px;
+  right: 15px;
+}
+.rightBtn image{
+  width: 100%;
+  height: 100%;
+
+}
+
+.buttonCss{
+  position: absolute;
+  bottom: 10px;
+  width: 720rpx;
+  color: white;
+  background: #1fc2b1;
+  left: 15rpx;
+}
+.textView{
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  font-size: 13px;
+  text-align: left;
+}
+
+.qrCodeCss{
+  width: 200px;
+  height: 200px;
+  /* background: olivedrab; */
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+.mmOpenCss{
+  width: 540rpx;
+  height: 120rpx;
+  margin: 0 auto;
+  margin-top: 20rpx;
+  border-bottom:1rpx solid red;
+  text-align: center;
+  position: relative;
+}
+.mmOpenCss image{
+  width: 540rpx;
+  height: 110rpx;
+}
+.mmOpenCss view{
+  position: absolute;
+  line-height: 110rpx;
+  width: 540rpx;
+  top: 0;
+  font-size: 70rpx;
+  color: #7ba5a2;
+  text-align: center;
+}
+.mmOpenCss view text{
+  display: inline-block;
+  width: 90rpx;
+  height: 100%;
+  text-align: center;
+}
+.mmOpenText{
+  width: 100%;
+  margin-top: 10rpx;
+  font-size: 13px;
+  color: darkgray;
+  text-align: center;
+  letter-spacing:8px;
+  height: 200rpx;
+}
+
+.openListCss{
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  color: darkgray;
+  line-height: 300rpx;
+  font-size: 30rpx;
+  background: #f7f7f7;
+}
+
+.door-item{
+  width: 200rpx;
+  height: 200rpx;
+  display: inline-block;
+  margin: 30rpx;
+  margin-top: 40rpx;
+}
+
+.door-item image{
+  width: 200rpx;
+  height: 200rpx;
+}
+.item-bottom{
+  font-size: 30rpx;
+  margin-top:15rpx;
+}
+
+.noHouseListCss{
+  width: 100%;
+  height: 300rpx;
+  text-align: center;
+  font-size: 30rpx;
+  line-height: 300rpx;
+}

@@ -1,0 +1,26 @@
+<!--pages/setUserPassward/setUserPassward.wxml-->
+
+  <view class='choise_car'>
+    <view class='item'>
+      <view class='item_view'>
+        <view class='item_view_right'>
+          <text>手机号码</text>
+          <input placeholder='输入签约时手机号码' bindinput="getPhoneNum"></input>
+        </view>
+        <view class='green' bindtap='getVerifyCodee' disabled="{{checkstyle}}">{{count}}</view>
+      </view>
+    </view>
+    <view class='item calcel_bottom'>
+      <view class='item_view'>
+        <view class='item_view_right2'>
+          <text>验证码</text>
+          <input placeholder='请输入验证码' bindinput='getCode'></input>
+        </view>
+        <view class='white'>获取验证码</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 去付款 -->
+
+  <button class='button' bindtap='verifyCodee'>下一步</button>

@@ -1,0 +1,13 @@
+
+page{
+  background: #f7f7f7
+}
+
+.box{
+  margin-top: 20rpx;
+  padding: 30rpx;
+  background: white;
+}
+text{
+  padding: 30rpx;
+}

@@ -1,0 +1,45 @@
+/* pages/leaseTenant/leaseTenant.wxss */
+page{
+  background: #f7f7f7
+}
+.noData{
+  height: 300rpx;
+  width: 100%;
+  line-height: 300rpx;
+  text-align: center;
+  font-size: 30rpx;
+}
+.leaseTenant-box{
+  margin-top: 20rpx;
+  background: white;
+  width: 100%;
+}
+.item-top{
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  padding-top: 30rpx;
+  padding-bottom: 30rpx;
+  font-size: 30rpx;
+  font-weight: bold;
+  border-bottom:1rpx solid #e1e1e1
+}
+
+.item-bottom{
+  width: 140rpx;
+  display: inline-block;
+  margin: 25rpx;
+  text-align: center;
+}
+.item-bottom image{
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 100%;
+}
+.item-bottom view{
+  font-size: 30rpx;
+  width: 140rpx;
+  margin-top: 10rpx;
+   white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden
+}

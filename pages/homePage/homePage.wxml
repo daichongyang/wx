@@ -1,0 +1,115 @@
+<!--
+ 1、头部城市选择
+ 2、搜索框
+ 3、信息
+ -->
+
+ <view class='header'>
+  <view bindtap='selectCity' class='header-left'>{{city}}</view>
+  <view bindtap='search' class='header-mid'>
+    <image src='../../img/home/bb_sy_01@2x.png'></image>
+    <text >小区/商圈/地铁站</text>
+  </view>
+  <view bindtap='msgClick' class='header-right' ><image src='../../img/home/bb_sy_03@2x.png'></image><view hidden='{{msgIndex != 1}}'></view></view>
+ </view>
+
+
+ <!-- 
+    轮播图baner
+  -->
+ <swiper indicator-dots='true' indicator-color='#ffffff' indicator-active-color='#f9ab40' autoplay='true' interval='3000'>
+    <block wx:for="{{houseIndexList}}" wx:key="key">
+      <swiper-item>
+        <image class='slide-image' src='{{item}}'></image>
+      </swiper-item>
+    </block>
+  </swiper>
+
+<!-- 
+    1、整租
+    2、合租
+    3、独栋公寓
+    4、品牌公寓
+    5、交通找房
+    6、地图找房
+    7、个人房源
+    8、短租
+ -->
+<view class='rentType'>
+  <view class='rentTpye-top'>
+    <view data-id='1' bindtap='lookingHouse'>
+      <image class='img' src='../../img/home/bb_sy_08@2x.png'></image>
+      <view>整租</view>
+    </view>
+    <view data-id='2' bindtap='lookingHouse'>
+      <image class='img' src='../../img/home/bb_sy_09@2x.png'></image>
+      <view>合租</view>
+    </view>
+    <view data-id='3' bindtap='lookingHouse'>
+      <image class='img' src='../../img/home/bb_sy_10@2x.png'></image>
+      <view>独栋公寓</view>
+    </view>
+    <view data-id='4' bindtap='lookingHouse'>
+      <image class='img' src='../../img/home/bb_sy_11@2x.png'></image>
+      <view>品牌公寓</view>
+    </view>
+  </view>
+  <!-- <view class='rentTpye-bottom'>
+    <view>
+      <image class='img' src='../../img/home/bb_sy_12@2x.png'></image>
+      <view>交通找房</view>
+    </view>
+    <view>
+      <image class='img' src='../../img/home/bb_sy_14@2x.png'></image>
+      <view>地图找房</view>
+    </view>
+    <view>
+      <image class='img' src='../../img/home/bb_sy_15@2x.png'></image>
+      <view>短租</view>
+    </view>
+    <view>
+      <image class='img' src='../../img/home/bb_sy_16@2x.png'></image>
+      <view>我是房东</view>
+    </view>
+  </view> -->
+</view>
+
+
+<!-- 精选房源 -->
+<block>
+  <view class='wrapper-jx'>
+      <view class='jxfy'>精选房源</view>
+      <block wx:for='{{houseList}}' wx:key='key'>
+        <view bindtap='houseInfoClick' data-id='{{index}}' class='wrapper-item'>
+          <view class='left-item'>
+            <view><image src='{{item.picture}}'></image></view>
+          </view>
+          <view class='right-item'>
+            <view class='nowrap'>{{item.name}}</view>
+            <view class='nowrap'>{{item.layout}}</view>
+            <view class='nowrap'>{{item.nearby}}</view>
+            <view class='nowrap'>
+              <block wx:for='{{item.label}}' wx:key='key'>
+                <block wx:if='{{0<=index && index <= 2}}'>
+                  <text class='label-item'>{{item}}</text>
+                </block>
+              </block>
+            </view>
+             <text class='label-right-item'>{{item.rentCost}}元/月</text>
+          </view>
+        </view>
+      </block>
+  </view>
+</block>
+
+
+
+
+<!-- 门禁权限 -->
+<block wx:if='{{isTenant == 1}}'>
+  <view class='passCss' bindtap='passClick'>
+    <image src='../../img/home/bb_sy_21mj@2x.png'></image>
+  </view>
+</block>
+
+

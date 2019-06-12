@@ -1,0 +1,79 @@
+<!--pages/myLeaseDetails/myLeaseDetails.wxml-->
+<view class='wrapper'>
+  <!-- 我的预约详情 -->
+    <view class='wrapper-jx'>
+
+          <block wx:if='{{reservation.payStatus == 0}}'>
+            <view class='jxfy'>待支付并确认</view>
+            <view bindtap='callPhone' class='jxfy-right'><image src='../../img/my/bb_wd_01@2x.png'></image></view>
+          </block>
+
+           <block wx:elif='{{reservation.status == 0}}'>
+            <view class='jxfy'>待确认</view>
+            <view bindtap='callPhone' class='jxfy-right'><image src='../../img/my/bb_wd_01@2x.png'></image></view>
+          </block>
+
+           <block wx:elif='{{reservation.status == 1}}'>
+            <view class='jxfy'>签约成功</view>
+            <view bindtap='callPhone' class='jxfy-right'><image src='../../img/my/bb_wd_01@2x.png'></image></view>
+          </block>
+
+           <block wx:elif='{{reservation.status == 2}}'>
+            <view class='jxfy'>已退房</view>
+          </block>
+
+          <view class='wrapper-item'>
+          <view class='left-item'>
+            <image src='{{reservation.picture}}'></image>
+          </view>
+
+          <view class='right-item'>
+            <view class='nowrap'>{{reservation.name}}</view>
+            <view class='nowrap'>{{reservation.houseNumber}}</view>
+            <view class='nowrap'>{{reservation.layout}}</view>
+            <view class='nowrap'>
+              <block wx:for='{{reservation.label}}' wx:key='key'>
+                  <text class='label-item'>{{item}}</text>
+              </block>
+            </view>
+             <text class='label-right-item'>{{reservation.rentCost}}元/月</text>
+            </view>
+            <view class='bottom-view'></view>
+          </view>
+    </view>
+
+    <view class='reservationDetail'>
+      <view class='reservationDetail-item'>
+        <view class='heaerTitle' style='font-weight: bold'>租约信息</view>
+        <view class='clear_fix'><view class='Detail-left'>起止时间</view><view class='Detail-right'>{{reservationDetails.startTime}} 至 {{reservationDetails.endTime}}</view></view>
+        <view class='clear_fix'><view class='Detail-left'>付款方式</view><view class='Detail-right'>{{reservationDetails.payType}}</view></view>
+        <view class='clear_fix'><view class='Detail-left'>租金</view><view class='Detail-right'>{{reservationDetails.rentCost}}元/月</view></view>
+        <view class='clear_fix'><view class='Detail-left'>房屋押金</view><view class='Detail-right'>{{reservationDetails.depositCost}}元</view></view>
+        <view class='clear_fix'><view class='Detail-left'>电器押金</view><view class='Detail-right'></view></view>
+        <view class='clear_fix'><view class='Detail-left'>下期收租日</view><text class='Detail-right'>{{reservationDetails.nextTime}}</text></view>
+      </view>
+
+       <view class='reservationDetail-item'>
+          <view class='heaerTitle' style='font-weight: bold'>承租人信息</view>
+          <view class='clear_fix'><view class='Detail-left'>姓名</view><view class='Detail-right'>{{reservationDetails.name}}</view></view>
+          <view class='clear_fix'><view class='Detail-left'>性别</view><view class='Detail-right'>{{reservationDetails.sex == 0? '男':'女'}}</view></view>
+          <view class='clear_fix'><view class='Detail-left'>手机号码</view><view class='Detail-right'>{{reservationDetails.phone}}</view></view>
+          <view class='clear_fix'><view class='Detail-left'>身份证</view><view class='Detail-right'>{{reservationDetails.idNumber}}</view></view>
+      </view>
+
+         <view class='reservationDetail-item'>
+          <view class='heaerTitle' style='font-weight: bold'>房东信息</view>
+          <view class='clear_fix'><view class='Detail-left'>姓名</view><view class='Detail-right'></view></view>
+      </view>
+
+        <view class='reservationDetail-item reservationDetail-three'>
+          <view class='heaerTitle' style='font-weight: bold'>其他信息</view>
+          <view class='clear_fix'><view class='Detail-left'>预定单编号</view><view class='Detail-right'>{{reservationDetails.leaseCode}}</view></view>
+          <view class='clear_fix'><view class='Detail-left'>创建时间</view><view class='Detail-right'>{{reservationDetails.gmtCreate}}</view></view>
+      </view>
+
+    </view>
+
+    
+  
+</view>

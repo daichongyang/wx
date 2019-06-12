@@ -1,0 +1,143 @@
+/* pages/community/community.wxss */
+.header{
+  width: 100%;
+  height: 100rpx;
+  position: relative;
+  border-bottom: 10rpx solid #f7f7f7
+}
+.leftView{
+  position: absolute;
+  width: 520rpx;
+  height: 80rpx;
+  border-radius: 80rpx;
+  background: #f7f7f7;
+  left: 30rpx;
+  top: 10rpx;
+}
+.leftView image{
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  left: 30rpx;
+  top: 20rpx;
+}
+.leftView text{
+  display: block;
+  position: absolute;
+  width: 350rpx;
+  font-size: 30rpx;
+  line-height: 80rpx;
+  left: 90rpx;
+  color: darkgray;
+}
+.midimg{
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  right: 120rpx;
+  top: 30rpx;
+
+}
+.rightimg{
+  width: 50rpx;
+  height: 50rpx;
+  position: absolute;
+  right: 30rpx;
+  top: 25rpx;
+}
+
+
+
+
+
+/* 内容 */
+.content{
+  margin-left: 30rpx;
+  margin-right: 30rpx; 
+  border-bottom: 1rpx solid #e1e1e1;
+}
+.contentHeader{
+  width: 100%;
+  height: 150rpx;
+  position: relative;
+}
+.contentHeaderimg{
+  position: absolute;
+  width: 100rpx;
+  height: 100rpx;
+  top: 25rpx;
+}
+.contentName{
+  position: absolute;
+  width: 550rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  font-size: 30rpx;
+  left: 120rpx;
+  top: 25rpx;
+}
+.contentTime{
+  position: absolute;
+  width: 550rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  font-size: 28rpx;
+  left: 120rpx;
+  bottom: 25rpx;
+  color: darkgray;
+}
+
+.descCss{
+  font-size: 30rpx;
+  padding-bottom: 25rpx;
+}
+
+.contentImageBox image{
+  display: inline-block;
+  width: 200rpx;
+  height: 200rpx;
+  margin-right: 15rpx;
+}
+
+.footer{
+  width: 100%;
+  height: 100rpx;
+}
+.actionbtn{
+  float: right;
+  width: 150rpx;
+  height: 40rpx;
+  margin-left: 10rpx;
+  margin-top: 30rpx;
+  position: relative;
+}
+.actionbtn image{
+  position: absolute;
+  width: 40rpx;
+  height: 40rpx;
+}
+.actionbtn text{
+  position: absolute;
+  width: 100rpx;
+  height: 100%;
+  font-size: 30rpx;
+  color: #1fc2b2;
+  line-height: 40rpx;
+  right: 0;
+  text-align: left;
+}
+
+
+/* 门禁通行证 */
+.passCss{
+  position: fixed;
+  right: 50rpx;
+  bottom: 50rpx;
+  width: 100rpx;
+  height: 100rpx;
+  overflow: hidden;
+}
+.passCss image{
+  width: 100%;
+  height: 100%;
+}

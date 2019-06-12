@@ -1,0 +1,195 @@
+page{
+  background: #f7f7f7
+}
+.wrapper{
+  width: 100%;
+  height: 100%;
+}
+.wrapper-jx{
+  background: white;
+  margin-top: 30rpx;
+}
+
+.jxfy{
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 30rpx;
+  padding-left: 30rpx;
+  font-weight: bold;
+  position: relative
+}
+/* 打电话按钮 */
+.jxfy-right{
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  right: 50rpx;
+  top: 50rpx;
+}
+.jxfy-right image{
+  width: 100%;
+  height: 100%;
+}
+
+
+.reservationDetail{
+  width: 100%;
+  background: white;
+}
+.reservationDetail-item{
+  padding: 35rpx;
+  font-size: 28rpx;
+  border-bottom: 1rpx solid #e3e3e3
+}
+.heaerTitle{
+  font-size: 30rpx;
+}
+.reservationDetail-item > view{
+  margin-top: 10rpx;
+}
+.Detail-left{
+  float: left;
+}
+.Detail-right{
+  float: right;
+}
+.text{
+  color: red;
+  word-wrap:break-word;
+  word-break: break-all;
+}
+.clear_fix:after{
+   content: "";
+    display: block;
+    clear: both;
+}
+.reservationDetail-three{
+  border-bottom: none;
+}
+
+/* 底部 */
+.bootm-foot-two{
+  height: 120rpx;
+  width: 100%;
+  background: white;
+  margin-top: 30rpx;
+  text-align: center;
+  position: relative;
+}
+.bootm-foot-two view{
+  width: 700rpx;
+  height: 100rpx;
+  margin: 0 auto;
+  line-height: 100rpx;
+  background: #1fc2b1;
+  border-radius: 10rpx;
+  color: white;
+  font-size: 30rpx;
+  position: absolute;
+  top: 10rpx;
+  left: 25rpx;
+}
+
+.bootm-foot-box{
+  height: 120rpx;
+  width: 100%;
+  background: white;
+  margin-top: 30rpx;
+  text-align: center;
+  position: relative;
+}
+.bootm-foot{
+  width: 700rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  position: absolute;
+  top: 10rpx;
+  right: 25rpx;
+  text-align: center;
+}
+.bootm-foot view:nth-child(1){
+  width: 50%;
+  height: 100%; 
+  background: #1fc2b1;
+  float: left;
+  color: white;
+  font-size: 30rpx;
+  border-radius: 10rpx;
+}
+.bootm-foot view:nth-child(2){
+  width: 48%;
+  height: 100%; 
+  background: #44bcc5;
+  float: right;
+  color: white;
+  font-size: 30rpx;
+  border-radius: 10rpx;
+}
+
+
+
+
+
+/* 上面段的css */
+.wrapper-item{
+  width: 100%;
+  padding-top: 30rpx;
+  background: #f7f7f7
+}
+ .left-item{
+   float: left;
+   height: 160rpx;
+   width: 200rpx;
+   margin-left: 20rpx;
+ }
+.right-item{
+  float: left;
+  width: 500rpx;
+  margin-left: 20rpx;
+  word-wrap:break-word;
+  word-break: break-all;
+}
+
+.left-item image{
+  width: 100%;
+  height: 100%;
+  border-radius: 10rpx;
+}
+.right-item view{
+  clear: both;  
+}
+.right-item view:nth-child(1){
+  font-size: 32rpx;
+}
+.right-item view:nth-child(2){
+  color: darkgray;
+  font-size: 26rpx;
+}
+.right-item view:nth-child(3){
+  color: darkgray;
+  font-size: 26rpx;
+}
+.label-item{
+  display: inline-block;
+  margin-right: 10rpx;
+  border-radius: 8rpx;
+  margin: 6rpx;
+  padding: 10rpx;
+  background: #e0f3f2;
+  color: #518e8a;
+  font-size: 22rpx;
+  
+}
+.label-right-item{
+  display: block;
+  font-size: 35rpx;
+  color: #fb625e;
+  margin-top: 15rpx;
+}
+.bottom-view{
+  clear: both;
+  height: 30rpx;
+  margin-top: 100rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+}

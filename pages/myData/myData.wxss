@@ -1,0 +1,81 @@
+page{
+  background: #f7f7f7;
+  width: 100%;
+  height: 100%;
+}
+
+.swiper{
+  margin-top: 20rpx;
+}
+.header text{
+  line-height: 200rpx;
+  font-size: 30rpx;
+  padding-left: 30rpx;
+}
+.header{ 
+  width: 100%;
+  height: 200rpx;
+  background: white;
+  position: relative;
+  border-bottom: 1rpx solid #e1e1e1
+}
+.header image{
+  width: 150rpx;
+  height: 150rpx;
+  position: absolute;
+  top: 25rpx;
+  right: 40rpx;
+  border-radius: 100%;
+}
+.item{
+  background: white;
+  padding: 30rpx;
+  border-bottom: 1rpx solid #e1e1e1;
+  font-size: 30rpx;
+
+}
+.right{
+  float: right;
+}
+
+
+.changeHeaderImage{
+  position: fixed;
+  background: rgba(1, 1, 1, 0.4);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.changeHeader{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: white;
+  text-align: center;
+}
+
+.changeHeader image{
+  margin-top: 50rpx;
+  width: 250rpx;
+  height: 250rpx;
+}
+.offMask{
+  position: absolute;
+  color: red;
+  font-size: 40rpx;
+  right: 30rpx;
+  top: 20rpx;
+}
+button{
+  background: #1fc2b1;
+  color: white;
+  margin: 20rpx;
+}
+.oneBtn{
+  margin-top: 200rpx;
+}
+
+.selcetdHeaderImage{
+  border-radius: 100%;
+}

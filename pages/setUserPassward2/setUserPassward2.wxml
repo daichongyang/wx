@@ -1,0 +1,31 @@
+<!--pages/setUserPassward2/setUserPassward2.wxml-->
+  <view class='choise_car'>
+    <view class='item'>
+      <view class='item_view'>
+        <view class='item_view_right'>
+          <text>新密码</text>
+          <input placeholder='请输入新密码' bindinput='getpassWordNew'></input>
+        </view>
+        <!-- 选择公寓 -->
+        <picker bindchange="bindPickerChange" value="{{index}}" range="{{optionss}}" range-key="{{'gyName'}}">
+          <view class='picker green' bindtap=''>请选择公寓</view>
+        </picker>
+      </view>
+    </view>
+    <view class='item calcel_bottom'>
+      <view class='item_view'>
+        <view class='item_view_right2'>
+          <text>确认新密码</text>
+          <input placeholder='请再次输入新密码' bindinput='getpassWordOld'></input>
+        </view>
+        <view class='white'>获取验证码</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="show_gy">
+    公寓名称：{{optionss[index].gyName}}-{{optionss[index].houseName}}
+  </view>
+  <!-- 去付款 -->
+
+  <button class='button' bindtap='updateLockPassWordByPhonee'>完成</button>

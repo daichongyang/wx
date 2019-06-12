@@ -1,0 +1,46 @@
+<!--pages/myBackCard/myBackCard.wxml-->
+
+<view class='header'><text>账号安全</text></view>
+<view class='cantant'>
+  <view class='item'>
+    <text>持卡人</text>
+    <view>
+      dcy
+    </view>
+  </view>
+  <view class='item calcel_bottom'>
+    <text>银行卡号</text>
+    <!-- <view class='right'>{{email}} </view> -->
+    <view>
+      <input class='right' placeholder="请输入银行卡号" />
+    </view>
+  </view>
+  <view class='gray'></view>
+
+  <!-- 银行卡信息 -->
+  <view class='item' bindtap='bindingCarNext'>
+    <text>卡类型/发卡行</text>
+    <view class='item_view'>
+      <text>信用卡/中国银行</text>
+      <text class='item_logo'>▸</text>
+    </view>
+  </view>
+  <!-- 信用卡显示 -->
+  <view class='item'>
+    <text>月/年（有效期）</text>
+    <view class='item_view'>
+      <text>09/20</text>
+    </view>
+  </view>
+  <!--信用卡显示结束 -->
+  <view class='item'>
+    <text>银行卡预留手机号</text>
+    <view class='item_view'>
+      <text>176xxxx3977</text>
+    </view>
+  </view>
+</view>
+
+<view class='next'>
+  <button bindtap='choisePayWay'>下一步</button>
+</view>

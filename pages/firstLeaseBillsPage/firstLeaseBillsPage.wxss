@@ -1,0 +1,158 @@
+/* pages/firstLeaseBillsPage/firstLeaseBillsPage.wxss */
+page{
+  background: #f7f7f7;
+}
+.lszd-box{
+  background: white;
+  margin-top: 20rpx;
+  position: relative;
+  font-size: 30rpx;
+  padding: 30rpx;
+  font-weight: bold
+}
+.lszd{
+  position: absolute;
+  top: 30%;
+  right: 50rpx;
+  width: 150rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-weight: normal;
+  text-align: center;
+  font-size: 26rpx;
+  background: #e0f3f2;
+  color: #518e8a;
+  border-radius: 8rpx;
+}
+.lszd-title{
+  width: 500rpx;
+  
+}
+.lszd-moeny{
+  width: 500rpx;
+  color: red;
+  padding-top: 10rpx;
+}
+
+.zdxx-box{
+  margin-top: 30rpx;
+  background: white;
+}
+.header{
+  padding-left: 30rpx;
+  padding-bottom: 10rpx;
+  font-size: 35rpx;
+  color: darkgray;
+  background: #f7f7f7
+}
+.checkbox{
+  border-bottom: 1rpx solid #e1e1e1;
+  margin-left: 20rpx;
+}
+
+.content{
+  font-size: 30rpx;
+  padding-top: 25rpx;
+  padding-bottom: 25rpx;
+  padding-left: 10rpx;
+  width: 640rpx;
+}
+.content-left{
+  font-size: 35rpx;
+  font-weight: bold;
+}
+.content-right{
+  font-size: 35rpx;
+  float: right;
+  margin-right:0rpx;
+  color: red
+}
+.content-bootm{
+  margin-top: 10rpx;
+  color: darkgray
+}
+.content-bootm-right{
+  float: right;
+  margin-right: 0rpx;
+}
+.content-mid{
+  margin-left: 10rpx;
+}
+
+.lookZdView{
+  width: 100%;
+  text-align: center;
+  font-size: 30rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  color: darkgray;
+}
+
+.footheight{
+  width: 100%;
+  height: 120rpx;
+}
+
+
+.flexheight{
+  width: 100%;
+  height: 120rpx;
+  position: fixed;
+  bottom: 0;
+  background: white;
+ border-top: 1rpx solid #e1e1e1;
+
+
+}
+.chekboxAll{
+  position: absolute;
+  width: 200rpx;
+  height: 120rpx;
+  text-align: center;
+  line-height: 120rpx;
+  font-size: 35rpx;
+}
+.chekZdCount{
+  width: 300rpx;
+  height: 50rpx;
+  position: absolute;
+  left: 200rpx;
+  top: 10rpx;
+  line-height: 50rpx;
+  text-align: left;
+  font-size: 30rpx;
+  color: red;
+  
+}
+.money{
+  width: 255rpx;
+  height: 50rpx;
+  position: absolute;
+  left: 200rpx;
+  bottom: 10rpx;
+  line-height: 50rpx;
+  text-align: left;
+  font-size: 30rpx;
+  color: red;
+  white-space:nowrap;
+  overflow:hidden;
+}
+.payclass{
+  width: 200rpx;
+  height: 90rpx;
+  position: absolute;
+  right: 30rpx;
+  bottom: 15rpx;
+  line-height: 90rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: white;
+  background: red;
+  border-radius: 8rpx;
+  background: #1fc2b2;
+}
+.noLszdList{
+  text-align: center;
+  height: 200rpx;
+  line-height: 200rpx;
+}

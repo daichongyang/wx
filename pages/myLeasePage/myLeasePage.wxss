@@ -1,0 +1,123 @@
+/* pages/myLeasePage/myLeasePage.wxss */
+page{
+  background: #f7f7f7
+}
+.wrapper{
+  width: 100%;
+  height: 100%;
+}
+.wrapper-jx{
+  background: white;
+  margin-top: 30rpx;
+  border-bottom: 1rpx solid #e5e5e5
+}
+
+.jxfy{
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 30rpx;
+  padding-left: 20rpx;
+  font-weight: bold;
+}
+.ckxq-box{
+  height: 100rpx;
+  position: relative;
+}
+.ckxq{
+  position: absolute;
+  top: 20rpx;
+  right: 30rpx;
+  width: 150rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-weight: normal;
+  text-align: center;
+  font-size: 26rpx;
+  background: #e0f3f2;
+  color: #518e8a;
+  border-radius: 8rpx;
+}
+ .wrapper-item{
+   background: #f7f7f7;
+  width: 100%;
+  height: 260rpx;
+  border-bottom: 1px solid #e5e5e5;
+ overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; 
+}
+ .left-item{
+   float: left;
+   /* background: red; */
+   height: 100%;
+   width: 35%;
+ }
+.right-item{
+  float: left;
+  /* background: blue; */
+  height: 80%;
+  width: 65%;
+  margin-top: 20rpx;
+}
+.left-item view{
+  height: 160rpx;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 20rpx;
+  text-align: center;
+  line-height: 160rpx;
+}
+.left-item view image{
+  width: 100%;
+  height: 100%;
+  border-radius: 10rpx;
+}
+.right-item view{
+  line-height: 40rpx;
+  font-size: 22rpx;
+}
+.right-item view:nth-child(1){
+  font-size: 30rpx;
+}
+.right-item view:nth-child(2){
+  color: darkgray
+}
+.right-item view:nth-child(3){
+  color: darkgray
+}
+.label-item{
+  margin-right: 10rpx;
+  border-radius: 8rpx;
+  padding: 6rpx;
+  background: #e0f3f2;
+  color: #518e8a;
+  font-size: 22rpx;
+}
+.label-right-item{
+  display: block;
+  font-size: 35rpx;
+  color: #fb625e;
+  margin-top: 15rpx;
+}
+
+.refreshClick{
+  text-align: center;
+  width: 100%;
+  height: 80rpx;
+  font-size: 28rpx;
+  line-height: 80rpx;
+}
+.noReservationlist{
+  color: darkgray;
+  width: 100%;
+  height: 300rpx;
+  line-height: 300rpx;
+  text-align: center;
+}
+
+.chxq-two{
+  right: 190rpx;
+}
+.chxq-three{
+  right: 350rpx;
+}

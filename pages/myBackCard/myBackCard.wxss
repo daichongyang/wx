@@ -1,0 +1,74 @@
+/* pages/myBackCard/myBackCard.wxss */ 
+page{
+  background: #f7f7f7;
+}
+
+.header{
+  margin-top: 30rpx;
+}
+.header2{
+  margin-top:20rpx;
+}
+.header,.header2 text{
+  padding-left: 30rpx;
+  color: darkgray;
+  font-size: 30rpx;
+  padding-bottom: 10rpx;
+}
+.cantant{
+  background: white;
+}
+.item{
+  margin-left:32rpx;
+  font-size: 30rpx;
+  height:100rpx;
+  border-bottom: 1rpx solid #e1e1e1;
+  overflow:hidden;
+  display:flex;
+  align-items: center;
+  justify-content:space-between; 
+}
+.item view{
+  width:420rpx;
+  display:flex;
+}
+.right{
+  color: dimgray;
+}
+
+.footer{
+  position: fixed;
+  height: 120rpx;
+  width: 100%;
+  bottom: 0rpx;
+  background: white;
+  text-align: center;
+}
+
+.footer button{
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 30rpx;
+  width: 95%;
+  margin-top: 10rpx;
+  background: #1fc2b2;
+  color: white;
+}
+.next{
+  margin-top:110rpx;
+}
+.next button{
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 30rpx;
+  background: #1fc2b2;
+  color: white;
+  margin:0 24rpx 0 24rpx;
+}
+.item_view{
+  display:flex;
+  justify-content: space-between;
+}
+.item_logo{
+  margin-right:34rpx;
+}

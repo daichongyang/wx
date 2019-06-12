@@ -1,0 +1,212 @@
+
+.header{
+  width: 750rpx;
+  height: 80rpx;
+  border-bottom: 1px solid #f2f2f2;
+  box-sizing: border-box;
+}
+
+.tab-list {
+  vertical-align: middle;
+  text-align: center;
+  display: inline-block;
+  width: 150rpx;
+  height: 100%;
+  font-size: 30rpx;
+  color: #4e4e4e;
+  line-height: 80rpx;
+}
+.mask{
+  width: 100%;
+  text-align: center;
+  position: fixed;
+  top: 80rpx;
+  bottom: 0;
+  background: rgba(1, 1, 1, 0.3);
+}
+.swarp{
+  background: white;
+  width: 100%;
+  font-size: 30rpx;
+
+}
+.sorting{
+  width: 100%;
+  height: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+}
+.doorMode{
+  display: inline-block;
+  width: 125rpx;
+  text-align: center;
+  height: 100rpx;
+  line-height: 100rpx;
+}
+.rent{
+  width: 100%;
+  height: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+}
+.slider{
+  width: 100%;
+  text-align: center;
+}
+.slider view{
+  margin-top: 20rpx;
+}
+slider{
+  margin: 0 auto;
+  margin-top: 20rpx;
+  width: 80%;
+}
+
+
+
+button{
+  margin-top: 20rpx;
+  width: 95%;
+  background: #1fc2b1;
+  color: white;
+}
+.btn-group{
+  border-top: 1rpx solid #f3f3f3
+}
+.ok{
+  margin-top: 50rpx;
+  width: 95%;
+  background: #1fc2b1;
+  color: white;
+}
+.checkbox{
+  font-size: 30rpx;
+  line-height: 60rpx;
+  height: 60rpx;
+  width: 160rpx;
+  border-radius: 10rpx;
+  border: 1px solid #bababa;
+  color: #bababa
+}
+
+/*checkbox 选项框大小  */
+checkbox .wx-checkbox-input {
+  display: none;
+}
+.selectCheckbox{
+  text-align: center;
+  font-size: 30rpx;
+  line-height: 60rpx;
+  height: 60rpx;
+  width: 160rpx;
+  border-radius: 10rpx;
+  border: 1px solid #1fc2b2;
+  color: #1fc2b2
+}
+.sx view{
+  margin: 20rpx;
+  color: #4e4e4e;
+  font-size: 30rpx;
+  margin-left: 40rpx;
+}
+checkbox{
+  margin-left: 60rpx;
+  margin-top: 10rpx;
+  margin-bottom: 30rpx;
+  text-align: center;
+}
+
+.qy-item{
+  font-size: 30rpx;
+  float: left;
+  height: 600rpx;
+}
+.qy-item-one{
+  height: 80rpx;
+  position: relative;
+}
+.qy-item-one text{
+  display: block;
+  position: absolute;
+  top: 20rpx;
+  border-left: 10rpx solid #1fc2b2;
+  width: 100%;
+  height: 40rpx;
+  color: #1fc2b2;
+}
+.qy-item-two{
+  line-height: 80rpx;
+  height: 80rpx;
+  color: #bbbbbb
+}
+
+
+.nowrap{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; 
+}
+
+.wrapper-item{
+  width: 100%;
+  height: 260rpx;
+  border-bottom: 1px solid #e5e5e5;
+}
+ .left-item{
+   float: left;
+   /* background: red; */
+   height: 100%;
+   width: 35%;
+ }
+.right-item{
+  float: left;
+  /* background: blue; */
+  height: 80%;
+  width: 65%;
+  margin-top: 20rpx;
+}
+.left-item view{
+  height: 160rpx;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 20rpx;
+  text-align: center;
+  line-height: 160rpx;
+}
+.left-item view image{
+  width: 100%;
+  height: 100%;
+  border-radius: 10rpx;
+}
+.right-item view{
+  line-height: 40rpx;
+  font-size: 22rpx;
+}
+.right-item view:nth-child(1){
+  font-size: 30rpx;
+}
+.right-item view:nth-child(2){
+  color: darkgray
+}
+.right-item view:nth-child(3){
+  color: darkgray
+}
+.label-item{
+  margin-right: 10rpx;
+  border-radius: 8rpx;
+  padding: 6rpx;
+  background: #e0f3f2;
+  color: #518e8a;
+  font-size: 22rpx;
+ 
+}
+.label-right-item{
+  display: block;
+  font-size: 30rpx;
+  color: #fb625e;
+  margin-top: 15rpx;
+}
+
+.sx{
+  text-align: left;
+}

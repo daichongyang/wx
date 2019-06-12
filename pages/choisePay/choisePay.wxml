@@ -1,0 +1,46 @@
+<!--pages/choisePay/choisePay.wxml-->
+<view class='contant'>
+  <view class='gray'></view>
+
+  <!-- 支付金额 -->
+
+  <view class='pay_money'>
+    <view class='pay_money_view'>
+      <text>账单金额</text>
+      <text class='red_money'>￥2224</text>
+    </view>
+    <view>
+      <text>服务费</text>
+      <text class='red_money'>￥5</text>
+    </view>
+  </view>
+  <view class='gray'></view>
+  <view class='gray'></view>
+
+<!-- 选择需要支付的支付方式 -->
+
+  <view class='choise_car'>
+    <view class='item'>
+      <view class='item_view'>
+        <image class='choise_img' mode="widthFix" src='../../img/my/choisedCar.png'></image>
+        <text>工商银行信用卡 (2181）</text>
+      </view>
+      <view class='green' bindtap='bindingCarNext'>更换</view>
+    </view>
+    <!-- <view class='item'>
+      <text>扫码支付</text>
+    </view> -->
+    <view class='item calcel_bottom'>
+      <view class='item_view'>
+        <image class='choise_img' mode="widthFix" src='../../img/my/choise_car.png'></image>
+        <text>微信支付</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 去付款 -->
+
+  <button class='button' bindtap='goPaySuccese'>去支付</button>
+
+</view>
+ 

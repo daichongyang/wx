@@ -1,0 +1,141 @@
+
+.houseBox{
+  background: white;
+  border-top: 10rpx solid #f7f7f7
+}
+.wrapper-item{
+  width: 100%;
+  margin-top: 30rpx;
+}
+ .left-item{
+   float: left;
+   height: 160rpx;
+   width: 200rpx;
+   margin-left: 20rpx;
+ }
+.right-item{
+  float: left;
+  width: 500rpx;
+  margin-left: 20rpx;
+  word-wrap:break-word;
+  word-break: break-all;
+}
+
+.left-item image{
+  width: 100%;
+  height: 100%;
+  border-radius: 10rpx;
+}
+.right-item view{
+  clear: both;  
+}
+.right-item view:nth-child(1){
+  font-size: 32rpx;
+}
+.right-item view:nth-child(2){
+  color: darkgray;
+  font-size: 26rpx;
+}
+.right-item view:nth-child(3){
+  color: darkgray;
+  font-size: 26rpx;
+}
+.label-item{
+  display: inline-block;
+  margin-right: 10rpx;
+  border-radius: 8rpx;
+  margin: 6rpx;
+  padding: 10rpx;
+  background: #e0f3f2;
+  color: #518e8a;
+  font-size: 22rpx;
+  
+}
+.label-right-item{
+  display: block;
+  font-size: 35rpx;
+  color: #fb625e;
+  margin-top: 15rpx;
+}
+.bottom-view{
+  clear: both;
+  border-bottom: 1rpx solid #e1e1e1;
+  background: white;
+  height: 30rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+}
+
+.bottom-item{
+  height: 100rpx;
+  border-bottom: 1rpx solid #e1e1e1;
+  line-height: 100rpx;
+  margin-left: 20rpx;
+  font-size: 30rpx;
+  margin-right: 20rpx;
+}
+input{
+  text-align: right;
+  width: 50%;
+  float: right;
+  height: 80rpx;
+  margin-top: 10rpx;
+  font-size: 30rpx;
+  padding-right: 50rpx;
+}
+.right-text{
+  text-align: right;
+  height: 100%;
+  width: 60%;
+  float: right;
+  padding-right: 20rpx;
+}
+.textarea{
+  margin-top: 20rpx;
+   margin-left: 20rpx;
+  margin-right: 20rpx;
+  width: 90%;
+  height: 280rpx;
+  border-bottom: 1rpx solid #e1e1e1;
+  font-size: 30rpx;
+  position: relative;
+}
+textarea{
+  width: 100%;
+  height: 100%;
+}
+.maxLength{
+  position: absolute;
+  bottom: 15rpx;
+  right: 10rpx;
+  font-size: 25rpx;
+  color: darkgray;
+}
+.gd-zc{
+  width: 100%;
+  height: 120rpx;
+}
+
+.yylookCss{
+  position: fixed;
+  bottom: 0rpx;
+  width: 100%;
+  height: 120rpx;
+  border-top: 5rpx solid #f7f7f7;
+  background: white;
+  z-index: 100;
+}
+.yylookCss button{
+  margin-top: 10rpx;
+  width: 90%;
+  height: 100rpx;
+  color: white;
+  background: #1fc2b2;
+  line-height: 100rpx;
+  font-size: 35rpx;
+
+}
+
+
+
+

@@ -1,0 +1,112 @@
+<!-- 头像头部 -->
+<view style='background: white;'>
+<view  class='header'>
+  <view class='header-left'>
+   <image class='img' src='{{headerImage}}'></image>
+  </view>
+  <view class='header-right' bindtap='headerClick' >
+    <view class='right-top'>{{name}}</view>
+    <view class='right-bottom'>
+      {{myDetail}}
+    </view>
+  </view>
+  <image catchtap='msgClick' class='msgImage' src='../../img/home/bb_sy_03@2x.png'></image>
+  <view class='redIndex' hidden='{{msgIndex != 1}}'></view>
+</view>
+
+
+
+<!-- 支付房租 我的租约 智能水电表 保修保养-->
+<view class='rentType'>
+  <view class='rentTpye-top rentTpye-top11'>
+    <view bindtap='contentClick' data-text='支付房租'>
+      <image class='img' src='../../img/my/gy_03_03.png'></image>
+      <view class='rentTpye-bottom'>支付房租</view>
+    </view>
+    <view bindtap='contentClick' data-text='我的租约'>
+      <image class='img' src='../../img/my/gy_03_05.png'></image>
+      <view class='rentTpye-bottom'>我的租约</view>
+    </view>
+    <view bindtap='contentClick' data-text='智能水电表'>
+      <image class='img' src='../../img/my/gy_03_07.png'></image>
+      <view class='rentTpye-bottom'>智能水电表</view>
+    </view>
+    <view bindtap='contentClick' data-text='报修保养'>
+      <image class='img' src='../../img/my/gy_03_09.png'></image>
+      <view class='rentTpye-bottom'>保修保养</view>
+    </view>
+  </view>
+</view>
+
+<!-- 我的预约 我的预定 我的关注 我的发布 -->
+<view class='rentType rentType-two'>
+  <view class='rentTpye-top rentTpye-topTwo'>
+    <view bindtap='contentClick' data-text='我的预约'>
+     <view>{{myyy}}</view>
+      <view class='rentTpye-bottom'>我的预约</view>
+    </view>
+    <view bindtap='contentClick' data-text='我的预定'>
+     <view>{{myyd}}</view>
+      <view class='rentTpye-bottom'>我的预定</view>
+    </view>
+    <view bindtap='contentClick' data-text='我的关注'>
+     <view>{{mygz}}</view>
+      <view class='rentTpye-bottom'>我的关注</view>
+    </view>
+    <view bindtap='contentClick' data-text='我的发布'>
+     <view>{{myfb}}</view>
+      <view class='rentTpye-bottom'>我的发布</view>
+    </view>
+  </view>
+</view>
+
+<!-- 通知天气等 -->
+<view class='notice-box' bindtap='noticeClick'>
+  <view class='notice'>
+    <image class='img' src='../../img/my/bb_wd_09@2x.png'></image>
+    <text>{{title}}</text>
+  </view>
+</view>
+
+<!-- 入住人信息 -->
+<view class='item-one' bindtap='footClick' data-text='入住人信息'>
+  <text>入住人信息</text>
+  <text class='text-one'>▸</text>
+</view>
+
+<view class='item-one' bindtap='footClick' data-text='我是管理员'>
+  <text>我是管理员</text>
+  <text class='text-one'>▸</text>
+</view>
+
+<!-- <view class='item-one' bindtap='footClick' data-text='我的积分'>
+  <text>我的积分</text>
+  <view class='text-one'>▸</view>
+</view>
+
+<view class='item-one' bindtap='footClick' data-text='投诉与反馈'>
+  <text>投诉与反馈</text>
+  <view class='text-one'>▸</view>
+</view>  -->
+
+<view class='item-one' bindtap='footClick' data-text='设置'>
+  <text>设置</text>
+  <text class='text-one'>▸</text>
+</view>
+
+</view>
+
+
+<!-- 门禁权限 -->
+<block wx:if='{{isTenant == 1}}'>
+  <view class='passCss' bindtap='passClick'>
+    <image src='../../img/home/bb_sy_21mj@2x.png'></image>
+  </view>
+</block>
+
+
+
+
+
+
+<!-- <button open-type="contact" bindcontact="handleContact">客服</button> -->

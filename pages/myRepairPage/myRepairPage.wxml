@@ -1,0 +1,72 @@
+<!--pages/myRepairPage/myRepairPage.wxml-->
+<view class='swiper'>
+
+  <view class='gdViewCss'>
+    <text class='left-text'>房源信息</text>
+    <picker class='riget-text' model='selector' range='{{houseList}}' bindchange='houseBindchange'>{{houseName}} ▾
+    </picker>
+  </view>
+
+  
+  <view class='gdViewCss'><text class='left-text'>联系人</text><input bindinput='bindinputName'  placeholder='请输入联系人名字' value='{{name}}' class='riget-text right-input'></input></view>
+  <view class='gdViewCss'><text class='left-text'>联系电话</text><input bindinput='bindinputPhone'  placeholder='请输入手机号码' value='{{phone}}' type='number' class='riget-text right-input'></input></view>
+  
+  
+  <view class='gdViewCss' bindtap='selcetdTypeClick'>
+    <text class='left-text'>分类</text>
+    <picker class='riget-text' 
+    bindchange='typeBindchange'
+    disabled='{{typedisabled}}' 
+    range='{{applyTypes}}'>{{typeName}} ▾ 
+    </picker>
+  </view>
+  
+  
+  
+  <view class='gdViewCss'>
+      <text class='left-text'>预约时间</text>
+
+      <picker 
+        class='riget-text dateCss'  
+        mode="time"
+        value="{{date}}"
+        start="{{startTime}}"
+        bindchange="bindTimeChange"
+        end="{{endTime}}">{{time}} ▾
+      </picker>
+
+      <picker 
+        class='riget-text dateCss'  
+        mode="date"
+        value="{{date}}"
+        start="{{startTime}}"
+        bindchange="bindDateChange"
+        end="{{endTime}}">{{date}} ▾
+      </picker>    
+  </view>
+
+  <view class='tdesc'>
+    <textarea bindinput='bindinputTextareaClick' placeholder='请描述报修保养具体问题（140字以内）'></textarea>
+  </view>
+
+
+  <view class='imgBox'>
+ <scroll-view scroll-x>
+          <block wx:for='{{imgList}}' wx:key='key'>
+            <image bindtap='lookImageClick' data-id='{{index}}' aspectFit='true' class='img-imet' src='{{item}}'>
+              <view catchtap='deltelImage' class='deltelImage' data-id='{{index}}'>X</view>
+            </image>
+          </block>
+          <image class='img-imet' bindtap='addImageClick' src='../../img/my/add44@2x.png'></image>
+    </scroll-view>      
+ </view>
+
+ <view class='button-box'>
+    <button bindtap='overClick'>申请</button>
+ </view>
+
+
+</view>
+
+
+ 

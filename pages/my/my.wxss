@@ -1,0 +1,168 @@
+page{
+  background: #f7f7f7;
+}
+.header{
+  margin-top: 20rpx;
+  background: white;
+  width: 750rpx;
+  height: 150rpx
+}
+.msgImage{
+  width: 50rpx;
+  height: 50rpx;
+  position: absolute;
+  top: 50rpx;
+  right: 30rpx;
+}
+.redIndex{
+  position: absolute;
+  width: 15rpx;
+  height: 15rpx;
+  top: 45rpx;
+  right: 25rpx;
+  border-radius: 100%;
+  background: red;
+}
+.header-left{
+  float: left;
+  height: 100%;
+  width: 150rpx;
+  text-align: center;
+  margin-left: 20rpx;
+}
+.header-left image{
+  margin-top:25rpx; 
+  width: 130rpx;
+  height: 130rpx;
+  border-radius: 100%;
+}
+
+.header-right{
+  float: left;
+  width: 480rpx;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.right-top{
+  padding-left: 20rpx;
+  margin-top: 20rpx;
+  font-size: 30rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  height: 50%;
+  line-height: 75rpx;
+  overflow: hidden
+}
+.right-bottom{
+  padding-left: 20rpx;
+  font-size: 26rpx;
+  color: darkgray;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  height: 50%;
+  line-height: 75rpx;
+  overflow: hidden
+}
+
+.notice-box{
+  background: white;
+  width: 750rpx;
+  height: 100rpx;
+  position: relative;
+}
+.notice{
+  background: #f7f7f7;
+  width: 100%;
+  height: 100rpx;
+  position: absolute;
+  line-height: 100rpx;
+  display: inline-block;
+}
+.notice image{
+  float: left;
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 30rpx;
+  margin-top: 35rpx;
+}
+
+.notice text{
+  margin-left: 20rpx;
+  float: left;
+  font-size: 25rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 610rpx;
+}
+.rentType{
+  margin-top: 20rpx;
+  color: darkgray;
+  height: 160rpx;
+  width: 750rpx;
+  font-size: 25rpx;
+  text-align: center;
+  background: white
+}
+.rentTpye-top11{
+  margin-top: 40rpx;
+}
+
+.rentTpye-top > view{
+  float: left;
+  height: 100%;
+  width: 187rpx;
+  margin-top: 20rpx;
+  color: black
+}
+ .img{
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.rentTpye-topTwo > view{
+  width: 187rpx;
+  font-size: 25rpx;
+
+}
+.rentType-two{
+  font-size: 25rpx;
+  color: darkgrey
+}
+.rentTpye-bottom{
+  margin-top: 10rpx;
+}
+.item-one{
+  background: white;
+  border-bottom: 1rpx solid #e1e1e1;
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 30rpx;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+}
+.item-one text{
+  margin-left: 0rpx;
+}
+
+.text-one{
+  height: 100%;
+  float: right;
+  margin-right: 10rpx;
+  color: #bbbbbb
+}
+
+/* 门禁通行证 */
+.passCss{
+  position: fixed;
+  right: 50rpx;
+  bottom: 50rpx;
+  width: 100rpx;
+  height: 100rpx;
+  overflow: hidden;
+}
+.passCss image{
+  width: 100%;
+  height: 100%;
+}

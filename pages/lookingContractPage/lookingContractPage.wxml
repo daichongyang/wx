@@ -1,0 +1,7 @@
+<!--pages/lookingContractPage/lookingContractPage.wxml-->
+<!-- <web-view type="text/javascript" src="{{url}}"></web-view> -->
+<view class='index'>点击查看大图</view>
+
+<view class='imgView'>
+<image bindtap='lookBigClick' src="{{url}}"></image>
+</view>

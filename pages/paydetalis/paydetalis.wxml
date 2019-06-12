@@ -1,0 +1,53 @@
+<!--pages/paydetalis/paydetalis.wxml-->
+<view class=''>
+  <view class='gray'></view>
+
+  <!-- 支付状态和费用 -->
+
+  <view class='status_money'>
+    <view class='item'>        
+      <text>已支付</text>
+      <image class='phone_img' mode="widthFix" src='../../img/my/par_succese1.png'></image>
+    </view>
+    <view class='item_details'>        
+      <view style='margin-top:34rpx;'>电费</view>
+      <view class='item_details_cont'>
+        <text class='font_size40'>￥</text>
+        <text class='font_size80'>50.7</text>
+        <text class='font_size26'>服务费：</text>
+        <text class='font_size26'>￥5</text>
+      </view>
+      <view class='item_time'>
+        <text style='margin-right:20rpx;'>2018.11.30</text>
+        <text>12:10:02已支付</text>
+      </view>
+    </view>
+    <!-- 支付的内容 -->
+    <view class='item_pay_details'>
+      <view class='pay_item'>
+        <text>用电量</text>
+        <text>50.7度</text>
+      </view>
+      <view class='pay_item'>
+        <text>单价</text>
+        <text>50.7元/度</text>
+      </view>
+      <view class='pay_item'>
+        <text>本期最后度数</text>
+        <text>50.7度</text>
+      </view>
+      <view class='pay_item'>
+        <text>本期开始度数</text>
+        <text>50.7度</text>
+      </view>
+      <view class='pay_item'>
+        <text>账单编号</text>
+        <text>50.7度</text>
+      </view>
+      <view class='pay_item item_pay_details_last'>
+        <text>备注</text>
+        <text>50.7度</text>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,20 @@
+<!--pages/leaseTenant/leaseTenant.wxml-->
+<block wx:if='{{leaseTenantlist.length}}'>
+ <block wx:for='{{leaseTenantlist}}' wx:key='key' wx:for-item='itemBox'>
+  <view class='leaseTenant-box'>
+    <view class='item-top'>{{itemBox.title}}</view>
+    <blocl wx:for='{{itemBox.detailVos}}' wx:key='key'>
+    <view class='item-bottom'>
+      <image src='{{item.headImg}}'></image>
+      <view>{{item.name}}</view>
+    </view>
+
+    </blocl>
+  </view>
+  </block>
+
+</block>
+
+<block wx:else>
+    <view class='noData'>空空如也</view>
+</block>

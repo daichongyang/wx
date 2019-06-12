@@ -1,0 +1,52 @@
+<!--pages/waterMeterList/waterMeterList.wxml-->
+<block wx:for='{{dataSourceList}}' wx:key='key'>
+  <view class='waterMeter-box'>
+
+    <block wx:if='{{item.devType == 1}}'>
+      <view class='header'>
+        <image src='../../img/my/bb_znsd_02@2x.png'></image>
+        <text>智能冷水表-{{item.gyName}}{{item.houseName}}</text>
+      </view>
+    </block>
+
+     <block wx:if='{{item.devType == 2}}'>
+      <view class='header'>
+        <image src='../../img/my/bb_znsd_01@2x.png'></image>
+        <text>智能电表-{{item.gyName}}{{item.houseName}}</text>
+      </view>
+    </block>
+
+     <block wx:if='{{item.devType == 4}}'>
+      <view class='header'>
+        <image src='../../img/my/bb_znsd_02@2x.png'></image>
+        <text>智能热水表-{{item.gyName}}{{item.houseName}}</text>
+      </view>
+    </block>
+
+
+    <view class='content'>
+      <view class='content-item'><text>计费开始时间</text><text class='text-right'>{{item.startTime}}</text></view>
+      <view class='content-item'><text>计费结束时间</text><text class='text-right'>{{item.endTime}}</text></view>
+      <view class='content-item'><text>计费开始时间读数</text><text class='text-right'>{{item.startNum}}</text></view>
+      <view class='content-item'><text>结束时间读数</text><text class='text-right'>{{item.currNum}}</text></view>
+      <view class='content-item'><text>单价</text><text class='text-right'>{{item.unitPrice}}</text></view>
+       <view class='content-item'><text>表应激费用</text><text class='text-right'>{{item.totalPrice}}</text></view>
+       <!-- <view class='content-item'><text>下一期收费时间</text><text class='text-right'>{{item.nextStartTime}}</text></view> -->
+    </view>
+
+    <view class='footer'>
+      <view data-id='{{index}}' bindtap='historicalRecordClick'>历史记录</view>
+    </view>
+
+  </view>
+</block>
+
+
+<block wx:if='{{!dataSourceList.length}}'>
+  <view class='noListCss'>空空如也...</view>
+</block>
+
+
+
+
+

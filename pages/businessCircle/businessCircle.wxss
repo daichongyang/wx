@@ -1,0 +1,210 @@
+.header{
+  height: 80rpx;
+  width: 100%;
+  display: flex;
+}
+.header-left{
+  width: 200rpx;
+  height: 80rpx;
+  text-align: center;
+  font-size: 30rpx;
+  line-height: 80rpx;
+  float: left;
+}
+.header-mid{
+  width: 450rpx;
+  height: 80rpx;
+  float: left;
+  background: #f7f7f7;
+  position: relative;
+  border-radius: 80rpx;
+
+}
+.header-mid image{
+  position: absolute;
+  width: 30rpx;
+  height: 30rpx;
+  top: 25rpx;
+  left: 30rpx;
+}
+.header-mid text{
+position: absolute;
+left: 80rpx;
+line-height: 80rpx;
+ font-size: 30rpx;
+ color: darkgray;
+}
+.header-right{
+  float: left;
+  width: 150rpx;
+  height: 80rpx;
+  position: relative;
+}
+.header-right image{
+  position: absolute;
+  width: 50rpx;
+  height: 50rpx;
+  top: 15rpx;
+  left: 50rpx;
+}
+.header-right view{
+  width: 15rpx;
+  height: 15rpx;
+  position: absolute;
+  background: red;
+  border-radius: 100%;
+  right: 40rpx;
+  top: 12rpx;
+}
+
+swiper{
+  margin-top: 20rpx;
+  width: 750rpx;
+  height: 300rpx;
+  /* background: olive; */
+}
+
+.slide-image{
+  width: 100%;
+  height: 100%;
+}
+
+.rentType{
+  color: darkgray;
+  margin-top: 30rpx;
+  /* height: 280rpx; */
+   height: 140rpx;
+  width: 750rpx;
+  font-size: 24rpx;
+  text-align: center;
+  /* border-bottom: 1px solid #e5e5e5; */
+
+}
+.rentTpye-top,.rentTpye-bottom{
+  display: flex;
+  flex-direction: row;
+  width: 750rpx;
+  height: 140rpx;
+  flex-wrap: nowrap;
+}
+
+.rentTpye-top > view,.rentTpye-bottom > view{
+  height: 100%;
+  width: 188rpx;
+  align-items: center;
+
+}
+ .img{
+  width: 60rpx;
+  height: 60rpx;
+}
+.rentTpye-top view view{
+  margin-top: 10rpx;
+}
+
+.jxfy{
+  height: 90rpx;
+  line-height: 90rpx;
+  font-size: 30rpx;
+  padding-left: 30rpx;
+  text-align: center;
+}
+.jxfy image{
+  width: 500rpx;
+  height: 30rpx;
+}
+
+.wrapper-item{
+  width: 100%;
+  height: 200rpx;
+  border-bottom: 1px solid #e5e5e5;
+ overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; 
+  position: relative;
+}
+.phoneCss{
+  position: absolute;
+  width: 40rpx;
+  height: 40rpx;
+  right: 40rpx;
+  top: 80rpx;
+}
+.phoneCss image{
+  width: 100%;
+  height: 100%;
+}
+ .left-item{
+   float: left;
+   /* background: red; */
+   height: 100%;
+   width: 35%;
+ }
+.right-item{
+  float: left;
+  /* background: blue; */
+  height: 80%;
+  width: 65%;
+  margin-top: 20rpx;
+}
+.left-item view{
+  height: 160rpx;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 20rpx;
+  text-align: center;
+  line-height: 160rpx;
+}
+.left-item view image{
+  width: 100%;
+  height: 100%;
+  border-radius: 10rpx;
+}
+.right-item view{
+  line-height: 40rpx;
+  font-size: 22rpx;
+}
+.right-item view:nth-child(1){
+  font-size: 30rpx;
+   margin-top: 10rpx;
+}
+.right-item view:nth-child(2){
+  color: darkgray;
+  margin-top: 10rpx;
+}
+.right-item view:nth-child(3){
+  color: darkgray;
+ margin-top: 10rpx;
+}
+.label-item{
+  margin-right: 10rpx;
+  border-radius: 8rpx;
+  padding: 6rpx;
+  background: #e0f3f2;
+  color: #518e8a;
+  font-size: 22rpx;
+}
+.label-right-item{
+  display: block;
+  font-size: 35rpx;
+  color: #fb625e;
+  margin-top: 15rpx;
+}
+
+
+
+
+/* 门禁通行证 */
+.passCss{
+  position: fixed;
+  right: 50rpx;
+  bottom: 50rpx;
+  width: 100rpx;
+  height: 100rpx;
+  overflow: hidden;
+}
+.passCss image{
+  width: 100%;
+  height: 100%;
+}
+

@@ -1,0 +1,34 @@
+
+page{
+  background:#f7f7f7;
+  height:100%;
+}
+.container_box {
+  background-color: #f7f7f7;
+  height: 100%; 
+  margin-top:20rpx;
+}
+.money{
+  font-size:80rpx;
+  margin-top:40rpx;
+  margin-bottom:10rpx;
+}
+.logoQRCode {
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content:center;
+  margin:0 20rpx;
+  padding-top:30rpx;
+}
+.money_ewm{
+  color:#1fc2b2;
+  width:200px;
+  margin:0 auto;
+  display:flex;
+  font-size:26rpx;
+  justify-content: space-between;
+  margin-bottom:90rpx;
+
+}
