@@ -37,7 +37,7 @@ const readNotice = (msgId) => { return requestApi("post", "/notice/read/" + msgI
 const getVerifyCode = (params) => { return requestApi("post", "/apVerifyCode/getVerifyCode/" + params.phoneNum) } 
 
 // 验证手机验证码
-const verifyCode = (params) => { return requestApi("post", "/apVerifyCode/verifyCode/" + params.code + "/"+ params.phoneNum) } 
+const verifyCode = (params) => { return requestApi("post", "/apVerifyCode/verifyCode/" + params.code + "/"+ params.phoneNum) }
 // 原生扫码支付
 let wNativePay = (params) => { return requestApi("post", "/icbc/wNativePay/" + params.orderId + "/" + params.payType) } 
 // 城市选择请求接口
