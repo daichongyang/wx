@@ -7,9 +7,16 @@
 }
 .water_starTime {
   font-size: 28rpx;
+  color: #222222;
+}
+.water_line {
+  background-color: #e1e1e1;
+  width: 2rpx;
+  height: 60%;
 }
 .water_endTime {
   font-size: 28rpx;
+  color: #222222;
 }
 .water_category {
   background-color: white;
@@ -17,9 +24,7 @@
   justify-content: space-around;
   align-items: center;
   height: 100rpx;
-}
-.category_view {
-  font-size: 28rpx;
+  border-top: solid #e1e1e1 2rpx;
 }
 
 .water_moddle {
@@ -30,19 +35,26 @@
 }
 .water_money {
   background-color: white;
-  height: 80%;
-  width: 30%;
+  height: 150rpx;
+  width: 215rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 .water_title {
-  font-size: 34rpx;
-  color: gray;
+  font-size: 24rpx;
+  color: #888888;
+  margin-left: 12rpx;
 }
 .water_price {
-  font-size: 40rpx;
+  font-size: 34rpx;
+  color: #222222;
+  margin-left: 12rpx;
 }
 .water_num {
-  font-size: 28rpx;
-  color: gray;
+  font-size: 22rpx;
+  color: #222222;
+  margin-left: 12rpx;
 }
 
 .water_item {
@@ -58,16 +70,29 @@
 .bottom_left {
   display: flex;
 }
+.water_left {
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
 .waterlist_title {
-  font-size: 28rpx;
-
+  font-size: 30rpx;
+  color: #222222;
+  margin-left: 25rpx;
 }
 .waterlist_time {
-  font-size: 28rpx;
+  font-size: 24rpx;
+  color: #9b9b9b;
+  margin-left: 20rpx;
+  margin-top: 5rpx;
 }
 .waterlist_name {
-  font-size: 28rpx;
+  font-size: 24rpx;
+  color: #222222;
+  margin-left: 25rpx;
 }
 .waterlist_price {
   font-size: 36rpx;
+  margin-right: 25rpx;
 }

@@ -4,6 +4,7 @@
     <view class='water_top'>
       <view class='water_time'>
         <view class='water_starTime'>2019-03-14</view>
+        <view class='water_line'></view>
         <view class='water_endTime'>2019-05-14</view>
       </view>
       <view class='water_category'>
@@ -36,7 +37,7 @@
     <view class='water_bottom'>
       <block wx:for="{{waterData.list}}" wx:key="key">
         <view class='water_item'>
-          <view>
+          <view class='water_left'>
             <view class='bottom_left'>
               <view class='waterlist_title'>{{item.title}}</view>
               <view class='waterlist_time'>{{item.time}}</view>

@@ -7,9 +7,16 @@
 }
 .bill_starTime {
   font-size: 28rpx;
+  color: #222222;
+}
+.bill_line {
+  background-color: #e1e1e1;
+  width: 2rpx;
+  height: 60%;
 }
 .bill_endTime {
   font-size: 28rpx;
+  color: #222222;
 }
 .bill_category {
   background-color: white;
@@ -17,9 +24,11 @@
   justify-content: space-around;
   align-items: center;
   height: 100rpx;
+  border-top: solid #e1e1e1 2rpx;
 }
 .category_view {
   font-size: 28rpx;
+  color: #222222;
 }
 
 .bill_moddle {
@@ -30,19 +39,26 @@
 }
 .bill_money {
   background-color: white;
-  height: 80%;
-  width: 30%;
+  height: 150rpx;
+  width: 215rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 .bill_title {
-  font-size: 34rpx;
-  color: gray;
+  font-size: 24rpx;
+  color: #888888;
+  margin-left: 12rpx;
 }
 .bill_price {
-  font-size: 40rpx;
+  font-size: 34rpx;
+  color: #222222;
+  margin-left: 12rpx;
 }
 .bill_num {
-  font-size: 28rpx;
-  color: gray;
+  font-size: 22rpx;
+  color: #222222;
+  margin-left: 12rpx;
 }
 
 .bill_item {
@@ -59,24 +75,38 @@
   height: 75rpx;
 }
 .billlist_name {
-  font-size: 28rpx;
+  font-size: 26rpx;
+  color: #222222;
+  margin-left: 25rpx;
 }
 .billlist_state {
-  font-size: 28rpx;
-
+  font-size: 26rpx;
+  margin-right: 25rpx;
 }
 .billlist_bottom {
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 130rpx;
+  border-top: solid #e1e1e1 2rpx;
+}
+.left_container {
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 .billlist_type {
-  font-size: 34rpx;
+  font-size: 30rpx;
+  color: #222222;
+  margin-left: 25rpx;
 }
 .billlist_time {
-  font-size: 28rpx;
+  font-size: 26rpx;
+  color: #9b9b9b;
+  margin-left: 25rpx;
 }
 .billlist_price {
   font-size: 36rpx;
+  margin-right: 25rpx;
 }

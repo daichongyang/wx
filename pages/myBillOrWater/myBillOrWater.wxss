@@ -14,36 +14,40 @@ page {
 .billView_s {
   width: 250rpx;
   height: 60rpx;
-  background-color: blue;
-  font-size: 28rpx;
+  background-color: #00c3b2;
+  font-size: 26rpx;
   color: white;
   text-align: center;
   line-height: 60rpx;
+  border-radius: 12rpx 0 0 12rpx;
 }
 .billView_n {
   width: 250rpx;
   height: 60rpx;
   background-color: white;
-  font-size: 28rpx;
-  color: black;
+  font-size: 26rpx;
+  color: #222222;
   text-align: center;
   line-height: 60rpx;
+  border-radius: 12rpx 0 0 12rpx;
 }
 .waterView_s {
   width: 250rpx;
   height: 60rpx;
-  background-color: blue;
-  font-size: 28rpx;
+  background-color: #00c3b2;
+  font-size: 26rpx;
   color: white;
   text-align: center;
   line-height: 60rpx;
+  border-radius: 0 12rpx 12rpx 0;
 }
 .waterView_n {
   width: 250rpx;
   height: 60rpx;
   background-color: white;
-  font-size: 28rpx;
-  color: black;
+  font-size: 25rpx;
+  color: #222222;
   text-align: center;
   line-height: 60rpx;
+  border-radius: 0 12rpx 12rpx 0;
 }

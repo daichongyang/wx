@@ -5,6 +5,7 @@
     <view class='bill_top'>
       <view class='bill_time'>
         <view class='bill_starTime'>2019-03-14</view>
+        <view class='bill_line'></view>
         <view class='bill_endTime'>2019-05-14</view>
       </view>
       
@@ -43,11 +44,11 @@
             <view class='billlist_state'>{{item.stats}}</view>
           </view>
           <view class='billlist_bottom'>
-            <view>
+            <view class='left_container'>
               <view class='billlist_type'>{{item.type}}</view>
               <view class='billlist_time'>{{item.time}}</view>
             </view>
-            <view class='billlist_price'>{{item.price}}</view>
+            <view class='billlist_price'>¥ {{item.price}}</view>
           </view>
         </view>
       </block>
