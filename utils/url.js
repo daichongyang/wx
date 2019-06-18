@@ -11,7 +11,7 @@ let requestApi = function (method, url, data) {
       header: {
         "Authorization": app.globalData.userInfo.token,
       },
-      success:(res => {
+      success:(res => { 
         resolve(res)
       }),
       fail:(err => {
@@ -26,6 +26,13 @@ let requestApi = function (method, url, data) {
 var httpUrl = "https://www.ubicell.cn/apartment";
 // var httpUrl = "http://192.168.0.145:8080";
 // var httpUrl = "http://192.168.0.180:8080";
+
+
+// 用户确定绑定银行卡
+const bindUserCardReSure = (params) => { return requestApi("post", "/userCar/bindUserCardReSure", params) } 
+
+// 用户绑定银行卡
+const userCarbindUserCard = (params) => { return requestApi("post", "/userCar/bindUserCard", params) } 
 
 // 用手机号修改用户锁密码
 const updateLockPassWordByPhone = (params) => { return requestApi("post", "/hydroelectric/updateLockPassWordByPhone/" + params.houseId + "/" + params.passWordNew) }
@@ -133,8 +140,8 @@ var repairGetDetailUrl = httpUrl+"/repair/getDetail/";
 var repairRecallUrl = httpUrl+"/repair/recall/";
 
 //预定支付
-// var wechatPaycreateUrl = httpUrl + "/icbc/comPay/";
-var wechatPaycreateUrl = httpUrl + "/wechat/paycreate/";
+var wechatPaycreateUrl = httpUrl + "/icbc/comPay";
+// var wechatPaycreateUrl = httpUrl + "/wechat/paycreate/";
 // 工银小程序支付订单
 var icbcComPay = wechatPaycreateUrl;
 
@@ -152,8 +159,26 @@ var adminhydroelectricshowAndUpAllDevUrl = httpUrl + "/hydroelectric/showAndUpAl
 // 总账单 
 var adminIndexbilltotalUrl = httpUrl + "v1.0/admin/index/bill/total";
 
+// 用户设置支付密码
+const setCardPassWord = (params) => { return requestApi("post", "/userCar/setCardPassWord/"+ params.isNoPass + "/" + params.psw) } 
+
+// 通过房间查询清分信息
+const getDistributionByHouseId = (params) => { return requestApi("post", "/userCar/getDistributionByHouseId/" + params.houseId) } 
+
+// 用户银行卡支付
+const payByBankCar = (params) => { return requestApi("post", "/userCar/payByBankCar" , params) } 
+
+// 查询银行卡支付结果
+const getCardPayStatus = (params) => { return requestApi("post", "/userCar/getCardPayStatus" , params) } 
+
 
 module.exports = {
+  getCardPayStatus,
+  payByBankCar,
+  getDistributionByHouseId,
+  setCardPassWord,
+  bindUserCardReSure,
+  userCarbindUserCard,
   readNotice,
   updateLockPassWordByPhone,
   verifyCode,

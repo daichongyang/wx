@@ -74,6 +74,12 @@ Page({
       url: '/pages/myBackCard/myBackCard',
     })
   },
+  //设置支付密码
+  gosetPayPassword:function(){
+    wx.navigateTo({
+      url: '/pages/setPayPassword/setPayPassword',
+    })
+  },
   //点击X关闭蒙版
   offMaskClick:function(){
     this.setData({

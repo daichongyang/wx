@@ -9,7 +9,7 @@ page{
   padding:40rpx 0;
 }
 .pay_money_view{
-  margin-bottom:20rpx;
+  margin-top:20rpx;
 }
 .red_money{
   color:#fe615a;

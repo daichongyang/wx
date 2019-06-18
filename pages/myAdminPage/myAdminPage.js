@@ -63,8 +63,11 @@ Page({
         fail: function (res) { },
         complete: function (res) { },
       })
+    } else if (title == '账单/流水') {
+      wx.navigateTo({
+        url: '/pages/myBillOrWater/myBillOrWater'
+      })
     }
-
   },
 
   //请求待办事项数据

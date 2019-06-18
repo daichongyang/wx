@@ -1,0 +1,13 @@
+<!--pages/myBillOrWater/myBillOrWater.wxml-->
+<import src="myBillView.wxml"/>
+<import src="myWaterView.wxml"/>
+<view>
+  <view class='top_view'>   
+    <view class="{{isSelectBillView ? 'billView_s' : 'billView_n'}}" bindtap='changeSelectState' data-title="bill">账单列表</view>
+    <view class="{{isSelectBillView ? 'waterView_n' : 'waterView_s'}}" bindtap='changeSelectState' data-title="water">交易流水</view>
+  </view>
+
+  <!-- 判断显示 -->
+  <template wx:if="{{isSelectBillView}}" is="myBillView" data="{{billData}}"/>
+  <template wx:else is="myWaterView" data="{{waterData}}"/>
+</view>

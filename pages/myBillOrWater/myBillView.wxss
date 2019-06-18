@@ -1,0 +1,82 @@
+.bill_time {
+  background-color: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100rpx;
+}
+.bill_starTime {
+  font-size: 28rpx;
+}
+.bill_endTime {
+  font-size: 28rpx;
+}
+.bill_category {
+  background-color: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100rpx;
+}
+.category_view {
+  font-size: 28rpx;
+}
+
+.bill_moddle {
+  height: 200rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.bill_money {
+  background-color: white;
+  height: 80%;
+  width: 30%;
+}
+.bill_title {
+  font-size: 34rpx;
+  color: gray;
+}
+.bill_price {
+  font-size: 40rpx;
+}
+.bill_num {
+  font-size: 28rpx;
+  color: gray;
+}
+
+.bill_item {
+  background-color: white;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  margin-bottom: 20rpx;
+}
+.billlist_top {
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 75rpx;
+}
+.billlist_name {
+  font-size: 28rpx;
+}
+.billlist_state {
+  font-size: 28rpx;
+
+}
+.billlist_bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 130rpx;
+}
+.billlist_type {
+  font-size: 34rpx;
+}
+.billlist_time {
+  font-size: 28rpx;
+}
+.billlist_price {
+  font-size: 36rpx;
+}

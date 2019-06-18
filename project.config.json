@@ -40,7 +40,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 9,
+			"current": 10,
 			"list": [
 				{
 					"id": -1,
@@ -109,6 +109,14 @@
 					"id": -1,
 					"name": "入户修改密码2",
 					"pathName": "pages/setUserPassward2/setUserPassward2",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "绑定银行卡",
+					"pathName": "pages/myBackCard1/myBackCard1",
+					"query": "",
 					"scene": null
 				}
 			]

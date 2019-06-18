@@ -20,7 +20,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.loadDataSource();
+    
   },
   //点击查看详情
   reservationDetailsClick: function (e) {
@@ -95,6 +95,21 @@ Page({
       }
     })
   },
+  // 支付页面
+  gochoisePay(e){
+    var obj = this.data.reservationlist[e.currentTarget.dataset.id];
+    if (obj.rentCost < 0 || obj.rentCost == 0){
+      wx.showToast({
+        title: '支付金额必须大于0',
+        icon: 'none',
+        duration: 2000
+      })
+      return
+    }
+    wx.navigateTo({
+      url: '/pages/choisePay/choisePay?orderId=' + obj.orderId + '&houseId=' + obj.houseId + '&payMoney=' + obj.rentCost
+    })
+  },
   //点击加载更多
   refreshClick: function () {
     var current = this.data.current;
@@ -156,6 +171,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    this.setData({
+      reservationlist:[]
+    })
     if(this.data.black == true){
       this.data.reservationlist[this.data.index].payStatus = 1;
       console.log(this.data.reservationlist[this.data.index].picture);
@@ -165,6 +183,7 @@ Page({
           black:false,
         })
     }
+    this.loadDataSource();
   },
 
   /**

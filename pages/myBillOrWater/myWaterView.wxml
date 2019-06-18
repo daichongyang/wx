@@ -1,0 +1,51 @@
+<template name="myWaterView">
+  <view class='myWaterContainer'>
+    <!-- 顶部时间选择和分类 -->
+    <view class='water_top'>
+      <view class='water_time'>
+        <view class='water_starTime'>2019-03-14</view>
+        <view class='water_endTime'>2019-05-14</view>
+      </view>
+      <view class='water_category'>
+        <block wx:for="{{waterData.waterCategory}}" wx:key="key">
+          <view class='category_view'>{{item}}</view>
+        </block>
+      </view>
+    </view>
+
+    <!-- 记账数据 -->
+    <view class='water_moddle'>
+      <view class='water_money'>
+        <view class='water_title'>进出账合计</view>
+        <view class='water_price'>{{waterData.totalPrice}}</view>
+        <view class='water_num'>{{waterData.totalNum}}笔</view>
+      </view>
+      <view class='water_money'>
+        <view class='water_title'>进账</view>
+        <view class='water_price'>{{waterData.inPrice}}</view>
+        <view class='water_num'>{{waterData.inNum}}笔</view>
+      </view>
+      <view class='water_money'>
+        <view class='water_title'>出账</view>
+        <view class='water_price'>{{waterData.outPrice}}</view>
+        <view class='water_num'>{{waterData.outNum}}笔</view>
+      </view>
+    </view>
+
+    <!-- 底部item -->
+    <view class='water_bottom'>
+      <block wx:for="{{waterData.list}}" wx:key="key">
+        <view class='water_item'>
+          <view>
+            <view class='bottom_left'>
+              <view class='waterlist_title'>{{item.title}}</view>
+              <view class='waterlist_time'>{{item.time}}</view>
+            </view>
+            <view class='waterlist_name'>{{item.houseName}}</view>
+          </view>
+          <view class='waterlist_price'>{{item.type ? '+' : '-'}}{{item.price}}</view>
+        </view>
+      </block>
+    </view>
+  </view>
+</template>

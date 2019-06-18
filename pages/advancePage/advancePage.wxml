@@ -50,7 +50,7 @@
           <block wx:elif='{{item.signStatus == 0 && item.payStatus == 0}}'>
           <view  class='jxfy ckxq-box'>
             <view bindtap='reservationDetailsClick' data-id='{{index}}' class='ckxq'>查看详情</view>
-            <view bindtap='payClick' data-id='{{index}}' class='ckxq chxq-two'>去支付</view>
+            <view bindtap='gochoisePay' data-id='{{index}}' class='ckxq chxq-two'>去支付</view>
             </view>
           </block>
           <block wx:else>

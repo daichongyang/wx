@@ -1,0 +1,73 @@
+.water_time {
+  background-color: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100rpx;
+}
+.water_starTime {
+  font-size: 28rpx;
+}
+.water_endTime {
+  font-size: 28rpx;
+}
+.water_category {
+  background-color: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100rpx;
+}
+.category_view {
+  font-size: 28rpx;
+}
+
+.water_moddle {
+  height: 200rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.water_money {
+  background-color: white;
+  height: 80%;
+  width: 30%;
+}
+.water_title {
+  font-size: 34rpx;
+  color: gray;
+}
+.water_price {
+  font-size: 40rpx;
+}
+.water_num {
+  font-size: 28rpx;
+  color: gray;
+}
+
+.water_item {
+  background-color: white;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  margin-bottom: 20rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 125rpx;
+}
+.bottom_left {
+  display: flex;
+}
+.waterlist_title {
+  font-size: 28rpx;
+
+}
+.waterlist_time {
+  font-size: 28rpx;
+}
+.waterlist_name {
+  font-size: 28rpx;
+}
+.waterlist_price {
+  font-size: 36rpx;
+}
