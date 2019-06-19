@@ -51,6 +51,7 @@ App({
     userInfo: null,
     msgIndex:0,
   }
+
 })
 
 

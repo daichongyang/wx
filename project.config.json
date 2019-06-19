@@ -40,7 +40,11 @@
 			"list": []
 		},
 		"miniprogram": {
+<<<<<<< HEAD
 			"current": 10,
+=======
+			"current": 11,
+>>>>>>> allwork
 			"list": [
 				{
 					"id": -1,
@@ -117,6 +121,16 @@
 					"name": "绑定银行卡",
 					"pathName": "pages/myBackCard1/myBackCard1",
 					"query": "",
+<<<<<<< HEAD
+=======
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "选择支付方式",
+					"pathName": "pages/myBackCard1/myBackCard1",
+					"query": "",
+>>>>>>> allwork
 					"scene": null
 				}
 			]

@@ -54,5 +54,9 @@
 </view>
 
 <view class='next'>
+<<<<<<< HEAD
   <button bindtap='sureBingdinCarr'>下一步</button>
+=======
+  <button bindtap='userCarbindUserCardd'>下一步</button>
+>>>>>>> allwork
 </view>

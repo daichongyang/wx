@@ -16,8 +16,25 @@ Page({
       psw1: e.detail.value,
     })
   },
+<<<<<<< HEAD
   // 提交数据
   setCardPassWordd(){
+=======
+  getpsw2(e){
+    this.setData({
+      psw: e.detail.value,
+    })
+  },
+  // 提交数据
+  setCardPassWordd(){
+    if(this.data.psw != this.data.psw1){
+      wx.showToast({
+        title: '两次输入的密码不一致，请重新输入',
+        icon: 'none',
+        duration: 1000
+      })
+    }
+>>>>>>> allwork
     let parms = {
       isNoPass: this.data.isNoPass,
       psw: this.data.psw

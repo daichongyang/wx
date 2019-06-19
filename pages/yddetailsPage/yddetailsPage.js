@@ -57,7 +57,13 @@ Page({
       }
     })
   },
-
+  // 支付页面
+  gochoisePay() {
+    let payMoney = Number(this.data.reservationDetails.advanceCost)
+    wx.navigateTo({
+      url: '/pages/choisePay/choisePay?orderId=' + this.data.reservation.orderId + '&houseId=' + this.data.reservation.houseId + '&payMoney=' + payMoney
+    })
+  },
   //payClick支付定金
   payClick:function(){
     wx.request({

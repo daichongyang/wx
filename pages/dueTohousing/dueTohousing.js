@@ -120,6 +120,13 @@ Page({
       comment: e.detail.value
     })
   },
+  // 支付页面
+  gochoisePay(orderId) {
+    let payMoney = Number(this.data.oneHouseData.advanceCost)
+    wx.navigateTo({
+      url: '/pages/choisePay/choisePay?orderId=' + orderId + '&houseId=' + this.data.oneHouseData.houseId + '&payMoney=' + payMoney
+    })
+  },
   //点击预定按钮
   yyAction: function () {
     let _this = this
@@ -200,46 +207,47 @@ Page({
         console.log(res);
         // console.log(_this)
         if (res.data.code == 200) {
-          wx.request({
-            method: "POST",
-            url: utils.icbcComPay + res.data.data + '/' + _this.data.oneHouseData.houseId,
-            header: {
-              "Authorization": app.globalData.userInfo.token,
-            },
-            success: res => {
-              if (res.data.code == 200) {
-                wx.requestPayment({
-                  timeStamp: res.data.data.timeStamp,
-                  nonceStr: res.data.data.nonceStr,
-                  package: res.data.data.package,
-                  signType: res.data.data.signType,
-                  paySign: res.data.data.paySign,
-                  success: res => {
-                    wx.showToast({
-                      title: '支付成功',
-                      icon: 'none',
-                      duration: 2000
-                    })
-                    wx.navigateBack({
-                      detail: 1
-                    })
-                  },
-                  fail: function (res) {
-                    wx.navigateBack({
-                      detail: 1
-                    })
-                  }
-                })
+          _this.gochoisePay(res.data.data)
+          // wx.request({
+          //   method: "POST",
+          //   url: utils.icbcComPay + res.data.data + '/' + _this.data.oneHouseData.houseId,
+          //   header: {
+          //     "Authorization": app.globalData.userInfo.token,
+          //   },
+          //   success: res => {
+          //     if (res.data.code == 200) {
+          //       wx.requestPayment({
+          //         timeStamp: res.data.data.timeStamp,
+          //         nonceStr: res.data.data.nonceStr,
+          //         package: res.data.data.package,
+          //         signType: res.data.data.signType,
+          //         paySign: res.data.data.paySign,
+          //         success: res => {
+          //           wx.showToast({
+          //             title: '支付成功',
+          //             icon: 'none',
+          //             duration: 2000
+          //           })
+          //           wx.navigateBack({
+          //             detail: 1
+          //           })
+          //         },
+          //         fail: function (res) {
+          //           wx.navigateBack({
+          //             detail: 1
+          //           })
+          //         }
+          //       })
 
-              }else{
-                wx.showToast({
-                  title: res.data.msg,
-                  icon: 'none',
-                  duration: 2000
-                })
-              }
-            }
-          })
+          //     }else{
+          //       wx.showToast({
+          //         title: res.data.msg,
+          //         icon: 'none',
+          //         duration: 2000
+          //       })
+          //     }
+          //   }
+          // })
         
         }else{
           wx.showToast({
