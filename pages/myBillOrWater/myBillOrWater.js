@@ -13,7 +13,7 @@ Page({
       receivePrice: 250104.00,
       receiveNum: 161,
       insteadPrice: 102020.88,
-      insteadNum: 50,
+      insteadNum: 54,
       list: [{
         houseName: "宝宝在线公寓-3层302（朝南方向）",
         stats: "未收款",
