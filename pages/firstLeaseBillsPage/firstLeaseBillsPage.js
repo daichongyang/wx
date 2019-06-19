@@ -31,6 +31,7 @@ Page({
    */
   onLoad: function (options) {
     console.log(options);
+    wx.setStorageSync('options', options)
     this.setData({
       layout:options.layout,
       leaseId: options.leaseId,
@@ -191,7 +192,13 @@ Page({
         tempArr:this.data.tempArr,
       })
   },
-
+  // 支付页面
+  gochoisePay(orderId, houseId) {
+    let payMoney = this.data.money
+    wx.navigateTo({
+      url: '/pages/choisePay/choisePay?orderId=' + orderId + '&houseId=' + houseId + '&payMoney=' + payMoney
+    })
+  },
   //点击去支付
   payClick: function () {
     if (!this.data.payQueryArr.length){
@@ -213,75 +220,76 @@ Page({
       
       success: res => {
         console.log(res);
-        wx.request({
-          method: "POST",
-          url: utils.wechatPaycreateUrl + res.data.data + '/' + this.data.houseId,
-          header: {
-            "Authorization": app.globalData.userInfo.token,
-          },
-          success:res => {
-            if (res.data.code != 200) {
-              wx.showToast({
-                title: res.data.msg,
-                icon: 'none',
-                duration: 2000
-              })
-            } else {
-              wx.requestPayment({
-                timeStamp: res.data.data.timeStamp,
-                nonceStr: res.data.data.nonceStr,
-                package: res.data.data.package,
-                signType: res.data.data.signType,
-                paySign: res.data.data.paySign,
-                success: res => {
-                  wx.showToast({
-                    title: '支付成功',
-                    icon: 'none',
-                    duration: 2000
-                  })
-                  if (this.data.firstPay == 1) {
-                    let pages = getCurrentPages();
-                    let prevPage = pages[pages.length - 2];
-                    console.log(prevPage)
-                    if (prevPage.route == "pages/myLeasePage/myLeasePage") {
-                      prevPage.setData({
-                        refresh:true,
-                      })
-                      wx.navigateBack({
-                        detail: 1,
-                      })
-                    }
-                  } else {
-                    //晚上加的代码
-                    this.setData({
-                      lszdList: [],
-                      lszdAllList: [],
-                      flag: true,
-                      chekboxAll: false,
-                      chekZdCount: 0,
-                      money: 0,
-                      payQueryArr: [],
-                      allCount: 0,//全部count
-                      allZdcount: 0,//没有点开全部的 count
-                      tempArr: [],
-                      isHeiden: 0
-                    })
-                    this.loadDataSource(this.data.leaseId);
-                    //晚上加的代码
-                  }
-                },
-                fail: res => {
-                  wx.showToast({
-                    title: '支付失败',
-                    icon: 'none',
-                    duration: 1000
-                  })
-                },
+        this.gochoisePay(res.data.data, this.data.houseId)
+        // wx.request({
+        //   method: "POST",
+        //   url: utils.wechatPaycreateUrl + res.data.data + '/' + this.data.houseId,
+        //   header: {
+        //     "Authorization": app.globalData.userInfo.token,
+        //   },
+        //   success:res => {
+        //     if (res.data.code != 200) {
+        //       wx.showToast({
+        //         title: res.data.msg,
+        //         icon: 'none',
+        //         duration: 2000
+        //       })
+        //     } else {
+        //       wx.requestPayment({
+        //         timeStamp: res.data.data.timeStamp,
+        //         nonceStr: res.data.data.nonceStr,
+        //         package: res.data.data.package,
+        //         signType: res.data.data.signType,
+        //         paySign: res.data.data.paySign,
+        //         success: res => {
+        //           wx.showToast({
+        //             title: '支付成功',
+        //             icon: 'none',
+        //             duration: 2000
+        //           })
+        //           if (this.data.firstPay == 1) {
+        //             let pages = getCurrentPages();
+        //             let prevPage = pages[pages.length - 2];
+        //             console.log(prevPage)
+        //             if (prevPage.route == "pages/myLeasePage/myLeasePage") {
+        //               prevPage.setData({
+        //                 refresh:true,
+        //               })
+        //               wx.navigateBack({
+        //                 detail: 1,
+        //               })
+        //             }
+        //           } else {
+        //             //晚上加的代码
+        //             this.setData({
+        //               lszdList: [],
+        //               lszdAllList: [],
+        //               flag: true,
+        //               chekboxAll: false,
+        //               chekZdCount: 0,
+        //               money: 0,
+        //               payQueryArr: [],
+        //               allCount: 0,//全部count
+        //               allZdcount: 0,//没有点开全部的 count
+        //               tempArr: [],
+        //               isHeiden: 0
+        //             })
+        //             this.loadDataSource(this.data.leaseId);
+        //             //晚上加的代码
+        //           }
+        //         },
+        //         fail: res => {
+        //           wx.showToast({
+        //             title: '支付失败',
+        //             icon: 'none',
+        //             duration: 1000
+        //           })
+        //         },
 
-              })
-            }
-          }
-        })
+        //       })
+        //     }
+        //   }
+        // })
      
       }
     })
@@ -383,7 +391,18 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    if (wx.getStorageSync('options')){
+      this.setData({
+        chekZdCount: 0,
+        money: 0,
+        payQueryArr:[],
+        lszdList:[]
 
+      })
+      this.onLoad(wx.getStorageSync('options'))
+
+      // this.onLoad()
+    }
   },
 
   /**

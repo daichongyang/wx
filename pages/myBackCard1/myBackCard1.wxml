@@ -1,21 +1,21 @@
 <!--pages/myBackCard1/myBackCard1.wxml-->
 <view class='contant'>
-<!-- 这是一个银行卡 -->
-  <view class='contant_item' style='background-image: url("../../img/my/backBG.jpg");'>
+  <!-- 这是一个银行卡 -->
+  <view class='contant_item' wx:for="{{carList}}" wx:key="{{id}}" wx:if="{{item.delStatus == 0}}" bindlongpress="bindlongp" data-id="{{item.id}}" style='background-image: url("http://www.ubicell.cn/apartment_pics/real/1777d6b189b4401a88682d7262662f56.jpg");'>
     <view class='item_car item_car1'>
-      <text>平安银行</text>
+      <text>工商银行</text>
       <text>储蓄卡</text>
     </view>
     <view class='item_car'>
       <text>****</text>
       <text>****</text>
       <text>****</text>
-      <text>2181</text>
+      <text>{{item.accNo}}</text>
     </view>
   </view>
   <!-- 结束 -->
   <!-- 添加银行卡块 -->
-  <view class='add_car' style='background-image: url("../../img/my/carBg.png");'>
+  <view class='add_car' bindtap='bindingCarNext' style='background-image: url("../../img/my/carBg.png");'>
     <text>＋ 添加银行卡</text>
   </view>
-</view> 
+</view>

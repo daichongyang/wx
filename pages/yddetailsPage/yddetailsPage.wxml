@@ -21,7 +21,7 @@
                 <view bindtap='callPhone' class='jxfy-right'><image src='../../img/my/bb_wd_01@2x.png'></image></view>
           </block>
 
-          <view class='wrapper-item'>
+          <view class='wrapper-item'> 
           <view class='left-item'>
             <image src='{{reservation.picture}}'></image>
           </view>
@@ -77,7 +77,7 @@
 
     <block wx:elif='{{reservation.signStatus == 0 && reservation.payStatus == 0}}'>
       <view class='bootm-foot-two'>
-        <view bindtap='payClick'>支付定金</view>
+        <view bindtap='gochoisePay'>支付定金</view>
       </view>
     </block>
 

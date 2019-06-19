@@ -26,52 +26,8 @@ Page({
 // 这是一个管微信支付的测试方法
   testWXP(){
     console.log(1111111)
-    wx.request({
-      method: "POST",
-      url: utils.icbcComPay + 279,
-      // data:{
-      //   amount: "0.01",
-      //   buyerId: "oD1UN5LtyBP2a2-c2EBfaui6f2C4",
-      //   desc: "string",
-      //   payMethod: "1",
-      //   subject: "string"
-      // },
-      header: {
-        "Authorization": app.globalData.userInfo.token,
-      },
-      success: res => {
-        console.log(res)
-        if (res.data.code == 201) {
-          wx.showToast({
-            title: '操作失败',
-            icon: 'none',
-            duration: 1000
-          })
-        } else {
-          wx.requestPayment({
-            timeStamp: res.data.data.timeStamp,
-            nonceStr: res.data.data.nonceStr,
-            package: res.data.data.package,
-            signType: res.data.data.signType,
-            paySign: res.data.data.paySign,
-            success: res => {
-              wx.showToast({
-                title: '支付成功',
-                icon: 'none',
-                duration: 1000
-              })
-              wx.navigateBack({
-                detail: 1
-              })
-            },
-            fail: function (res) {
-              wx.navigateBack({
-                detail: 1
-              })
-            }
-          })
-        }
-      }
+    wx.navigateTo({
+      url: '/pages/choisePay/choisePay',
     })
   },
 

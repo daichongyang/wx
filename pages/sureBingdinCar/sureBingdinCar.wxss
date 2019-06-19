@@ -1,0 +1,57 @@
+/* pages/bindingPage/bindingPage.wxss */
+page{
+  background: #f7f7f7;
+}
+.box{
+  width: 750rpx;
+  height: 120rpx;
+  margin-top: 30rpx;
+  font-size: 30rpx;
+  border-bottom: 1rpx solid #e1e1e1;
+  background: white;
+  position: relative;
+}
+
+input{
+  position: absolute;
+  padding-left: 30rpx;
+  height: 100rpx;
+  top: 10rpx;
+  line-height: 100rpx;
+  width: 750rpx;
+}
+
+.footer{
+  position: fixed;
+  height: 120rpx;
+  width: 100%;
+  bottom: 0rpx;
+  background: white;
+  text-align: center;
+}
+
+.footer button{
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 30rpx;
+  width: 95%;
+  margin-top: 10rpx;
+  background: #1fc2b2;
+  color: white;
+}
+
+.box-bottom{
+  margin-top: 0rpx;
+}
+.box-bottom input{
+  width: 450rpx;
+}
+.codeBtn{
+  float: right;
+  width: 200rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 30rpx;
+  margin-top: 20rpx;
+  margin-right: 30rpx;
+}

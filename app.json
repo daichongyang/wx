@@ -58,7 +58,9 @@
     "pages/setUserPassward/setUserPassward",
     "pages/setUserPassward2/setUserPassward2",
     "pages/logoQRCode/logoQRCode",
-    "pages/logoQRCode2/logoQRCode2"
+    "pages/logoQRCode2/logoQRCode2",
+    "pages/sureBingdinCar/sureBingdinCar",
+    "pages/setPayPassword/setPayPassword"
   ],
   "window": {
     "backgroundTextStyle": "light",

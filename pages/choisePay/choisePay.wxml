@@ -5,16 +5,16 @@
   <!-- 支付金额 -->
 
   <view class='pay_money'>
-    <view class='pay_money_view'>
-      <text>账单金额</text>
-      <text class='red_money'>￥2224</text>
-    </view>
     <view>
+      <text>账单金额</text>
+      <text class='red_money'>￥{{payMoney}}</text>
+    </view>
+    <view class='pay_money_view' wx:if="{{agent}}">
       <text>服务费</text>
-      <text class='red_money'>￥5</text>
+      <text class='red_money'>￥{{showagent}}</text>
     </view>
   </view>
-  <view class='gray'></view>
+  <view class='gray'></view> 
   <view class='gray'></view>
 
 <!-- 选择需要支付的支付方式 -->
@@ -22,8 +22,8 @@
   <view class='choise_car'>
     <view class='item'>
       <view class='item_view'>
-        <image class='choise_img' mode="widthFix" src='../../img/my/choisedCar.png'></image>
-        <text>工商银行信用卡 (2181）</text>
+        <image class='choise_img' bindtap='getStatusCar' mode="widthFix" src='{{choiseCar}}'></image>
+        <text>工商银行信用卡 ({{accNo}}）</text>
       </view>
       <view class='green' bindtap='bindingCarNext'>更换</view>
     </view>
@@ -32,7 +32,7 @@
     </view> -->
     <view class='item calcel_bottom'>
       <view class='item_view'>
-        <image class='choise_img' mode="widthFix" src='../../img/my/choise_car.png'></image>
+        <image class='choise_img' bindtap='getstatusWx' mode="widthFix" src='{{choiseWx}}'></image>
         <text>微信支付</text>
       </view>
     </view>
@@ -40,7 +40,7 @@
 
   <!-- 去付款 -->
 
-  <button class='button' bindtap='goPaySuccese'>去支付</button>
+  <button loading="{{loadii}}" disabled="{{disable}}" class='button' bindtap='payClick'>去支付</button>
 
 </view>
  

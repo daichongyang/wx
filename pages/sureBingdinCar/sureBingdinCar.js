@@ -1,5 +1,6 @@
 // pages/bindingPage/bindingPage.js
 var utils = require('../../utils/url.js');
+import { bindUserCardReSure } from "../../utils/url.js"
 const app = getApp();
 Page({
 
@@ -7,53 +8,69 @@ Page({
    * 页面的初始数据
    */
   data: {
-    index:0,
-    bindinputValue:"",
-    codeValue:"",
-    codename:"获取验证码",
-    disabled:false, 
+    index: 0,
+    smssendNo: '',
+    bindinputValue: "",
+    veriCode: "",
+    codename: "获取验证码",
+    disabled: false,
   },
-
+  // 用户确定绑定银行卡
+  bindUserCardReSuree() {
+    let params = {
+      smssendNo: this.data.smssendNo,
+      veriCode: 0
+    }
+    bindUserCardReSure(params).then(res => {
+      console.log(res)
+      if (res.data.code == 200) {
+        wx.showToast({
+          title: '绑定成功',
+          icon: 'none',
+          duration: 1000
+        })
+      } else {
+        wx.showToast({
+          title: res.data.msg,
+          icon: 'none',
+          duration: 1000
+        })
+      }
+    }).catch(err => {
+      wx.showToast({
+        title: '网络请求失败',
+        icon: 'none',
+        duration: 1000
+      })
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     this.setData({
-      index:options.index,
+      smssendNo: options.smssendNo
     })
-    if(options.index == 1){
-      wx.setNavigationBarTitle({
-        title: '绑定手机',
-      })
-    } else if (options.index == 2){
-      wx.setNavigationBarTitle({
-        title: '绑定邮箱',
-      })
-    } else if (options.index == 3) {
-      wx.setNavigationBarTitle({
-        title: '修改昵称',
-      })
-    }
   },
 
   //输入事件
-  bindinput:function(e){
+  bindinput: function (e) {
     console.log(e);
     this.setData({
       bindinputValue: e.detail.value,
     })
   },
   //输入验证码
-  bindCode:function(e){
+  bindCode: function (e) {
     console.log(e);
     this.setData({
-      codeValue: e.detail.value,
+      veriCode: e.detail.value,
     })
   },
 
 
   //获取验证码
-  getCodeClick:function(){
+  getCodeClick: function () {
     var myreg = /^(14[0-9]|13[0-9]|15[0-9]|17[0-9]|18[0-9])\d{8}$$/;
     if (this.data.bindinputValue == "") {
       wx.showToast({
@@ -67,7 +84,7 @@ Page({
         icon: 'none',
         duration: 1500
       })
-    }else{
+    } else {
       var num = 61;
       var _this = this;
       var timer = setInterval(function () {
@@ -87,7 +104,7 @@ Page({
       }, 1000)
       wx.request({
         url: utils.registerCodeUrl + '/' + this.data.bindinputValue,
-        success:res =>{
+        success: res => {
           console.log(res);
         }
       })
@@ -95,9 +112,9 @@ Page({
   },
 
   //确定修改
-  okClick:function(){
-    console.log(this.data.codeValue);
-    if(this.data.index == 1){
+  okClick: function () {
+    console.log(this.data.veriCode);
+    if (this.data.index == 1) {
       var myreg = /^(14[0-9]|13[0-9]|15[0-9]|17[0-9]|18[0-9])\d{8}$$/;
       if (this.data.bindinputValue == "") {
         wx.showToast({
@@ -111,24 +128,24 @@ Page({
           icon: 'none',
           duration: 1500
         })
-      } else if (this.data.codeValue == "") {
+      } else if (this.data.veriCode == "") {
         wx.showToast({
           title: '请输入验证码',
           icon: 'none',
           duration: 1500
         })
-      }else{
+      } else {
         wx.request({
           method: "POST",
           url: utils.userPhoneUpdateUrl,
           header: {
             "Authorization": app.globalData.userInfo.token,
           },
-          data:{
+          data: {
             phone: this.data.bindinputValue,
-            verifyCode:this.data.codeValue
+            verifyCode: this.data.veriCode
           },
-          success:res =>{
+          success: res => {
             console.log(res);
             if (res.data.code == 200) {
 
@@ -147,14 +164,14 @@ Page({
           }
         })
       }
-    } else if (this.data.index == 2 ){
+    } else if (this.data.index == 2) {
       if (this.data.bindinputValue == "") {
         wx.showToast({
           title: '内容不能为空',
           icon: 'none',
           duration: 1500
         })
-      }else{
+      } else {
         wx.request({
           method: "POST",
           url: utils.userUpdateUrl,
@@ -166,12 +183,12 @@ Page({
           },
           success: res => {
             console.log(res);
-            if(res.data.code == 200){
+            if (res.data.code == 200) {
               app.globalData.userInfo.email = this.data.bindinputValue;
               wx.navigateBack({
-                detail:1,
+                detail: 1,
               })
-            }else{
+            } else {
               wx.showToast({
                 title: res.data.msg,
                 icon: 'none',
@@ -181,7 +198,7 @@ Page({
           }
         })
       }
-    } else if (this.data.index == 3){
+    } else if (this.data.index == 3) {
       if (this.data.bindinputValue == "") {
         wx.showToast({
           title: '内容不能为空',

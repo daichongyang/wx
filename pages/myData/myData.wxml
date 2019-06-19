@@ -9,6 +9,7 @@
   <picker bindchange="bindDateChange" mode="date" class='item'><text>生日</text><text class='right'>{{birthday}} ▾</text></picker>
   <view class='item'><text>证件号码</text><text class='right'>{{idCard}}</text></view>
   <view bindtap='gomyBackCard' class='item'><text>银行卡</text><text class='right'>绑定银行卡 ▸</text></view>
+  <view bindtap='gosetPayPassword' class='item'><text>设置支付密码</text></view>
 
 </view>
 

@@ -8,7 +8,7 @@
           <view class='content-item'>{{item.tdesc}}</view>
           <view class='content-item'>报修房源 : {{item.houseName}}</view>
 
-          <block wx:if='{{item.pay_status == "待定"}}'>
+          <!-- <block wx:if='{{item.pay_status == "待定"}}'>
              <view class='content-item' style='color:red'>支付状态: {{item.pay_status}}</view>
           </block>
 
@@ -18,10 +18,8 @@
 
            <block wx:elif='{{item.pay_status == "未支付"}}'>
              <view class='content-item' style='color:red'>未支付 : {{item.pay_count}}</view>
-            </block>
+            </block> -->
         </view>
-
-
 
         <block wx:if='{{item.pay_status == "待定" && item.status == "正在申请"}}'>
           <view class='footerBox'>

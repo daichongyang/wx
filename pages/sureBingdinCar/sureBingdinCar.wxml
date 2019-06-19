@@ -1,0 +1,35 @@
+<!--pages/sureBingdinCar/sureBingdinCar.wxml-->
+<block>
+
+<view class='box'>
+  <input type='number' bindinput='bindinput'  placeholder='请输需要绑定的手机号码' maxlength='11' value='{{bindinputValue}}'></input>
+</view>
+<view class='box box-bottom'>
+  <input type='number' bindinput='bindCode'  placeholder='请输入验证码' maxlength='6' value='{{veriCode}}'></input>
+  <button class='codeBtn' bindtap='bindUserCardReSuree' disabled='{{disabled}}'>{{codename}}</button>
+</view>
+
+</block>
+
+
+
+<!-- <block wx:elif='{{index == 2}}'>
+
+<view class='box'>
+  <input bindinput='bindinput'  placeholder='请输需要绑定的邮箱' value='{{bindinputValue}}' ></input>
+</view>
+
+</block>
+
+<block wx:elif='{{index == 3}}'>
+
+<view class='box'>
+  <input bindinput='bindinput'  placeholder='请输入需要修改的昵称' value='{{bindinputValue}}' ></input>
+</view>
+
+</block> -->
+
+
+<view class='footer'>
+  <button bindtap='bindUserCardReSuree'>确定</button>
+</view>
