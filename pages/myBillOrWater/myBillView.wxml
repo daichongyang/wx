@@ -1,0 +1,58 @@
+<template name="myBillView">
+  <view class='myBillContainer'>
+
+    <!-- 顶部时间选择和分类 -->
+    <view class='bill_top'>
+      <view class='bill_time'>
+        <view class='bill_starTime'>2019-03-14</view>
+        <view class='bill_line'></view>
+        <view class='bill_endTime'>2019-05-14</view>
+      </view>
+      
+      <view class='bill_category'>
+        <block wx:for="{{billData.billCategory}}" wx:key="key">
+          <view class='category_view'>{{item}}</view>
+        </block>
+      </view>
+    </view>
+
+    <!-- 记账数据 -->
+    <view class='bill_moddle'>
+      <view class='bill_money'>
+        <view class='bill_title'>账单总额</view>
+        <view class='bill_price'>{{billData.totalPrice}}</view>
+        <view class='bill_num'>{{billData.totalNum}}笔</view>
+      </view>
+      <view class='bill_money'>
+        <view class='bill_title'>已收金额</view>
+        <view class='bill_price'>{{billData.receivePrice}}</view>
+        <view class='bill_num'>{{billData.receiveNum}}笔</view>
+      </view>
+      <view class='bill_money'>
+        <view class='bill_title'>待收金额</view>
+        <view class='bill_price'>{{billData.insteadPrice}}</view>
+        <view class='bill_num'>{{billData.insteadNum}}笔</view>
+      </view>
+    </view>
+
+    <!-- 底部item -->
+    <view class='bill_bottom'>
+      <block wx:for="{{billData.list}}" wx:key="key">
+        <view class='bill_item'>
+          <view class='billlist_top'>
+            <view class='billlist_name'>{{item.houseName}}</view>
+            <view class='billlist_state'>{{item.stats}}</view>
+          </view>
+          <view class='billlist_bottom'>
+            <view class='left_container'>
+              <view class='billlist_type'>{{item.type}}</view>
+              <view class='billlist_time'>{{item.time}}</view>
+            </view>
+            <view class='billlist_price'>¥ {{item.price}}</view>
+          </view>
+        </view>
+      </block>
+    </view>
+
+  </view>
+</template>

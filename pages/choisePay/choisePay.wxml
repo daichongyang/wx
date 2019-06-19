@@ -39,7 +39,10 @@
   </view>
 
   <!-- 去付款 -->
+<<<<<<< HEAD
 
+=======
+>>>>>>> lxy
   <button loading="{{loadii}}" disabled="{{disable}}" class='button' bindtap='payClick'>去支付</button>
 
 </view>

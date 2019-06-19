@@ -60,7 +60,12 @@
     "pages/logoQRCode/logoQRCode",
     "pages/logoQRCode2/logoQRCode2",
     "pages/sureBingdinCar/sureBingdinCar",
+<<<<<<< HEAD
     "pages/setPayPassword/setPayPassword"
+=======
+    "pages/setPayPassword/setPayPassword",
+    "pages/myBillOrWater/myBillOrWater"
+>>>>>>> lxy
   ],
   "window": {
     "backgroundTextStyle": "light",

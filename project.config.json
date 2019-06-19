@@ -117,6 +117,11 @@
 					"name": "绑定银行卡",
 					"pathName": "pages/myBackCard1/myBackCard1",
 					"query": "",
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> lxy
 					"scene": null
 				},
 				{
@@ -124,6 +129,10 @@
 					"name": "选择支付方式",
 					"pathName": "pages/myBackCard1/myBackCard1",
 					"query": "",
+<<<<<<< HEAD
+=======
+>>>>>>> allwork
+>>>>>>> lxy
 					"scene": null
 				}
 			]
