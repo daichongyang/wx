@@ -29,7 +29,7 @@
         <view class='bill_num'>{{billData.receiveNum}}笔</view>
       </view>
       <view class='bill_money'>
-        <view class='bill_title'>代收金额</view>
+        <view class='bill_title'>待收金额</view>
         <view class='bill_price'>{{billData.insteadPrice}}</view>
         <view class='bill_num'>{{billData.insteadNum}}笔</view>
       </view>
