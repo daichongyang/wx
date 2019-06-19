@@ -118,7 +118,10 @@
 					"pathName": "pages/myBackCard1/myBackCard1",
 					"query": "",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> allwork
 					"scene": null
 				},
 				{
@@ -126,6 +129,9 @@
 					"name": "选择支付方式",
 					"pathName": "pages/myBackCard1/myBackCard1",
 					"query": "",
+<<<<<<< HEAD
+>>>>>>> allwork
+=======
 >>>>>>> allwork
 					"scene": null
 				}
