@@ -11,11 +11,7 @@ let requestApi = function(method, url, data) {
       header: {
         "Authorization": app.globalData.userInfo.token,
       },
-<<<<<<< HEAD
-      success:(res => { 
-=======
       success: (res => {
->>>>>>> allwork
         resolve(res)
       }),
       fail: (err => {
@@ -33,12 +29,6 @@ var httpUrl = "https://www.ubicell.cn/apartment";
 
 
 // 用户确定绑定银行卡
-<<<<<<< HEAD
-const bindUserCardReSure = (params) => { return requestApi("post", "/userCar/bindUserCardReSure", params) } 
-
-// 用户绑定银行卡
-const userCarbindUserCard = (params) => { return requestApi("post", "/userCar/bindUserCard", params) } 
-=======
 const bindUserCardReSure = (params) => {
   return requestApi("post", "/userCar/bindUserCardReSure", params)
 }
@@ -47,7 +37,6 @@ const bindUserCardReSure = (params) => {
 const userCarbindUserCard = (params) => {
   return requestApi("post", "/userCar/bindUserCard", params)
 }
->>>>>>> allwork
 
 // 用手机号修改用户锁密码
 const updateLockPassWordByPhone = (params) => {
@@ -185,21 +174,6 @@ var adminhydroelectricshowAndUpAllDevUrl = httpUrl + "/hydroelectric/showAndUpAl
 var adminIndexbilltotalUrl = httpUrl + "v1.0/admin/index/bill/total";
 
 // 用户设置支付密码
-<<<<<<< HEAD
-const setCardPassWord = (params) => { return requestApi("post", "/userCar/setCardPassWord/"+ params.isNoPass + "/" + params.psw) } 
-
-// 通过房间查询清分信息
-const getDistributionByHouseId = (params) => { return requestApi("post", "/userCar/getDistributionByHouseId/" + params.houseId) } 
-
-// 用户银行卡支付
-const payByBankCar = (params) => { return requestApi("post", "/userCar/payByBankCar" , params) } 
-
-// 查询银行卡支付结果
-const getCardPayStatus = (params) => { return requestApi("post", "/userCar/getCardPayStatus" , params) } 
-
-
-module.exports = {
-=======
 const setCardPassWord = (params) => {
   return requestApi("post", "/userCar/setCardPassWord/" + params.isNoPass + "/" + params.psw)
 }
@@ -233,7 +207,6 @@ const delBindUserCardInfo = (params) => {
 module.exports = {
   getBindUserCardInfo,
   delBindUserCardInfo,
->>>>>>> allwork
   getCardPayStatus,
   payByBankCar,
   getDistributionByHouseId,

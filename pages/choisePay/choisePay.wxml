@@ -11,11 +11,7 @@
     </view>
     <view class='pay_money_view' wx:if="{{agent}}">
       <text>服务费</text>
-<<<<<<< HEAD
-      <text class='red_money'>￥{{agent}}</text>
-=======
       <text class='red_money'>￥{{showagent}}</text>
->>>>>>> allwork
     </view>
   </view>
   <view class='gray'></view> 
@@ -27,11 +23,7 @@
     <view class='item'>
       <view class='item_view'>
         <image class='choise_img' bindtap='getStatusCar' mode="widthFix" src='{{choiseCar}}'></image>
-<<<<<<< HEAD
-        <text>工商银行信用卡 (2181）</text>
-=======
         <text>工商银行信用卡 ({{accNo}}）</text>
->>>>>>> allwork
       </view>
       <view class='green' bindtap='bindingCarNext'>更换</view>
     </view>
@@ -47,12 +39,7 @@
   </view>
 
   <!-- 去付款 -->
-
-<<<<<<< HEAD
-  <button class='button' bindtap='payClick'>去支付</button>
-=======
   <button loading="{{loadii}}" disabled="{{disable}}" class='button' bindtap='payClick'>去支付</button>
->>>>>>> allwork
 
 </view>
  

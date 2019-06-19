@@ -16,10 +16,6 @@ Page({
       psw1: e.detail.value,
     })
   },
-<<<<<<< HEAD
-  // 提交数据
-  setCardPassWordd(){
-=======
   getpsw2(e){
     this.setData({
       psw: e.detail.value,
@@ -34,7 +30,6 @@ Page({
         duration: 1000
       })
     }
->>>>>>> allwork
     let parms = {
       isNoPass: this.data.isNoPass,
       psw: this.data.psw

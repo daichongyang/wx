@@ -1,11 +1,7 @@
 // pages/choisePay/choisePay.js
 const app = getApp();
 var utils = require('../../utils/url.js');
-<<<<<<< HEAD
-import { bindUserCardReSure, getDistributionByHouseId, payByBankCar, getCardPayStatus}from "../../utils/url.js"
-=======
 import { bindUserCardReSure, getDistributionByHouseId, payByBankCar, getCardPayStatus, getBindUserCardInfo}from "../../utils/url.js"
->>>>>>> allwork
 
 Page({
 
@@ -14,20 +10,11 @@ Page({
    */
   data: {
     payMoney:0,//传过来的金额
-<<<<<<< HEAD
-    orderId:'300',
-=======
     orderId:'299',
->>>>>>> allwork
     houseId:'101',
     agent: '0',//应收的手续费费用
     payType: '1',//1公寓支付2租客支付
     psw: '123456',//密码
-<<<<<<< HEAD
-    type: '1',//支付类型1微信2支付宝
-    choiseCar: "../../img/my/choise_car.png",
-    choiseWx: "../../img/my/choisedCar.png",
-=======
     type: '',//支付类型1微信2支付宝
     showagent:0,
     accNo:'',//卡号
@@ -94,8 +81,6 @@ Page({
             })
           }
         })
->>>>>>> allwork
-
       }else{
         wx.showToast({
           title: res.data.msg,
@@ -335,13 +320,6 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-<<<<<<< HEAD
-      // orderId: options.orderId,
-      // houseId: options.houseId,
-      // payMoney: options.payMoney
-    })
-    this.getDistributionByHouseIdd()
-=======
       orderId: options.orderId,
       houseId: options.houseId,
       payMoney: options.payMoney
@@ -349,7 +327,6 @@ Page({
     console.log(this.data.payMoney)
     this.getDistributionByHouseIdd()
     this.getBindUserCardInfoo()
->>>>>>> allwork
   },
 
   /**
