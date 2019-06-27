@@ -1,4 +1,8 @@
 // pages/myBillOrWater/myBillOrWater.js
+var dateTool = require('../../utils/date.js');
+import {
+  getBusinessWater
+} from "../../utils/url.js"
 Page({
 
   /**
@@ -36,40 +40,13 @@ Page({
         time: "2018.05.26-2019.03.24"
       }]
     },
-    waterData: {
-      waterCategory: ["全部", "交易类型", "全部房源"],
-      totalPrice: 352124.88,
-      totalNum: 211,
-      inPrice: 250104.00,
-      inNum: 161,
-      outPrice: 102020.88,
-      outNum: 50,
-      list: [{
-        houseName: "宝宝在线公寓-3层302（朝南方向）",
-        title: "房屋租金",
-        type: 1,
-        price: 101.45,
-        time: "2018.05.26"
-      },
-      {
-        houseName: "宝宝在线公寓-3层302（朝南方向）",
-        title: "管理费",
-        type: 1,
-        price: 101.45,
-        time: "2018.05.26"
-      },
-      {
-        houseName: "宝宝在线公寓-3层302（朝南方向）",
-        title: "扣除服务费",
-        type: 0,
-        price: 101.45,
-        time: "2018.05.26"
-      }]
-    }
+    waterCategory: ["全部", "交易类型", "全部房源"],
+    waterData: null,
+    waterVO: []
   },
 
   // 选择账单列表/交易流水
-  changeSelectState: function (e) {
+  changeSelectState: function (e) {    
     var title = e.currentTarget.dataset.title;
     if (title == "bill") {
       this.setData({
@@ -79,7 +56,33 @@ Page({
       this.setData({
         isSelectBillView: false
       })
+      if (!this.data.waterData) {
+        this.getWaterDataInfo();
+      }
     }
+  },
+
+  getWaterDataInfo: function () {
+    let params = {
+      apartmentId: 0,
+      current: 1,
+      size: 10,
+      type: 0
+    }
+    getBusinessWater(params).then(res => {
+      var data = res.data.data.records[0].billVO;
+      for (let i = 0; i < data.length; i++) {
+        var item = data[i];
+        var timestamp = item.billTime / 1000;
+        var appointmentTimeDate = dateTool.formatTimeStamp(timestamp);
+        item.billTime = appointmentTimeDate;
+        this.data.waterVO.push(item);
+      }
+      this.setData({
+        waterData: res.data.data.records[0],
+        waterVO: this.data.waterVO
+      })
+    })
   },
 
   /**

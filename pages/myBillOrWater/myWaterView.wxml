@@ -8,7 +8,7 @@
         <view class='water_endTime'>2019-05-14</view>
       </view>
       <view class='water_category'>
-        <block wx:for="{{waterData.waterCategory}}" wx:key="key">
+        <block wx:for="{{waterCategory}}" wx:key="key">
           <view class='category_view'>{{item}}</view>
         </block>
       </view>
@@ -18,33 +18,36 @@
     <view class='water_moddle'>
       <view class='water_money'>
         <view class='water_title'>进出账合计</view>
-        <view class='water_price'>{{waterData.totalPrice}}</view>
-        <view class='water_num'>{{waterData.totalNum}}笔</view>
+        <view class='water_price'>{{waterData.inOutTotal}}</view>
+        <view class='water_num'>{{waterData.inOutCount}}笔</view>
       </view>
       <view class='water_money'>
         <view class='water_title'>进账</view>
-        <view class='water_price'>{{waterData.inPrice}}</view>
-        <view class='water_num'>{{waterData.inNum}}笔</view>
+        <view class='water_price'>{{waterData.inTotal}}</view>
+        <view class='water_num'>{{waterData.inCount}}笔</view>
       </view>
       <view class='water_money'>
         <view class='water_title'>出账</view>
-        <view class='water_price'>{{waterData.outPrice}}</view>
-        <view class='water_num'>{{waterData.outNum}}笔</view>
+        <view class='water_price'>{{waterData.outTotal}}</view>
+        <view class='water_num'>{{waterData.outCount}}笔</view>
       </view>
     </view>
 
     <!-- 底部item -->
     <view class='water_bottom'>
-      <block wx:for="{{waterData.list}}" wx:key="key">
+      <block wx:for="{{waterVO}}" wx:key="key">
         <view class='water_item'>
           <view class='water_left'>
             <view class='bottom_left'>
-              <view class='waterlist_title'>{{item.title}}</view>
-              <view class='waterlist_time'>{{item.time}}</view>
+              <view class='waterlist_title'>{{item.billType}}</view>
+              <view class='waterlist_time'>{{item.billTime}}</view>
             </view>
-            <view class='waterlist_name'>{{item.houseName}}</view>
+            <view class='waterlist_name'>{{item.owner}}</view>
           </view>
-          <view class='waterlist_price'>{{item.type ? '+' : '-'}}{{item.price}}</view>
+          <view class="water_right">
+            <view class="{{item.inOut ? 'add_price' : 'less_price'}}">{{item.inOut ? '+' :''}}{{item.amount}}</view>
+            <view class="waterlist_paymenttype">{{item.paymentType}}</view>
+          </view>
         </view>
       </block>
     </view>

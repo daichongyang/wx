@@ -16,7 +16,7 @@
       <view class='sjCssBOx'>
         <text class='sjCss'>2019-03-01</text><text class='sjCss'>2019-03-27</text>
       </view>
-        <view class='jeCss'>16309003.00元</view>
+        <view class='jeCss'>{{billTotal}}元</view>
       </view>
 
 
@@ -25,7 +25,7 @@
       <view class='sjCssBOx'>
         <text class='sjCss'>2019-03-01</text><text class='sjCss'>2019-03-27</text>
       </view>
-        <view class='jeCss'>16309003.00元</view>
+        <view class='jeCss'>{{billFuture}}元</view>
       </view>
 
 
@@ -77,13 +77,13 @@
       <view class='sjCssBOx'>
         <text class='sjCss'>2019-03-01</text><text class='sjCss'>2019-03-27</text>
       </view>
-        <view class='jeCss'>16309个</view>
+        <view class='jeCss'>{{willExpired}}个</view>
       </view>
 
 
       <view class='zzdCss'>已到期合同</view>
       <view class='xqCssBox'>
-        <view class='jeCss'>163个</view>
+        <view class='jeCss'>{{beExpired}}个</view>
       </view>
 
     </scroll-view>

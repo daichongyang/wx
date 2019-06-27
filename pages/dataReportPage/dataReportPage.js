@@ -1,8 +1,14 @@
 // pages/dataReportPage/dataReportPage.js
 //获取应用实例
 const app = getApp()
-var utils = require('../../utils/url.js');
 var util = require('../../utils/util.js');
+import {
+  adminIndexbilltotal,
+  adminIndexbillfuture,
+  adminIndexWillExpired,
+  adminIndexBeExpired
+} from "../../utils/url.js"
+
 Page({
 
   /**
@@ -15,11 +21,15 @@ Page({
     id:0,
     current:0,
     index:0,
+    billTotal: 0,
+    billFuture: 0,
+    willExpired: 0,
+    beExpired: 0
   },
 
   // 总账单  房源数据 租约数据  日报月报 选择
   chooseTypeClick:function(e){
-    console.log(e.currentTarget.dataset.id);
+    this.getExpiredWithIndex(e.currentTarget.dataset.id);
     this.setData({
       id: e.currentTarget.dataset.id,
       current: e.currentTarget.dataset.id,
@@ -64,7 +74,7 @@ Page({
 
   //左右滑动
   bindchange:function(e){
-    console.log(e.detail.current);
+    this.getExpiredWithIndex(e.detail.current);
     this.setData({
       id: e.detail.current,
     })
@@ -72,34 +82,73 @@ Page({
 
   //总账单
   loadDataSourcezzd: function () {
-    wx.showLoading({
-      title: '正在加载',
+    //总账单
+    adminIndexbilltotal().then(res => {
+      console.log(res);
+      this.setData({
+        billTotal: res.data.data
+      })
     })
-    wx.request({
-      method: "POST",
-      url: utils.adminIndexbilltotalUrl,
-      header: {
-        "Authorization": app.globalData.userInfo.token,
-      },
-      data: {},
-      success: res => {
-        console.log(res);
-        if (res.data.code == 200) {
-          wx.hideLoading();
-          this.setData({
-            adminTodo: res.data.data
-          })
-        } else {
-          wx.showToast({
-            title: res.data.msg,
-            icon: 'none',
-            duration: 1500
-          })
-
-        }
-      }
+    let params = {
+      endTime: 1562917984099,
+      startTime: 1561621984099
+    }
+    // 未来预计收入
+    adminIndexbillfuture(params).then(res => {
+      console.log(res);
+      this.setData({
+        billFuture: res.data.data
+      })
     })
   },
+
+  
+  getExpiredWithIndex : function(index) {
+   switch (index) {
+     case 0:
+       {
+         this.loadDataSourcezzd();
+       }
+       break;
+     case 1:
+       {
+         console.log("房源数据");
+       }
+       break;
+     case 2:
+       {
+         this.loadDataExpired();
+       }
+       break;
+     default:
+       {
+         console.log("日报月报");
+       }
+       break;
+   }
+ },
+
+//租约数据
+loadDataExpired: function () {
+  // 快到期合同
+  let params = {
+    day: 60
+  }
+  adminIndexWillExpired(params).then(res => {
+    console.log(res);
+    this.setData({
+      willExpired: res.data.data
+    })
+  })
+  // 已到期合同
+  adminIndexBeExpired().then(res => {
+    console.log(res);
+    this.setData({
+      beExpired: res.data.data
+    })
+  })
+},
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成

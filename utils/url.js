@@ -138,7 +138,7 @@ var noticeCenterListUrl = httpUrl + "/notice/center/list";
 var noticeCenterUrl = httpUrl + "/notice/list";
 //消息红点判断
 var noticeListRemindUrl = httpUrl + "/notice/list/remind";
-// let noticeListRemindUrl = (params) => { return requestApi("/notice/list/remind", "post", params) } 
+// let noticeListRemindUrl = (params) => { return requestApi("/notice/list/remind", "post", params) }
 
 //房源详情(从房型入口勾选进入)
 var houseTypeInfoUrl = httpUrl + "/v1.0/web/house/type/info";
@@ -170,8 +170,38 @@ var adminSelectUrl = httpUrl + "/v1.0/admin/apartment/select";
 var adminPropertyGetRepairListUrl = httpUrl + "/property/getRepairList";
 // 水电表抄表
 var adminhydroelectricshowAndUpAllDevUrl = httpUrl + "/hydroelectric/showAndUpAllDev/";
-// 总账单 
-var adminIndexbilltotalUrl = httpUrl + "v1.0/admin/index/bill/total";
+
+// 数据报表/总账单
+const adminIndexbilltotal = (params) => {
+  return requestApi("post", "/v1.0/admin/index/bill/total", params)
+}
+// 数据报表/未来预计收入
+const adminIndexbillfuture = (params) => {
+  return requestApi("post", "/v1.0/admin/index/revenue/future", params)
+}
+// 数据报表/快到期合同
+const adminIndexWillExpired = (params) => {
+  return requestApi("post", "/v1.0/admin/index/contract/expired/" + params.day)
+}
+// 数据报表/已到期合同
+const adminIndexBeExpired = (params) => {
+  return requestApi("post", "/v1.0/admin/index/contract/expired", params)
+}
+
+// 数据报表 ---流水统计 
+const getDataTableWithWater = (params) => {
+  return requestApi("post", "/v1.0/admin/report/statements/list", params)
+}
+
+// 数据报表 ---账单统计 
+const getDataTableWithBill = (params) => {
+  return requestApi("post", "/v1.0/admin/report/bills/list", params)
+}
+
+// 流水账单 ---交易流水 
+const getBusinessWater = (params) => {
+  return requestApi("post", "/v1.0/admin/report/business/list", params)
+}
 
 // 用户设置支付密码
 const setCardPassWord = (params) => {
@@ -202,7 +232,6 @@ const getBindUserCardInfo = (params) => {
 const delBindUserCardInfo = (params) => {
   return requestApi("post", "/userCar/delBindUserCardInfo/" + params.id)
 }
-
 
 module.exports = {
   getBindUserCardInfo,
@@ -271,8 +300,14 @@ module.exports = {
   adminSelectUrl,
   adminPropertyGetRepairListUrl,
   adminhydroelectricshowAndUpAllDevUrl,
-  adminIndexbilltotalUrl,
-  wNativePay
+  adminIndexbilltotal,
+  adminIndexbillfuture,
+  wNativePay,
+  getBusinessWater,
+  adminIndexWillExpired,
+  adminIndexBeExpired,
+  getDataTableWithWater,
+  getDataTableWithBill
 }
 
 
