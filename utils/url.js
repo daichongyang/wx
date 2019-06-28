@@ -138,11 +138,8 @@ var noticeCenterListUrl = httpUrl + "/notice/center/list";
 var noticeCenterUrl = httpUrl + "/notice/list";
 //消息红点判断
 var noticeListRemindUrl = httpUrl + "/notice/list/remind";
-<<<<<<< HEAD
+
 // let noticeListRemindUrl = (params) => { return requestApi("/notice/list/remind", "post", params) } 
-=======
-// let noticeListRemindUrl = (params) => { return requestApi("/notice/list/remind", "post", params) }
->>>>>>> lxy
 
 //房源详情(从房型入口勾选进入)
 var houseTypeInfoUrl = httpUrl + "/v1.0/web/house/type/info";
@@ -175,8 +172,6 @@ var adminPropertyGetRepairListUrl = httpUrl + "/property/getRepairList";
 // 水电表抄表
 var adminhydroelectricshowAndUpAllDevUrl = httpUrl + "/hydroelectric/showAndUpAllDev/";
 
-<<<<<<< HEAD
-=======
 // 数据报表/总账单
 const adminIndexbilltotal = (params) => {
   return requestApi("post", "/v1.0/admin/index/bill/total", params)
@@ -209,7 +204,6 @@ const getBusinessWater = (params) => {
   return requestApi("post", "/v1.0/admin/report/business/list", params)
 }
 
->>>>>>> lxy
 // 用户设置支付密码
 const setCardPassWord = (params) => {
   return requestApi("post", "/userCar/setCardPassWord/" + params.isNoPass + "/" + params.psw)
@@ -239,10 +233,7 @@ const getBindUserCardInfo = (params) => {
 const delBindUserCardInfo = (params) => {
   return requestApi("post", "/userCar/delBindUserCardInfo/" + params.id)
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> lxy
 
 module.exports = {
   getBindUserCardInfo,

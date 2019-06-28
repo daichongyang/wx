@@ -8,9 +8,5 @@
   </view>
   <!-- 判断显示 -->
   <template wx:if="{{isSelectBillView}}" is="myBillView" data="{{billData}}"/>
-<<<<<<< HEAD
-  <template wx:else is="myWaterView" data="{{waterData}}"/>
-=======
   <template wx:else is="myWaterView" data="{{waterData, waterVO, waterCategory}}"/>
->>>>>>> lxy
 </view>

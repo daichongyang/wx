@@ -1,11 +1,9 @@
 // pages/myBillOrWater/myBillOrWater.js
-<<<<<<< HEAD
-=======
+
 var dateTool = require('../../utils/date.js');
 import {
   getBusinessWater
 } from "../../utils/url.js"
->>>>>>> lxy
 Page({
 
   /**
@@ -43,42 +41,6 @@ Page({
         time: "2018.05.26-2019.03.24"
       }]
     },
-<<<<<<< HEAD
-    waterData: {
-      waterCategory: ["全部", "交易类型", "全部房源"],
-      totalPrice: 352124.88,
-      totalNum: 211,
-      inPrice: 250104.00,
-      inNum: 161,
-      outPrice: 102020.88,
-      outNum: 50,
-      list: [{
-        houseName: "宝宝在线公寓-3层302（朝南方向）",
-        title: "房屋租金",
-        type: 1,
-        price: 101.45,
-        time: "2018.05.26"
-      },
-      {
-        houseName: "宝宝在线公寓-3层302（朝南方向）",
-        title: "管理费",
-        type: 1,
-        price: 101.45,
-        time: "2018.05.26"
-      },
-      {
-        houseName: "宝宝在线公寓-3层302（朝南方向）",
-        title: "扣除服务费",
-        type: 0,
-        price: 101.45,
-        time: "2018.05.26"
-      }]
-    }
-  },
-
-  // 选择账单列表/交易流水
-  changeSelectState: function (e) {
-=======
     waterCategory: ["全部", "交易类型", "全部房源"],
     waterData: null,
     waterVO: []
@@ -86,7 +48,6 @@ Page({
 
   // 选择账单列表/交易流水
   changeSelectState: function (e) {    
->>>>>>> lxy
     var title = e.currentTarget.dataset.title;
     if (title == "bill") {
       this.setData({
@@ -96,11 +57,7 @@ Page({
       this.setData({
         isSelectBillView: false
       })
-<<<<<<< HEAD
-    }
-  },
 
-=======
       if (!this.data.waterData) {
         this.getWaterDataInfo();
       }
@@ -130,7 +87,6 @@ Page({
     })
   },
 
->>>>>>> lxy
   /**
    * 生命周期函数--监听页面加载
    */
