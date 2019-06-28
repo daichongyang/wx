@@ -1,8 +1,5 @@
 // pages/myBillOrWater/myBillOrWater.js
-<<<<<<< HEAD
-=======
 
->>>>>>> allwork
 var dateTool = require('../../utils/date.js');
 import {
   getBusinessWater
@@ -60,10 +57,6 @@ Page({
       this.setData({
         isSelectBillView: false
       })
-<<<<<<< HEAD
-=======
-
->>>>>>> allwork
       if (!this.data.waterData) {
         this.getWaterDataInfo();
       }
