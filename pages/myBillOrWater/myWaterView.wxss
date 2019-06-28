@@ -92,7 +92,30 @@
   color: #222222;
   margin-left: 25rpx;
 }
+<<<<<<< HEAD
 .waterlist_price {
   font-size: 36rpx;
   margin-right: 25rpx;
+=======
+.water_right {
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+.waterlist_paymenttype {
+  font-size: 24rpx;
+  margin-right: 25rpx;
+}
+.add_price {
+  font-size: 36rpx;
+  margin-right: 25rpx;
+  color: #00c3b2;
+}
+.less_price {
+  font-size: 36rpx;
+  margin-right: 25rpx;
+  color: #fe615a;
+>>>>>>> lxy
 }
