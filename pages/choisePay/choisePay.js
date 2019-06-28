@@ -81,6 +81,10 @@ Page({
             })
           }
         })
+<<<<<<< HEAD
+=======
+
+>>>>>>> allwork
       }else{
         wx.showToast({
           title: res.data.msg,
@@ -185,6 +189,10 @@ Page({
       disable: false,
       loadii: false,
     })
+<<<<<<< HEAD
+=======
+
+>>>>>>> allwork
   },
   
   // 选择银行卡支付
@@ -303,6 +311,10 @@ Page({
         }
       })
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> allwork
   },
   bindingCarNext: function () {
     wx.navigateTo({ 
