@@ -182,7 +182,6 @@ Page({
   dayClick: function () {
     this.setData({
       dayIndex: 0,
-<<<<<<< HEAD
     })
     if (this.data.index == 0) {
         this.lstjClick();
@@ -196,21 +195,6 @@ Page({
       dayIndex: 1,
     })
     if (this.data.index == 0) {
-=======
-    })
-    if (this.data.index == 0) {
-        this.lstjClick();
-    } else {
-        this.zdtjClick();
-    }
-  },
-
-  monthClick: function () {
-    this.setData({
-      dayIndex: 1,
-    })
-    if (this.data.index == 0) {
->>>>>>> allwork
       this.lstjClick();
     } else {
       this.zdtjClick();

@@ -61,13 +61,9 @@
     "pages/logoQRCode2/logoQRCode2",
     "pages/sureBingdinCar/sureBingdinCar",
     "pages/setPayPassword/setPayPassword",
-<<<<<<< HEAD
-    "pages/myBillOrWater/myBillOrWater"
-=======
     "pages/myBillOrWater/myBillOrWater",
     "pages/znApartmentList/znApartmentList",
     "pages/znAmmeterList/znAmmeterList"
->>>>>>> allwork
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -27,18 +27,6 @@ let requestApi = function(method, url, data) {
 // var httpUrl = "http://192.168.0.145:8080";
 var httpUrl = "http://192.168.0.180:8080";
 
-
-// 用户确定绑定银行卡
-const bindUserCardReSure = (params) => {
-  return requestApi("post", "/userCar/bindUserCardReSure", params)
-}
-
-// 用户绑定银行卡
-const userCarbindUserCard = (params) => {
-  return requestApi("post", "/userCar/bindUserCard", params)
-}
-
-
 // 用户确定绑定银行卡
 const bindUserCardReSure = (params) => {
   return requestApi("post", "/userCar/bindUserCardReSure", params)
@@ -183,9 +171,6 @@ var adminSelectUrl = httpUrl + "/v1.0/admin/apartment/select";
 var adminPropertyGetRepairListUrl = httpUrl + "/property/getRepairList";
 // 水电表抄表
 var adminhydroelectricshowAndUpAllDevUrl = httpUrl + "/hydroelectric/showAndUpAllDev/";
-<<<<<<< HEAD
-=======
-
 // 数据报表/总账单
 const adminIndexbilltotal = (params) => {
   return requestApi("post", "/v1.0/admin/index/bill/total", params)
@@ -248,7 +233,7 @@ const delBindUserCardInfo = (params) => {
   return requestApi("post", "/userCar/delBindUserCardInfo/" + params.id)
 }
 
-// 是否有管理员模块权限
+// 是否有管理员模块权限获取用户绑定的银行
 const permission = () => {
   return requestApi("get", "/user/check/permission")
 }
@@ -262,77 +247,11 @@ export const selectApartment = params => {
 export const getEleDevInfos = params => {
   return requestApi("post", '/hydroelectric/getEleDevInfos', params)
 }
->>>>>>> allwork
-
-// 数据报表/总账单
-const adminIndexbilltotal = (params) => {
-  return requestApi("post", "/v1.0/admin/index/bill/total", params)
-}
-// 数据报表/未来预计收入
-const adminIndexbillfuture = (params) => {
-  return requestApi("post", "/v1.0/admin/index/revenue/future", params)
-}
-// 数据报表/快到期合同
-const adminIndexWillExpired = (params) => {
-  return requestApi("post", "/v1.0/admin/index/contract/expired/" + params.day)
-}
-// 数据报表/已到期合同
-const adminIndexBeExpired = (params) => {
-  return requestApi("post", "/v1.0/admin/index/contract/expired", params)
-}
-
-// 数据报表 ---流水统计 
-const getDataTableWithWater = (params) => {
-  return requestApi("post", "/v1.0/admin/report/statements/list", params)
-}
-
-// 数据报表 ---账单统计 
-const getDataTableWithBill = (params) => {
-  return requestApi("post", "/v1.0/admin/report/bills/list", params)
-}
-
-// 流水账单 ---交易流水 
-const getBusinessWater = (params) => {
-  return requestApi("post", "/v1.0/admin/report/business/list", params)
-}
-
-// 用户设置支付密码
-const setCardPassWord = (params) => {
-  return requestApi("post", "/userCar/setCardPassWord/" + params.isNoPass + "/" + params.psw)
-}
-
-// 通过房间查询清分信息
-const getDistributionByHouseId = (params) => {
-  return requestApi("post", "/userCar/getDistributionByHouseId/" + params.houseId)
-}
-
-// 用户银行卡支付
-const payByBankCar = (params) => {
-  return requestApi("post", "/userCar/payByBankCar", params)
-}
-
-// 查询银行卡支付结果
-const getCardPayStatus = (params) => {
-  return requestApi("post", "/userCar/getCardPayStatus", params)
-}
-
-// 获取用户绑定的银行卡
-const getBindUserCardInfo = (params) => {
-  return requestApi("post", "/userCar/getBindUserCardInfo", params)
-}
-
-// 删除用户绑定的银行卡
-const delBindUserCardInfo = (params) => {
-  return requestApi("post", "/userCar/delBindUserCardInfo/" + params.id)
-}
 
 module.exports = {
-<<<<<<< HEAD
-=======
   getEleDevInfos,
   selectApartment,
   permission,
->>>>>>> allwork
   getBindUserCardInfo,
   delBindUserCardInfo,
   getCardPayStatus,
