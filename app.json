@@ -61,9 +61,7 @@
     "pages/logoQRCode2/logoQRCode2",
     "pages/sureBingdinCar/sureBingdinCar",
     "pages/setPayPassword/setPayPassword",
-    "pages/myBillOrWater/myBillOrWater",
-    "pages/znApartmentList/znApartmentList",
-    "pages/znAmmeterList/znAmmeterList"
+    "pages/myBillOrWater/myBillOrWater"
   ],
   "window": {
     "backgroundTextStyle": "light",
