@@ -78,7 +78,7 @@ page{
   display: inline-block;
   width: 225rpx;
   height: 150rpx;
-  background: blue;
+  background: #41cac0;
   margin-left: 20rpx;
-  border-radius: 8rpx;
+  border-radius:0px 10px 10px 10px;
 }

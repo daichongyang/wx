@@ -7,7 +7,20 @@ Page({
   data: {
 
   },
-
+//智能电表列表
+  gowaterMeterList(e){
+    console.log(e)
+    let obj = e.currentTarget.dataset
+    let name=''
+    if (obj.devtype == 1){
+      name = '智能水表'
+    }else{
+      name = '智能电表'
+    }
+    wx.navigateTo({
+      url: '/pages/znApartmentList/znApartmentList?devtype=' + obj.devtype + '&name=' + name,
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

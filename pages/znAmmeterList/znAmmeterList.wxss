@@ -1,0 +1,90 @@
+/* pages/znAmmeterList/znAmmeterList.wxss */
+page{
+  background:#f7f7f7;
+}
+.page_top{
+  background:#fff;
+  color:#222222;
+  font-size:28rpx;
+  height:70rpx;
+  display:flex;
+  justify-content: space-between;
+  padding:10rpx 0;
+  position:relative;
+}
+.changetype{
+  margin-left:58rpx;
+  display:flex;
+  align-items: center;
+}
+.page_nav{
+  height:95rpx;
+  display:flex;
+  color:#888888;
+  font-size:28rpx;
+}
+.page_nav view{
+  display: inline-block;
+  margin-top:45rpx;
+}
+.page_nav1{
+  width:152rpx;
+  margin-right:60rpx;
+  margin-left:24rpx;
+  text-align: center;
+}
+.page_nav2{
+  width:152rpx;
+  margin-right:50rpx;
+  text-align: center;
+}
+.page_nav3{
+  width:220rpx;
+  text-align: center;
+}
+.nav_list_li{
+  display:flex;
+  height:100rpx;
+  background:#fff;
+  border-bottom:1px solid #f7f7f7;
+  color:#222222;
+  font-size:30rpx;
+}
+.nav_list_li .list_li{
+  line-height:100rpx;
+}
+.nav_list_li:nth-last{
+  border:0;
+}
+.devType_red{
+  color:#fe615a;
+  width:22rpx;
+  font-size:22rpx;
+  display:flex;
+  align-items: center;
+  margin-left:20rpx;
+}
+.devType_green{
+  width:22rpx;
+  font-size:22rpx;
+  color:#00c3b2;
+  display:flex;
+  align-items: center;
+  margin-left:20rpx;
+}
+.sousou{
+  width:500rpx;
+  background:#fafafa;
+  border-radius:60rpx;
+  display: flex;
+  align-items: center;
+  margin-right:10rpx;
+}
+.inputss{
+  width:400rpx;
+  padding-left:10rpx;
+}
+.sousou image{
+  width:29rpx;
+  padding-left:40rpx;
+}

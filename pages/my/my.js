@@ -3,7 +3,7 @@
 const app = getApp()
 var utils = require('../../utils/url.js');
 var util = require('../../utils/util.js');
-
+import { permission} from "../../utils/url.js"
 Page({
   /**
    * 页面的初始数据
@@ -23,6 +23,7 @@ Page({
     title: "暂无通知!",
     listMsg:[],
     msgIndex: 0,
+    isguanli:false
   },
   //通知
   noticeClick: function () {
@@ -124,7 +125,17 @@ Page({
       })
     }
   },
- 
+//  是否有管理员模块权限
+  isAdministrator(){
+    permission().then(res => {
+      console.log(res)
+      if(res.data.code == 200){
+        this.setData({
+          isguanli: res.data.data
+        })
+      }
+    })
+  },
  //判断是否需要登录
  isLogin:function(){
    if (!app.globalData.userInfo.token){
@@ -138,6 +149,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.isAdministrator()
     var data = wx.getStorageSync("userInfo");
     console.log("*********----------********")
     console.log(data)

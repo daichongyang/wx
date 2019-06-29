@@ -8,14 +8,16 @@ page{
   top: 10rpx;
   width: 100%;
   bottom: 0;
+  overflow: hidden;
+  background:#fff;
 }
-
-
+.swaper{
+  margin-top:60rpx;
+}
 .swaper-item{
   display: inline-block;
   width: 25%;
   height: 188rpx;
-  border: 0.5rpx solid #f7f7f7;
   background: white;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -24,14 +26,12 @@ page{
 }
 
 .swaper-item view{
-  width: 60rpx;
-  height: 60rpx;
+  width: 80rpx;
+  /* height: 60rpx; */
   margin: 0 auto;
-  margin-top: 30rpx;
 }
 .swaper-item view image{
   width: 100%;
-  height: 100%;
 }
 
 .swaper-item text{
@@ -80,4 +80,17 @@ page{
   font-size: 26rpx;
   line-height: 60rpx;
   color: darkgray
+}
+.middelImg{
+  width:704rpx;
+  background:url(" http://www.ubicell.cn/apartment_pics/real/baec98e1282c41279602cdcee72dae5e.png") no-repeat;
+  background-size:cover;
+  height:227rpx;
+  border-radius:0px 8px 8px 8px;
+  margin:0 auto;
+}
+.gray10{
+  margin-top:50rpx;
+  margin-bottom:5rpx;
+  background:#f7f7f7;
 }

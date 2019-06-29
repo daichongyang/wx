@@ -40,7 +40,15 @@
 			"list": []
 		},
 		"miniprogram": {
+<<<<<<< HEAD
 			"current": 11,
+=======
+<<<<<<< HEAD
+			"current": 12,
+=======
+			"current": 11,
+>>>>>>> lxy
+>>>>>>> allwork
 			"list": [
 				{
 					"id": -1,
@@ -124,6 +132,18 @@
 					"name": "选择支付方式",
 					"pathName": "pages/myBackCard1/myBackCard1",
 					"query": "",
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "智能水电锁列表",
+					"pathName": "pages/znAmmeterList/znAmmeterList",
+=======
+>>>>>>> lxy
+>>>>>>> allwork
 					"scene": null
 				}
 			]

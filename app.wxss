@@ -36,3 +36,50 @@ view{
 .red{
   color:#fe615a;
 }
+/* 向下箭头 */
+.arrow-up {
+  display: inline-block;
+  vertical-align: top;
+  border-bottom: 10rpx solid #7a7a7a;
+  border-right: 10rpx solid transparent;
+  border-left: 10rpx solid transparent;
+  content: "";
+  margin-left:5rpx;
+}
+.arrow-down {
+    display: inline-block;
+    vertical-align: top;
+    border-top: 10rpx solid #7a7a7a;
+    border-right: 10rpx solid transparent;
+    border-left: 10rpx solid transparent;
+    content: "";
+    margin-left:10rpx;
+}
+.arrow-left {
+  display: inline-block;
+  vertical-align: top;
+  border-right: 5rpx solid #7a7a7a;
+  border-bottom: 5rpx solid transparent;
+  border-top: 5rpx solid transparent;
+  content: "";
+  margin-left:5rpx;
+}
+.arrow-right {
+  display: inline-block;
+  vertical-align: top;
+  border-left: 10rpx solid #7a7a7a;
+  border-top: 10rpx solid transparent;
+  border-bottom: 10rpx solid transparent;
+  content: "";
+  margin-left:5rpx;
+}
+.noData{
+  text-align: center;
+  line-height: 200rpx;
+  font-size: 30rpx;
+  color: darkgray;
+}
+.gray10{
+  backgorund:#f7f7f7;
+  height:10rpx;
+}

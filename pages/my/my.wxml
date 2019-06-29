@@ -74,7 +74,7 @@
   <text class='text-one'>▸</text>
 </view>
 
-<view class='item-one' bindtap='footClick' data-text='我是管理员'>
+<view class='item-one' bindtap='footClick' data-text='我是管理员' wx:if="{{isguanli}}">
   <text>我是管理员</text>
   <text class='text-one'>▸</text>
 </view>

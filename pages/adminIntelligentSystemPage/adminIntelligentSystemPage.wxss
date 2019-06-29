@@ -15,6 +15,9 @@ page{
   height: 90rpx;
   position: relative;
 }
+.contentBox1{
+  border:0;
+}
 .contentBox image{
   width: 40rpx;
   height: 40rpx;

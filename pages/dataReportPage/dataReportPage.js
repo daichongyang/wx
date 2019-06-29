@@ -182,6 +182,7 @@ Page({
   dayClick: function () {
     this.setData({
       dayIndex: 0,
+<<<<<<< HEAD
     })
     if (this.data.index == 0) {
         this.lstjClick();
@@ -195,11 +196,74 @@ Page({
       dayIndex: 1,
     })
     if (this.data.index == 0) {
+=======
+    })
+    if (this.data.index == 0) {
+        this.lstjClick();
+    } else {
+        this.zdtjClick();
+    }
+  },
+
+  monthClick: function () {
+    this.setData({
+      dayIndex: 1,
+    })
+    if (this.data.index == 0) {
+>>>>>>> allwork
       this.lstjClick();
     } else {
       this.zdtjClick();
     }
   },
+
+  
+  getExpiredWithIndex : function(index) {
+   switch (index) {
+     case 0:
+       {
+         this.loadDataSourcezzd();
+       }
+       break;
+     case 1:
+       {
+         console.log("房源数据");
+       }
+       break;
+     case 2:
+       {
+         this.loadDataExpired();
+       }
+       break;
+     default:
+       {
+         console.log("日报月报");
+       }
+       break;
+   }
+ },
+
+//租约数据
+loadDataExpired: function () {
+  // 快到期合同
+  let params = {
+    day: 60
+  }
+  adminIndexWillExpired(params).then(res => {
+    console.log(res);
+    this.setData({
+      willExpired: res.data.data
+    })
+  })
+  // 已到期合同
+  adminIndexBeExpired().then(res => {
+    console.log(res);
+    this.setData({
+      beExpired: res.data.data
+    })
+  })
+},
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成

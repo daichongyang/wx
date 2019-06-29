@@ -14,7 +14,7 @@
         <text>智能电表-{{dataSource.gyName}}{{dataSource.houseName}}</text>
       </view>
     </block>
-
+ 
      <block wx:if='{{dataSource.devType == 4}}'>
       <view class='header'>
         <image src='../../img/my/bb_znsd_02@2x.png'></image>

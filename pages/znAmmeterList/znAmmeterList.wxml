@@ -1,0 +1,52 @@
+<!--pages/znAmmeterList/znAmmeterList.wxml-->
+<block class="contant">
+  <!-- <block wx:if="{{inforList.length!=0}}"> -->
+  <!-- 顶部搜索框 -->
+    <view class='page_top'>
+      <view class='changetype'>
+        <text>{{devType==1?'冷水表':'热水表'}}</text>
+        <text class='arrow-down'></text>
+      </view>
+      <view class='sousou'>
+        <image mode="widthFix" src='../../img/home/bb_sy_01@2x.png'></image>
+        <input class='inputss' placeholder='/水电表标识'></input>
+      </view>
+      <!-- 选择水表类型 -->
+      <view class='showTC'>
+        <view class='show_contant'></view>
+      </view>
+    </view>
+    <!-- 结束 -->
+    <view class='page_contant'>
+      <view class='page_nav'>
+        <view class='devType_red'></view>
+        <view class='page_nav1'>房间信息</view>
+        <view class='page_nav2'>当前时间</view>
+        <view class='page_nav3'>设备标识</view>
+      </view>
+      <view class='nav_list'>
+        <view class='nav_list_li' wx:for="{{inforList}}" wx:key="index">
+          <view class='{{onlineStatus==0?"devType_red":"devType_green"}}'>{{devTypeName}}</view>
+          <view class='page_nav1 list_li'>{{item.houseName}}</view>
+          <view class='page_nav2 list_li'>{{item.total}}</view>
+          <view class='page_nav3 list_li'>{{item.devSn}}</view>
+        </view>
+        <view class='nav_list_li'>
+          <view class='{{devType==2?"devType_red":"devType_green"}}'>离线</view>
+          <view class='page_nav1 list_li'>2-101</view>
+          <view class='page_nav2 list_li'>9999.9</view>
+          <view class='page_nav3 list_li'>D71600001109</view>
+        </view>
+        <view class='nav_list_li'>
+          <view class='devType'></view>
+          <view class='page_nav1'>2-101</view>
+          <view class='page_nav2'>9999.9</view>
+          <view class='page_nav3'>D71600001109</view>
+        </view>
+      </view>
+    </view>
+  <!-- </block> -->
+  <block >
+    <view class='noData'>空空如也</view>
+  </block>
+</block>

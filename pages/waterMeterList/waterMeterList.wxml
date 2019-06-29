@@ -8,7 +8,7 @@
         <text>智能冷水表-{{item.gyName}}{{item.houseName}}</text>
       </view>
     </block>
-
+ 
      <block wx:if='{{item.devType == 2}}'>
       <view class='header'>
         <image src='../../img/my/bb_znsd_01@2x.png'></image>
