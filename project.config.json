@@ -40,7 +40,11 @@
 			"list": []
 		},
 		"miniprogram": {
+<<<<<<< HEAD
 			"current": 12,
+=======
+			"current": 11,
+>>>>>>> lxy
 			"list": [
 				{
 					"id": -1,
@@ -124,12 +128,15 @@
 					"name": "选择支付方式",
 					"pathName": "pages/myBackCard1/myBackCard1",
 					"query": "",
+<<<<<<< HEAD
 					"scene": null
 				},
 				{
 					"id": -1,
 					"name": "智能水电锁列表",
 					"pathName": "pages/znAmmeterList/znAmmeterList",
+=======
+>>>>>>> lxy
 					"scene": null
 				}
 			]

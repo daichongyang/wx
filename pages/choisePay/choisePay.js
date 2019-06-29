@@ -81,7 +81,10 @@ Page({
             })
           }
         })
+<<<<<<< HEAD
 
+=======
+>>>>>>> lxy
       }else{
         wx.showToast({
           title: res.data.msg,
@@ -186,7 +189,10 @@ Page({
       disable: false,
       loadii: false,
     })
+<<<<<<< HEAD
 
+=======
+>>>>>>> lxy
   },
   
   // 选择银行卡支付
@@ -305,7 +311,10 @@ Page({
         }
       })
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> lxy
   },
   bindingCarNext: function () {
     wx.navigateTo({ 
