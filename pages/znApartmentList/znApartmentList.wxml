@@ -1,0 +1,16 @@
+<!--pages/znApartmentList/znApartmentList.wxml-->
+<block class='conter'>
+  <view class='gray'></view>
+  <block wx:if="{{apartmentList.length!=0}}">
+    <view wx:for="{{apartmentList}}" class='zn_item' wx:key="{{index}}" data-name="{{item.name}}" data-id='{{item.apartmentId}}' bindtap='goznAmmeterList'>
+      <view class='apartment_name'>{{item.name}}</view>
+      <view class='jiantou'>
+        <text class='arrow-right jt'></text>
+      </view>
+      <view class='apartment_address'>{{item.address}}</view>
+    </view>
+  </block>
+  <block wx:else>
+    <view class='noData'>空空如也</view>
+  </block>
+</block>

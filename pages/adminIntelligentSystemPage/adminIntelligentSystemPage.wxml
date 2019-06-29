@@ -1,11 +1,12 @@
 <!--pages/adminIntelligentSystemPage/adminIntelligentSystemPage.wxml-->
 <view class='box'>
-  <view class='contentBox'>
+  <view class='contentBox' data-devType='1' bindtap='gowaterMeterList'>
     <image src='../../img/my/bb_znsd_02@2x.png'></image>
     <text>智能水表</text>
   </view>
-   <view class='contentBox'>
+   <view class='contentBox contentBox1' data-devType='2' bindtap='gowaterMeterList'>
     <image src='../../img/my/bb_znsd_01@2x.png'></image>
     <text>智能电表</text>
   </view>
 </view>
+ 

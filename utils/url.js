@@ -234,8 +234,26 @@ const delBindUserCardInfo = (params) => {
   return requestApi("post", "/userCar/delBindUserCardInfo/" + params.id)
 }
 
+// 是否有管理员模块权限
+const permission = () => {
+  return requestApi("get", "/user/check/permission")
+}
+
+// 公寓下拉列表
+export const selectApartment = params => {
+  return requestApi("post", '/v1.0/admin/apartment/select', params)
+}
+
+// 查询公寓水电信息(截止昨日)
+export const getEleDevInfos = params => {
+  return requestApi("post", '/hydroelectric/getEleDevInfos', params)
+}
+
 
 module.exports = {
+  getEleDevInfos,
+  selectApartment,
+  permission,
   getBindUserCardInfo,
   delBindUserCardInfo,
   getCardPayStatus,

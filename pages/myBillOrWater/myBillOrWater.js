@@ -47,7 +47,7 @@ Page({
   },
 
   // 选择账单列表/交易流水
-  changeSelectState: function (e) {    
+  changeSelectState: function (e) {
     var title = e.currentTarget.dataset.title;
     if (title == "bill") {
       this.setData({

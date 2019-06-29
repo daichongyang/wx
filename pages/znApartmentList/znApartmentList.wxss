@@ -1,0 +1,27 @@
+/* pages/znApartmentList/znApartmentList.wxss */
+page{
+  background:#f7f7f7;
+}
+.apartment_name{
+  color:#222222;
+  font-size:30rpx;
+}
+.jiantou{
+  height:20rpx;
+  overflow: hidden;
+}
+.apartment_address{
+  color:#888888;
+  font-size:26rpx;
+}
+.zn_item{
+  background:#fff;
+  padding:34rpx 35rpx;
+  border-bottom:1px solid #f7f7f7;
+}
+.zn_item:nth-last{
+  border:0;
+}
+.jt{
+  float:right;
+}
