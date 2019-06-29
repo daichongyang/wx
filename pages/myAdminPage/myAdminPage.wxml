@@ -3,52 +3,52 @@
 <scroll-view class='scrollView' scroll-y='true' enable-back-to-top='true' bindscrolltoupper='bindscrolltoupper'>
 <view class='swaper'>
   <view bindtap='adminClick' data-data='数据报表' class='swaper-item'>
-  <view><image src='../../img/my/gy_03_05.png'></image>
+  <view><image src='../../img/home/bb_sy_08@2x.png'></image>
 </view>
     <text>数据报表</text>
   </view>
 
   <view bindtap='adminClick' data-data='房态图' class='swaper-item'>
-  <view><image src='../../img/my/gy_03_05.png'></image>
+  <view><image src='../../img/home/bb_sy_09@2x.png'></image>
 </view>
     <text>房态图</text>
   </view>
 
 
   <view bindtap='adminClick' data-data='租约' class='swaper-item'>
-  <view><image src='../../img/my/gy_03_05.png'></image>
+  <view><image src='../../img/home/bb_sy_10@2x.png'></image>
 </view>
     <text>租约</text>
   </view>
 
 
   <view bindtap='adminClick' data-data='预约预定' class='swaper-item'>
-  <view><image src='../../img/my/gy_03_05.png'></image>
+  <view><image src='../../img/home/bb_sy_11@2x.png'></image>
 </view>
     <text>预约预定</text>
   </view>
 
 
   <view bindtap='adminClick' data-data='报修保养' class='swaper-item'>
-  <view><image src='../../img/my/gy_03_05.png'></image>
+  <view><image src='../../img/home/bb_sy_12@2x.png'></image>
 </view>
     <text>报修保养</text>
   </view>
 
 <view bindtap='adminClick' data-data='智能系统'  class='swaper-item'>
-  <view><image src='../../img/my/gy_03_05.png'></image>
+  <view><image src='../../img/home/bb_sy_14@2x.png'></image>
 </view>
     <text>智能系统</text>
   </view>
 
 <view bindtap='adminClick' data-data='水电表抄表' class='swaper-item'>
-  <view><image src='../../img/my/gy_03_05.png'></image>
+  <view><image src='../../img/home/bb_sy_15@2x.png'></image>
 </view>
     <text>水电表抄表</text>
   </view>
 
 <view bindtap='adminClick' data-data='账单/流水' class='swaper-item'>
-  <view><image src='../../img/my/gy_03_05.png'></image>
+  <view><image src='../../img/home/bb_sy_16@2x.png'></image>
 </view>
     <text>账单/流水</text>
   </view>

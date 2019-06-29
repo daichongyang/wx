@@ -1,4 +1,6 @@
 {
   "navigationBarTitleText": "租约列表",
-  "usingComponents": {}
+  "usingComponents": {
+    "com_top_select": "/components/com_top_select/com_top_select"
+  }
 }

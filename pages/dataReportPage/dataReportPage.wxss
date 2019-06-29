@@ -22,6 +22,7 @@ page{
   flex-grow: 1;
   font-size: 30rpx;
   line-height: 80rpx;
+  color: #222222;
 }
 .textCss1{
     border-bottom: 5rpx solid #1fc2b2
@@ -132,7 +133,7 @@ canvas{
 
 }
 .rbybCssBox text:nth-child(2){
-   border-top-right-radius: 15rpx;
+  border-top-right-radius: 15rpx;
   border-bottom-right-radius: 15rpx;
 }
 
@@ -145,7 +146,6 @@ canvas{
   color: black;
 }
 
-
 /* 日报月报明细 */
 .rbybMxCssBox{
   width: 95%;
@@ -155,34 +155,38 @@ canvas{
   border-radius: 10rpx;
 }
 .mxTitleCss{
-  display: -webkit-flex; /* Safari */
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  border-bottom: 1rpx solid #e1e1e1;
+  height: 80rpx;
+  border-bottom: 2rpx solid #e1e1e1;
 }
-
-.mxTitleCss text:nth-child(1){
-  display: inline-block;
+.dayItem {
+  border-bottom: 2rpx solid #1fc2b2;
+  height: 100%;
+  width: 50%;
+  line-height: 80rpx;
   text-align: center;
-  border-bottom: 5rpx solid #1fc2b2;
-   flex-grow: 1;
-  font-size: 30rpx;
-  padding-top: 20rpx;
-  padding-bottom: 20rpx;
+  font-size: 28rpx;
+  color: #222222;
 }
-.mxTitleCss text:nth-child(2){
-  display: inline-block;
+.line {
+  background-color: #e1e1e1;
+  width: 2rpx;
+  height: 80%;
+}
+.monthItem {
+  height: 100%;
   text-align: center;
-   flex-grow: 1;
-  font-size: 30rpx;
-  padding-top: 20rpx;
-  padding-bottom: 20rpx;
+  width: 50%;
+  line-height: 80rpx;
+  font-size: 28rpx;
+  color: #222222;
 }
 
 .mxItem{
-   display: -webkit-flex; /* Safari */
+  display: -webkit-flex; /* Safari */
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -196,5 +200,22 @@ canvas{
   font-size: 30rpx;
   padding-top: 20rpx;
   padding-bottom: 20rpx;
-  color: darkgray
+  color: #888888;
+}
+.billItem {
+  display: -webkit-flex; /* Safari */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1rpx solid #e1e1e1;
+}
+.billItem text {
+  display: inline-block;
+  text-align: center;
+  flex-grow: 1;
+  font-size: 30rpx;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  color: #222222;
 }

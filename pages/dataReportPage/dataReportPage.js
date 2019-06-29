@@ -6,7 +6,9 @@ import {
   adminIndexbilltotal,
   adminIndexbillfuture,
   adminIndexWillExpired,
-  adminIndexBeExpired
+  adminIndexBeExpired,
+  getDataTableWithWater,
+  getDataTableWithBill
 } from "../../utils/url.js"
 
 Page({
@@ -21,10 +23,13 @@ Page({
     id:0,
     current:0,
     index:0,
+    dayIndex: 0,
     billTotal: 0,
     billFuture: 0,
     willExpired: 0,
-    beExpired: 0
+    beExpired: 0,
+    billData: [],
+    waterData: []
   },
 
   // 总账单  房源数据 租约数据  日报月报 选择
@@ -41,19 +46,6 @@ Page({
    */
   onLoad: function (options) {
     this.getSystemInfo();
-  },
-
-// 日报月报里面 流水统计
-  lstjClick:function(){
-   this.setData({
-     index:0,
-    })
-  },
-  //  日报月报里面 账单统计
-  zdtjClick: function () {
-    this.setData({
-      index: 1,
-    })
   },
 
   //获取屏幕尺寸
@@ -122,33 +114,92 @@ Page({
        break;
      default:
        {
-         console.log("日报月报");
+         this.lstjClick();
        }
        break;
    }
- },
+  },
 
-//租约数据
-loadDataExpired: function () {
-  // 快到期合同
-  let params = {
-    day: 60
-  }
-  adminIndexWillExpired(params).then(res => {
-    console.log(res);
-    this.setData({
-      willExpired: res.data.data
+  //租约数据
+  loadDataExpired: function () {
+    // 快到期合同
+    let params = {
+      day: 60
+    }
+    adminIndexWillExpired(params).then(res => {
+      console.log(res);
+      this.setData({
+        willExpired: res.data.data
+      })
     })
-  })
-  // 已到期合同
-  adminIndexBeExpired().then(res => {
-    console.log(res);
-    this.setData({
-      beExpired: res.data.data
+    // 已到期合同
+    adminIndexBeExpired().then(res => {
+      console.log(res);
+      this.setData({
+        beExpired: res.data.data
+      })
     })
-  })
-},
+  },
 
+  // 流水统计
+  lstjClick: function () {
+    this.setData({
+      index: 0,
+    })
+    let params = {
+      apartmentId: 1,
+      flowReportType: 1,
+      size: 6,
+      current: 1,
+      paymentDate: this.data.dayIndex
+    }
+    getDataTableWithWater(params).then(res => {
+      this.setData({
+        waterData: res.data.data.records[0].statements
+      })
+    })
+  },
+  // 账单统计
+  zdtjClick: function () {
+    this.setData({
+      index: 1,
+    })
+    let params = {
+      apartmentId: 0,
+      flowReportType: 1,
+      size: 6,
+      current: 1,
+      paymentDate: this.data.dayIndex
+    }
+    getDataTableWithBill(params).then(res => {
+      this.setData({
+        billData: res.data.data.records[0].billReports
+      })
+    })
+  },
+
+  // 日报月报数据
+  dayClick: function () {
+    this.setData({
+      dayIndex: 0,
+    })
+    if (this.data.index == 0) {
+        this.lstjClick();
+    } else {
+        this.zdtjClick();
+    }
+  },
+
+  monthClick: function () {
+    this.setData({
+      dayIndex: 1,
+    })
+    if (this.data.index == 0) {
+      this.lstjClick();
+    } else {
+      this.zdtjClick();
+    }
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

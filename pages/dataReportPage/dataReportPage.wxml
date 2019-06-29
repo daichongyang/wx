@@ -1,16 +1,16 @@
 <!--pages/dataReportPage/dataReportPage.wxml-->
+
+<!-- 顶部选项 -->
 <view class='headerBox'>
   <block wx:for='{{titleArray}}' wx:key='key'>
       <text bindtap='chooseTypeClick' data-id='{{index}}'  class="{{index == id ? 'textCss1':'textCss2'}}">{{item}}</text>
   </block>
 </view>
 
-
 <swiper bindchange='bindchange' current='{{current}}' class='swiper' style='width: {{windowWidth}}px;height:{{windowHeight}}px'>
+  <!-- 总账单 -->
   <swiper-item>
     <scroll-view class='scrollView' scroll-y='true' enable-back-to-top='true'>
-
-
       <view class='zzdCss'>总账单</view>
       <view class='xqCssBox'>
       <view class='sjCssBOx'>
@@ -32,7 +32,7 @@
     </scroll-view>
   </swiper-item>
 
-
+  <!-- 房源数据 -->
   <swiper-item>
     <scroll-view class='scrollView' scroll-y='true' enable-back-to-top='true'>
         <view class='fysjCss'>
@@ -66,10 +66,8 @@
     </scroll-view>
   </swiper-item>
 
-
-
-
-    <swiper-item>
+  <!-- 租约数据 -->
+  <swiper-item>
     <scroll-view class='scrollView' scroll-y='true' enable-back-to-top='true'>
 
        <view class='zzdCss'>快到期合同</view>
@@ -80,7 +78,6 @@
         <view class='jeCss'>{{willExpired}}个</view>
       </view>
 
-
       <view class='zzdCss'>已到期合同</view>
       <view class='xqCssBox'>
         <view class='jeCss'>{{beExpired}}个</view>
@@ -89,25 +86,42 @@
     </scroll-view>
   </swiper-item>
 
-
-    <swiper-item>
+  <!-- 日报月报 -->
+  <swiper-item>
     <scroll-view class='scrollView' scroll-y='true' enable-back-to-top='true'>
+
       <view class='rbybCssBox'>
-        <text bindtap='lstjClick' class="{{index == 0? 'itemOneCss':'itemTwoCss'}}">流水统计</text><text bindtap='zdtjClick' class="{{index == 1? 'itemOneCss':'itemTwoCss'}}">账单统计</text>
+        <text bindtap='lstjClick' class="{{index == 0? 'itemOneCss':'itemTwoCss'}}">流水统计</text>
+        <text bindtap='zdtjClick' class="{{index == 1? 'itemOneCss':'itemTwoCss'}}">账单统计</text>
       </view>
 
-        <view class='rbybMxCssBox'>
-          <view class='mxTitleCss'><text>日报(近6日)</text><text>月报(近6月)</text></view>
-          <block>
-             <view class='mxItem'><text>实际收款日</text><text>进账流水</text><text>出账流水</text></view>
-             <view class='mxItem'><text>今天</text><text>+7562.22</text><text>-56.76</text></view>
-             <view class='mxItem'><text>03-31</text><text>+89274.66</text><text>-7899.81</text></view>
-          </block>
+      <view class='rbybMxCssBox'>
+        <view class='mxTitleCss'>
+          <text bindtap="dayClick" class="{{dayIndex == 0 ? 'dayItem' : 'monthItem'}}">日报(近6日)</text>
+          <view class="line"></view>
+          <text bindtap="monthClick" class="{{dayIndex == 1 ? 'dayItem' : 'monthItem'}}">月报(近6月)</text>
+        </view>
+        
+        <view>
+          <view wx:if="{{index == 0}}" class='mxItem'><text>实际收款日</text><text>进账流水</text><text>出账流水</text></view>
+          <view wx:else="{{index == 1}}" class='mxItem'><text>实际收款日</text><text>账单总额</text><text>待收总额</text></view>
         </view>
 
+        <view>
+          <view wx:if="{{index == 0}}">
+            <block wx:for="{{waterData}}" wx:key="key">
+             <view class='billItem'><text>{{item.name}}</text><text>{{item.inAccountTotal}}</text><text>{{item.outAccountTotal}}</text></view>
+            </block>
+          </view>
+          <view wx:else="{{index == 1}}">
+            <block wx:for="{{billData}}" wx:key="key">
+              <view class='billItem'><text>{{item.name}}</text><text>{{item.billsAccountTotal}}</text><text>{{item.billsPendingTotal}}</text></view>
+            </block>
+          </view>
+        </view>
+      </view>
 
     </scroll-view>
   </swiper-item>
-
 
 </swiper>

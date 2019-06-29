@@ -166,6 +166,7 @@ var adminHouseListUrl = httpUrl + "/v1.0/admin/house/list";
 var adminTodoUrl = httpUrl + "/v1.0/admin/index/todo";
 var adminReservationListUrl = httpUrl + "/v1.0/admin/reservation/list";
 var adminAdvanceListUrl = httpUrl + "/v1.0/admin/advance/list";
+// 租约列表
 var adminLeaseListUrl = httpUrl + "/v1.0/admin/lease/list";
 var adminSelectUrl = httpUrl + "/v1.0/admin/apartment/select";
 var adminPropertyGetRepairListUrl = httpUrl + "/property/getRepairList";

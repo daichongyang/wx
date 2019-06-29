@@ -1,0 +1,21 @@
+<!--components/select_item.wxml-->
+
+<!-- 头部筛选 -->
+<view class='header'>
+  <block wx:for="{{select_title}}"  wx:key='key'>
+    <text bindtap='sxClcik' data-id='{{index}}' >{{item}}</text>
+   </block>
+</view>
+
+<!-- 蒙版 -->
+<view class='maskView' hidden='{{select_flag}}' catchtap='maskClick'>
+  <view catchtap='stopClick'>
+      <view class='xsItem'>1</view>
+      <view class='xsItem'>1</view>
+      <view class='xsItem'>1</view>
+      <view class='xsItem'>1</view>
+      <view class='xsItem'>1</view>
+      <view class='xsItem'>1</view>
+      <view class='xsItem'>1</view>
+  </view>
+</view>

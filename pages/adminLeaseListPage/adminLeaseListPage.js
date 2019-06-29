@@ -14,49 +14,8 @@ Page({
     current:1,
     dataList: [],
     flag: true,
-    id: 100,
-    sxArray: ["租约状态 ▾", "合同类型 ▾", "更多筛选 ▾"],
+    sxArray: ["租约状态", "合同类型", "更多筛选"],
     status:0,
-  },
-
-  //筛选
-  sxClcik: function (e) {
-    console.log(e.currentTarget.dataset.id);
-    if (e.currentTarget.dataset.id == this.data.id) {
-      this.setData({
-        flag: true,
-        id: 100,
-        sxArray: ["租约状态 ▾", "合同类型 ▾", "更多筛选 ▾"],
-      })
-    } else {
-      if (e.currentTarget.dataset.id == 0) {
-        this.data.sxArray = ["租约状态 ▴", "合同类型 ▾", "更多筛选 ▾"];
-      } else if (e.currentTarget.dataset.id == 1) {
-        this.data.sxArray = ["租约状态 ▾", "合同类型 ▴", "更多筛选 ▾"];
-      } else if (e.currentTarget.dataset.id == 2) {
-        this.data.sxArray = ["租约状态 ▾", "合同类型 ▾", "更多筛选 ▴"];
-      }
-      this.setData({
-        flag: false,
-        id: e.currentTarget.dataset.id,
-        sxArray: this.data.sxArray,
-      })
-    }
-
-  },
-
-  //关闭蒙版
-  maskClick: function () {
-    this.setData({
-      flag: true,
-      id: 100,
-      sxArray: ["租约状态 ▾", "合同类型 ▾", "更多筛选 ▾"],
-    })
-  },
-
-  // 阻止事件穿透
-  stopClick: function () {
-
   },
 
   /**
@@ -65,7 +24,6 @@ Page({
   onLoad: function (options) {
     this.loadDataSourceList(this.data.current,this.data.status);
   },
-
 
   //请求数据预定
   loadDataSourceList: function (current,status) {
@@ -101,7 +59,7 @@ Page({
             } else if (obj.status == 1) {
               obj.status = "签约成功";
             } else if (obj.status == 2) {
-              obj.status = "退房";
+              obj.status = "已退房";
             } 
             if (obj.contractType == 0) {
               obj.contractType = "纸字合同";
