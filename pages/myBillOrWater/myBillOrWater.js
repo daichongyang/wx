@@ -47,11 +47,7 @@ Page({
   },
 
   // 选择账单列表/交易流水
-<<<<<<< HEAD
-  changeSelectState: function (e) {
-=======
   changeSelectState: function (e) {    
->>>>>>> lxy
     var title = e.currentTarget.dataset.title;
     if (title == "bill") {
       this.setData({
@@ -61,10 +57,6 @@ Page({
       this.setData({
         isSelectBillView: false
       })
-<<<<<<< HEAD
-
-=======
->>>>>>> lxy
       if (!this.data.waterData) {
         this.getWaterDataInfo();
       }

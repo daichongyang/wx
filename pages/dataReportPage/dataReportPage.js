@@ -6,13 +6,9 @@ import {
   adminIndexbilltotal,
   adminIndexbillfuture,
   adminIndexWillExpired,
-<<<<<<< HEAD
-  adminIndexBeExpired
-=======
   adminIndexBeExpired,
   getDataTableWithWater,
   getDataTableWithBill
->>>>>>> lxy
 } from "../../utils/url.js"
 
 Page({
@@ -27,12 +23,6 @@ Page({
     id:0,
     current:0,
     index:0,
-<<<<<<< HEAD
-    billTotal: 0,
-    billFuture: 0,
-    willExpired: 0,
-    beExpired: 0
-=======
     dayIndex: 0,
     billTotal: 0,
     billFuture: 0,
@@ -40,7 +30,6 @@ Page({
     beExpired: 0,
     billData: [],
     waterData: []
->>>>>>> lxy
   },
 
   // 总账单  房源数据 租约数据  日报月报 选择
@@ -102,8 +91,6 @@ Page({
       this.setData({
         billFuture: res.data.data
       })
-<<<<<<< HEAD
-=======
     })
   },
 
@@ -195,7 +182,6 @@ Page({
   dayClick: function () {
     this.setData({
       dayIndex: 0,
->>>>>>> lxy
     })
     if (this.data.index == 0) {
         this.lstjClick();
