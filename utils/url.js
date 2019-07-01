@@ -22,10 +22,10 @@ let requestApi = function(method, url, data) {
   })
 }
 
-// // 我是管理员
-// var httpUrl = "https://www.ubicell.cn/apartment";
+// 我是管理员
+var httpUrl = "https://www.ubicell.cn/apartment";
 // var httpUrl = "http://192.168.0.145:8080";
-var httpUrl = "http://192.168.0.180:8080";
+// var httpUrl = "http://192.168.0.180:8080";
 
 // 用户确定绑定银行卡
 const bindUserCardReSure = (params) => {
@@ -174,6 +174,10 @@ var adminhydroelectricshowAndUpAllDevUrl = httpUrl + "/hydroelectric/showAndUpAl
 // 数据报表/总账单
 const adminIndexbilltotal = (params) => {
   return requestApi("post", "/v1.0/admin/index/bill/total", params)
+}
+// 数据报表/房源数据
+const adminIndexHouseData = (params) => {
+  return requestApi("post", "/v1.0/admin/index/house/data", params)
 }
 // 数据报表/未来预计收入
 const adminIndexbillfuture = (params) => {
@@ -325,7 +329,8 @@ module.exports = {
   adminIndexWillExpired,
   adminIndexBeExpired,
   getDataTableWithWater,
-  getDataTableWithBill
+  getDataTableWithBill,
+  adminIndexHouseData
 }
 
 

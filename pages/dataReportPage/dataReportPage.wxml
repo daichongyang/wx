@@ -37,7 +37,7 @@
     <scroll-view class='scrollView' scroll-y='true' enable-back-to-top='true'>
         <view class='fysjCss'>
           <view class='item' style='color: darkgray;'>总房源</view>
-          <view class='item'>15600间</view>
+          <view class='item'>{{houseData.totalNum}}间</view>
           <view style='font-size:10rpx;' class='item'><text  decode='true'>&nbsp;</text></view>
           <view class='item'><text  decode='true'>&nbsp;</text></view>
           <view class='item'><text decode='true'>&nbsp;</text></view>
@@ -45,17 +45,17 @@
         </view>
         <view class='fysjCss'>
           <view class='item' style='color: darkgray;'>空置房</view>
-          <view class='item'>136间</view>
+          <view class='item'>{{houseData.vacantNum}}间</view>
           <view style='font-size:10rpx;' class='item'><text  decode='true'>&nbsp;</text></view>
           <view class='item'style='color: pink;'>空置率</view>
-          <view class='item'>13%</view>
+          <view class='item'>{{houseData.vacantRatio}}</view>
         </view>
         <view class='fysjCss'>
           <view class='item' style='color: darkgray;'>已租房</view>
-          <view class='item'>12450间</view>
+          <view class='item'>{{houseData.rentNum}}间</view>
           <view style='font-size:10rpx;' class='item'><text  decode='true'>&nbsp;</text></view>
           <view class='item' style='color: #228B22;'>出租率</view>
-          <view class='item'>87%</view>
+          <view class='item'>{{houseData.rentRatio}}</view>
         </view>
 
        <view class="canvas-content">

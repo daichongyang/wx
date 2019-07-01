@@ -63,7 +63,8 @@
     "pages/setPayPassword/setPayPassword",
     "pages/myBillOrWater/myBillOrWater",
     "pages/znApartmentList/znApartmentList",
-    "pages/znAmmeterList/znAmmeterList"
+    "pages/znAmmeterList/znAmmeterList",
+    "pages/leaseDetailPage/leaseDetailPage"
   ],
   "window": {
     "backgroundTextStyle": "light",

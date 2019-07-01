@@ -1,0 +1,161 @@
+<!--pages/adminLeaseListPage/leaseDetailPage/leaseDetailPage.wxml-->
+<view class="view_container">
+  <!-- 顶部视图 -->
+  <view class="lease_top">
+    <view class='top_houseName'>宝宝公寓在线</view>
+    <view class="top_container">
+      <view class='top_name'>签约人:lxy</view>
+      <view class='top_status'>租约状态:在线</view>
+    </view>
+    <view class='top_foot'>
+      <text bindtap='footClick'>续租</text>
+      <text bindtap='footClick'>添加账单</text>
+      <text bindtap='footClick'>退房</text>
+    </view>
+  </view>
+
+  <!-- 中间视图 -->
+  <view class="lease_middle">
+    <!-- 详情 -->
+    <view wx:if="{{selectIndex == 0}}">
+      <view class="deatil_container">
+        <view class="deatil_top_container">
+          <view class="lease_detail_title">租约信息</view>
+          <view class="lease_container">
+            <text>起止时间</text>
+            <text>2018.11.23-2019.05.22</text>
+          </view>
+          <view class="lease_container">
+            <text>付款方式</text>
+            <text>押二付一</text>
+          </view>
+          <view class="lease_container">
+            <text>租金</text>
+            <text>2400/月</text>
+          </view>
+          <view class="lease_container">
+            <text>房屋押金</text>
+            <text>4800元</text>
+          </view>
+          <view class="lease_container">
+            <text>电器押金</text>
+            <text>2400元</text>
+          </view>
+          <view class="lease_container">
+            <text>管理费</text>
+            <text>1500/月</text>
+          </view>
+          <view class="lease_container">
+            <text>下期收租日</text>
+            <text>2019.06.22</text>
+          </view>
+          <view class="lease_container">
+            <text>合同类型</text>
+            <text>电子合同</text>
+          </view>
+          <view class="lease_container">
+            <text>配置清单</text>
+            <text>11项</text>
+          </view>
+        </view>
+        <view class="deatil_bottom_container">
+          <view class="lease_detail_title">其他信息</view>
+          <view class="lease_container">
+            <text>租约编号</text>
+            <text>QY34324324332</text>
+          </view>
+          <view class="lease_container">
+            <text>创建时间</text>
+            <text>2018.11.25 12:42:23</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 合同 -->
+    <view wx:elif="{{selectIndex == 1}}">
+    </view>
+    <!-- 账单 -->
+    <view wx:elif="{{selectIndex == 2}}">
+      <view>
+        <view class="bill_all">
+          <view class="select_view">
+            <view><image class="choise_img" src="../../img/my/choise_car.png"></image></view>
+            <text class="select_all">全选</text>
+            <view class="select_label">
+              <text>已选择2条账单</text>
+              <text>共¥2400</text>
+            </view>
+          </view>
+          <view class="bill_pay">收款</view>
+        </view>
+        <view class="bill_time">2018年11月</view>
+        <block wx:for="{{4}}" wx:key="key">
+          <view class="bill_item">
+            <view class="bill_left">
+              <view><image class="choise_img" src="../../img/my/choise_car.png"></image></view>
+              <view class="bill_middle">
+                <view class="bill_price">
+                  <text>¥2400</text>
+                  <text>水费</text>
+                </view>
+                <text class="bill_star_end">2018.10.20-2018.12.32.23</text>
+              </view>
+            </view>
+            <view class="bill_right">
+              <text>未支付</text>
+              <text>2018.10.30前</text>
+            </view>
+          </view>
+        </block>
+        <view class="bill_more">查看所有未来订单</view>      
+      </view>
+    </view>
+    <!-- 租客 -->
+    <view wx:else="{{selectIndex == 3}}">
+      <view class="deatil_container">
+        <view class="deatil_top_container">
+          <view class="lease_detail_title">承租人信息</view>
+          <view class="lease_container">
+            <text>姓名</text>
+            <text>张三</text>
+          </view>
+          <view class="lease_container">
+            <text>性别</text>
+            <text>男</text>
+          </view>
+          <view class="lease_container">
+            <text>手机号码</text>
+            <text>176xxxx2101</text>
+          </view>
+          <view class="lease_container">
+            <text>证件类型</text>
+            <text>身份证</text>
+          </view>
+          <view class="lease_container">
+            <text>证件号码</text>
+            <text>430726xxxxxxxx82</text>
+          </view>
+        </view>
+        <view class="deatil_bottom_container">
+          <view class="lease_detail_title">入住人信息</view>
+          <view class="lease_container">
+            <text>苏大强</text>
+            <text>在住</text>
+          </view>
+          <view class="lease_container">
+            <text>卢建军</text>
+            <text>在住</text>
+          </view>
+          </view>
+        </view> 
+    </view>
+  </view>
+
+  <!-- 底部视图 -->
+  <view class="lease_bottom">
+    <text class="{{selectIndex == 0 ? 'lease_line_s' : 'lease_line_n'}}" data-item="0" bindtap="leaseBottomClick">详情</text>
+    <text class="{{selectIndex == 1 ? 'lease_line_s' : 'lease_line_n'}}" data-item="1" bindtap="leaseBottomClick">合同</text>
+    <text class="{{selectIndex == 2 ? 'lease_line_s' : 'lease_line_n'}}" data-item="2" bindtap="leaseBottomClick">账单</text>
+    <text class="{{selectIndex == 3 ? 'lease_line_s' : 'lease_line_n'}}" data-item="3" bindtap="leaseBottomClick">租客</text>
+  </view>
+</view>

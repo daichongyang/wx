@@ -1,0 +1,216 @@
+/* pages/adminLeaseListPage/leaseDetailPage/leaseDetailPage.wxss */
+
+page {
+  background-color: #f7f7f7;
+}
+/* 顶部视图 */
+.top_houseName {
+  font-size: 30rpx;
+  color: #222222;
+  line-height: 100rpx;
+  padding-left: 30rpx;
+  margin-top: 10rpx;
+  background-color: white;
+}
+.top_name {
+  padding-left: 30rpx;
+  color: #777777;
+  font-size: 26rpx;
+  padding-top: 30rpx;
+  padding-bottom: 15rpx;
+}
+.top_status {
+  padding-left: 30rpx;
+  color: #777777;
+  font-size: 26rpx;
+  padding-bottom: 30rpx;
+}
+.top_foot {
+  width: 100%;
+  height: 100rpx;
+  background: white;
+  display: flex;
+  justify-content: flex-end;
+}
+.top_foot text{
+  font-size: 26rpx;
+  background: #dff3f2;
+  color: #4f8e89;
+  height: 54rpx;
+  margin-top: 23rpx;
+  margin-right: 30rpx;
+  width: 150rpx;
+  text-align: center;
+  border-radius: 8rpx;
+  line-height: 54rpx;
+}
+
+/* 详情 */
+.deatil_top_container {
+  background-color: white;
+  margin-top: 20rpx;
+}
+.deatil_bottom_container {
+  background-color: white;
+  margin-top: 2rpx;
+  margin-bottom: 20rpx;
+}
+.lease_detail_title {
+  font-size: 30rpx;
+  color: #222222;
+  padding-left: 30rpx;
+  padding-top: 30rpx;
+  padding-bottom: 30rpx;
+}
+.lease_container {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 30rpx;
+}
+.lease_container text:nth-child(1) {
+  font-size: 28rpx;
+  color: #222222;
+  padding-left: 30rpx;
+}
+.lease_container text:nth-child(2) {
+  font-size: 28rpx;
+  color: #222222;
+  padding-right: 30rpx;
+}
+
+/* 账单 */
+.bill_all {
+  margin-top: 20rpx;
+  background-color: white;
+  height: 110rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.choise_img {
+  width:34rpx;
+  height: 34rpx;
+  margin-right:30rpx;
+  margin-left: 30rpx;
+}
+.select_view {
+  height: 80%;
+  display: flex;
+  align-items: center;
+}
+.select_all {
+  font-size: 34rpx;
+  color: #222222;
+  margin-right: 30rpx;
+}
+.select_label {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-around;
+}
+.select_label text {
+  font-size: 26rpx;
+  color: #fe615a;
+}
+.bill_pay {
+  background-color: #00c3b2;
+  color: white;
+  width: 200rpx;
+  height: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+  border-radius: 8rpx;
+  margin-right: 30rpx;
+}
+.bill_time {
+  color: #777777;
+  font-size: 26rpx;
+  padding-top: 40rpx;
+  padding-bottom: 10rpx;
+  margin-left: 30rpx;
+}
+.bill_item {
+  background-color: white;
+  height: 140rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rpx;
+}
+.bill_left {
+  display: flex;
+  align-items: center;
+  height: 80%;
+}
+.bill_middle {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.bill_price text:nth-child(1) {
+  font-size: 34rpx;
+  color: #222222;
+}
+.bill_price text:nth-child(2) {
+  margin-left: 20rpx;
+  font-size: 26rpx;
+  color: #222222;
+}
+.bill_star_end {
+  font-size: 26rpx;
+  color: #777777;
+}
+.bill_right {
+  height: 80%;
+  margin-right: 30rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+.bill_right text:nth-child(1) {
+  font-size: 30rpx;
+  color: #fe615a;
+}
+.bill_right text:nth-child(2) {
+  font-size: 26rpx;
+  color: #777777;
+}
+.bill_more {
+  font-size: 24rpx;
+  color: #777777;
+  height: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+}
+
+/* 底部视图 */
+.lease_bottom {
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  position: fixed;
+  bottom: 0rpx;
+  width: 100%;
+  height: 100rpx;
+}
+.lease_line_s {
+  font-size: 30rpx;
+  color: #222222;
+  width: 25%;
+  height: 100%;
+  text-align: center;
+  line-height: 100rpx;
+  border-top: 4rpx solid #00c3b2;
+}
+.lease_line_n {
+  font-size: 30rpx;
+  color: #222222;
+  width: 25%;
+  height: 100%;
+  text-align: center;
+  line-height: 100rpx;
+  border-top: 4rpx solid #e5e5e5;
+}
