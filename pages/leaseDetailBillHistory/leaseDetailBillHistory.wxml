@@ -1,0 +1,20 @@
+<!--pages/leaseDetailBillHistory/leaseDetailBillHistory.wxml-->
+<view>
+  <view class="bill_time">2018年11月</view>
+  <block wx:for="{{4}}" wx:key="key">
+    <view bindtap="detailClick" class="bill_item">
+      <view class="bill_left">
+        <view class="bill_price">
+          <text>¥2400</text>
+          <text>水费</text>
+        </view>
+        <text class="bill_star_end">2018.10.20-2018.12.32.23</text>
+      </view>
+      <view class="bill_right">
+        <text>未支付</text>
+        <text>2018.10.30前</text>
+      </view>
+    </view>
+  </block>
+</view>
+

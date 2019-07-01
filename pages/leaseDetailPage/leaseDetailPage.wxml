@@ -8,6 +8,7 @@
       <view class='top_status'>租约状态:在线</view>
     </view>
     <view class='top_foot'>
+      <text wx:if="{{selectIndex == 2}}" data-item="history" bindtap='footClick'>历史账单</text>
       <text bindtap='footClick'>续租</text>
       <text bindtap='footClick'>添加账单</text>
       <text bindtap='footClick'>退房</text>

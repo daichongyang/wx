@@ -1,0 +1,41 @@
+<!--pages/leaseBillDetail/leaseBillDetail.wxml-->
+<view>
+  <view class="bill_top">
+    <text>未支付</text>
+    <view class="img_view"><image class="call_img" src="../../img/businessCircle/bb_sq_06@2x.png"></image></view>
+  </view>
+
+  <view class="bill_middle">
+    <text class="bill_name">房屋租金</text>
+    <view class="bill_price">
+      <text>¥</text>
+      <text>2400</text>
+    </view>
+    <text class="bill_time">2018.11.30前支付</text>
+  </view>
+  
+  <view class="bill_list">
+    <view class="lease_container">
+      <text>起止时间</text>
+      <text>2018.11.30-2019.11.30</text>
+    </view>
+    <view class="lease_container">
+      <text>生成时间</text>
+      <text>2019.11.23 10:32:23</text>
+    </view>
+     <view class="lease_container">
+      <text>账单编号</text>
+      <text>ZN42324314312</text>
+    </view>
+     <view class="lease_container">
+      <text>备注</text>
+      <text>逾期未付，滞纳金为租金的10%</text>
+    </view>
+  </view>
+
+  <view class="lease_bottom">
+    <text bindtap="bottomClick">更多</text>
+    <text bindtap="bottomClick">催账</text>
+    <text bindtap="bottomClick">确认收款</text>
+  </view>
+</view>

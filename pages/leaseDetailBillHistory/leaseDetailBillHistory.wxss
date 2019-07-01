@@ -1,0 +1,55 @@
+/* pages/leaseDetailBillHistory/leaseDetailBillHistory.wxss */
+page {
+  background-color: #f7f7f7;
+}
+.bill_time {
+  color: #777777;
+  font-size: 26rpx;
+  padding-top: 40rpx;
+  padding-bottom: 10rpx;
+  margin-left: 30rpx;
+}
+.bill_item {
+  background-color: white;
+  height: 140rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rpx;
+}
+.bill_left {
+  height: 80%;
+  margin-left: 30rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.bill_price text:nth-child(1) {
+  font-size: 34rpx;
+  color: #222222;
+}
+.bill_price text:nth-child(2) {
+  margin-left: 20rpx;
+  font-size: 26rpx;
+  color: #222222;
+}
+.bill_star_end {
+  font-size: 26rpx;
+  color: #777777;
+}
+.bill_right {
+  height: 80%;
+  margin-right: 30rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+.bill_right text:nth-child(1) {
+  font-size: 30rpx;
+  color: #222222;
+}
+.bill_right text:nth-child(2) {
+  font-size: 26rpx;
+  color: #777777;
+}

@@ -64,7 +64,10 @@
     "pages/myBillOrWater/myBillOrWater",
     "pages/znApartmentList/znApartmentList",
     "pages/znAmmeterList/znAmmeterList",
-    "pages/leaseDetailPage/leaseDetailPage"
+    "pages/leaseDetailPage/leaseDetailPage",
+    "pages/leaseDetailBillHistory/leaseDetailBillHistory",
+    "pages/leaseBillDetail/leaseBillDetail",
+    "pages/leaseBillConfirm/leaseBillConfirm"
   ],
   "window": {
     "backgroundTextStyle": "light",

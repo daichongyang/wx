@@ -1,24 +1,16 @@
-// pages/adminLeaseListPage/leaseDetailPage/leaseDetailPage.js
+// pages/leaseDetailBillHistory/leaseDetailBillHistory.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    selectIndex: 0
+
   },
 
-  leaseBottomClick: function (e) {
-    this.setData({
-      selectIndex: e.currentTarget.dataset.item
-    })
-  },
-
-  // 历史账单
-  footClick: function () {
-    console.log("==========");
+  detailClick: function () {
     wx.navigateTo({
-      url: '/pages/leaseDetailBillHistory/leaseDetailBillHistory',
+      url: '/pages/leaseBillDetail/leaseBillDetail',
     })
   },
 
@@ -26,9 +18,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      selectIndex: options.selectIndex
-    })
+
   },
 
   /**

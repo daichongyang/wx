@@ -1,0 +1,46 @@
+<!--pages/leaseBillConfirm/leaseBillConfirm.wxml-->
+<view class='swiper'>
+
+  <view class='gdViewCss'>
+    <text class='left-text'>收款方式</text>
+    <picker class='riget-text' model='selector' range='{{houseList}}' bindchange='houseBindchange'>请选择 ▾</picker>
+  </view>
+
+  <view class='gdViewCss'>
+    <text class='left-text'>收款金额</text><input bindinput='bindinputName' value='2222' class='riget-text right-input'></input>
+  </view>
+
+  <view class='gdViewCss'>
+    <text class='left-text'>收款日期</text>
+    <picker 
+      class='riget-text dateCss'  
+      mode="date"
+      value="{{date}}"
+      start="{{startTime}}"
+      bindchange="bindDateChange"
+      end="{{endTime}}">{{date}} ▾
+    </picker>    
+  </view>
+
+  <view class='imgBox'>
+    <view class="imgBox_title"><text class="left-text">上传凭证（选填）</text></view>
+    <scroll-view scroll-x>
+      <block wx:for='{{imgList}}' wx:key='key'>
+        <image bindtap='lookImageClick' data-id='{{index}}' aspectFit='true' class='img-imet' src='{{item}}'>
+        <view catchtap='deltelImage' class='deltelImage' data-id='{{index}}'>X</view>
+        </image>
+      </block>
+      <image class='img-imet' bindtap='addImageClick' src='../../img/my/add44@2x.png'></image>
+    </scroll-view>      
+   </view>
+
+  <view class='tdesc'>
+    <view class="tdesc_title"><text class="left-text">备注</text></view>
+    <textarea bindinput='bindinputTextareaClick' placeholder='请输入备注信息和附加条款'></textarea>
+  </view>
+
+  <view class='button-box'>
+      <button bindtap='overClick'>确认</button>
+  </view>
+
+</view>
