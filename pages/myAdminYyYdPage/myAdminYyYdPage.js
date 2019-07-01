@@ -17,8 +17,6 @@ Page({
     windowWidth: 0,
     windowHeight: 0,
     firstLoadYd:true,
-
-
     ydShow: false,
     showTitelTwo: '',
     noShowTitelTwo: '',

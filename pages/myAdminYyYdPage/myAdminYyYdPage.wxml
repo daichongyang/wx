@@ -1,62 +1,58 @@
 <!--pages/myAdminYyYdPage/myAdminYyYdPage.wxml-->
-    <view class='titelBox'>
-          <view class='TitleItemCss'><text bindtap='yyClick' class="{{index == 0? 'itemOne':'itemTwo'}}">预约</text><text bindtap='ydClick' class="{{index == 1? 'itemOne':'itemTwo'}}">预定</text></view>
-    </view>
-
-
+<view class='titelBox'>
+  <view class='TitleItemCss'>
+    <text bindtap='yyClick' class="{{index == 0? 'itemOne':'itemTwo'}}">预约</text>
+    <text bindtap='ydClick' class="{{index == 1? 'itemOne':'itemTwo'}}">预定</text>
+  </view>
+</view>
 
 <swiper bindchange='bindchange' current='{{index}}' class='swiper' style='width: {{windowWidth}}px;height:{{windowHeight}}px'>
-
-    <!-- 预约 -->
+  <!-- 预约 -->
   <swiper-item>
     <scroll-view class='scrollView' scroll-y='true' enable-back-to-top='true'>
-         <block  wx:for='{{adminReservationList}}' wx:key='key' wx:for-index='id'>
-            <view class='itemBox'>
-                <view class='titel'>{{item.apartmentName}}-{{item.houseNumber}}</view>
-                <view class='content'>看房时间:{{item.appointmentTime}}</view>
-                <view class='content'>预约人:{{item.linkman}}</view>
-                <view class='content'>电话号码:{{item.phone}}</view>
-                <text class='contentType'>现场看房</text>
-                <view class='foot'>
-                  <text data-id='{{id}}' bindtap='yyXqClick'>查看详情</text>
-                </view>
-            </view>
-        </block>
-        <view bindtap='loadMoreClick' class='footerLoad' wx:if='{{yyShow}}'>{{showTitel}}</view>
-        <view class='footerLoad' wx:else>{{noShowTitel}}</view>
+      <block  wx:for='{{adminReservationList}}' wx:key='key' wx:for-index='id'>
+        <view class='itemBox'>
+          <view class='titel'>{{item.apartmentName}}-{{item.houseNumber}}</view>
+          <view class='content'>看房时间:{{item.appointmentTime}}</view>
+          <view class='content'>预约人:{{item.linkman}}</view>
+          <view class='content'>电话号码:{{item.phone}}</view>
+          <text class='contentType'>现场看房</text>
+          <view class='foot'>
+            <text data-id='{{id}}' bindtap='yyXqClick'>查看详情</text>
+          </view>
+        </view>
+      </block>
+      <view bindtap='loadMoreClick' class='footerLoad' wx:if='{{yyShow}}'>{{showTitel}}</view>
+      <view class='footerLoad' wx:else>{{noShowTitel}}</view>
     </scroll-view>
   </swiper-item>
 
-
-<!-- 预定 -->
+  <!-- 预定 -->
   <swiper-item>
     <scroll-view class='scrollView' scroll-y='true' enable-back-to-top='true'>
-        <block  wx:for='{{adminAdvanceList}}' wx:key='key' wx:for-index='id'>
-            <view class='itemBox'>
-                <view class='titel'>
-                  <text>{{item.apartmentName}}-{{item.houseNumber}}</text>
-                  <block wx:if="{{item.signStatus == '已签'}}">
-                      <text  class='titleRightOne'>{{item.signStatus}}</text>
-                  </block>
-                    <block wx:else>
-                      <text  class='titleRightTwo'>{{item.signStatus}}</text>
-                  </block>                
-                </view>
-                <view class='content'>最晚签约日:{{item.latestTime}}</view>
-                <view class='content'>预定人:{{item.promiseMan}}</view>
-                <view class='content'>电话号码:{{item.phone}}</view>
-                <view class='foot'>
-                  <text data-id='{{id}}' bindtap='ydXqClick'>查看详情</text>
-                </view>
-            </view>
-        </block>
-        <view bindtap='ydloadMoreClick' class='footerLoad' wx:if='{{ydShow}}'>{{showTitelTwo}}</view>
-        <view class='footerLoad' wx:else>{{noShowTitelTwo}}</view>
-        
+      <block  wx:for='{{adminAdvanceList}}' wx:key='key' wx:for-index='id'>
+        <view class='itemBox'>
+          <view class='titel'>
+            <text>{{item.apartmentName}}-{{item.houseNumber}}</text>
+            <block wx:if="{{item.signStatus == '已签'}}">
+                <text  class='titleRightOne'>{{item.signStatus}}</text>
+            </block>
+              <block wx:else>
+                <text  class='titleRightTwo'>{{item.signStatus}}</text>
+            </block>                
+          </view>
+          <view class='content'>最晚签约日:{{item.latestTime}}</view>
+          <view class='content'>预定人:{{item.promiseMan}}</view>
+          <view class='content'>电话号码:{{item.phone}}</view>
+          <view class='foot'>
+            <text data-id='{{id}}' bindtap='ydXqClick'>查看详情</text>
+          </view>
+        </view>
+      </block>
+      <view bindtap='ydloadMoreClick' class='footerLoad' wx:if='{{ydShow}}'>{{showTitelTwo}}</view>
+      <view class='footerLoad' wx:else>{{noShowTitelTwo}}</view>
     </scroll-view>
   </swiper-item>
-
-
 
 </swiper>
 

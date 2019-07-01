@@ -105,7 +105,7 @@ Page({
       })
       var context = wx.createCanvasContext('Canvas', this);
       var array = [this.data.houseData.vacantNum, this.data.houseData.rentNum];
-      var colors = ["pink", "#228B22"];
+      var colors = ["#cdfdf2", "#00ceb2"];
       var total = 0;
       for (var val = 0; val < array.length; val++) {
         total += array[val];
@@ -130,6 +130,9 @@ Page({
         context.closePath();
         context.stroke();
       }
+      context.fillStyle = "black";
+      context.fillText("空置房", 60, 120);
+      context.fillText("已租房", 80, 50);
       context.draw();
     })
   },

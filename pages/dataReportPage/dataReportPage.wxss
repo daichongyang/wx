@@ -92,11 +92,16 @@ page{
   border-radius: 10rpx;
   font-size: 30rpx;
 }
+.item_title {
+  padding-left: 10rpx;
+  padding-top: 6rpx;
+  color: #222222;
+}
 .item{
   padding-left: 10rpx;
   padding-top: 6rpx;
+  color: #777777;
 }
-
 .canvas-content{
   background: white;
   text-align: center;
