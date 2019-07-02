@@ -37,6 +37,18 @@ view{
   color:#fe615a;
 }
 /* 向下箭头 */
+.arrow-white-up {
+  display: inline-block;
+  vertical-align: top;
+  border-bottom: 10rpx solid #fff;
+  border-right: 10rpx solid transparent;
+  border-left: 10rpx solid transparent;
+  content: "";
+  margin-left:-10rpx;
+  position:absolute;
+  bottom:-10rpx;
+  left:50%;
+}
 .arrow-up {
   display: inline-block;
   vertical-align: top;
@@ -44,16 +56,16 @@ view{
   border-right: 10rpx solid transparent;
   border-left: 10rpx solid transparent;
   content: "";
-  margin-left:5rpx;
+  margin-left:10rpx;
 }
 .arrow-down {
-    display: inline-block;
-    vertical-align: top;
-    border-top: 10rpx solid #7a7a7a;
-    border-right: 10rpx solid transparent;
-    border-left: 10rpx solid transparent;
-    content: "";
-    margin-left:10rpx;
+  display: inline-block;
+  vertical-align: top;
+  border-top: 10rpx solid #7a7a7a;
+  border-right: 10rpx solid transparent;
+  border-left: 10rpx solid transparent;
+  content: "";
+  margin-left:10rpx;
 }
 .arrow-left {
   display: inline-block;
@@ -80,6 +92,6 @@ view{
   color: darkgray;
 }
 .gray10{
-  backgorund:#f7f7f7;
+  background:#f7f7f7;
   height:10rpx;
 }

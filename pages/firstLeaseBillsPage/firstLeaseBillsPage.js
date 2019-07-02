@@ -391,18 +391,18 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    if (wx.getStorageSync('options')){
-      this.setData({
-        chekZdCount: 0,
-        money: 0,
-        payQueryArr:[],
-        lszdList:[]
+    // if (wx.getStorageSync('options')){
+    //   this.setData({
+    //     chekZdCount: 0,
+    //     money: 0,
+    //     payQueryArr:[],
+    //     lszdList:[]
 
-      })
-      this.onLoad(wx.getStorageSync('options'))
+    //   })
+    //   this.onLoad(wx.getStorageSync('options'))
 
       // this.onLoad()
-    }
+    // }
   },
 
   /**

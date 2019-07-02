@@ -22,11 +22,15 @@ let requestApi = function(method, url, data) {
   })
 }
 
-// // 我是管理员
+// 我是管理员
 // var httpUrl = "https://www.ubicell.cn/apartment";
-// var httpUrl = "http://192.168.0.145:8080";
-var httpUrl = "http://192.168.0.180:8080";
+var httpUrl = "http://192.168.0.145:8080";
+// var httpUrl = "http://192.168.0.180:8080";
 
+//交易流水报表-交易项目下拉列表
+const itemSelect = params => {
+  return requestApi("post", '/v1.0/admin/report/item/select/' + params.level + '/' + params.costId)
+}
 
 // 用户确定绑定银行卡
 const bindUserCardReSure = (params) => {
@@ -251,6 +255,7 @@ export const getEleDevInfos = params => {
 
 
 module.exports = {
+  itemSelect,
   getEleDevInfos,
   selectApartment,
   permission,

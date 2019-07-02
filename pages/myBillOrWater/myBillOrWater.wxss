@@ -6,14 +6,14 @@ page {
   background-color: #f7f7f7;
 }
 .top_view {
-  height: 162rpx;
+  height: 0rpx;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .billView_s {
   width: 250rpx;
-  height: 60rpx;
+  /* height: 60rpx; */
   background-color: #00c3b2;
   font-size: 26rpx;
   color: white;
@@ -23,7 +23,7 @@ page {
 }
 .billView_n {
   width: 250rpx;
-  height: 60rpx;
+  /* height: 60rpx; */
   background-color: white;
   font-size: 26rpx;
   color: #222222;
@@ -33,7 +33,7 @@ page {
 }
 .waterView_s {
   width: 250rpx;
-  height: 60rpx;
+  /* height: 60rpx; */
   background-color: #00c3b2;
   font-size: 26rpx;
   color: white;
@@ -43,7 +43,7 @@ page {
 }
 .waterView_n {
   width: 250rpx;
-  height: 60rpx;
+  /* height: 60rpx; */
   background-color: white;
   font-size: 25rpx;
   color: #222222;

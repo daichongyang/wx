@@ -1,6 +1,7 @@
 // pages/znAmmeterList/znAmmeterList.js
 
 import { getEleDevInfos } from "../../utils/url.js"
+let inforArr = []
 Page({
 
   /**
@@ -13,21 +14,65 @@ Page({
     gyId: '',
     size: 10,//一个页面的条数
     inforList:[],//列表数组
+    sn: '',//水电表标识
+    isinfor:false,//判断是否还有数据加载
+    showTCC:false
+  },
+  showTTC(){
+    this.setData({
+      showTCC: !this.data.showTCC
+    })
+  },
+  // 切换冷水表热水表
+  changeBiao(e){
+    console.log(e)
+    let obj = e.currentTarget.dataset
+    this.setData({
+      devType: e.currentTarget.dataset.devtype,
+      showTCC:false
+    })
+    this.getEleDevInfoss()
+  },
+  // 获取输入框的值
+  getInputValue(e){
+    this.setData({
+      sn: e.detail.value
+    })
   },
   // 查询公寓水电信息
   getEleDevInfoss(){
-    getEleDevInfos().then(res => {
+    let params={
+      current: this.data.current,
+      devType: this.data.devType,
+      gyId: this.data.gyId,
+      devType: this.data.devType,
+      sn:this.data.sn
+    }
+    console.log(params)
+    getEleDevInfos(params).then(res => {
       console.log(res)
       if(res.data.code == 200){
-        this.setData({
-          inforList: res.data.data.list.filter(item => {
-            if (item.onlineStatus === 0) {
-              item.devTypeName = '不在线'
-            } else if (item.onlineStatus === 1) {
-              item.devTypeName = '在线'
-            }
-            return item
+        let obj = res.data.data.list.filter(item => {
+          if (item.onlineStatus === 0) {
+            item.devTypeName = '不在线'
+          } else if (item.onlineStatus === 1) {
+            item.devTypeName = '在线'
+          }
+          inforArr.push(item)
+          return item
+        })
+        // 判断是否可以下拉加载
+        if (obj.length == 0){
+          this.setData({
+            isinfor:false
           })
+        }else{
+          this.setData({
+            isinfor: true
+          })
+        }
+        this.setData({
+          inforList: inforArr
         })
       }else{
         wx.showToast({
@@ -92,7 +137,11 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    if (this.data.isinfor){
+      this.setData({
+        current:this.data.current + 1
+      })
+    }
   },
 
   /**

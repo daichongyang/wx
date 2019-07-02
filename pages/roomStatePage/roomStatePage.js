@@ -7,13 +7,28 @@ Page({
    * 页面的初始数据
    */
   data: {
-    xqflag:false,
+    xqflag:true,
     dataList:[],
     flag:true,
     id:100,
     sxArray: ["业务状态 ▾", "全部公寓 ▾","出租状态 ▾"],
+    houseInfor:{},
+    indexH:'',//选择的房间编号
+    floorr:'',//选择的楼层
+    apartmentIdd:'',//选择的公寓id
+    houseLength:'',//一层楼的长度
   },
-
+  // 点击房源显示对应数据
+  getHouseInfor(obj){
+    console.log(obj)
+    this.setData({
+      houseInfor: obj.currentTarget.dataset.house,
+      floorr: obj.currentTarget.dataset.floor,
+      apartmentIdd: obj.currentTarget.dataset.apartmentid,
+      houseLength: obj.currentTarget.dataset.houselength,
+      indexH: obj.currentTarget.dataset.indexhouse,
+    })
+  },
 
 
   //筛选
@@ -77,6 +92,7 @@ Page({
          this.setData({
            dataList:res.data.data,
          })
+         console.log()
         }else{
           wx.showToast({
             title: res.data.msg,
@@ -96,6 +112,7 @@ Page({
    */
   onLoad: function (options) {
     this.loadDataSource();
+
   },
 
   /**
