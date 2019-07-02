@@ -1,70 +1,67 @@
 <!--pages/myAdminYyYdXqPage/myAdminYyYdXqPage.wxml-->
+<!-- 预约 -->
 <block wx:if='{{index == 1}}'>
   <view class='headerBox'>{{dataSource.apartmentName}}-{{dataSource.houseNumber}}</view>
   <view class='contenBox'>
-  <view class='content'>
-    <view ><text>预约信息</text></view>
-    <view ><text>预约房型</text><text class='right'>{{dataSource.houseNumber}}</text></view>
-    <view > <text>看房时间</text><text class='right'>{{dataSource.appointmentTime}}</text></view>
-    <view ><text>看房方式</text><text class='right'>现场看房</text></view>
-    <block wx:if='{{dataSource.remark == null}}'><view><text decode="true" class='text'>留言:&nbsp;&nbsp;</text></view></block>
-     <block wx:else><view><text decode="true" class='text'>留言:&nbsp;&nbsp;{{dataSource.remark}}</text></view></block>
+    <view class='content'>
+      <view class="content_title">预约信息</view>
+      <view class="content_name"> <text>预约房型</text><text class='right'>{{dataSource.houseNumber}}</text> </view>
+      <view class="content_name"> <text>看房时间</text><text class='right'>{{dataSource.appointmentTime}}</text> </view>
+      <view class="content_name"> <text>看房方式</text><text class='right'>现场看房</text> </view>
+      <block wx:if='{{dataSource.remark == null}}'><view class="content_name"><text decode="true">留言:&nbsp;&nbsp;</text></view></block>
+      <block wx:else><view class="content_name"><text decode="true">留言:&nbsp;&nbsp;{{dataSource.remark}}</text></view></block>
+    </view>
+
+    <view class='content'>
+      <view class="content_title">预约人信息</view>
+      <view class="content_name"> <text>姓名</text><text class='right'>{{dataSource.linkman}}</text></view>
+      <view class="content_name"><text>手机号码</text><text class='right'>{{dataSource.phone}}</text></view>
+    </view>
+
+    <view class='content contentTwo'>
+      <view class="content_title">其他信息</view>
+      <view class="content_name"> <text>预约单编号</text><text class='right'></text></view>
+      <view class="content_name"><text>创建时间</text><text class='right'></text></view>
+    </view>
   </view>
-
-   <view class='content'>
-    <view ><text>预约人信息</text></view>
-    <view > <text>姓名</text><text class='right'>{{dataSource.linkman}}</text></view>
-    <view ><text>手机号码</text><text class='right'>{{dataSource.phone}}</text></view>
+  <view class='footer'>
+    <view bindtap='callClick' class='callView'>
+      <image class="call_img" src="../../img/houseDetails/bb_fyxq_29@2x.png"></image>
+      <text>联系</text>
+    </view>
   </view>
-
-
-   <view class='content contentTwo'>
-    <view ><text>其他信息</text></view>
-    <view > <text>预约单编号</text><text class='right'></text></view>
-    <view ><text>创建时间</text><text class='right'></text></view>
-  </view>
- 
-</view>
-
-
-  <view class='footer'><view bindtap='callClick' class='callView'>联系</view></view>
-
 </block>
 
-
-
-
 <!-- 预定 -->
-
 <block wx:elif='{{index == 2}}'>
   <view class='headerBox'><text>{{dataSource.apartmentName}}-{{dataSource.houseNumber}}</text><text class='right'>{{dataSource.signStatus}}</text></view>
   <view class='contenBox'>
-  <view class='content'>
-    <view ><text>预定信息</text></view>
-    <view ><text>预定房型</text><text class='right'>{{dataSource.houseNumber}}</text></view>
-    <view > <text>最晚签约时间</text><text class='right'>{{dataSource.latestTime}}</text></view>
-    <view ><text>定金</text><text class='right'>{{dataSource.advanceCost}}</text></view>
-    <view ><text>预定租金</text><text class='right'>{{dataSource.rentCost}}</text></view>
-    <view ><text>约定租期</text><text class='right'></text></view>
+    <view class='content'>
+      <view class="content_title"><text>预定信息</text></view>
+      <view class="content_name"><text>预定房型</text><text class='right'>{{dataSource.houseNumber}}</text></view>
+      <view class="content_name"> <text>最晚签约时间</text><text class='right'>{{dataSource.latestTime}}</text></view>
+      <view class="content_name"><text>定金</text><text class='right'>{{dataSource.advanceCost}}</text></view>
+      <view class="content_name"><text>预定租金</text><text class='right'>{{dataSource.rentCost}}</text></view>
+      <view class="content_name"><text>约定租期</text><text class='right'></text></view>
+    </view>
 
+    <view class='content'>
+      <view class="content_title"><text>预定人信息</text></view>
+      <view class="content_name"> <text>姓名</text><text class='right'>{{dataSource.promiseMan}}</text></view>
+      <view class="content_name"><text>手机号码</text><text class='right'>{{dataSource.phone}}</text></view>
+    </view>
+
+    <view class='content contentTwo'>
+      <view class="content_title"><text>其他信息</text></view>
+      <view class="content_name"> <text>预约单编号</text><text class='right'></text></view>
+      <view class="content_name"><text>创建时间</text><text class='right'></text></view>
+    </view>
   </view>
-
-   <view class='content'>
-    <view ><text>预定人信息</text></view>
-    <view > <text>姓名</text><text class='right'>{{dataSource.promiseMan}}</text></view>
-    <view ><text>手机号码</text><text class='right'>{{dataSource.phone}}</text></view>
+  <view class='footer'>
+    <view bindtap='callClick' class='callView'>
+      <image class="call_img" src="../../img/houseDetails/bb_fyxq_29@2x.png"></image>
+      <text>联系</text>
+    </view>
   </view>
-
-
-   <view class='content contentTwo'>
-    <view ><text>其他信息</text></view>
-    <view > <text>预约单编号</text><text class='right'></text></view>
-    <view ><text>创建时间</text><text class='right'></text></view>
-  </view>
- 
-</view>
-
-
-  <view class='footer'><view bindtap='callClick' class='callView'>联系</view></view>
 </block>
 

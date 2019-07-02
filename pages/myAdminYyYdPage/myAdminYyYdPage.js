@@ -92,7 +92,7 @@ Page({
            } else if (obj.signStatus == 1){
              obj.signStatus = "已签";
            } else if (obj.signStatus == 2) {
-             obj.signStatus = "作废";
+             obj.signStatus = "已作废/失效";
            } else if (obj.signStatus == 3) {
              obj.signStatus = "已撤销";
            }

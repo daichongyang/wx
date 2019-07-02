@@ -13,10 +13,12 @@
       <block  wx:for='{{adminReservationList}}' wx:key='key' wx:for-index='id'>
         <view class='itemBox'>
           <view class='titel'>{{item.apartmentName}}-{{item.houseNumber}}</view>
-          <view class='content'>看房时间:{{item.appointmentTime}}</view>
-          <view class='content'>预约人:{{item.linkman}}</view>
-          <view class='content'>电话号码:{{item.phone}}</view>
-          <text class='contentType'>现场看房</text>
+          <view class="content_container">
+            <view class='content'>看房时间:{{item.appointmentTime}}</view>
+            <view class='content'>预约人:{{item.linkman}}</view>
+            <view class='content'>电话号码:{{item.phone}}</view>
+            <text class='contentType'>现场看房</text>
+          </view>
           <view class='foot'>
             <text data-id='{{id}}' bindtap='yyXqClick'>查看详情</text>
           </view>
@@ -41,9 +43,11 @@
                 <text  class='titleRightTwo'>{{item.signStatus}}</text>
             </block>                
           </view>
-          <view class='content'>最晚签约日:{{item.latestTime}}</view>
-          <view class='content'>预定人:{{item.promiseMan}}</view>
-          <view class='content'>电话号码:{{item.phone}}</view>
+          <view class="content_container">
+            <view class='content'>最晚签约日:{{item.latestTime}}</view>
+            <view class='content'>预定人:{{item.promiseMan}}</view>
+            <view class='content'>电话号码:{{item.phone}}</view>
+          </view>
           <view class='foot'>
             <text data-id='{{id}}' bindtap='ydXqClick'>查看详情</text>
           </view>
