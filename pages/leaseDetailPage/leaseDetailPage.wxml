@@ -56,33 +56,38 @@
     <view wx:elif="{{selectIndex == 2}}">
       <view>
         <view class="bill_all">
-          <view class="select_view">
-            <view><image class="choise_img" src="../../img/my/choise_car.png"></image></view>
+          <view class="select_view" bindtap="selectAllClick">
+            <view><image class="choise_img" src="{{isAll ? '../../img/my/choisedCar.png' : '../../img/my/choise_car.png'}}"></image></view>
             <text class="select_all">全选</text>
             <view class="select_label">
-              <text>已选择2条账单</text> <text>共¥2400</text>
+              <text wx:if="{{selectBillNum == 0}}">未选择账单</text> 
+              <text wx:else>已选择{{selectBillNum}}条账单</text> 
+              <text>共 ¥{{moneyTotal}}</text>
             </view>
           </view>
           <view class="bill_pay">收款</view>
         </view>
-        <view class="bill_time">2018年11月</view>
-        <block wx:for="{{4}}" wx:key="key">
-          <view class="bill_item">
-            <view class="bill_left">
-              <view><image class="choise_img" src="../../img/my/choise_car.png"></image></view>
-              <view class="bill_middle">
-                <view class="bill_price">
-                  <text>¥2400</text> <text>水费</text>
+        <block wx:for="{{leaseBill}}" wx:key="key" wx:for-index='itemId'>
+          <view>
+            <view class="bill_time">{{item.stageName}}({{item.startDateStr}}-{{item.endDateStr}})</view>
+            <block wx:for="{{item.bills}}" wx:key="key" wx:for-index='id'>
+              <view data-item="{{itemId}}" data-id="{{id}}" class="bill_item" bindtap="billSelectClick">
+                <view class="bill_left">
+                  <view><image class="choise_img" src="{{item.isSelct ? '../../img/my/choisedCar.png' : '../../img/my/choise_car.png'}}"></image></view>
+                  <view class="bill_middle">
+                    <view class="bill_price">
+                      <text>¥{{item.accountReceivable}}</text> <text>{{item.costName}}</text>
+                    </view>
+                    <text class="bill_star_end">2018.10.20-2018.12.32.23</text>
+                  </view>
                 </view>
-                <text class="bill_star_end">2018.10.20-2018.12.32.23</text>
+                <view class="bill_right">
+                  <text>未支付</text> <text>2018.10.30前</text>
+                </view>
               </view>
-            </view>
-            <view class="bill_right">
-              <text>未支付</text> <text>2018.10.30前</text>
-            </view>
-          </view>
+            </block>
+          </view>          
         </block>
-        <view class="bill_more">查看所有未来订单</view>      
       </view>
     </view>
     <!-- 租客 -->

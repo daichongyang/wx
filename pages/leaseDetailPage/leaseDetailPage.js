@@ -1,6 +1,7 @@
 // pages/adminLeaseListPage/leaseDetailPage/leaseDetailPage.js
 import {
-  adminLeaseDetail
+  adminLeaseDetail,
+  adminLeaseBills
 } from "../../utils/url.js"
 var dateTool = require('../../utils/date.js');
 Page({
@@ -13,7 +14,11 @@ Page({
     leaseId: 0,
     tenantList: [], // 入住人信息
     signList: {}, // 承租人信息
-    leaseDetail: {} // 租约详情
+    leaseDetail: {}, // 租约详情
+    leaseBill: [], // 账单
+    isAll: false, // 全选
+    selectBillNum: 0, // 已选择的账单
+    moneyTotal: 0 // 总金额
   },
 
   // 底部点击事件
@@ -57,7 +62,7 @@ Page({
         break;
       case 2:
         {
-          
+          this.getLeaseBills();
         }
         break;
       default:
@@ -68,13 +73,93 @@ Page({
     }
   },
 
+  // 租约账单
+  getLeaseBills: function () {
+    let params = {
+      leaseId: this.data.leaseId
+    }
+    adminLeaseBills(params).then(res => {
+      if (res.data.code == 200) {
+        this.setData({
+          leaseBill: res.data.data.map(item => {
+            item.startDateStr = dateTool.formatTimeStamp(item.startDate / 1000, "yyyy.MM.dd");
+            item.endDateStr = dateTool.formatTimeStamp(item.endDate / 1000, "yyyy.MM.dd");
+            item.bills.map(item => {
+              item.isSelct = false;
+            })
+            return item;
+          })
+        })
+      } else {
+        wx.showToast({
+          title: res.data.msg,
+          icon: 'none',
+          duration: 1500
+        })
+      }
+    })
+  },
+
+  // 全选
+  selectAllClick: function () {
+    this.data.isAll = !this.data.isAll;
+    var num = 0;
+    var total = 0;
+    this.data.leaseBill.map(item => {
+      item.bills.map(item => {
+        item.isSelct = this.data.isAll;
+        return item;
+      })
+      if (this.data.isAll) {
+        num += item.bills.length;
+        total += item.totalMoney;
+      }
+      return item;
+    })
+    this.setData({
+      moneyTotal: total,
+      selectBillNum: num,
+      isAll: this.data.isAll,
+      leaseBill: this.data.leaseBill
+    })
+  },
+
+  // 账单选择
+  billSelectClick: function (e) {
+    this.data.isAll = false;
+    let itemId = e.currentTarget.dataset.item;
+    let index = e.currentTarget.dataset.id;
+    var leaseBillItem = this.data.leaseBill[itemId];
+    var billItem = leaseBillItem.bills[index];
+    billItem.isSelct = !billItem.isSelct;
+
+    var num = 0;
+    var total = 0;
+    this.data.leaseBill.map(item => {
+      item.bills.map(item => {
+        if (item.isSelct) {
+          num += 1;
+          total += item.accountReceivable;
+        }
+        return item;
+      })
+      return item;
+    })
+
+    this.setData({
+      moneyTotal: total,
+      selectBillNum: num,
+      isAll: this.data.isAll,
+      leaseBill: this.data.leaseBill
+    })
+  },
+
   // 租约详情
   getLeaseDetail: function () {
     let params = {
       leaseId: this.data.leaseId
     }
     adminLeaseDetail(params).then(res => {
-      console.log(res);
       if (res.data.code == 200) {
 
         var signList = res.data.data.signList;
@@ -86,8 +171,8 @@ Page({
         }
 
         var leaseDetail = res.data.data;
-        leaseDetail.startTimeStr = dateTool.formatTimeStamp(leaseDetail.startTime / 1000, "yyyy-MM-dd");
-        leaseDetail.endTimeStr = dateTool.formatTimeStamp(leaseDetail.endTime / 1000, "yyyy-MM-dd");
+        leaseDetail.startTimeStr = dateTool.formatTimeStamp(leaseDetail.startTime / 1000, "yyyy.MM.dd");
+        leaseDetail.endTimeStr = dateTool.formatTimeStamp(leaseDetail.endTime / 1000, "yyyy.MM.dd");
         if (leaseDetail.status == 0) {
           leaseDetail.statusStr = "待确认";
         } else if (leaseDetail.status == 1) {

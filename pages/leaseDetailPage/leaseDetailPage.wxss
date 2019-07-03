@@ -61,6 +61,7 @@ page {
   padding-left: 30rpx;
   padding-top: 30rpx;
   padding-bottom: 30rpx;
+  font-weight: bold;
 }
 .lease_container {
   display: flex;

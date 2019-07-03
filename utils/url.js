@@ -173,6 +173,10 @@ var adminPropertyGetRepairListUrl = httpUrl + "/property/getRepairList";
 const adminLeaseDetail = (params) => {
   return requestApi("post", "/v1.0/admin/lease/detail/" + params.leaseId)
 }
+// 租约账单
+const adminLeaseBills = (params) => {
+  return requestApi("post", "/v1.0/admin/lease/bills/" + params.leaseId)
+}
 // 水电表抄表
 var adminhydroelectricshowAndUpAllDevUrl = httpUrl + "/hydroelectric/showAndUpAllDev/";
 // 数据报表/总账单
@@ -335,7 +339,8 @@ module.exports = {
   getDataTableWithWater,
   getDataTableWithBill,
   adminIndexHouseData,
-  adminLeaseDetail
+  adminLeaseDetail,
+  adminLeaseBills
 }
 
 
