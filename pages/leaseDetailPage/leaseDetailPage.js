@@ -109,6 +109,7 @@ Page({
 
   // 全选
   selectAllClick: function () {
+    console.log(0.1+0.1+0.1);
     this.data.isAll = !this.data.isAll;
     var num = 0;
     var total = 0;
@@ -124,7 +125,7 @@ Page({
       return item;
     })
     this.setData({
-      moneyTotal: total,
+      moneyTotal: Number(total).toFixed(2),
       selectBillNum: num,
       isAll: this.data.isAll,
       leaseBill: this.data.leaseBill
@@ -155,7 +156,7 @@ Page({
     })
     this.data.isAll = num == numTotal;
     this.setData({
-      moneyTotal: total,
+      moneyTotal: Number(total).toFixed(2),
       selectBillNum: num,
       isAll: this.data.isAll,
       leaseBill: this.data.leaseBill
