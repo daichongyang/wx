@@ -14,7 +14,7 @@ Page({
     leaseId: 0,
     tenantList: [], // 入住人信息
     signList: {}, // 承租人信息
-    leaseDetail: {}, // 租约详情
+    leaseDetail: null, // 租约详情
     leaseBill: [], // 账单
     isAll: false, // 全选
     selectBillNum: 0, // 已选择的账单
@@ -44,7 +44,10 @@ Page({
       selectIndex: options.selectIndex,
       leaseId: options.leaseId
     })
-    this.getLeaseWithIndex(this.data.selectIndex);
+    this.getLeaseWithIndex(0);
+    if (options.selectIndex != 0) {
+      this.getLeaseWithIndex(this.data.selectIndex);
+    }
   },
 
   // 请求数据
@@ -52,7 +55,9 @@ Page({
     switch (parseInt(index)) {
       case 0:
         {
-          this.getLeaseDetail();
+          if (!this.data.leaseDetail) {
+            this.getLeaseDetail();
+          }
         }
         break;
       case 1:
@@ -62,7 +67,9 @@ Page({
         break;
       case 2:
         {
-          this.getLeaseBills();
+          if (this.data.leaseBill.length == 0) {
+            this.getLeaseBills();
+          }
         }
         break;
       default:
