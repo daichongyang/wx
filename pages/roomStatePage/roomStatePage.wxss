@@ -9,6 +9,7 @@ page{
   top: 0rpx;
   left: 0;
   width:100%;
+  z-index: 100;
 }
 .header_cont{
  display: -webkit-flex; /* Safari */
@@ -138,6 +139,7 @@ page{
   flex-wrap: wrap;
   height:80rpx;
   color:#fff;
+  margin:0rpx 25rpx;
 }
 .house_style{
   font-size:28rpx;
@@ -148,29 +150,26 @@ page{
   justify-content: center;
   border-radius:8rpx;
   margin-right:10rpx;
-  
 }
 .item_position{
   height:200rpx;
   width:100% ;
   position:relative;
-
 }
 .caozuo{
-  /* position:absolute;
+  position:absolute;
   top:0rpx;
-  left:0rpx; */
   height:200rpx;
   border-radius:10rpx;
   background:#fff;
   width:100% ;
-  padding:0rpx 25rpx;
   margin-top:10rpx;
 }
 .caozuo_item1{
   display:flex;
   justify-content: space-between;
   font-size:30rpx;
+  margin:0rpx 25rpx;
   margin-top:15rpx;
 }
 .caozuo_item1_templateName{
@@ -187,6 +186,7 @@ page{
   display:flex;
   justify-content: space-between;
   color:#777777;
+  margin:0rpx 25rpx;
 }
 .caozuo_item3_ownerName{
   font-size:24rpx;

@@ -23,8 +23,8 @@ let requestApi = function(method, url, data) {
 }
 
 // 我是管理员
-// var httpUrl = "https://www.ubicell.cn/apartment";
-var httpUrl = "http://192.168.0.145:8080";
+var httpUrl = "https://www.ubicell.cn/apartment";
+// var httpUrl = "http://192.168.0.145:8080";
 // var httpUrl = "http://192.168.0.180:8080";
 
 //交易流水报表-交易项目下拉列表
@@ -253,9 +253,26 @@ export const getEleDevInfos = params => {
   return requestApi("post", '/hydroelectric/getEleDevInfos', params)
 }
 
+// 获取当前使用的支付方式
+export const getPayType = params => {
+  return requestApi("post", '/getPayType', params)
+}
+
+// 更新交易结果
+export const updateTradeResult = params => {
+  return requestApi("post", '/merchWallet/updateTradeResult/'+ params.houseId+'/' + params.orderNo)
+}
+
+// 获取商户支付二维码
+export const getMerchQr = params => {
+  return requestApi("post", '/merchantController/getMerchQr/' + params.houseId)
+}
 
 module.exports = {
   itemSelect,
+  getMerchQr,
+  updateTradeResult,
+  getPayType,
   getEleDevInfos,
   selectApartment,
   permission,

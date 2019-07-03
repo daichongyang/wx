@@ -40,7 +40,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 14,
+			"current": -1,
 			"list": [
 				{
 					"id": -1,
@@ -74,13 +74,6 @@
 					"id": -1,
 					"name": "选择支付方式",
 					"pathName": "pages/choisePay/choisePay",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "选择支付方式",
-					"pathName": "pages/choisePayS/choisePayS",
 					"query": "",
 					"scene": null
 				},
@@ -121,13 +114,6 @@
 				},
 				{
 					"id": -1,
-					"name": "选择支付方式",
-					"pathName": "pages/myBackCard1/myBackCard1",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
 					"name": "智能水电表列表",
 					"pathName": "pages/znAmmeterList/znAmmeterList",
 					"query": "",
@@ -144,6 +130,7 @@
 					"id": -1,
 					"name": "房态图",
 					"pathName": "pages/roomStatePage/roomStatePage",
+					"query": "",
 					"scene": null
 				}
 			]

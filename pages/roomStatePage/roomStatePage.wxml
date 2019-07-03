@@ -1,4 +1,29 @@
 <!--pages/roomStatePage/roomStatePage.wxml-->
+<!-- 头部筛选 -->
+<view class='header'>
+  <view class='gray10'></view>
+  <view class='header_cont'>
+    <view class='sx_item'>
+      <picker bindchange='bindchangesxArray' value="0" range="{{sxArray}}">
+        <view class='sx_item'>
+          业务状态
+          <text class='arrow-down'></text>
+          </view>
+      </picker>
+    </view>
+    <view class='sx_item'>
+      <picker bindchange='bindchangeApartment' value="0" range="{{apartmentArr}}" range-key="{{'name'}}">
+        <view class='sx_item'>
+          全部公寓
+          <text class='arrow-down'></text>
+          </view>
+      </picker>
+    </view>
+    <view class='sx_item'>出租状态
+      <text class='arrow-down'></text>
+    </view>
+  </view>
+</view>
 <!-- 内容 -->
 <view class="'scrollViewOne">
   <view class='contentView'>
@@ -14,8 +39,8 @@
           <view class='infor_item' wx:if="{{floorItem.houses.length!=0}}">
             <!-- 房间 -->
             <block wx:for='{{floorItem.houses}}' wx:key='key' wx:for-item='houseItem' wx:for-index="indexHouse">
-              <view class='house_bb' bindtap='getHouseInfor' data-house="{{houseItem}}" data-houseLength="{{floorItem.houses.length}}" data-apartmentId="{{titleItem.apartmentId}}" data-floor="{{floorItem.floor}}" data-indexhouse="{{indexHouse}}">
-                <view class="{{houseItem.isRent == 1?'houseItemd':'houseItem'}}">
+              <view class='house_bb'>
+                <view class="{{houseItem.isRent == 1?'houseItemd':'houseItem'}}" bindtap='getHouseInfor' data-house="{{houseItem}}" data-houseLength="{{floorItem.houses.length}}" data-apartmentId="{{titleItem.apartmentId}}" data-floor="{{floorItem.floor}}" data-indexhouse="{{indexHouse}}">
                   <view class='house_box'>
                     <view class='house_number'>{{houseItem.houseNumber}}</view>
                     <!-- 房间状态 -->
@@ -36,125 +61,183 @@
                   </view>
                 </view>
                 <view class='arrow-white-up'></view>
-              </view>
-              <!-- 用来撑开住够的高度要显示 -->
-              <!-- <view class='item_position'></view> -->
-              <!-- 房间操作 -->
-              <!-- 下拉操作思路，每一行最后的一个房间，就要这个下拉存在 -->
-              <view class='caozuo' wx:if="{{houseItem.houseId==houseInfor.houseId&&indexH % 3 == 2}}" style='width:{{caozuowidth}}px;'>
-                <block>
-                  <view class='caozuo_item1'>
-                    <text class='caozuo_item1_templateName'>{{houseInfor.houseNumber}} ({{houseInfor.templateName}})</text>
-                    <text class='caozuo_item1_rentCost'>￥{{houseInfor.rentCost}}</text>
-                  </view>
-                  <!-- 房间状态 -->
-                  <view class='house_ss' wx:if="houseInfor.houseStatus">
-                    <block wx:for="{{houseInfor.houseStatus}}" wx:key='key' wx:for-item='sItem'>
-                      <view class='status_code' wx:if="{{sItem.statusCode == 0}}">
-                        <view class='house_style l_kong'>空</view>
-                        <view class='house_style_day'> 已空置{{sItem.day}}天</view>
+                <!-- 用来撑开住够的高度要显示 -->
+                <view class='item_position' wx:if="{{houseItem.houseId==houseInfor.houseId}}">
+                  <!-- 房间操作 -->
+                  <view class='caozuo' wx:if="{{houseItem.houseId==houseInfor.houseId&&indexH % 3 == 2}}" style='width:{{setWidth}}px;right:0rpx;'>
+                    <block>
+                      <view class='caozuo_item1'>
+                        <text class='caozuo_item1_templateName'>{{houseInfor.houseNumber}} ({{houseInfor.templateName}})</text>
+                        <text class='caozuo_item1_rentCost'>￥{{houseInfor.rentCost}}</text>
                       </view>
-                      <view class='status_code' wx:elif="{{sItem.statusCode == 1}}">
-                        <view class='house_style l_lu'>录</view>
-                        <view class='house_style_day'> 已出租带租客登记{{sItem.day}}天</view>
+                      <!-- 房间状态 -->
+                      <view class='house_ss' wx:if="houseInfor.houseStatus">
+                        <block wx:for="{{houseInfor.houseStatus}}" wx:key='key' wx:for-item='sItem'>
+                          <view class='status_code' wx:if="{{sItem.statusCode == 0}}">
+                            <view class='house_style l_kong'>空</view>
+                            <view class='house_style_day'> 已空置{{sItem.day}}天</view>
+                          </view>
+                          <view class='status_code' wx:elif="{{sItem.statusCode == 1}}">
+                            <view class='house_style l_lu'>录</view>
+                            <view class='house_style_day'> 已出租带租客登记{{sItem.day}}天</view>
+                          </view>
+                          <view class='status_code' wx:elif="{{sItem.statusCode == 2}}">
+                            <view class='house_style l_qian'>欠</view>
+                            <view class='house_style_day'> 已欠费{{sItem.day}}日</view>
+                          </view>
+                          <view class='status_code' wx:elif="{{sItem.statusCode == 3}}">
+                            <view class='house_style l_shou'>收</view>
+                            <view class='house_style_day'> {{sItem.day}}天后为应收款日</view>
+                          </view>
+                          <view class='status_code' wx:elif="{{sItem.statusCode == 4}}">
+                            <view class='house_style l_kuai'>快</view>
+                            <view class='house_style_day'> {{sItem.day}}天后合同到期</view>
+                          </view>
+                          <view wx:elif="{{sItem.statusCode == 5}}">
+                            <view class='house_style l_yu'>预</view>
+                            <view class='house_style_day'> 已空置{{sItem.day}}天</view>
+                          </view>
+                          <view class='status_code' wx:elif="{{sItem.statusCode == 6}}">
+                            <view class='house_style l_xiu'>修</view>
+                            <view class='house_style_day'> 已装修{{sItem.day}}天</view>
+                          </view>
+                          <view class='status_code' wx:elif="{{sItem.statusCode == 7}}">
+                            <view class='house_style l_yi'>已</view>
+                            <view class='house_style_day'> 合同已到期{{sItem.day}}天</view>
+                          </view>
+                        </block>
                       </view>
-                      <view class='status_code' wx:elif="{{sItem.statusCode == 2}}">
-                        <view class='house_style l_qian'>欠</view>
-                        <view class='house_style_day'> 已欠费{{sItem.day}}日</view>
-                      </view>
-                      <view class='status_code' wx:elif="{{sItem.statusCode == 3}}">
-                        <view class='house_style l_shou'>收</view>
-                        <view class='house_style_day'> {{sItem.day}}天后为应收款日</view>
-                      </view>
-                      <view class='status_code' wx:elif="{{sItem.statusCode == 4}}">
-                        <view class='house_style l_kuai'>快</view>
-                        <view class='house_style_day'> {{sItem.day}}天后合同到期</view>
-                      </view>
-                      <view wx:elif="{{sItem.statusCode == 5}}">
-                        <view class='house_style l_yu'>预</view>
-                        <view class='house_style_day'> 已空置{{sItem.day}}天</view>
-                      </view>
-                      <view class='status_code' wx:elif="{{sItem.statusCode == 6}}">
-                        <view class='house_style l_xiu'>修</view>
-                        <view class='house_style_day'> 已装修{{sItem.day}}天</view>
-                      </view>
-                      <view class='status_code' wx:elif="{{sItem.statusCode == 7}}">
-                        <view class='house_style l_yi'>已</view>
-                        <view class='house_style_day'> 合同已到期{{sItem.day}}天</view>
+                      <!-- 租客和房源详情和租约详情和。。。。 -->
+                      <view class='caozuo_item3'>
+                        <view class='caozuo_item3_ownerName'>{{houseInfor.ownerName}}</view>
+                        <view class='caozuo_item3_Btn'>
+                          <view class='codeBtn'>房源详情</view>
+                          <view class='codeBtn' wx:if="{{houseInfor.isRent==1}}">租约详情</view>
+                          <view class='codeBtn btn_green' wx:if="{{houseInfor.isRent==0}}">租客登记</view>
+                        </view>
                       </view>
                     </block>
                   </view>
-                  <!-- 租客和房源详情和租约详情和。。。。 -->
-                  <view class='caozuo_item3'>
-                    <view class='caozuo_item3_ownerName'>{{houseInfor.ownerName}}</view>
-                    <view class='caozuo_item3_Btn'>
-                      <view class='codeBtn'>房源详情</view>
-                      <view class='codeBtn' wx:if="{{houseInfor.isRent==1}}">租约详情</view>
-                      <view class='codeBtn btn_green' wx:if="{{houseInfor.isRent==0}}">租客登记</view>
-                    </view>
+                  <!-- 结束 -->
+                  <!-- 房间操作 -->
+                  <view class='caozuo' wx:if="{{houseItem.houseId==houseInfor.houseId&&indexH % 3 == 0}}" style='width:{{setWidth}}px;left:0rpx;'>
+                    <block>
+                      <view class='caozuo_item1'>
+                        <text class='caozuo_item1_templateName'>{{houseInfor.houseNumber}} ({{houseInfor.templateName}})</text>
+                        <text class='caozuo_item1_rentCost'>￥{{houseInfor.rentCost}}</text>
+                      </view>
+                      <!-- 房间状态 -->
+                      <view class='house_ss' wx:if="houseInfor.houseStatus">
+                        <block wx:for="{{houseInfor.houseStatus}}" wx:key='key' wx:for-item='sItem'>
+                          <view class='status_code' wx:if="{{sItem.statusCode == 0}}">
+                            <view class='house_style l_kong'>空</view>
+                            <view class='house_style_day'> 已空置{{sItem.day}}天</view>
+                          </view>
+                          <view class='status_code' wx:elif="{{sItem.statusCode == 1}}">
+                            <view class='house_style l_lu'>录</view>
+                            <view class='house_style_day'> 已出租带租客登记{{sItem.day}}天</view>
+                          </view>
+                          <view class='status_code' wx:elif="{{sItem.statusCode == 2}}">
+                            <view class='house_style l_qian'>欠</view>
+                            <view class='house_style_day'> 已欠费{{sItem.day}}日</view>
+                          </view>
+                          <view class='status_code' wx:elif="{{sItem.statusCode == 3}}">
+                            <view class='house_style l_shou'>收</view>
+                            <view class='house_style_day'> {{sItem.day}}天后为应收款日</view>
+                          </view>
+                          <view class='status_code' wx:elif="{{sItem.statusCode == 4}}">
+                            <view class='house_style l_kuai'>快</view>
+                            <view class='house_style_day'> {{sItem.day}}天后合同到期</view>
+                          </view>
+                          <view wx:elif="{{sItem.statusCode == 5}}">
+                            <view class='house_style l_yu'>预</view>
+                            <view class='house_style_day'> 已空置{{sItem.day}}天</view>
+                          </view>
+                          <view class='status_code' wx:elif="{{sItem.statusCode == 6}}">
+                            <view class='house_style l_xiu'>修</view>
+                            <view class='house_style_day'> 已装修{{sItem.day}}天</view>
+                          </view>
+                          <view class='status_code' wx:elif="{{sItem.statusCode == 7}}">
+                            <view class='house_style l_yi'>已</view>
+                            <view class='house_style_day'> 合同已到期{{sItem.day}}天</view>
+                          </view>
+                        </block>
+                      </view>
+                      <!-- 租客和房源详情和租约详情和。。。。 -->
+                      <view class='caozuo_item3'>
+                        <view class='caozuo_item3_ownerName'>{{houseInfor.ownerName}}</view>
+                        <view class='caozuo_item3_Btn'>
+                          <view class='codeBtn'>房源详情</view>
+                          <view class='codeBtn' wx:if="{{houseInfor.isRent==1}}">租约详情</view>
+                          <view class='codeBtn btn_green' wx:if="{{houseInfor.isRent==0}}">租客登记</view>
+                        </view>
+                      </view>
+                    </block>
                   </view>
-                </block>
+                  <!-- 结束 -->
+                  <!-- 房间操作 -->
+                  <view class='caozuo' wx:if="{{houseItem.houseId==houseInfor.houseId&&indexH % 3 == 1}}" style='width:{{setWidth}}px;left:{{(houseItemW-setWidth)/2}}px;'>
+                    <block>
+                      <view class='caozuo_item1'>
+                        <text class='caozuo_item1_templateName'>{{houseInfor.houseNumber}} ({{houseInfor.templateName}})</text>
+                        <text class='caozuo_item1_rentCost'>￥{{houseInfor.rentCost}}</text>
+                      </view>
+                      <!-- 房间状态 -->
+                      <view class='house_ss' wx:if="houseInfor.houseStatus">
+                        <block wx:for="{{houseInfor.houseStatus}}" wx:key='key' wx:for-item='sItem'>
+                          <view class='status_code' wx:if="{{sItem.statusCode == 0}}">
+                            <view class='house_style l_kong'>空</view>
+                            <view class='house_style_day'> 已空置{{sItem.day}}天</view>
+                          </view>
+                          <view class='status_code' wx:elif="{{sItem.statusCode == 1}}">
+                            <view class='house_style l_lu'>录</view>
+                            <view class='house_style_day'> 已出租带租客登记{{sItem.day}}天</view>
+                          </view>
+                          <view class='status_code' wx:elif="{{sItem.statusCode == 2}}">
+                            <view class='house_style l_qian'>欠</view>
+                            <view class='house_style_day'> 已欠费{{sItem.day}}日</view>
+                          </view>
+                          <view class='status_code' wx:elif="{{sItem.statusCode == 3}}">
+                            <view class='house_style l_shou'>收</view>
+                            <view class='house_style_day'> {{sItem.day}}天后为应收款日</view>
+                          </view>
+                          <view class='status_code' wx:elif="{{sItem.statusCode == 4}}">
+                            <view class='house_style l_kuai'>快</view>
+                            <view class='house_style_day'> {{sItem.day}}天后合同到期</view>
+                          </view>
+                          <view wx:elif="{{sItem.statusCode == 5}}">
+                            <view class='house_style l_yu'>预</view>
+                            <view class='house_style_day'> 已空置{{sItem.day}}天</view>
+                          </view>
+                          <view class='status_code' wx:elif="{{sItem.statusCode == 6}}">
+                            <view class='house_style l_xiu'>修</view>
+                            <view class='house_style_day'> 已装修{{sItem.day}}天</view>
+                          </view>
+                          <view class='status_code' wx:elif="{{sItem.statusCode == 7}}">
+                            <view class='house_style l_yi'>已</view>
+                            <view class='house_style_day'> 合同已到期{{sItem.day}}天</view>
+                          </view>
+                        </block>
+                      </view>
+                      <!-- 租客和房源详情和租约详情和。。。。 -->
+                      <view class='caozuo_item3'>
+                        <view class='caozuo_item3_ownerName'>{{houseInfor.ownerName}}</view>
+                        <view class='caozuo_item3_Btn'>
+                          <view class='codeBtn'>房源详情</view>
+                          <view class='codeBtn' wx:if="{{houseInfor.isRent==1}}">租约详情</view>
+                          <view class='codeBtn btn_green' wx:if="{{houseInfor.isRent==0}}">租客登记</view>
+                        </view>
+                      </view>
+                    </block>
+                  </view>
+                  <!-- 结束 -->
+                </view>
+
               </view>
-              <!-- 结束 -->
+        
             </block>
+            <!-- 使用弹性布局 -->
             <view class='houseItemDis' wx:if="{{floorItem.houses.length % 3 != 0}}"></view>
-            <!-- 在结束的时候并且 indexHouse % 3 != 2显示这个下拉-->
-            <!-- 房间操作 -->
-            <!-- 下拉操作思路，每一行最后的一个房间，就要这个下拉存在 -->
-            <view class='caozuo' wx:if="{{titleItem.apartmentId==apartmentIdd&&floorr==floorItem.floor&&houseLength % 3 != 0}}">
-              <block>
-                <view class='caozuo_item1'>
-                  <text class='caozuo_item1_templateName'>{{houseInfor.houseNumber}} ({{houseInfor.templateName}})</text>
-                  <text class='caozuo_item1_rentCost'>￥{{houseInfor.rentCost}}</text>
-                </view>
-                <!-- 房间状态 -->
-                <view class='house_ss' wx:if="houseInfor.houseStatus">
-                  <block wx:for="{{houseInfor.houseStatus}}" wx:key='key' wx:for-item='sItem'>
-                    <view class='status_code' wx:if="{{sItem.statusCode == 0}}">
-                      <view class='house_style l_kong'>空</view>
-                      <view class='house_style_day'> 已空置{{sItem.day}}天</view>
-                    </view>
-                    <view class='status_code' wx:elif="{{sItem.statusCode == 1}}">
-                      <view class='house_style l_lu'>录</view>
-                      <view class='house_style_day'> 已出租带租客登记{{sItem.day}}天</view>
-                    </view>
-                    <view class='status_code' wx:elif="{{sItem.statusCode == 2}}">
-                      <view class='house_style l_qian'>欠</view>
-                      <view class='house_style_day'> 已欠费{{sItem.day}}日</view>
-                    </view>
-                    <view class='status_code' wx:elif="{{sItem.statusCode == 3}}">
-                      <view class='house_style l_shou'>收</view>
-                      <view class='house_style_day'> {{sItem.day}}天后为应收款日</view>
-                    </view>
-                    <view class='status_code' wx:elif="{{sItem.statusCode == 4}}">
-                      <view class='house_style l_kuai'>快</view>
-                      <view class='house_style_day'> {{sItem.day}}天后合同到期</view>
-                    </view>
-                    <view wx:elif="{{sItem.statusCode == 5}}">
-                      <view class='house_style l_yu'>预</view>
-                      <view class='house_style_day'> 已空置{{sItem.day}}天</view>
-                    </view>
-                    <view class='status_code' wx:elif="{{sItem.statusCode == 6}}">
-                      <view class='house_style l_xiu'>修</view>
-                      <view class='house_style_day'> 已装修{{sItem.day}}天</view>
-                    </view>
-                    <view class='status_code' wx:elif="{{sItem.statusCode == 7}}">
-                      <view class='house_style l_yi'>已</view>
-                      <view class='house_style_day'> 合同已到期{{sItem.day}}天</view>
-                    </view>
-                  </block>
-                </view>
-                <!-- 租客和房源详情和租约详情和。。。。 -->
-                <view class='caozuo_item3'>
-                  <view class='caozuo_item3_ownerName'>{{houseInfor.ownerName}}</view>
-                  <view class='caozuo_item3_Btn'>
-                    <view class='codeBtn'>房源详情</view>
-                    <view class='codeBtn' wx:if="{{houseInfor.isRent==1}}">租约详情</view>
-                    <view class='codeBtn btn_green' wx:if="{{houseInfor.isRent==0}}">租客登记</view>
-                  </view>
-                </view>
-              </block>
-            </view>
           </view>
 
         </block>
@@ -167,36 +250,3 @@
   </view>
 </view>
 
-<!-- 头部筛选 -->
-<view class='header'>
-  <view class='gray10'></view>
-  <view class='header_cont'>
-    <view class='sx_item'>业务状态
-      <text class='arrow-down'></text>
-    </view>
-    <view class='sx_item'>全部公寓
-      <text class='arrow-down'></text>
-    </view>
-    <view class='sx_item'>出租状态
-      <text class='arrow-down'></text>
-    </view>
-  </view>
-
-</view>
-
-
-
-
-
-<!-- 蒙版 -->
-<view class='maskView' hidden='{{flag}}' catchtap='maskClick'>
-  <view catchtap='stopClick'>
-    <view class='xsItem'>1</view>
-    <view class='xsItem'>1</view>
-    <view class='xsItem'>1</view>
-    <view class='xsItem'>1</view>
-    <view class='xsItem'>1</view>
-    <view class='xsItem'>1</view>
-    <view class='xsItem'>1</view>
-  </view>
-</view>

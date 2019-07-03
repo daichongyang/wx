@@ -41,6 +41,93 @@ page{
   display:flex;
   align-items: center;
 }
-.button{
+.butt{
   margin-top:100rpx;
 }
+.pay_gray{
+  color:#e1e1e1;
+}
+.saoMa{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0, 0, 0, 0.2);
+}
+.saomaBox{
+  position:absolute;
+  top:90rpx;
+  left:50%;
+  margin-left:-302rpx;
+  width:604rpx;
+  height:1018rpx;
+  background:#f4f4f4;
+  border-radius:10rpx;
+}
+.saomaTop{
+  margin:0 20rpx;
+  height:80rpx;
+  margin-top:20rpx;
+  position:relative;
+  border-bottom:1px solid #aaaaaa;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  font-size:36rpx;
+}
+.smallText{
+  font-size:28rpx;
+}
+.closeSaoma{
+  position:absolute;
+  top:0;
+  left:0;
+  font-size:29rpx;
+  color:#777777;
+  padding-right:40rpx;
+  padding-bottom:20rpx;
+}
+.saomaImg{
+  margin:0 auto;
+  margin-top:34rpx;
+  margin-bottom:42rpx;
+}
+.ewmimg{
+  width:400rpx;
+  height:400rpx;
+  margin:0 auto;
+}
+.baocun{
+  height:80rpx;
+  width:500rpx;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  margin:0 auto;
+  font-size:32rpx;
+  margin-bottom:40rpx;
+}
+.tishi_box{
+  width:500rpx;
+  margin:0 auto;
+}
+.tishi{
+  font-size:28rpx;
+}
+.tishi view{
+  margin-bottom:20rpx;
+}
+.tishi view:nth-last{
+  margin-bottom:0rpx;
+}
+.tishi text{
+  color:#00c3b2;
+}
+.warnning{
+  margin-top:30rpx;
+  color:#fe615a;
+  font-size:24rpx;
+  line-height: 30rpx
+}
+
