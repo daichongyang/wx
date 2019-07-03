@@ -126,7 +126,6 @@ Page({
 
   // 账单选择
   billSelectClick: function (e) {
-    this.data.isAll = false;
     let itemId = e.currentTarget.dataset.item;
     let index = e.currentTarget.dataset.id;
     var leaseBillItem = this.data.leaseBill[itemId];
@@ -135,17 +134,19 @@ Page({
 
     var num = 0;
     var total = 0;
+    var numTotal = 0;
     this.data.leaseBill.map(item => {
       item.bills.map(item => {
         if (item.isSelct) {
           num += 1;
           total += item.accountReceivable;
         }
+        numTotal += 1;
         return item;
       })
       return item;
     })
-
+    this.data.isAll = num == numTotal;
     this.setData({
       moneyTotal: total,
       selectBillNum: num,
