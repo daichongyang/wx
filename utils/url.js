@@ -169,6 +169,10 @@ var adminAdvanceListUrl = httpUrl + "/v1.0/admin/advance/list";
 var adminLeaseListUrl = httpUrl + "/v1.0/admin/lease/list";
 var adminSelectUrl = httpUrl + "/v1.0/admin/apartment/select";
 var adminPropertyGetRepairListUrl = httpUrl + "/property/getRepairList";
+// 租约详情
+const adminLeaseDetail = (params) => {
+  return requestApi("post", "/v1.0/admin/lease/detail/" + params.leaseId)
+}
 // 水电表抄表
 var adminhydroelectricshowAndUpAllDevUrl = httpUrl + "/hydroelectric/showAndUpAllDev/";
 // 数据报表/总账单
@@ -330,7 +334,8 @@ module.exports = {
   adminIndexBeExpired,
   getDataTableWithWater,
   getDataTableWithBill,
-  adminIndexHouseData
+  adminIndexHouseData,
+  adminLeaseDetail
 }
 
 

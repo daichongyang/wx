@@ -106,8 +106,9 @@ Page({
 
   // 租约详情
   ydXqClick: function (e) {
+    var obj = this.data.dataList[e.currentTarget.dataset.id];
     wx.navigateTo({
-      url: '/pages/leaseDetailPage/leaseDetailPage?selectIndex=' + e.currentTarget.dataset.index,
+      url: '/pages/leaseDetailPage/leaseDetailPage?selectIndex=' + e.currentTarget.dataset.index + '&leaseId=' + obj.leaseId,
     })
   },
 
