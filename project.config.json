@@ -40,10 +40,6 @@
 			"list": []
 		},
 		"miniprogram": {
-<<<<<<< HEAD
-			"current": 11,
-			"list": []
-=======
 			"current": 9,
 			"list": [
 				{
@@ -117,7 +113,6 @@
 					"scene": null
 				}
 			]
->>>>>>> allwork
 		}
 	}
 }

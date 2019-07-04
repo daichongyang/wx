@@ -3,19 +3,10 @@
 <import src="myWaterView.wxml"/>
 <view>
   <view class='top_view'>   
-<<<<<<< HEAD
-    <view class="{{isSelectBillView ? 'billView_s' : 'billView_n'}}" bindtap='changeSelectState' data-title="bill">账单列表</view>
-    <view class="{{isSelectBillView ? 'waterView_n' : 'waterView_s'}}" bindtap='changeSelectState' data-title="water">交易流水</view>
-  </view>
-  <!-- 判断显示 -->
-  <template wx:if="{{isSelectBillView}}" is="myBillView" data="{{billData}}"/>
-  <template wx:else is="myWaterView" data="{{waterData, waterVO, waterCategory}}"/>
-=======
     <view class="{{isSelectBillView ? 'billView_s' : 'billView_n'}}" bindtap='changeSelectState' data-title="bill"></view>
     <view class="{{isSelectBillView ? 'waterView_n' : 'waterView_s'}}" bindtap='changeSelectState' data-title="water"></view>
   </view>
   <!-- 判断显示 -->
   <template wx:if="{{isSelectBillView}}" is="myBillView" data="{{billData}}"/>
   <template wx:else is="myWaterView" data="{{waterData, waterVO, waterCategory,jiaoyiType,apartmentArr,date1,date2,end,startTime,endTime,itemsele}}"/>
->>>>>>> allwork
 </view>

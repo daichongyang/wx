@@ -80,8 +80,6 @@ page{
   align-items: center;
   margin-right:10rpx;
 }
-<<<<<<< HEAD
-=======
 .sousou1{
   width:630rpx;
   background:#fafafa;
@@ -94,7 +92,6 @@ page{
   width:500rpx;
   padding-left:10rpx;
 }
->>>>>>> allwork
 .inputss{
   width:400rpx;
   padding-left:10rpx;
@@ -103,8 +100,6 @@ page{
   width:29rpx;
   padding-left:40rpx;
 }
-<<<<<<< HEAD
-=======
 .sousou1 image{
   width:29rpx;
   padding-left:40rpx;
@@ -125,4 +120,3 @@ page{
   font-size:28rpx;
   border-top:1px solid #f7f7f7;
 }
->>>>>>> allwork

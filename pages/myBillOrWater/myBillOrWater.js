@@ -2,10 +2,6 @@
 
 var dateTool = require('../../utils/date.js');
 import {
-<<<<<<< HEAD
-  getBusinessWater
-} from "../../utils/url.js"
-=======
   getBusinessWater,
   selectApartment,
   itemSelect
@@ -13,18 +9,13 @@ import {
 import {
   getDateArray
 } from "../../utils/myDate.js"
->>>>>>> allwork
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-<<<<<<< HEAD
-    isSelectBillView: true,
-=======
     isSelectBillView: false,
->>>>>>> allwork
     billData: {
       billCategory: ["账单类型", "账单项目", "收款类型", "全部房源"],
       totalPrice: 352124.88,
@@ -56,12 +47,6 @@ Page({
       }]
     },
     waterCategory: ["全部", "交易类型", "全部房源"],
-<<<<<<< HEAD
-    waterData: null,
-    waterVO: []
-  },
-
-=======
     waterData: [],
     jiaoyiType: ['线上', '现金', '支付宝转账', '微信转账', '银行转账', 'POS刷卡', '其它', '对私银行卡转账'],
     waterVO: [],
@@ -252,18 +237,13 @@ Page({
       })
     })
   },
->>>>>>> allwork
   // 选择账单列表/交易流水
   changeSelectState: function (e) {    
     var title = e.currentTarget.dataset.title;
     if (title == "bill") {
       this.setData({
         isSelectBillView: true
-<<<<<<< HEAD
-      })  
-=======
       })
->>>>>>> allwork
     } else {
       this.setData({
         isSelectBillView: false
@@ -273,29 +253,6 @@ Page({
       }
     }
   },
-<<<<<<< HEAD
-
-  getWaterDataInfo: function () {
-    let params = {
-      apartmentId: 0,
-      current: 1,
-      size: 10,
-      type: 0
-    }
-    getBusinessWater(params).then(res => {
-      var data = res.data.data.records[0].billVO;
-      for (let i = 0; i < data.length; i++) {
-        var item = data[i];
-        var timestamp = item.billTime / 1000;
-        var appointmentTimeDate = dateTool.formatTimeStamp(timestamp);
-        item.billTime = appointmentTimeDate;
-        this.data.waterVO.push(item);
-      }
-      this.setData({
-        waterData: res.data.data.records[0],
-        waterVO: this.data.waterVO
-      })
-=======
 // 流水账单 ---交易流水 
   getWaterDataInfo: function () {
     let params = {
@@ -348,7 +305,6 @@ Page({
         }
 
       }
->>>>>>> allwork
     })
   },
 
@@ -356,35 +312,22 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-<<<<<<< HEAD
-
-=======
     this.getWaterDataInfo()
     this.selectApartmentt()
-    
->>>>>>> allwork
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-<<<<<<< HEAD
-
-=======
     this.itemSelectt()
->>>>>>> allwork
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-<<<<<<< HEAD
 
-=======
-    
->>>>>>> allwork
   },
 
   /**

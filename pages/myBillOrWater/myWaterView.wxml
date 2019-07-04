@@ -3,16 +3,6 @@
     <!-- 顶部时间选择和分类 -->
     <view class='water_top'>
       <view class='water_time'>
-<<<<<<< HEAD
-        <view class='water_starTime'>2019-03-14</view>
-        <view class='water_line'></view>
-        <view class='water_endTime'>2019-05-14</view>
-      </view>
-      <view class='water_category'>
-        <block wx:for="{{waterCategory}}" wx:key="key">
-          <view class='category_view'>{{item}}</view>
-        </block>
-=======
         <view class='water_starTime'>
           <picker mode="date" value="{{date}}" end="{{end}}" bindchange="bindDateChange1">
             <view class="picker">
@@ -63,7 +53,6 @@
             </view>
           </picker>
         </view>
->>>>>>> allwork
       </view>
     </view>
 

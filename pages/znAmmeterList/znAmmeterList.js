@@ -1,10 +1,7 @@
 // pages/znAmmeterList/znAmmeterList.js
 
 import { getEleDevInfos } from "../../utils/url.js"
-<<<<<<< HEAD
-=======
 let inforArr = []
->>>>>>> allwork
 Page({
 
   /**
@@ -17,23 +14,6 @@ Page({
     gyId: '',
     size: 10,//一个页面的条数
     inforList:[],//列表数组
-<<<<<<< HEAD
-  },
-  // 查询公寓水电信息
-  getEleDevInfoss(){
-    getEleDevInfos().then(res => {
-      console.log(res)
-      if(res.data.code == 200){
-        this.setData({
-          inforList: res.data.data.list.filter(item => {
-            if (item.onlineStatus === 0) {
-              item.devTypeName = '不在线'
-            } else if (item.onlineStatus === 1) {
-              item.devTypeName = '在线'
-            }
-            return item
-          })
-=======
     sn: '',//水电表标识
     isinfor:false,//判断是否还有数据加载
     showTCC:false
@@ -93,7 +73,6 @@ Page({
         }
         this.setData({
           inforList: inforArr
->>>>>>> allwork
         })
       }else{
         wx.showToast({
@@ -158,15 +137,11 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-<<<<<<< HEAD
-
-=======
     if (this.data.isinfor){
       this.setData({
         current:this.data.current + 1
       })
     }
->>>>>>> allwork
   },
 
   /**
