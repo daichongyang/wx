@@ -93,6 +93,8 @@ Page({
             item.endDateStr = dateTool.formatTimeStamp(item.endDate / 1000, "yyyy.MM.dd");
             item.bills.map(item => {
               item.isSelct = false;
+              item.receivableDateStr = dateTool.formatTimeStamp(item.receivableDate / 1000, "yyyy.MM.dd");
+              item.receiptDateStr = dateTool.formatTimeStamp(item.receiptDate / 1000, "yyyy.MM.dd");
             })
             return item;
           })

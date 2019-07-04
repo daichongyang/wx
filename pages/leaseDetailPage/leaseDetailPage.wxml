@@ -54,7 +54,7 @@
     </view>
     <!-- 账单 -->
     <view wx:elif="{{selectIndex == 2}}">
-      <view>
+      <view class="bill_container">
         <view class="bill_all">
           <view class="select_view" bindtap="selectAllClick">
             <view><image class="choise_img" src="{{isAll ? '../../img/my/choisedCar.png' : '../../img/my/choise_car.png'}}"></image></view>
@@ -78,11 +78,11 @@
                     <view class="bill_price">
                       <text>¥{{item.accountReceivable}}</text> <text>{{item.costName}}</text>
                     </view>
-                    <text class="bill_star_end">2018.10.20-2018.12.32.23</text>
+                    <text class="bill_star_end">签约时间: {{item.receiptDateStr}}</text>
                   </view>
                 </view>
                 <view class="bill_right">
-                  <text>未支付</text> <text>2018.10.30前</text>
+                  <text>未支付</text> <text>{{item.receivableDateStr}}前</text>
                 </view>
               </view>
             </block>
