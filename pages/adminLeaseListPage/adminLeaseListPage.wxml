@@ -20,9 +20,15 @@
         <view class='bqcontent'>{{item.contractType}}</view>
       </view>
       <view class='foot'>
+<<<<<<< HEAD
         <text data-index="0" data-id="{{id}}" bindtap='ydXqClick'>租约详情</text>
         <text data-index="1" data-id="{{id}}" bindtap='ydXqClick'>查看合同</text>
         <text data-index="2" data-id="{{id}}" bindtap='ydXqClick'>查看账单</text>
+=======
+        <text bindtap='ydXqClick'>租约详情</text>
+        <text bindtap='ydXqClick'>查看合同</text>
+        <text bindtap='ydXqClick'>查看账单</text>
+>>>>>>> allwork
       </view>
     </view>
   </block>
