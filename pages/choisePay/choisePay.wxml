@@ -12,18 +12,6 @@
       <text class='red_money'>￥{{showagent}}</text>
     </view>
   </view>
-<<<<<<< HEAD
-  <view class='gray'></view> 
-  <view class='gray'></view>
-
-<!-- 选择需要支付的支付方式 -->
-
-  <view class='choise_car'>
-    <view class='item'>
-      <view class='item_view'>
-        <image class='choise_img' bindtap='getStatusCar' mode="widthFix" src='{{choiseCar}}'></image>
-        <text>工商银行信用卡 ({{accNo}}）</text>
-=======
   <view class='gray'></view>
   <!-- 选择需要支付的支付方式 -->
   <view class='choise_car'>
@@ -31,7 +19,6 @@
       <view class='item_view'>
         <image class='choise_img' bindtap='getStatusCar' mode="widthFix" src='{{type==5?"../../img/my/choisedCar.png":"../../img/my/choise_car.png"}}'></image>
         <text class='{{payway != 2?"pay_gray":""}}'>工商银行信用卡 ({{accNo}}）</text>
->>>>>>> allwork
       </view>
       <view class='green' bindtap='bindingCarNext'>更换</view>
     </view>
@@ -52,22 +39,12 @@
     <!--  -->
     <view class='item calcel_bottom'>
       <view class='item_view'>
-<<<<<<< HEAD
-        <image class='choise_img' bindtap='getstatusWx' mode="widthFix" src='{{choiseWx}}'></image>
-=======
         <image class='choise_img' bindtap='getstatusWx' mode="widthFix" src='{{type==1?"../../img/my/choisedCar.png":"../../img/my/choise_car.png"}}'></image>
->>>>>>> allwork
         <text>微信支付</text>
       </view>
     </view>
   </view>
   <!-- 去付款 -->
-<<<<<<< HEAD
-  <button loading="{{loadii}}" disabled="{{disable}}" class='button' bindtap='payClick'>去支付</button>
-
-</view>
- 
-=======
   <button loading="{{loadii}}" disabled="{{disable}}" class='button butt' bindtap='payClick'>去支付</button>
   <!-- 扫码支付 -->
   <view class='saoMa' wx:if="{{saomazhifu}}">
@@ -95,4 +72,4 @@
     </view>
   </view>
 </view>
->>>>>>> allwork
+

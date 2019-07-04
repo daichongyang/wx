@@ -103,12 +103,6 @@ page{
 .houseItemDis{
   width: 228rpx;
   height: 150rpx;
-<<<<<<< HEAD
-  background: #41cac0;
-  margin-left: 20rpx;
-  border-radius:0px 10px 10px 10px;
-}
-=======
   background:rgba(1, 1, 1, 0);
   margin:5rpx 0;
 }
@@ -255,4 +249,4 @@ page{
 }
 
 
->>>>>>> allwork
+
