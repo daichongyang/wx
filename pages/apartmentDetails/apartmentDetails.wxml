@@ -1,0 +1,75 @@
+<!--pages/apartmentDetails/apartmentDetails.wxml-->
+<block>
+  <view class='contant'>
+    <!-- 房源信息 -->
+    <view class='ul_item'>
+      <view class='li_item'>
+        <text>房源编号</text>
+        <text>{{houseInfor.serialNumber}}</text>
+      </view>
+      <view class='li_item'>
+        <text>所属模板</text>
+        <text>{{houseInfor.templateName}}</text>
+      </view>
+      <view class='li_item'>
+        <text>房间面积</text>
+        <text>{{houseInfor.area}} ㎡</text>
+      </view>
+      <view class='li_item'>
+        <text>对外标价</text>
+        <text>{{houseInfor.rentCost}}元/月，{{houseInfor.payment}}</text>
+      </view>
+      <view class='li_item'>
+        <text>所属分店</text>
+        <text>{{houseInfor.officeName}}</text>
+      </view>
+    </view>
+    <!-- 房源状态 -->
+    <view class='ul_item' wx:if="{{(houseInfor.isRent==0&&houseInfor.houseStatus[0].statusCode==0)||houseInfor.houseStatus[0].statusCode==1||houseInfor.houseStatus[0].statusCode==6}}">
+      <view class='li_item' wx:if="{{houseInfor.houseStatus[0].statusCode==0||houseInfor.houseStatus[0].statusCode==6}}">
+        <text>出租状态</text>
+        <text>未出租</text>
+      </view>
+      <view class='li_item' wx:if="{{houseInfor.houseStatus[0].statusCode==1}}">
+        <text>出租状态</text>
+        <text>已出租</text>
+      </view>
+      <view class='li_item' wx:if="{{houseInfor.houseStatus[0].statusCode==0||houseInfor.houseStatus[0].statusCode==6}}">
+        <text>装修中(封房)</text>
+        <text>{{houseInfor.isDecoration==1?'已封房':'暂未封房'}}</text>
+      </view>
+      <view class='li_item' wx:if="{{houseInfor.houseStatus[0].statusCode==0||houseInfor.houseStatus[0].statusCode==6}}">
+        <text>对外展示</text>
+        <text>{{houseInfor.isShow==1?'是':'否'}}</text>
+      </view>
+    </view>
+    <!-- 租约信息 -->
+    <view class='ul_item' wx:if="{{houseInfor.isRent==0&&houseInfor.houseStatus[0].statusCode==0||houseInfor.isRent==1||houseInfor.houseStatus[0].statusCode==6}}">
+      <view class='li_item'>
+        <text>租约信息</text>
+        <text>{{}}</text>
+      </view>
+    </view>
+    <!-- 账单信息 -->
+    <view class='ul_item'>
+      <view class='li_item'>
+        <text>房源编号</text>
+        <text>{{}}</text>
+      </view>
+    </view>
+    <!-- 续租信息 -->
+    <view class='ul_item'>
+      <view class='li_item'>
+        <text>房源编号</text>
+        <text>{{}}</text>
+      </view>
+    </view>
+    <!-- 房源备注 -->
+    <view class='ul_item'>
+      <view class='li_item'>
+        <text>房源编号</text>
+        <text>{{}}</text>
+      </view>
+    </view>
+  </view>
+</block>

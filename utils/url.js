@@ -268,7 +268,11 @@ export const getMerchQr = params => {
   return requestApi("post", '/merchantController/getMerchQr/' + params.houseId)
 }
 
+//房源管理-集中式房源-房间操作
+export const houseOperate = houseId => { return requestApi("post", '/v1.0/admin/house/operate/' + houseId) }
+
 module.exports = {
+  houseOperate,
   itemSelect,
   getMerchQr,
   updateTradeResult,

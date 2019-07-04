@@ -1,0 +1,19 @@
+/* pages/apartmentDetails/apartmentDetails.wxss */
+.contant{
+  background:#f7f7f7;
+  overflow: hidden;
+}
+.ul_item{
+  margin-top:10rpx;
+  background:#fff;
+  font-size:26rpx;
+}
+.li_item{
+  height:90rpx;
+  border-bottom:1px solid #f7f7f7;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left:25rpx;
+  padding-right:25rpx;
+}

@@ -4,7 +4,7 @@ import { selectApartment } from "../../utils/url.js"
 const app = getApp();
 Page({
 
-  /**
+  /** 
    * 页面的初始数据
    */
   data: {
@@ -97,11 +97,6 @@ Page({
       indexH: obj.currentTarget.dataset.indexhouse,
     })
   },
-  // 阻止事件穿透
-  stopClick:function(){
-
-  },
-
   //请求数据
   loadDataSource:function(){
     wx.showLoading({
@@ -145,7 +140,13 @@ Page({
       }
     })
   },
-
+  goapartmentDetails(e){
+    console.log(e)
+    let houseId = e.currentTarget.dataset.houseid
+    wx.navigateTo({
+      url: '/pages/apartmentDetails/apartmentDetails?houseId=' + houseId,
+    })
+  },
   
 
   /**
