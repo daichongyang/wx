@@ -13,7 +13,6 @@
     <scroll-view class='scrollView' scroll-y='true' enable-back-to-top='true'>
       <view class='zzdCss'>总账单</view>
       <view class='xqCssBox'>
-<<<<<<< HEAD
         <view class='sjCssBOx'>
           <picker class='sjCss' mode="date" value="{{date}}" start="{{startTime}}" bindchange="bindDateChange" end="{{endTime}}">
             2019-01-01
@@ -22,17 +21,11 @@
             {{endTime}}
           </picker>  
         </view>
-=======
-      <view class='sjCssBOx'>
-        <text class='sjCss'>2019-03-01</text><text class='sjCss'>2019-03-27</text>
-      </view>
->>>>>>> allwork
         <view class='jeCss'>{{billTotal}}元</view>
       </view>
 
       <view class='zzdCss'>未来预计收入</view>
       <view class='xqCssBox'>
-<<<<<<< HEAD
         <view class='sjCssBOx'>
           <picker class='sjCss' mode="date" value="{{date}}" start="{{startTime}}" bindchange="bindDateChange" end="{{endTime}}">
             2019-01-01
@@ -41,11 +34,6 @@
             {{endTime}}
           </picker>  
         </view>
-=======
-      <view class='sjCssBOx'>
-        <text class='sjCss'>2019-03-01</text><text class='sjCss'>2019-03-27</text>
-      </view>
->>>>>>> allwork
         <view class='jeCss'>{{billFuture}}元</view>
       </view>
     </scroll-view>
@@ -86,7 +74,6 @@
     <scroll-view class='scrollView' scroll-y='true' enable-back-to-top='true'>
        <view class='zzdCss'>快到期合同</view>
       <view class='xqCssBox'>
-<<<<<<< HEAD
         <view class='sjCssBOx'>
           <picker class='sjCss' mode="date" value="{{date}}" start="{{startTime}}" bindchange="bindDateChange" end="{{endTime}}">
             2019-01-01
@@ -95,11 +82,6 @@
             {{endTime}}
           </picker>  
         </view>
-=======
-      <view class='sjCssBOx'>
-        <text class='sjCss'>2019-03-01</text><text class='sjCss'>2019-03-27</text>
-      </view>
->>>>>>> allwork
         <view class='jeCss'>{{willExpired}}个</view>
       </view>
 
@@ -144,13 +126,6 @@
           </view>
         </view>
       </view>
-<<<<<<< HEAD
     </scroll-view>
   </swiper-item>
-=======
-
-    </scroll-view>
-  </swiper-item>
-
->>>>>>> allwork
 </swiper>

@@ -2,22 +2,15 @@
 //获取应用实例
 const app = getApp()
 var util = require('../../utils/util.js');
-<<<<<<< HEAD
 var dateTool = require('../../utils/date.js');
-=======
->>>>>>> allwork
 import {
   adminIndexbilltotal,
   adminIndexbillfuture,
   adminIndexWillExpired,
   adminIndexBeExpired,
   getDataTableWithWater,
-<<<<<<< HEAD
   getDataTableWithBill,
   adminIndexHouseData
-=======
-  getDataTableWithBill
->>>>>>> allwork
 } from "../../utils/url.js"
 
 Page({
@@ -38,14 +31,10 @@ Page({
     willExpired: 0,
     beExpired: 0,
     billData: [],
-<<<<<<< HEAD
     waterData: [],
     houseData: {},
     startTime: "2000-01-01", 
     endTime: null
-=======
-    waterData: []
->>>>>>> allwork
   },
 
   // 总账单  房源数据 租约数据  日报月报 选择
@@ -61,12 +50,9 @@ Page({
    * 生命周期函数--监听页面加载 
    */
   onLoad: function (options) {
-<<<<<<< HEAD
     this.setData({
       endTime: dateTool.formatTimeStamp(new Date() / 1000, "yyyy-MM-dd")
     })
-=======
->>>>>>> allwork
     this.getSystemInfo();
   },
 
@@ -115,7 +101,6 @@ Page({
       })
     })
   },
-<<<<<<< HEAD
 
   bindDateChange: function (e) {
     console.log(e.detail.value);
@@ -163,11 +148,6 @@ Page({
   },
 
   getExpiredWithIndex: function(index) {
-=======
-
-  
-  getExpiredWithIndex : function(index) {
->>>>>>> allwork
    switch (index) {
      case 0:
        {
@@ -176,11 +156,7 @@ Page({
        break;
      case 1:
        {
-<<<<<<< HEAD
          this.getHouseData();
-=======
-         console.log("房源数据");
->>>>>>> allwork
        }
        break;
      case 2:
@@ -269,7 +245,6 @@ Page({
   monthClick: function () {
     this.setData({
       dayIndex: 1,
-<<<<<<< HEAD
     })
     if (this.data.index == 0) {
       this.lstjClick();
@@ -296,8 +271,6 @@ Page({
       this.setData({
         beExpired: res.data.data
       })
-=======
->>>>>>> allwork
     })
     if (this.data.index == 0) {
       this.lstjClick();

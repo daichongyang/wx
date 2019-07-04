@@ -64,14 +64,11 @@
     "pages/myBillOrWater/myBillOrWater",
     "pages/znApartmentList/znApartmentList",
     "pages/znAmmeterList/znAmmeterList",
-<<<<<<< HEAD
     "pages/leaseDetailPage/leaseDetailPage",
     "pages/leaseDetailBillHistory/leaseDetailBillHistory",
     "pages/leaseBillDetail/leaseBillDetail",
-    "pages/leaseBillConfirm/leaseBillConfirm"
-=======
+    "pages/leaseBillConfirm/leaseBillConfirm",
     "pages/apartmentDetails/apartmentDetails"
->>>>>>> allwork
   ],
   "window": {
     "backgroundTextStyle": "light",
