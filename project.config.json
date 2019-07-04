@@ -40,8 +40,84 @@
 			"list": []
 		},
 		"miniprogram": {
+<<<<<<< HEAD
 			"current": 11,
 			"list": []
+=======
+			"current": 9,
+			"list": [
+				{
+					"id": -1,
+					"name": "首页",
+					"pathName": "pages/homePage/homePage",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "选择支付方式",
+					"pathName": "pages/choisePay/choisePay",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "支付详情",
+					"pathName": "pages/paydetalis/paydetalis",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "二维码收款",
+					"pathName": "pages/logoQRCode/logoQRCode",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "入户修改密码2",
+					"pathName": "pages/setUserPassward2/setUserPassward2",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "绑定银行卡",
+					"pathName": "pages/myBackCard1/myBackCard1",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "智能水电表列表",
+					"pathName": "pages/znAmmeterList/znAmmeterList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "交易流水",
+					"pathName": "pages/myBillOrWater/myBillOrWater",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "房态图",
+					"pathName": "pages/roomStatePage/roomStatePage",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "公寓详情",
+					"pathName": "pages/apartmentDetails/apartmentDetails",
+					"query": "",
+					"scene": null
+				}
+			]
+>>>>>>> allwork
 		}
 	}
 }

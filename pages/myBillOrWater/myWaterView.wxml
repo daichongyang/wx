@@ -3,6 +3,7 @@
     <!-- 顶部时间选择和分类 -->
     <view class='water_top'>
       <view class='water_time'>
+<<<<<<< HEAD
         <view class='water_starTime'>2019-03-14</view>
         <view class='water_line'></view>
         <view class='water_endTime'>2019-05-14</view>
@@ -11,6 +12,58 @@
         <block wx:for="{{waterCategory}}" wx:key="key">
           <view class='category_view'>{{item}}</view>
         </block>
+=======
+        <view class='water_starTime'>
+          <picker mode="date" value="{{date}}" end="{{end}}" bindchange="bindDateChange1">
+            <view class="picker">
+              {{date1}}
+            </view>
+          </picker>
+        </view>
+        <view class='water_line'></view>
+        <view class='water_endTime'>
+          <picker mode="date" value="{{date}}" end="{{end}}" bindchange="bindDateChange2">
+            <view class="picker">
+              {{date2}}
+            </view>
+          </picker>
+        </view>
+      </view>
+      <view class='water_category'>
+        <!-- <block wx:for="{{waterCategory}}" wx:key="key">
+          <view class='category_view'>{{item}}</view>
+        </block> -->
+        <view class='category_view'>
+          <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="0" range="{{itemsele}}" range-key= "{{'item'}}">
+            <view class="picker">
+              <view class='category_view'>
+                全部
+                <text class='arrow-down'></text>
+              </view>
+            </view>
+          </picker>
+        </view>
+        <view class='category_view'>
+          <picker bindchange="changeJiaoyi" value="0" range="{{jiaoyiType}}">
+            <view class="picker">
+              <view class='category_view'>
+                交易类型
+                <text class='arrow-down'></text>
+              </view>
+            </view>
+          </picker>
+        </view>
+        <view class='category_view'>
+          <picker bindchange="changeApartment" value="0" range-key="{{'name'}}" range="{{apartmentArr}}">
+            <view class="picker">
+              <view class='category_view'>
+                全部房源
+                <text class='arrow-down'></text>
+              </view>
+            </view>
+          </picker>
+        </view>
+>>>>>>> allwork
       </view>
     </view>
 

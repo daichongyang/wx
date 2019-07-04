@@ -4,6 +4,13 @@
   justify-content: space-around;
   align-items: center;
   height: 100rpx;
+<<<<<<< HEAD
+=======
+  border-top:1px solid #e1e1e1 ;
+}
+.water_time{
+  border-top:1px solid #e1e1e1;
+>>>>>>> allwork
 }
 .bill_starTime {
   font-size: 28rpx;
@@ -29,6 +36,11 @@
 .category_view {
   font-size: 28rpx;
   color: #222222;
+<<<<<<< HEAD
+=======
+  display: flex;
+  align-items: center;
+>>>>>>> allwork
 }
 
 .bill_moddle {

@@ -1,9 +1,7 @@
 <!--pages/choisePay/choisePay.wxml-->
 <view class='contant'>
   <view class='gray'></view>
-
   <!-- 支付金额 -->
-
   <view class='pay_money'>
     <view>
       <text>账单金额</text>
@@ -14,6 +12,7 @@
       <text class='red_money'>￥{{showagent}}</text>
     </view>
   </view>
+<<<<<<< HEAD
   <view class='gray'></view> 
   <view class='gray'></view>
 
@@ -24,22 +23,76 @@
       <view class='item_view'>
         <image class='choise_img' bindtap='getStatusCar' mode="widthFix" src='{{choiseCar}}'></image>
         <text>工商银行信用卡 ({{accNo}}）</text>
+=======
+  <view class='gray'></view>
+  <!-- 选择需要支付的支付方式 -->
+  <view class='choise_car'>
+    <view class='item'>
+      <view class='item_view'>
+        <image class='choise_img' bindtap='getStatusCar' mode="widthFix" src='{{type==5?"../../img/my/choisedCar.png":"../../img/my/choise_car.png"}}'></image>
+        <text class='{{payway != 2?"pay_gray":""}}'>工商银行信用卡 ({{accNo}}）</text>
+>>>>>>> allwork
       </view>
       <view class='green' bindtap='bindingCarNext'>更换</view>
     </view>
-    <!-- <view class='item'>
-      <text>扫码支付</text>
-    </view> -->
+    <!--  -->
+    <view class='item'>
+      <view class='item_view'>
+        <image class='choise_img' bindtap='getSaomaWx' mode="widthFix" src='{{type==7?"../../img/my/choisedCar.png":"../../img/my/choise_car.png"}}'></image>
+        <text>微信扫码支付</text>
+      </view>
+    </view>
+    <!--  -->
+    <view class='item'>
+      <view class='item_view'>
+        <image class='choise_img' bindtap='getSaomaZFB' mode="widthFix" src='{{type==6?"../../img/my/choisedCar.png":"../../img/my/choise_car.png"}}'></image>
+        <text>支付宝扫码支付</text>
+      </view>
+    </view>
+    <!--  -->
     <view class='item calcel_bottom'>
       <view class='item_view'>
+<<<<<<< HEAD
         <image class='choise_img' bindtap='getstatusWx' mode="widthFix" src='{{choiseWx}}'></image>
+=======
+        <image class='choise_img' bindtap='getstatusWx' mode="widthFix" src='{{type==1?"../../img/my/choisedCar.png":"../../img/my/choise_car.png"}}'></image>
+>>>>>>> allwork
         <text>微信支付</text>
       </view>
     </view>
   </view>
-
   <!-- 去付款 -->
+<<<<<<< HEAD
   <button loading="{{loadii}}" disabled="{{disable}}" class='button' bindtap='payClick'>去支付</button>
 
 </view>
  
+=======
+  <button loading="{{loadii}}" disabled="{{disable}}" class='button butt' bindtap='payClick'>去支付</button>
+  <!-- 扫码支付 -->
+  <view class='saoMa' wx:if="{{saomazhifu}}">
+    <view class='saomaBox'>
+      <view class='saomaTop'>
+        <text class='closeSaoma' bindtap='closeSaoma'>x</text>
+        <text>扫码支付</text>
+        <text class='smallText'>(无服务费)</text>
+      </view>
+      <view class='saomaImg'>
+        <image class='ewmimg' src='wxUrl'></image>
+      </view>
+      <button class='button baocun' bindtap='savezfm'>保存收款码图片</button>
+      <view class='tishi_box'>
+        <view class='tishi'>
+          <view>支付指引：</view>
+          <view>1.保存二维码，然后关闭小程序；</view>
+          <view>2.打开微信扫一扫<text>→</text>相册<text>→</text>选择保存的收 款码图片<text>→</text>完成；</view>
+          <view>3.输入付款金额，点击付款。</view>
+        </view>
+        <view class='warnning'>
+        注：支付完成后请与公寓方核对是否到账，账单 支付状态更新会有稍许延迟。
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+>>>>>>> allwork

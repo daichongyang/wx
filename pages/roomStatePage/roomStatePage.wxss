@@ -1,21 +1,32 @@
 /* pages/roomStatePage/roomStatePage.wxss */
 page{
   background: #f7f7f7;
+  overflow-y: visible !important;
 }
 
 .header{
   position: fixed;
-  top: 10rpx;
-  display: -webkit-flex; /* Safari */
+  top: 0rpx;
+  left: 0;
+  width:100%;
+  z-index: 100;
+}
+.header_cont{
+ display: -webkit-flex; /* Safari */
   display: flex;
   flex-direction: row;
   justify-content: center;
-  height: 60rpx;
+  height: 90rpx;
   align-items: center;
   background: white;
-  left: 0;
-  right: 0;
-  border-bottom: 1rpx solid #e1e1e1
+  font-size:28rpx;
+  
+}
+.sx_item{
+  flex:1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .xqCssBox{
   position: fixed;
@@ -23,12 +34,6 @@ page{
   width: 100%;
   height: 180rpx;
   background: white;
-}
-.header text{
-  text-align: center;
-  flex-grow: 1;
-  font-size: 30rpx;
-  border-right: 1rpx solid #e1e1e1;
 }
 .maskView{
   width: 100%;
@@ -48,37 +53,206 @@ page{
 }
 
 .houseHeaderItem{
-  font-size: 30rpx;
-  padding-top: 10rpx;
-  padding-bottom: 10rpx;
+  font-size: 26rpx;
   padding-left: 30rpx;
   background: white;
+  height:80rpx;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 30rpx;
 }
 .floorItemItem{
   font-size: 28rpx;
-  color: darkgray;
-  text-align: center;
-  padding-top: 5rpx;
-  padding-bottom: 5rpx;
+  color: #222222;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  height:100rpx;
 }
 .scrollViewOne{
-  position: fixed;
-  width: 100%;
-  bottom: 0;
-  top: 80rpx;
+  margin-top:110rpx;
 }
-.scrollViewTwo{
-  position: fixed;
-  width: 100%;
-  bottom: 0;
-  top: 270rpx;
+.infor_item{
+  margin:0 25rpx;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
 }
-
+.house_bb{
+  position:relative;
+}
+.houseItemd{
+  width: 228rpx;
+  height: 152rpx;
+  background: #41cac0;
+  border-radius:0px 5px 5px 5px;
+  margin:5rpx 0;
+  overflow: hidden;
+  
+}
 .houseItem{
-  display: inline-block;
-  width: 225rpx;
+  width: 228rpx;
+  height: 152rpx;
+  background: #aae9d3;
+  border-radius:0px 5px 5px 5px;
+  margin:5rpx 0;
+  overflow: hidden;
+}
+.houseItemDis{
+  width: 228rpx;
   height: 150rpx;
+<<<<<<< HEAD
   background: #41cac0;
   margin-left: 20rpx;
   border-radius:0px 10px 10px 10px;
 }
+=======
+  background:rgba(1, 1, 1, 0);
+  margin:5rpx 0;
+}
+.xian{
+  height:40rpx;
+}
+.house_box view{
+  line-height: 100%;
+}
+.house_box{
+  margin-left:15rpx;
+  color:#fff;
+}
+.house_number{
+  font-size:30rpx;
+  margin-top:15rpx;
+  /* margin-bottom:10rpx; */
+}
+.house_master{
+  font-size:24rpx;
+  margin-top:15rpx;
+}
+.house_s{
+  display:flex;
+  align-items: center;
+  height:40rpx;
+  color:#fff;
+  margin-top:15rpx;
+  /* margin-bottom:15rpx; */
+}
+.house_ss{
+  display:flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  height:80rpx;
+  color:#fff;
+  margin:0rpx 25rpx;
+}
+.house_style{
+  font-size:28rpx;
+  width:40rpx;
+  height:40rpx;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  border-radius:8rpx;
+  margin-right:10rpx;
+}
+.item_position{
+  height:200rpx;
+  width:100% ;
+  position:relative;
+}
+.caozuo{
+  position:absolute;
+  top:0rpx;
+  height:200rpx;
+  border-radius:10rpx;
+  background:#fff;
+  width:100% ;
+  margin-top:10rpx;
+}
+.caozuo_item1{
+  display:flex;
+  justify-content: space-between;
+  font-size:30rpx;
+  margin:0rpx 25rpx;
+  margin-top:15rpx;
+}
+.caozuo_item1_templateName{
+  color:#777777;
+}
+.caozuo_item1_rentCost{
+  color:#fe615a;
+}
+.house_style_day{
+  color:#777777;
+  font-size:24rpx;
+}
+.caozuo_item3{
+  display:flex;
+  justify-content: space-between;
+  color:#777777;
+  margin:0rpx 25rpx;
+}
+.caozuo_item3_ownerName{
+  font-size:24rpx;
+  display:flex;
+  align-items:flex-end;
+}
+.caozuo_item3_Btn{
+  display:flex;
+}
+.codeBtn{
+  width:160rpx;
+  height:54rpx;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  font-size:28rpx;
+  border:1px solid #777777;
+  border-radius:10rpx;
+  margin-left:10rpx;
+}
+.btn_green{
+  color:#00c3b2;
+  border:1px solid #00c3b2;
+}
+.status_code{
+  width:100%;
+  display:flex;
+  align-items: center;
+  margin-top:5rpx;
+}
+
+
+
+
+
+
+.l_kong{
+  background: #0cc664 ;
+}
+.l_yi{
+  background: #8e9df8 ;
+}
+.l_lu{
+  background: rgb(40, 139, 226) ;
+}
+.l_qian{
+  background: #ff5c5c ;
+}
+.l_shou{
+  background: #f6bb42 ;
+}
+.l_kuai{
+  background: #ab62f9 ;
+}
+.l_yu{
+  background: #0cc664 ;
+}
+.l_xiu{
+  background: rgb(202, 168, 205) ;
+}
+
+
+>>>>>>> allwork

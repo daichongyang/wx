@@ -37,6 +37,21 @@ view{
   color:#fe615a;
 }
 /* 向下箭头 */
+<<<<<<< HEAD
+=======
+.arrow-white-up {
+  display: inline-block;
+  vertical-align: top;
+  border-bottom: 10rpx solid #fff;
+  border-right: 10rpx solid transparent;
+  border-left: 10rpx solid transparent;
+  content: "";
+  margin-left:-10rpx;
+  position:absolute;
+  bottom:-10rpx;
+  left:50%;
+}
+>>>>>>> allwork
 .arrow-up {
   display: inline-block;
   vertical-align: top;
@@ -44,6 +59,7 @@ view{
   border-right: 10rpx solid transparent;
   border-left: 10rpx solid transparent;
   content: "";
+<<<<<<< HEAD
   margin-left:5rpx;
 }
 .arrow-down {
@@ -54,6 +70,18 @@ view{
     border-left: 10rpx solid transparent;
     content: "";
     margin-left:10rpx;
+=======
+  margin-left:10rpx;
+}
+.arrow-down {
+  display: inline-block;
+  vertical-align: top;
+  border-top: 10rpx solid #7a7a7a;
+  border-right: 10rpx solid transparent;
+  border-left: 10rpx solid transparent;
+  content: "";
+  margin-left:10rpx;
+>>>>>>> allwork
 }
 .arrow-left {
   display: inline-block;
@@ -80,6 +108,10 @@ view{
   color: darkgray;
 }
 .gray10{
+<<<<<<< HEAD
   backgorund:#f7f7f7;
+=======
+  background:#f7f7f7;
+>>>>>>> allwork
   height:10rpx;
 }
