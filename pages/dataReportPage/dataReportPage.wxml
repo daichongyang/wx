@@ -13,22 +13,29 @@
     <scroll-view class='scrollView' scroll-y='true' enable-back-to-top='true'>
       <view class='zzdCss'>总账单</view>
       <view class='xqCssBox'>
-      <view class='sjCssBOx'>
-        <text class='sjCss'>2019-03-01</text><text class='sjCss'>2019-03-27</text>
-      </view>
+        <view class='sjCssBOx'>
+          <picker class='sjCss' mode="date" value="{{date}}" start="{{startTime}}" bindchange="bindDateChange" end="{{endTime}}">
+            2019-01-01
+          </picker>  
+          <picker class='sjCss' mode="date" value="{{date}}" start="{{startTime}}" bindchange="bindDateChange" end="{{endTime}}">
+            {{endTime}}
+          </picker>  
+        </view>
         <view class='jeCss'>{{billTotal}}元</view>
       </view>
 
-
       <view class='zzdCss'>未来预计收入</view>
       <view class='xqCssBox'>
-      <view class='sjCssBOx'>
-        <text class='sjCss'>2019-03-01</text><text class='sjCss'>2019-03-27</text>
-      </view>
+        <view class='sjCssBOx'>
+          <picker class='sjCss' mode="date" value="{{date}}" start="{{startTime}}" bindchange="bindDateChange" end="{{endTime}}">
+            2019-01-01
+          </picker>  
+          <picker class='sjCss' mode="date" value="{{date}}" start="{{startTime}}" bindchange="bindDateChange" end="{{endTime}}">
+            {{endTime}}
+          </picker>  
+        </view>
         <view class='jeCss'>{{billFuture}}元</view>
       </view>
-
-
     </scroll-view>
   </swiper-item>
 
@@ -59,20 +66,22 @@
        <view class="canvas-content">
         <canvas canvas-id="Canvas" style="width:200px;height:200px;"></canvas>
     </view>
-        
-
     </scroll-view>
   </swiper-item>
 
   <!-- 租约数据 -->
   <swiper-item>
     <scroll-view class='scrollView' scroll-y='true' enable-back-to-top='true'>
-
        <view class='zzdCss'>快到期合同</view>
       <view class='xqCssBox'>
-      <view class='sjCssBOx'>
-        <text class='sjCss'>2019-03-01</text><text class='sjCss'>2019-03-27</text>
-      </view>
+        <view class='sjCssBOx'>
+          <picker class='sjCss' mode="date" value="{{date}}" start="{{startTime}}" bindchange="bindDateChange" end="{{endTime}}">
+            2019-01-01
+          </picker>  
+          <picker class='sjCss' mode="date" value="{{date}}" start="{{startTime}}" bindchange="bindDateChange" end="{{endTime}}">
+            {{endTime}}
+          </picker>  
+        </view>
         <view class='jeCss'>{{willExpired}}个</view>
       </view>
 
@@ -80,14 +89,12 @@
       <view class='xqCssBox'>
         <view class='jeCss'>{{beExpired}}个</view>
       </view>
-
     </scroll-view>
   </swiper-item>
 
   <!-- 日报月报 -->
   <swiper-item>
     <scroll-view class='scrollView' scroll-y='true' enable-back-to-top='true'>
-
       <view class='rbybCssBox'>
         <text bindtap='lstjClick' class="{{index == 0? 'itemOneCss':'itemTwoCss'}}">流水统计</text>
         <text bindtap='zdtjClick' class="{{index == 1? 'itemOneCss':'itemTwoCss'}}">账单统计</text>
@@ -118,8 +125,6 @@
           </view>
         </view>
       </view>
-
     </scroll-view>
   </swiper-item>
-
 </swiper>

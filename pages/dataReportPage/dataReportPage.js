@@ -2,6 +2,7 @@
 //获取应用实例
 const app = getApp()
 var util = require('../../utils/util.js');
+var dateTool = require('../../utils/date.js');
 import {
   adminIndexbilltotal,
   adminIndexbillfuture,
@@ -31,7 +32,9 @@ Page({
     beExpired: 0,
     billData: [],
     waterData: [],
-    houseData: {}
+    houseData: {},
+    startTime: "2000-01-01", 
+    endTime: null
   },
 
   // 总账单  房源数据 租约数据  日报月报 选择
@@ -44,9 +47,12 @@ Page({
   },
 
   /**
-   * 生命周期函数--监听页面加载
+   * 生命周期函数--监听页面加载 
    */
   onLoad: function (options) {
+    this.setData({
+      endTime: dateTool.formatTimeStamp(new Date() / 1000, "yyyy-MM-dd")
+    })
     this.getSystemInfo();
   },
 
@@ -94,6 +100,10 @@ Page({
         billFuture: res.data.data
       })
     })
+  },
+
+  bindDateChange: function (e) {
+    console.log(e.detail.value);
   },
 
   // 房源数据
