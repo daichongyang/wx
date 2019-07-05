@@ -13,8 +13,6 @@ Page({
     noShowTitel: '',
     current:1,
     dataList: [],
-    flag: true,
-    sxArray: ["租约状态", "合同类型", "更多筛选"],
     status:0,
   },
 
