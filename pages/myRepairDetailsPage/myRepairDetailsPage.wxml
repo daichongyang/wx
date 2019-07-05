@@ -34,24 +34,21 @@
 
   <view class='footer'>
     <view class='footerOne'>
-    <view class='footerHeader'>报修保养信息</view>
-    <view><text class='left'>报修房源</text><text class='right'>{{repairGetDetail.repairName}}</text></view>
-    <view style='color: red'><text class='left'>{{pay_status}}</text><text class='right'>{{repairGetDetail.cost}}</text></view>
-    <view><text class='left'>预约修理时间</text><text class='right'>{{repairGetDetail.appointmentTime}}</text></view>
-    <view><text class='left'>联系人</text><text class='right'>{{repairGetDetail.receivingName}}</text></view>
-    <view class='bottom'><text class='left'>联系电话</text><text class='right'>{{repairGetDetail.callMaster}}</text></view>
+      <view class='content_title'>报修保养信息</view>
+      <view class="content_name"><text class='left'>报修房源</text><text class='right'>{{repairGetDetail.repairName}}</text></view>
+      <view style='color: red'><text class='left'>{{pay_status}}</text><text class='right'>{{repairGetDetail.cost}}</text></view>
+      <view class="content_name"><text class='left'>预约修理时间</text><text class='right'>{{repairGetDetail.appointmentTime}}</text></view>
+      <view class="content_name"><text class='left'>联系人</text><text class='right'>{{repairGetDetail.receivingName}}</text></view>
+      <view class='content_name'><text class='left'>联系电话</text><text class='right'>{{repairGetDetail.callMaster}}</text></view>
     </view>
 
-    <view class='footerOne footerTwo'>
-    <view class='footerHeader'>其他信息</view>
-    <view><text class='left'>分类</text><text class='right'>{{}}</text></view>
-    <view><text class='left'>保修单编号</text><text class='right'>{{}}</text></view>
-    <view class='bottom'><text class='left'>创建时间</text><text class='right'>{{repairGetDetail.createTime}}</text></view>
+    <view class='footerOne'>
+      <view class='content_title'>其他信息</view>
+      <view class="content_name"><text class='left'>分类</text><text class='right'>{{}}</text></view>
+      <view class="content_name"><text class='left'>保修单编号</text><text class='right'>{{}}</text></view>
+      <view class='content_name'><text class='left'>创建时间</text><text class='right'>{{repairGetDetail.createTime}}</text>
+    </view>
   </view>
 
-
   </view>
-
-  
-
 </view>

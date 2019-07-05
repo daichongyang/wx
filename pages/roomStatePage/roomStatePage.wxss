@@ -218,11 +218,6 @@ page{
   margin-top:5rpx;
 }
 
-
-
-
-
-
 .l_kong{
   background: #0cc664 ;
 }
@@ -247,5 +242,3 @@ page{
 .l_xiu{
   background: rgb(202, 168, 205) ;
 }
-
-

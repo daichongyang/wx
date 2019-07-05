@@ -1,0 +1,130 @@
+<!--pages/adminLeaseListPage/leaseDetailPage/leaseDetailPage.wxml-->
+<view class="view_container">
+  <!-- 顶部视图 -->
+  <view class="lease_top">
+    <view class='top_houseName'>{{leaseDetail.houseName}}</view>
+    <view class="top_container">
+      <view class='top_name'>签约人: {{signList.creatorName}}</view>
+      <view class='top_status'>租约状态: {{leaseDetail.statusStr}}</view>
+    </view>
+    <view class='top_foot'>
+      <text wx:if="{{selectIndex == 2}}" data-item="history" bindtap='footClick'>历史账单</text>
+      <text bindtap='footClick'>续租</text>
+      <text bindtap='footClick'>添加账单</text>
+      <text bindtap='footClick'>退房</text>
+    </view>
+  </view>
+
+  <!-- 中间视图 -->
+  <view class="lease_middle">
+    <!-- 详情 -->
+    <view wx:if="{{selectIndex == 0}}">
+      <view class="deatil_container">
+        <view class="deatil_top_container">
+          <view class="lease_detail_title">租约信息</view>
+          <view class="lease_container">
+            <text>起止时间</text> <text>{{leaseDetail.startTimeStr}}-{{leaseDetail.endTimeStr}}</text>
+          </view>
+          <view class="lease_container">
+            <text>租金</text> <text>{{signList.rentCost}}/月</text>
+          </view>
+          <view class="lease_container">
+            <text>房屋押金</text> <text>{{signList.depositCost}}元</text>
+          </view>
+          <view class="lease_container">
+            <text>下期收租日</text> <text>{{signList.receivableDate}}</text>
+          </view>
+          <view class="lease_container">
+            <text>合同类型</text> <text>{{signList.contractTypeStr}}</text>
+          </view>
+        </view>
+        <view class="deatil_bottom_container">
+          <view class="lease_detail_title">其他信息</view>
+          <view class="lease_container">
+            <text>租约编号</text> <text>{{leaseDetail.leaseCode}}</text>
+          </view>
+          <view class="lease_container">
+            <text>创建时间</text> <text>{{signList.signTimeStr}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 合同 -->
+    <view wx:elif="{{selectIndex == 1}}">
+    </view>
+    <!-- 账单 -->
+    <view wx:elif="{{selectIndex == 2}}">
+      <view class="bill_container">
+        <view class="bill_all">
+          <view class="select_view" bindtap="selectAllClick">
+            <view><image class="choise_img" src="{{isAll ? '../../img/my/choisedCar.png' : '../../img/my/choise_car.png'}}"></image></view>
+            <text class="select_all">全选</text>
+            <view class="select_label">
+              <text wx:if="{{selectBillNum == 0}}">未选择账单</text> 
+              <text wx:else>已选择{{selectBillNum}}条账单</text> 
+              <text>共 ¥{{moneyTotal}}</text>
+            </view>
+          </view>
+          <view class="bill_pay">收款</view>
+        </view>
+        <block wx:for="{{leaseBill}}" wx:key="key" wx:for-index='itemId'>
+          <view>
+            <view class="bill_time">{{item.stageName}}({{item.startDateStr}}-{{item.endDateStr}})</view>
+            <block wx:for="{{item.bills}}" wx:key="key" wx:for-index='id'>
+              <view data-item="{{itemId}}" data-id="{{id}}" class="bill_item" bindtap="billSelectClick">
+                <view class="bill_left">
+                  <view><image class="choise_img" src="{{item.isSelct ? '../../img/my/choisedCar.png' : '../../img/my/choise_car.png'}}"></image></view>
+                  <view class="bill_middle">
+                    <view class="bill_price">
+                      <text>¥{{item.accountReceivable}}</text> <text>{{item.costName}}</text>
+                    </view>
+                    <text class="bill_star_end">签约时间: {{item.receiptDateStr}}</text>
+                  </view>
+                </view>
+                <view class="bill_right">
+                  <text>未支付</text> <text>{{item.receivableDateStr}}前</text>
+                </view>
+              </view>
+            </block>
+          </view>          
+        </block>
+      </view>
+    </view>
+    <!-- 租客 -->
+    <view wx:else="{{selectIndex == 3}}">
+      <view class="deatil_container">
+        <view class="deatil_top_container">
+          <view class="lease_detail_title">承租人信息</view>
+          <view class="lease_container">
+            <text>姓名</text> <text>{{leaseDetail.tenant}}</text>
+          </view>
+          <view class="lease_container">
+            <text>手机号码</text> <text>{{leaseDetail.phone}}</text>
+          </view>
+          <view class="lease_container">
+            <text>证件类型</text> <text>{{leaseDetail.idNumberTypeStr}}</text>
+          </view>
+          <view class="lease_container">
+            <text>证件号码</text> <text>{{leaseDetail.idNumber}}</text>
+          </view>
+        </view>
+        <view class="deatil_bottom_container">
+          <view class="lease_detail_title">入住人信息</view>
+            <block wx:for="{{tenantList}}" wx:key="key">
+              <view class="lease_container">
+                <text>{{item.tenant}}</text> <text>{{item.leaseType}}</text>
+              </view>
+            </block>
+        </view>
+      </view> 
+    </view>
+  </view>
+
+  <!-- 底部视图 -->
+  <view class="lease_bottom">
+    <text class="{{selectIndex == 0 ? 'lease_line_s' : 'lease_line_n'}}" data-item="0" bindtap="leaseBottomClick">详情</text>
+    <text class="{{selectIndex == 1 ? 'lease_line_s' : 'lease_line_n'}}" data-item="1" bindtap="leaseBottomClick">合同</text>
+    <text class="{{selectIndex == 2 ? 'lease_line_s' : 'lease_line_n'}}" data-item="2" bindtap="leaseBottomClick">账单</text>
+    <text class="{{selectIndex == 3 ? 'lease_line_s' : 'lease_line_n'}}" data-item="3" bindtap="leaseBottomClick">租客</text>
+  </view>
+</view>

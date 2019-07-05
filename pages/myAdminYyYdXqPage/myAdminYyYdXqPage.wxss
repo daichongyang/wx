@@ -4,60 +4,68 @@ page{
 }
 .headerBox{
   padding-left: 30rpx;
-  padding-top: 20rpx;
-  padding-bottom: 20rpx;
+  padding-top: 30rpx;
+  padding-bottom: 30rpx;
   font-size: 30rpx;
   background: white;
   margin-top: 20rpx;
+  color: #222222;
 }
-
 .content{
   font-size: 28rpx;
- padding-left: 30rpx;
-  padding-top: 20rpx;
-  padding-bottom: 20rpx;  background: white;
+  padding-left: 30rpx;
+  padding-top: 30rpx;
+  padding-bottom: 30rpx;  background: white;
   border-bottom: 1rpx solid #e1e1e1
 }
-.content view{
-  padding: 8rpx;
+.content_title {
+  font-size: 30rpx;
+  color: #222222;
+}
+.content_name {
+  padding-top: 30rpx;
+}
+.content_name text {
+  font-size: 28rpx;
+  color: #222222;
 }
 .right{
   float: right;
   margin-right: 30rpx;
 }
-
-.text{
-  color: red;
-  word-wrap:break-word;
-  word-break: break-all;
-}
-
 .contenBox{
   margin-top: 20rpx;
 }
-
 .contentTwo{
   border-bottom: none;
 }
-
-
-.footer{
-  position: absolute;
-  height: 120rpx;
+.footer {
+  position: fixed;
+  height: 100rpx;
   bottom: 0rpx;
   background: white;
   width: 100%;
 }
-
 .callView{
+  position: relative;
   width: 95%;
-  height: 100rpx;
+  height: 80rpx;
   margin: 0 auto;
   margin-top: 10rpx;
   background: #1fc2b2;
-  text-align: center;
-  color:white;
-  font-size: 30rpx;
-  line-height: 100rpx;
   border-radius: 10rpx;
+  text-align: center;
+}
+.call_img {
+  position: absolute;
+  width: 40rpx;
+  height: 40rpx;
+  margin-top: 20rpx;
+  margin-left: -60rpx;
+}
+.callView text {
+  position: absolute;
+  font-size: 30rpx;
+  color:white;
+  margin-top: 23rpx;
 }

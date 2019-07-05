@@ -2,13 +2,15 @@
 //获取应用实例
 const app = getApp()
 var util = require('../../utils/util.js');
+var dateTool = require('../../utils/date.js');
 import {
   adminIndexbilltotal,
   adminIndexbillfuture,
   adminIndexWillExpired,
   adminIndexBeExpired,
   getDataTableWithWater,
-  getDataTableWithBill
+  getDataTableWithBill,
+  adminIndexHouseData
 } from "../../utils/url.js"
 
 Page({
@@ -29,7 +31,10 @@ Page({
     willExpired: 0,
     beExpired: 0,
     billData: [],
-    waterData: []
+    waterData: [],
+    houseData: {},
+    startTime: "2000-01-01", 
+    endTime: null
   },
 
   // 总账单  房源数据 租约数据  日报月报 选择
@@ -42,9 +47,12 @@ Page({
   },
 
   /**
-   * 生命周期函数--监听页面加载
+   * 生命周期函数--监听页面加载 
    */
   onLoad: function (options) {
+    this.setData({
+      endTime: dateTool.formatTimeStamp(new Date() / 1000, "yyyy-MM-dd")
+    })
     this.getSystemInfo();
   },
 
@@ -94,8 +102,52 @@ Page({
     })
   },
 
-  
-  getExpiredWithIndex : function(index) {
+  bindDateChange: function (e) {
+    console.log(e.detail.value);
+  },
+
+  // 房源数据
+  getHouseData: function () {
+    adminIndexHouseData().then(res => {
+      console.log(res);
+      this.setData({
+        houseData: res.data.data
+      })
+      var context = wx.createCanvasContext('Canvas', this);
+      var array = [this.data.houseData.vacantNum, this.data.houseData.rentNum];
+      var colors = ["#cdfdf2", "#00ceb2"];
+      var total = 0;
+      for (var val = 0; val < array.length; val++) {
+        total += array[val];
+      }
+      var point = { x: 100, y: 100 };
+      var radius = 80;
+      for (var i = 0; i < array.length; i++) {
+        context.beginPath();
+        var start = 0;
+        if (i > 0) {
+          for (var j = 0; j < i; j++) {
+            start += array[j] / total * 2 * Math.PI;
+          }
+        }
+        var end = start + array[i] / total * 2 * Math.PI;
+        context.arc(point.x, point.y, radius, start, end);
+        context.setLineWidth(2)
+        context.lineTo(point.x, point.y);
+        context.setStrokeStyle('#F5F5F5');
+        context.setFillStyle(colors[i]);
+        context.fill();
+        context.closePath();
+        context.stroke();
+      }
+      context.fillStyle = "black";
+      context.fillText("空置房", 60, 120);
+      context.fillText("已租房", 80, 50);
+      context.draw();
+    })
+  },
+
+  getExpiredWithIndex: function(index) {
    switch (index) {
      case 0:
        {
@@ -104,7 +156,7 @@ Page({
        break;
      case 1:
        {
-         console.log("房源数据");
+         this.getHouseData();
        }
        break;
      case 2:
@@ -201,31 +253,57 @@ Page({
     }
   },
 
-  
-  getExpiredWithIndex : function(index) {
-   switch (index) {
-     case 0:
-       {
-         this.loadDataSourcezzd();
-       }
-       break;
-     case 1:
-       {
-         console.log("房源数据");
-       }
-       break;
-     case 2:
-       {
-         this.loadDataExpired();
-       }
-       break;
-     default:
-       {
-         console.log("日报月报");
-       }
-       break;
-   }
- },
+  //租约数据
+  loadDataExpired: function () {
+    // 快到期合同
+    let params = {
+      day: 60
+    }
+    adminIndexWillExpired(params).then(res => {
+      console.log(res);
+      this.setData({
+        willExpired: res.data.data
+      })
+    })
+    // 已到期合同
+    adminIndexBeExpired().then(res => {
+      console.log(res);
+      this.setData({
+        beExpired: res.data.data
+      })
+    })
+    if (this.data.index == 0) {
+      this.lstjClick();
+    } else {
+      this.zdtjClick();
+    }
+  },
+
+  //租约数据
+  loadDataExpired: function () {
+    // 快到期合同
+    let params = {
+      day: 60
+    }
+    adminIndexWillExpired(params).then(res => {
+      console.log(res);
+      this.setData({
+        willExpired: res.data.data
+      })
+    })
+    // 已到期合同
+    adminIndexBeExpired().then(res => {
+      console.log(res);
+      this.setData({
+        beExpired: res.data.data
+      })
+    })
+    if (this.data.index == 0) {
+      this.lstjClick();
+    } else {
+      this.zdtjClick();
+    }
+  },
 
 //租约数据
 loadDataExpired: function () {
@@ -253,34 +331,7 @@ loadDataExpired: function () {
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    var context = wx.createCanvasContext('Canvas', this);
-    var array = [87, 13];
-    var colors = ["#228B22", "pink"];
-    var total = 0;
-    for (var val = 0; val < array.length; val++) {
-      total += array[val];
-    }
-    var point = { x: 100, y: 100 };
-    var radius = 80;
-    for (var i = 0; i < array.length; i++) {
-      context.beginPath();
-      var start = 0;
-      if (i > 0) {
-        for (var j = 0; j < i; j++) {
-          start += array[j] / total * 2 * Math.PI;
-        }
-      }
-      var end = start + array[i] / total * 2 * Math.PI;
-      context.arc(point.x, point.y, radius, start, end);
-      context.setLineWidth(2)
-      context.lineTo(point.x, point.y);
-      context.setStrokeStyle('#F5F5F5');
-      context.setFillStyle(colors[i]);
-      context.fill();
-      context.closePath();
-      context.stroke();
-    }
-    context.draw();
+
   },
 
   /**

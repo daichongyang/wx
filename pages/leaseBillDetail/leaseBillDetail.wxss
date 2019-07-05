@@ -1,0 +1,103 @@
+/* pages/leaseBillDetail/leaseBillDetail.wxss */
+page {
+  background-color: #f7f7f7;
+}
+
+.bill_top {
+  height: 100rpx;
+  margin-top: 20rpx;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.bill_top text {
+  font-size: 30rpx;
+  color: #fe615a;
+  margin-left: 30rpx;
+}
+.img_view {
+  margin-right: 30rpx;
+}
+.call_img {
+  height: 50rpx;
+  width: 50rpx;
+}
+
+.bill_middle {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-top: 2rpx;
+  padding-top: 30rpx;
+  padding-bottom: 30rpx;
+}
+.bill_name {
+  font-size: 26rpx;
+  color: #222222;
+  padding-left: 30rpx;
+}
+.bill_price {
+  margin-top: 30rpx;
+}
+.bill_price text:nth-child(1) {
+  font-size: 50rpx;
+  color: #222222;
+  padding-left: 30rpx;
+}
+.bill_price text:nth-child(2) {
+  font-size: 80rpx;
+  color: #222222;
+  padding-left: 10rpx;
+}
+.bill_time {
+  margin-top: 26rpx;
+  font-size: 28rpx;
+  color: #777777;
+  padding-left: 30rpx;
+}
+
+.bill_list {
+  background-color: white;
+  margin-top: 2rpx;
+  padding-top: 50rpx;
+  padding-bottom: 50rpx;
+}
+.lease_container {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 30rpx;
+}
+.lease_container text:nth-child(1) {
+  font-size: 28rpx;
+  color: #222222;
+  padding-left: 30rpx;
+}
+.lease_container text:nth-child(2) {
+  font-size: 28rpx;
+  color: #222222;
+  padding-right: 30rpx;
+}
+
+.lease_bottom {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: white;
+  position: fixed;
+  bottom: 0rpx;
+  width: 100%;
+  height: 100rpx;
+}
+.lease_bottom text {
+  background-color: #00c3b2;
+  color: white;
+  height: 80rpx;
+  width: 200rpx;
+  border-radius: 8rpx;
+  text-align: center;
+  line-height: 80rpx;
+  font-size: 32rpx;
+  margin-right: 30rpx;
+}

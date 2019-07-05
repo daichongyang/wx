@@ -170,15 +170,28 @@ var adminHouseListUrl = httpUrl + "/v1.0/admin/house/list";
 var adminTodoUrl = httpUrl + "/v1.0/admin/index/todo";
 var adminReservationListUrl = httpUrl + "/v1.0/admin/reservation/list";
 var adminAdvanceListUrl = httpUrl + "/v1.0/admin/advance/list";
+// 租约列表
 var adminLeaseListUrl = httpUrl + "/v1.0/admin/lease/list";
 var adminSelectUrl = httpUrl + "/v1.0/admin/apartment/select";
 var adminPropertyGetRepairListUrl = httpUrl + "/property/getRepairList";
+// 租约详情
+const adminLeaseDetail = (params) => {
+  return requestApi("post", "/v1.0/admin/lease/detail/" + params.leaseId)
+}
+// 租约账单
+const adminLeaseBills = (params) => {
+  return requestApi("post", "/v1.0/admin/lease/bills/" + params.leaseId)
+}
 // 水电表抄表
 var adminhydroelectricshowAndUpAllDevUrl = httpUrl + "/hydroelectric/showAndUpAllDev/";
 
 // 数据报表/总账单
 const adminIndexbilltotal = (params) => {
   return requestApi("post", "/v1.0/admin/index/bill/total", params)
+}
+// 数据报表/房源数据
+const adminIndexHouseData = (params) => {
+  return requestApi("post", "/v1.0/admin/index/house/data", params)
 }
 // 数据报表/未来预计收入
 const adminIndexbillfuture = (params) => {
@@ -353,7 +366,10 @@ module.exports = {
   adminIndexWillExpired,
   adminIndexBeExpired,
   getDataTableWithWater,
-  getDataTableWithBill
+  getDataTableWithBill,
+  adminIndexHouseData,
+  adminLeaseDetail,
+  adminLeaseBills
 }
 
 

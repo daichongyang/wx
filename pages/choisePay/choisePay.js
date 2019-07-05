@@ -386,7 +386,7 @@ Page({
   //   }
   // },
   bindingCarNext: function () {
-    wx.navigateTo({
+    wx.navigateTo({ 
       url: '/pages/myBackCard1/myBackCard1'
     })
   },

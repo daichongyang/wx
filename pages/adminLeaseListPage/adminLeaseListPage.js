@@ -104,6 +104,13 @@ Page({
     this.loadDataSourceList(this.data.current,this.data.status);
   },
 
+  // 租约详情
+  ydXqClick: function (e) {
+    var obj = this.data.dataList[e.currentTarget.dataset.id];
+    wx.navigateTo({
+      url: '/pages/leaseDetailPage/leaseDetailPage?selectIndex=' + e.currentTarget.dataset.index + '&leaseId=' + obj.leaseId,
+    })
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
