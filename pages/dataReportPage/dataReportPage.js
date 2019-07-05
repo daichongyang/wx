@@ -298,7 +298,34 @@ Page({
         beExpired: res.data.data
       })
     })
+    if (this.data.index == 0) {
+      this.lstjClick();
+    } else {
+      this.zdtjClick();
+    }
   },
+
+//租约数据
+loadDataExpired: function () {
+  // 快到期合同
+  let params = {
+    day: 60
+  }
+  adminIndexWillExpired(params).then(res => {
+    console.log(res);
+    this.setData({
+      willExpired: res.data.data
+    })
+  })
+  // 已到期合同
+  adminIndexBeExpired().then(res => {
+    console.log(res);
+    this.setData({
+      beExpired: res.data.data
+    })
+  })
+},
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成

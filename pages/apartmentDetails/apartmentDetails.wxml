@@ -45,10 +45,44 @@
     </view>
     <!-- 租约信息 -->
     <view class='ul_item' wx:if="{{houseInfor.isRent==0&&houseInfor.houseStatus[0].statusCode==0||houseInfor.isRent==1||houseInfor.houseStatus[0].statusCode==6}}">
-      <view class='li_item'>
-        <text>租约信息</text>
-        <text>{{}}</text>
-      </view>
+    <!-- 已租 -->
+      <block wx:if="{{houseInfor.isRent===1}}">
+        <view class='li_item' wx:if="{{houseInfor.houseStatus[0].statusCode!==1}}">
+          <text>租约编号</text>
+          <text>{{houseInfor.leaseInfo.leaseNumber}}</text>
+        </view>
+        <view class='li_item' wx:if="{{houseInfor.houseStatus[0].statusCode!==1}}">
+          <text>承租人电话</text>
+          <text>{{houseInfor.leaseInfo.tenantPhone}}</text>
+        </view>
+        <view class='li_item' wx:if="{{houseInfor.houseStatus[0].statusCode!==1}}">
+          <text>租约起始</text>
+          <text>{{houseInfor.leaseInfo.cycle}}</text>
+        </view>
+        <view class='li_item' wx:if="{{houseInfor.houseStatus[0].statusCode!==1}}">
+          <text>付款方式</text>
+          <text>{{houseInfor.leaseInfo.paymentMethod}}</text>
+        </view>
+        <view class='li_item' wx:if="{{houseInfor.houseStatus[0].statusCode!==1}}">
+          <text>房屋押金</text>
+          <text>{{houseInfor.leaseInfo.depositCost}}</text>
+        </view>
+        <view class='li_item' wx:if="{{houseInfor.houseStatus[0].statusCode==1}}">
+          <text>租约状态</text>
+          <text>租客待登记</text>
+        </view>
+      </block>
+      <!-- 空房 -->
+      <block wx:if="{{houseInfor.isRent!=1}}">
+        <view class='li_item'>
+          <text>空置情况</text>
+          <text>{{houseInfor.leaseInfo.vacant}}</text>
+        </view>
+        <view class='li_item'>
+          <text>租约状态</text>
+          <text>{{houseInfor.leaseInfo.leaseStatus}}</text>
+        </view>
+      </block>
     </view>
     <!-- 账单信息 -->
     <view class='ul_item'>
