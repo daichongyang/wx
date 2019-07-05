@@ -1,11 +1,15 @@
 // pages/leaseBillConfirm/leaseBillConfirm.js
+var dateTool = require('../../utils/date.js');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    imgList: [],//图片数组
+    imgList: [], //图片数组
+    accountReceivable: 0, // 收款金额
+    startTime: "2000-01-01", 
+    endTime: null // 收款日期
   },
 
   //添加照片
@@ -59,7 +63,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      accountReceivable: options.accountReceivable,
+      endTime: dateTool.formatTimeStamp(new Date() / 1000, "yyyy-MM-dd")
+    })
+  },
 
+  // 日期选择
+  bindDateChange: function (e) {
+    this.setData({
+      endTime: e.detail.value
+    })
   },
 
   /**

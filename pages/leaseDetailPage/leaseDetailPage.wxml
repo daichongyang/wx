@@ -51,13 +51,16 @@
     </view>
     <!-- 合同 -->
     <view wx:elif="{{selectIndex == 1}}">
+      <view bindtap="contractImgClick">
+        <image mode="widthFix" class="contract_img" src="{{contractImg}}"></image>
+      </view>
     </view>
     <!-- 账单 -->
     <view wx:elif="{{selectIndex == 2}}">
       <view class="bill_container">
         <view class="bill_all">
           <view class="select_view" bindtap="selectAllClick">
-            <view><image class="choise_img" src="{{isAll ? '../../img/my/choisedCar.png' : '../../img/my/choise_car.png'}}"></image></view>
+            <view><image class="choise_img_all" src="{{isAll ? '../../img/my/choisedCar.png' : '../../img/my/choise_car.png'}}"></image></view>
             <text class="select_all">全选</text>
             <view class="select_label">
               <text wx:if="{{selectBillNum == 0}}">未选择账单</text> 
@@ -71,18 +74,20 @@
           <view>
             <view class="bill_time">{{item.stageName}}({{item.startDateStr}}-{{item.endDateStr}})</view>
             <block wx:for="{{item.bills}}" wx:key="key" wx:for-index='id'>
-              <view data-item="{{itemId}}" data-id="{{id}}" class="bill_item" bindtap="billSelectClick">
-                <view class="bill_left">
-                  <view><image class="choise_img" src="{{item.isSelct ? '../../img/my/choisedCar.png' : '../../img/my/choise_car.png'}}"></image></view>
+              <view class="bill_item">
+                <view class="img_view" data-item="{{itemId}}" data-id="{{id}}" bindtap="billSelectClick">
+                 <image class="choise_img" src="{{item.isSelct ? '../../img/my/choisedCar.png' : '../../img/my/choise_car.png'}}"></image>
+                </view>
+                <view class="bill_left" data-item="{{itemId}}" data-id="{{id}}" bindtap="billItemSelectClick">
                   <view class="bill_middle">
                     <view class="bill_price">
                       <text>¥{{item.accountReceivable}}</text> <text>{{item.costName}}</text>
                     </view>
                     <text class="bill_star_end">签约时间: {{item.receiptDateStr}}</text>
                   </view>
-                </view>
-                <view class="bill_right">
-                  <text>未支付</text> <text>{{item.receivableDateStr}}前</text>
+                  <view class="bill_right">
+                    <text>未支付</text> <text>{{item.receivableDateStr}}前</text>
+                  </view>
                 </view>
               </view>
             </block>

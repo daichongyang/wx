@@ -7,19 +7,12 @@
   </view>
 
   <view class='gdViewCss'>
-    <text class='left-text'>收款金额</text><input bindinput='bindinputName' value='2222' class='riget-text right-input'></input>
+    <text class='left-text'>收款金额</text> <text class='riget-text right-input'>{{accountReceivable}}</text>
   </view>
 
   <view class='gdViewCss'>
     <text class='left-text'>收款日期</text>
-    <picker 
-      class='riget-text dateCss'  
-      mode="date"
-      value="{{date}}"
-      start="{{startTime}}"
-      bindchange="bindDateChange"
-      end="{{endTime}}">{{date}} ▾
-    </picker>    
+    <picker class='riget-text dateCss' mode="date" value="{{date}}" start="{{startTime}}" bindchange="bindDateChange" end="{{endTime}}">{{endTime}} ▾</picker>    
   </view>
 
   <view class='imgBox'>
