@@ -75,7 +75,7 @@ Page({
           mStr = "0" + String(m);
         }
       }
-      if(d <= 10){
+      if(d < 10){
         d = '0'+d;
       }
       arrEndTime[i] = String(y) + '-' + mStr + '-' + String(d);

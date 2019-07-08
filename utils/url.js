@@ -115,7 +115,7 @@ var leaseContractUrl = httpUrl + "/v1.0/web/lease/contract/";
 //租约账单
 var leaseBillsUrl = httpUrl + "/v1.0/web/lease/bills/";
 //账单支付
-var leaseBillsPayUrl = httpUrl + "/v1.0/web/lease/bills/pay";
+var leaseBillsPayUrl = httpUrl + "/v1.0/web/lease/bills/pay"; 
 //确认租约
 var leaseConfirmUrl = httpUrl + "/v1.0/web/lease/confirm/";
 //获取有权限的门禁设备
@@ -287,11 +287,17 @@ export const getMerchQr = params => {
   return requestApi("post", '/merchantController/getMerchQr/' + params.houseId)
 }
 
+// 计算租客手续费
+export const getCharges = params => {
+  return requestApi("post", '/merchantController/getCharges/' + params.total + "/" + params.rate)
+}
+
 //房源管理-集中式房源-房间操作
 export const houseOperate = houseId => { return requestApi("post", '/v1.0/admin/house/operate/' + houseId) }
 
 module.exports = {
   houseOperate,
+  getCharges,
   itemSelect,
   getMerchQr,
   updateTradeResult,

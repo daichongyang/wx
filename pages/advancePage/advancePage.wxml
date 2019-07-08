@@ -5,6 +5,9 @@
           <block wx:if='{{item.signStatus == 1}}'>
             <view class='jxfy'>已签约</view>
           </block>
+          <block wx:if='{{item.signStatus == 3}}'>
+            <view class='jxfy'>已撤销</view>
+          </block>
 
            <block wx:elif='{{item.signStatus == 2}}'>
             <view class='jxfy'>已过期</view>

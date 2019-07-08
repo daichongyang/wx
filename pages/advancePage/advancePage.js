@@ -89,7 +89,6 @@ Page({
                 duration: 1000
               })
             },
-
           })
         }
       }
@@ -98,7 +97,7 @@ Page({
   // 支付页面
   gochoisePay(e){
     var obj = this.data.reservationlist[e.currentTarget.dataset.id];
-    if (obj.rentCost < 0 || obj.rentCost == 0){
+    if (obj.advanceCost < 0 || obj.advanceCost == 0){
       wx.showToast({
         title: '支付金额必须大于0',
         icon: 'none',
@@ -107,7 +106,7 @@ Page({
       return
     }
     wx.navigateTo({
-      url: '/pages/choisePay/choisePay?orderId=' + obj.orderId + '&houseId=' + obj.houseId + '&payMoney=' + obj.rentCost
+      url: '/pages/choisePay/choisePay?orderId=' + obj.orderId + '&houseId=' + obj.houseId + '&payMoney=' + obj.advanceCost
     })
   },
   //点击加载更多
@@ -142,6 +141,7 @@ Page({
         }
         var array = this.data.reservationlist;
         for (let i = 0; i < res.data.data.records.length; i++) {
+
           array.push(res.data.data.records[i]);
         }
         if (array.length == res.data.data.total) {
