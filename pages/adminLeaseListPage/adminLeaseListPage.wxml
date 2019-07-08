@@ -39,7 +39,7 @@
       </view>
       <view class="middle_container">
         <view class='content'>租期:{{item.startTime}}-{{item.endTime}}</view>
-        <view class='tenant'>签约人:{{item.tenant}}</view>
+        <view class='tenant'>签约人:{{item.creatorName}}</view>
         <view class='bqcontent'>{{item.contractType}}</view>
       </view>
       <view class='foot'>
