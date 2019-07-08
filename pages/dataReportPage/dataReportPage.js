@@ -30,11 +30,18 @@ Page({
     billFuture: 0,
     willExpired: 0,
     beExpired: 0,
-    billData: [],
-    waterData: [],
-    houseData: {},
-    startTime: "2000-01-01", 
-    endTime: null
+    billData: null, // 账单数据
+    waterData: null, // 流水数据
+    houseData: null, // 房源数据
+    totalStartTime: "2019-01-01", 
+    totalEndTime: null,
+    futureStartTime: "2019-01-01",
+    futureEndTime: null,
+    days: 30,
+    dayArray: [30, 60, 90],
+    index: 0,
+    startTime: "2000-01-01",
+    endTime: null 
   },
 
   // 总账单  房源数据 租约数据  日报月报 选择
@@ -46,11 +53,42 @@ Page({
     })
   },
 
+  getExpiredWithIndex: function (index) {
+    switch (index) {
+      case 0:
+        {
+          this.loadDataSourcezzd();
+        }
+        break;
+      case 1:
+        {
+          if (!this.data.houseData) {
+            this.getHouseData();
+          }
+        }
+        break;
+      case 2:
+        {
+          this.loadDataExpired();
+        }
+        break;
+      default:
+        {
+          if (!this.data.waterData) {
+           this.lstjClick();
+         }  
+        }
+        break;
+    }
+  },
+
   /**
    * 生命周期函数--监听页面加载 
    */
   onLoad: function (options) {
     this.setData({
+      totalEndTime: dateTool.formatTimeStamp(new Date() / 1000, "yyyy-MM-dd"),
+      futureEndTime: dateTool.formatTimeStamp(new Date() / 1000, "yyyy-MM-dd"),
       endTime: dateTool.formatTimeStamp(new Date() / 1000, "yyyy-MM-dd")
     })
     this.getSystemInfo();
@@ -82,18 +120,30 @@ Page({
 
   //总账单
   loadDataSourcezzd: function () {
-    //总账单
-    adminIndexbilltotal().then(res => {
+    this.totalBill();
+    this.futureBill();
+  },
+
+  //总账单明细
+  totalBill: function () {    
+    let reParams = {
+      startTime: new Date(this.data.totalStartTime).getTime(),
+      endTime: new Date(this.data.totalEndTime).getTime()
+    }
+    adminIndexbilltotal(reParams).then(res => {
       console.log(res);
       this.setData({
         billTotal: res.data.data
       })
     })
+  },
+
+  // 未来预计收入
+  futureBill: function () {
     let params = {
-      endTime: 1562917984099,
-      startTime: 1561621984099
+      futureStartTime: new Date(this.data.totalStartTime).getTime(),
+      futureEndTime: new Date(this.data.totalEndTime).getTime()
     }
-    // 未来预计收入
     adminIndexbillfuture(params).then(res => {
       console.log(res);
       this.setData({
@@ -102,8 +152,40 @@ Page({
     })
   },
 
-  bindDateChange: function (e) {
-    console.log(e.detail.value);
+  bindTotalChange: function (e) {
+    let str = e.currentTarget.dataset.str;
+    if (str == "star") {
+      this.data.totalStartTime = e.detail.value;
+    } else {
+      this.data.totalEndTime = e.detail.value;
+    } 
+    this.setData({
+      totalStartTime: this.data.totalStartTime,
+      totalEndTime: this.data.totalEndTime
+    })
+    this.totalBill();
+  },
+
+  bindFutureChange: function (e) {
+    let str = e.currentTarget.dataset.str;
+    if (str == "star") {
+      this.data.futureStartTime = e.detail.value;
+    } else {
+      this.data.futureEndTime = e.detail.value;
+    }
+    this.setData({
+      futureStartTime: this.data.futureStartTime,
+      futureEndTime: this.data.futureEndTime
+    })
+    this.futureBill();
+  },
+
+  bindDayChange: function (e) {
+    this.data.days = this.data.dayArray[e.detail.value];
+    this.setData({
+      days: this.data.days
+    })
+    this.willExpiredData();
   },
 
   // 房源数据
@@ -147,36 +229,16 @@ Page({
     })
   },
 
-  getExpiredWithIndex: function(index) {
-   switch (index) {
-     case 0:
-       {
-         this.loadDataSourcezzd();
-       }
-       break;
-     case 1:
-       {
-         this.getHouseData();
-       }
-       break;
-     case 2:
-       {
-         this.loadDataExpired();
-       }
-       break;
-     default:
-       {
-         this.lstjClick();
-       }
-       break;
-   }
-  },
-
   //租约数据
   loadDataExpired: function () {
-    // 快到期合同
+    this.willExpiredData();
+    this.beExpiredData();
+  },
+
+  // 快到期合同
+  willExpiredData: function () {
     let params = {
-      day: 60
+      day: this.data.days
     }
     adminIndexWillExpired(params).then(res => {
       console.log(res);
@@ -184,7 +246,10 @@ Page({
         willExpired: res.data.data
       })
     })
-    // 已到期合同
+  },
+
+  // 已到期合同
+  beExpiredData: function () {
     adminIndexBeExpired().then(res => {
       console.log(res);
       this.setData({
@@ -211,6 +276,7 @@ Page({
       })
     })
   },
+
   // 账单统计
   zdtjClick: function () {
     this.setData({
@@ -252,80 +318,6 @@ Page({
       this.zdtjClick();
     }
   },
-
-  //租约数据
-  loadDataExpired: function () {
-    // 快到期合同
-    let params = {
-      day: 60
-    }
-    adminIndexWillExpired(params).then(res => {
-      console.log(res);
-      this.setData({
-        willExpired: res.data.data
-      })
-    })
-    // 已到期合同
-    adminIndexBeExpired().then(res => {
-      console.log(res);
-      this.setData({
-        beExpired: res.data.data
-      })
-    })
-    if (this.data.index == 0) {
-      this.lstjClick();
-    } else {
-      this.zdtjClick();
-    }
-  },
-
-  //租约数据
-  loadDataExpired: function () {
-    // 快到期合同
-    let params = {
-      day: 60
-    }
-    adminIndexWillExpired(params).then(res => {
-      console.log(res);
-      this.setData({
-        willExpired: res.data.data
-      })
-    })
-    // 已到期合同
-    adminIndexBeExpired().then(res => {
-      console.log(res);
-      this.setData({
-        beExpired: res.data.data
-      })
-    })
-    if (this.data.index == 0) {
-      this.lstjClick();
-    } else {
-      this.zdtjClick();
-    }
-  },
-
-//租约数据
-loadDataExpired: function () {
-  // 快到期合同
-  let params = {
-    day: 60
-  }
-  adminIndexWillExpired(params).then(res => {
-    console.log(res);
-    this.setData({
-      willExpired: res.data.data
-    })
-  })
-  // 已到期合同
-  adminIndexBeExpired().then(res => {
-    console.log(res);
-    this.setData({
-      beExpired: res.data.data
-    })
-  })
-},
-
 
   /**
    * 生命周期函数--监听页面初次渲染完成
