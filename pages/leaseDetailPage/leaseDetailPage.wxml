@@ -85,9 +85,6 @@
                     </view>
                     <text class="bill_star_end">签约时间: {{item.receiptDateStr}}</text>
                   </view>
-                </view>
-                <view class="bill_right">
-                  <text>未支付</text> <text>{{item.receivableDateStr}}前</text>
                   <view class="bill_right">
                     <text>未支付</text> <text>{{item.receivableDateStr}}前</text>
                   </view>
