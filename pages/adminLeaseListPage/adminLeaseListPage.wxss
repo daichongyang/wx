@@ -18,7 +18,6 @@ page{
   align-items: center;
   background: white;
   font-size:28rpx;
-  
 }
 .sx_item{
   flex:1;

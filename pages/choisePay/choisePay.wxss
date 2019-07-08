@@ -57,7 +57,7 @@ page{
 }
 .saomaBox{
   position:absolute;
-  top:90rpx;
+  top:40rpx;
   left:50%;
   margin-left:-302rpx;
   width:604rpx;
