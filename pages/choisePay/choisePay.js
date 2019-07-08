@@ -1,7 +1,7 @@
 // pages/choisePay/choisePay.js
 const app = getApp();
 var utils = require('../../utils/url.js');
-import { bindUserCardReSure, getDistributionByHouseId, payByBankCar, getCardPayStatus, getBindUserCardInfo, getPayType, updateTradeResult, getMerchQr}from "../../utils/url.js"
+import { bindUserCardReSure, getCharges, getDistributionByHouseId, payByBankCar, getCardPayStatus, getBindUserCardInfo, getPayType, updateTradeResult, getMerchQr}from "../../utils/url.js"
 
 Page({
 
@@ -208,9 +208,28 @@ Page({
             _this.setData({
               type: item.type,
               payType: item.payType,
-              agent: ((Number(_this.data.payMoney) * Number(item.disRatio) / (1 - item.disRatio)) * 100).toFixed(0),
-              showagent: ((Number(_this.data.payMoney) * Number(item.disRatio) / (1 - item.disRatio))).toFixed(2)
+              // agent: ((Number(_this.data.payMoney) * Number(item.disRatio) / (1 - item.disRatio)) * 100).toFixed(0),
+              // showagent: ((Number(_this.data.payMoney) * Number(item.disRatio) / (1 - item.disRatio))).toFixed(2)
             })
+            if (_this.data.payType == 2) {
+              let params = {
+                total: _this.data.payMoney,
+                rate: item.disRatio
+              }
+              // 口算手续费
+              getCharges(params).then(ress => {
+                console.log(ress)
+                if (ress.data.code == 200){
+                  _this.setData({
+                    agent: ress.data.data*100,
+                    showagent: ress.data.data
+                  })
+                }
+              })
+            }else{
+              console.log("payType:" + _this.data.payType)
+            }
+
           }
         })
         console.log(this.data.agent, this.data.showagent)
@@ -223,6 +242,7 @@ Page({
       }
     })
   },
+
   //支付
   payClick: function () {
     let params = {
