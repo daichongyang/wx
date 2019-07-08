@@ -24,9 +24,9 @@
     </block>
 
     <view class='content'>
-      <view class='content-item'><text>计费开始时间</text><text class='text-right'>{{item.startTime}}</text></view>
-      <view class='content-item'><text>计费结束时间</text><text class='text-right'>{{item.endTime}}</text></view>
-      <view class='content-item'><text>计费开始时间读数</text><text class='text-right'>{{item.startNum}}</text></view>
+      <view class='content-item'><text>开始时间</text><text class='text-right'>{{item.startTime}}</text></view>
+      <view class='content-item'><text>结束时间</text><text class='text-right'>{{item.endTime}}</text></view>
+      <view class='content-item'><text>开始时间读数</text><text class='text-right'>{{item.startNum}}</text></view>
       <view class='content-item'><text>结束时间读数</text><text class='text-right'>{{item.currNum}}</text></view>
       <!-- <view class='content-item'><text>单价</text><text class='text-right'>{{item.unitPrice}}</text></view>
        <view class='content-item'><text>表应激费用</text><text class='text-right'>{{item.totalPrice}}</text></view> -->
