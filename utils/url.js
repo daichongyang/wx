@@ -182,15 +182,12 @@ const adminLeaseDetail = (params) => {
 const adminLeaseBills = (params) => {
   return requestApi("post", "/v1.0/admin/lease/bills/" + params.leaseId)
 }
-<<<<<<< HEAD
-=======
 
 // 租约合同
 const adminLeaseContract = (params) => {
   return requestApi("post", "/v1.0/admin/lease/contract/" + params.leaseId)
 }
 
->>>>>>> lxy
 // 水电表抄表
 var adminhydroelectricshowAndUpAllDevUrl = httpUrl + "/hydroelectric/showAndUpAllDev/";
 
@@ -378,12 +375,8 @@ module.exports = {
   getDataTableWithBill,
   adminIndexHouseData,
   adminLeaseDetail,
-<<<<<<< HEAD
-  adminLeaseBills
-=======
   adminLeaseBills,
   adminLeaseContract
->>>>>>> lxy
 }
 
 
