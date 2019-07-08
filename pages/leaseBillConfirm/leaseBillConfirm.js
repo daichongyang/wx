@@ -1,5 +1,4 @@
 // pages/leaseBillConfirm/leaseBillConfirm.js
-
 var dateTool = require('../../utils/date.js');
 Page({
 
