@@ -7,7 +7,7 @@
       <text>账单金额</text>
       <text class='red_money'>￥{{payMoney}}</text>
     </view>
-    <view class='pay_money_view' wx:if="{{agent}}">
+    <view class='pay_money_view' wx:if="{{agent&&payType!=1}}">
       <text>服务费</text>
       <text class='red_money'>￥{{showagent}}</text>
     </view>
