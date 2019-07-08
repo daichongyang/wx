@@ -85,24 +85,54 @@
       </block>
     </view>
     <!-- 账单信息 -->
-    <view class='ul_item'>
+    <view class='ul_item' wx:if="{{houseInfor.isRent===1&&houseInfor.houseStatus[0].statusCode !== 1}}">
       <view class='li_item'>
-        <text>房源编号</text>
-        <text>{{}}</text>
+        <text>当前租金欠款(总)</text>
+        <text>{{houseInfor.billingInfo.arrearsRent}}</text>
+      </view>
+      <view class='li_item'>
+        <text>当前水电煤等欠费</text>
+        <text>{{houseInfor.billingInfo.arrearsHyc}}</text>
+      </view>
+      <view class='li_item'>
+        <text>租金下期付款日</text>
+        <text>{{houseInfor.billingInfo.paymentDay}}</text>
       </view>
     </view>
     <!-- 续租信息 -->
-    <view class='ul_item'>
+    <view class='ul_item' wx:if="{{houseInfor.isRent===1&&houseInfor.houseStatus.length!=0&&houseInfor.houseStatus[0].statusCode!==5&&houseInfor.houseStatus[0].statusCode!==1}}">
+      <view class='li_item' wx:if="{{houseInfor.renewalInfo.renewalStatus===0}}">
+        <text>未发起续租</text>
+      </view>
+    </view>
+    <!-- 预定信息 -->
+    <view class='ul_item' wx:if="{{houseInfor.houseStatus.length!=0&&houseInfor.houseStatus[0].statusCode==5}}">
       <view class='li_item'>
-        <text>房源编号</text>
-        <text>{{}}</text>
+        <text>预定状态</text>
+        <text>{{houseInfor.advanceInfo.payStatus==0?'未支付':'预定成功'}}</text>
+      </view>
+      <view class='li_item'>
+        <text>预定人</text>
+        <text>{{houseInfor.advanceInfo.promiseMan}}</text>
+      </view>
+      <view class='li_item'>
+        <text>电话</text>
+        <text>{{houseInfor.advanceInfo.phone}}</text>
+      </view>
+      <view class='li_item'>
+        <text>预定金额</text>
+        <text>{{houseInfor.advanceInfo.advanceCost}}</text>
+      </view>
+      <view class='li_item'>
+        <text>最晚签约日</text>
+        <text>{{houseInfor.advanceInfo.latestTime}}前</text>
       </view>
     </view>
     <!-- 房源备注 -->
     <view class='ul_item'>
       <view class='li_item'>
-        <text>房源编号</text>
-        <text>{{}}</text>
+        <text>房源备注</text>
+        <text>{{houseInfor.remark}}</text>
       </view>
     </view>
   </view>

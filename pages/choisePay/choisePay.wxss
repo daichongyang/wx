@@ -61,7 +61,7 @@ page{
   left:50%;
   margin-left:-302rpx;
   width:604rpx;
-  height:1018rpx;
+  min-height:1018rpx;
   background:#f4f4f4;
   border-radius:10rpx;
 }
@@ -94,8 +94,8 @@ page{
   margin-bottom:42rpx;
 }
 .ewmimg{
+  display:block;
   width:400rpx;
-  height:400rpx;
   margin:0 auto;
 }
 .baocun{
@@ -128,6 +128,7 @@ page{
   margin-top:30rpx;
   color:#fe615a;
   font-size:24rpx;
-  line-height: 30rpx
+  line-height: 30rpx;
+  margin-bottom:30rpx;
 }
 

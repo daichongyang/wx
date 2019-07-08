@@ -42,10 +42,44 @@ Page({
       }
     })
   },
+
+  save: function () {
+    var that = this;
+    //获取相册授权
+    wx.getSetting({
+      success(res) {
+        if (!res.authSetting['scope.writePhotosAlbum']) {
+          wx.authorize({
+            scope: 'scope.writePhotosAlbum',
+            success() {//这里是用户同意授权后的回调
+              that.savezfm();
+            },
+            fail() {//这里是用户拒绝授权后的回调
+              wx.showToast({
+                title: '授权失败',
+                icon: 'none',
+                duration: 1000
+              })
+            }
+          })
+        } else {//用户已经授权过了
+          that.savezfm();
+        }
+      }
+    })
+  },
   // 保存收款图片
   savezfm(){
+    let urlImg = ""
+    console.log(this.data.type)
+    if (this.data.type == 7){
+      urlImg = this.data.wxUrl
+    }
+    if (this.data.type == 6){
+      urlImg = this.data.aliUrl
+    }
     wx.downloadFile({
-      url: "http://www.ubicell.cn/apartment_pics/real/1777d6b189b4401a88682d7262662f56.jpg",
+      url: urlImg,
       success: function (res) {
         console.log(res);
         //图片保存到本地
@@ -139,8 +173,10 @@ Page({
   // 支付宝扫码支付
   getSaomaZFB(){
     this.setData({
-      type:6
+      type:6,
+      saomazhifu: true
     })
+    this.getMerchQrr()
   },
   // 关闭扫码支付
   closeSaoma(){
