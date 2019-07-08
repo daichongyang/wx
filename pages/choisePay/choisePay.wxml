@@ -55,14 +55,14 @@
         <text class='smallText'>(无服务费)</text>
       </view>
       <view class='saomaImg'>
-        <image class='ewmimg' src='wxUrl'></image>
+        <image class='ewmimg' src='{{type==7?wxUrl:aliUrl}}'></image>
       </view>
-      <button class='button baocun' bindtap='savezfm'>保存收款码图片</button>
+      <button class='button baocun' bindtap='save'>保存收款码图片</button>
       <view class='tishi_box'>
         <view class='tishi'>
           <view>支付指引：</view>
           <view>1.保存二维码，然后关闭小程序；</view>
-          <view>2.打开微信扫一扫<text>→</text>相册<text>→</text>选择保存的收 款码图片<text>→</text>完成；</view>
+          <view>2.打开微信扫一扫→相册→选择保存的收 款码图片→完成；</view>
           <view>3.输入付款金额，点击付款。</view>
         </view>
         <view class='warnning'>

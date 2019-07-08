@@ -26,6 +26,7 @@ page{
   align-items: center;
   justify-content: center;
 }
+
 .scrollView{
   position: fixed;
   top: 85rpx;
@@ -63,6 +64,7 @@ page{
   font-size: 26rpx;
   padding-bottom: 15rpx;
 }
+
 .bqcontent{
   display: inline-block;
   background: #dff3f2;

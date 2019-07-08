@@ -93,6 +93,7 @@ page {
   justify-content: space-between;
   align-items: center;
 }
+
 .choise_img_all {
   width:34rpx;
   height: 34rpx;

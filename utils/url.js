@@ -27,7 +27,6 @@ var httpUrl = "https://www.ubicell.cn/apartment";
 // var httpUrl = "http://192.168.0.145:8080";
 // var httpUrl = "http://192.168.0.180:8080";
 
-
 //交易流水报表-交易项目下拉列表
 const itemSelect = params => {
   return requestApi("post", '/v1.0/admin/report/item/select/' + params.level + '/' + params.costId)
@@ -183,10 +182,12 @@ const adminLeaseDetail = (params) => {
 const adminLeaseBills = (params) => {
   return requestApi("post", "/v1.0/admin/lease/bills/" + params.leaseId)
 }
+
 // 租约合同
 const adminLeaseContract = (params) => {
   return requestApi("post", "/v1.0/admin/lease/contract/" + params.leaseId)
 }
+
 // 水电表抄表
 var adminhydroelectricshowAndUpAllDevUrl = httpUrl + "/hydroelectric/showAndUpAllDev/";
 
