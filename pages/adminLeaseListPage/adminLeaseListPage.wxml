@@ -1,6 +1,29 @@
 <!--pages/adminLeaseListPage/adminLeaseListPage.wxml-->
 
-<com_top_select select_title="{{sxArray}}" select_flag="{{flag}}"></com_top_select>
+<view class='header'>
+  <view class='gray10'></view>
+  <view class='header_cont'>
+    <view class='sx_item'>
+      <picker bindchange='bindchangesxArray' value="0" range="{{sxArray}}">
+        <view class='sx_item'>
+          租约状态
+          <text class='arrow-down'></text>
+          </view>
+      </picker>
+    </view>
+    <view class='sx_item'>
+      <picker bindchange='bindchangeApartment' value="0" range="{{apartmentArr}}" range-key="{{'name'}}">
+        <view class='sx_item'>
+          合同类型
+          <text class='arrow-down'></text>
+          </view>
+      </picker>
+    </view>
+    <view class='sx_item'>更多筛选
+      <text class='arrow-down'></text>
+    </view>
+  </view>
+</view>
 
 <scroll-view class='scrollView' scroll-y='true' enable-back-to-top='true'>
   <block  wx:for='{{dataList}}' wx:key='key' wx:for-index='id'>

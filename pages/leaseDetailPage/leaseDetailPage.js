@@ -1,7 +1,8 @@
 // pages/adminLeaseListPage/leaseDetailPage/leaseDetailPage.js
 import {
   adminLeaseDetail,
-  adminLeaseBills
+  adminLeaseBills,
+  adminLeaseContract
 } from "../../utils/url.js"
 var dateTool = require('../../utils/date.js');
 Page({
@@ -18,7 +19,8 @@ Page({
     leaseBill: [], // 账单
     isAll: false, // 全选
     selectBillNum: 0, // 已选择的账单
-    moneyTotal: 0 // 总金额
+    moneyTotal: 0, // 总金额
+    contractImg: null
   },
 
   // 底部点击事件
@@ -62,7 +64,9 @@ Page({
         break;
       case 1:
         {
-          
+          if (!this.data.contractImg) {
+            this.getLeaseContract();
+          }
         }
         break;
       case 2:
@@ -78,6 +82,33 @@ Page({
         }
         break;
     }
+  },
+
+  // 租约合同
+  getLeaseContract: function () {
+    let params = {
+      leaseId: this.data.leaseId
+    }
+    adminLeaseContract(params).then(res => {
+      if (res.data.code == 200) {
+        this.setData({
+          contractImg: res.data.data.pictureList[0].picture
+        })
+      } else {
+        wx.showToast({
+          title: res.data.msg,
+          icon: 'none',
+          duration: 1500
+        })
+      }
+    })
+  },
+  
+  // 查看大图
+  contractImgClick: function() {
+    wx.previewImage({
+      urls: [this.data.contractImg],
+    })
   },
 
   // 租约账单
@@ -162,6 +193,15 @@ Page({
       selectBillNum: num,
       isAll: this.data.isAll,
       leaseBill: this.data.leaseBill
+    })
+  },
+
+  // 查看账单详情
+  billItemSelectClick: function (e) {
+    var leaseBillItem = this.data.leaseBill[e.currentTarget.dataset.item];
+    var billItem = leaseBillItem.bills[e.currentTarget.dataset.id];
+    wx.navigateTo({
+      url: '/pages/leaseBillDetail/leaseBillDetail?billItem=' + JSON.stringify(billItem),
     })
   },
 

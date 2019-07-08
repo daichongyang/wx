@@ -5,12 +5,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    billItem: null // 账单详情
   },
 
   bottomClick: function () {
     wx.navigateTo({
-      url: '/pages/leaseBillConfirm/leaseBillConfirm',
+      url: '/pages/leaseBillConfirm/leaseBillConfirm?accountReceivable=' + this.data.billItem.accountReceivable,
     })
   },
 
@@ -18,7 +18,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      billItem: JSON.parse(options.billItem)
+    })
   },
 
   /**

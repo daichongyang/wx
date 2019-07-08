@@ -3,6 +3,30 @@ page{
   background: #f7f7f7;
 }
 
+.header{
+  position: fixed;
+  top: 0rpx;
+  left: 0;
+  width:100%;
+  z-index: 100;
+}
+.header_cont{
+ display: -webkit-flex; /* Safari */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 90rpx;
+  align-items: center;
+  background: white;
+  font-size:28rpx;
+}
+.sx_item{
+  flex:1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .scrollView{
   position: fixed;
   top: 85rpx;
@@ -40,6 +64,7 @@ page{
   font-size: 26rpx;
   padding-bottom: 15rpx;
 }
+
 .bqcontent{
   display: inline-block;
   background: #dff3f2;

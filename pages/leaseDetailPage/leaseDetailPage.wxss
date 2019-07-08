@@ -79,6 +79,11 @@ page {
   padding-right: 30rpx;
 }
 
+/* 合同 */
+.contract_img {
+  width: 100%;
+}
+
 /* 账单 */
 .bill_all {
   margin-top: 20rpx;
@@ -88,7 +93,8 @@ page {
   justify-content: space-between;
   align-items: center;
 }
-.choise_img {
+
+.choise_img_all {
   width:34rpx;
   height: 34rpx;
   margin-right:30rpx;
@@ -135,14 +141,25 @@ page {
   background-color: white;
   height: 140rpx;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   margin-top: 2rpx;
+}
+.img_view {
+  width: 14%;
+  height: 100%;
+}
+.choise_img {
+  width:34rpx;
+  height: 34rpx;
+  padding-left: 32rpx;
+  padding-top: 51rpx;
 }
 .bill_left {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   height: 80%;
+  width: 86%;
 }
 .bill_middle {
   height: 100%;
