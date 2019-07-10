@@ -16,8 +16,8 @@
   <!-- 选择需要支付的支付方式 -->
   <view class='choise_car'>
     <view class='item'>
-      <view class='item_view'>
-        <image class='choise_img' bindtap='getStatusCar' mode="widthFix" src='{{type==5?"../../img/my/choisedCar.png":"../../img/my/choise_car.png"}}'></image>
+      <view class='item_view' bindtap='getStatusCar'>
+        <image class='choise_img' mode="widthFix" src='{{type==5?"../../img/my/choisedCar.png":"../../img/my/choise_car.png"}}'></image>
         <text class='{{payway != 2?"pay_gray":""}}'>工商银行信用卡 ({{accNo}}）</text>
       </view>
       <view class='green' bindtap='bindingCarNext'>更换</view>

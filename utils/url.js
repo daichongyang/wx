@@ -189,7 +189,13 @@ const adminLeaseContract = (params) => {
 }
 
 // 水电表抄表
-var adminhydroelectricshowAndUpAllDevUrl = httpUrl + "/hydroelectric/showAndUpAllDev/";
+// var adminhydroelectricshowAndUpAllDevUrl = httpUrl + "/hydroelectric/showAndUpAllDev/";
+
+// 水电煤手抄表列表
+const handwrittenList = params => { return requestApi("post",'/hydroelectric/handwritten/list', params) }
+
+// 水电煤手动生成账单
+const handwrittenGenerate = params => { return requestApi("post",'/hydroelectric/handwritten/generate', params) }
 
 // 数据报表/总账单
 const adminIndexbilltotal = (params) => {
@@ -370,7 +376,8 @@ module.exports = {
   adminLeaseListUrl,
   adminSelectUrl,
   adminPropertyGetRepairListUrl,
-  adminhydroelectricshowAndUpAllDevUrl,
+  handwrittenList,
+  handwrittenGenerate,
   adminIndexbilltotal,
   adminIndexbillfuture,
   wNativePay,

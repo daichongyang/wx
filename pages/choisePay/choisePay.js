@@ -78,6 +78,11 @@ Page({
     if (this.data.type == 6){
       urlImg = this.data.aliUrl
     }
+    // wx.showToast({
+    //   title: urlImg,
+    //   icon: 'success',
+    //   duration: 2000
+    // })
     wx.downloadFile({
       url: urlImg,
       success: function (res) {
@@ -86,16 +91,12 @@ Page({
         wx.saveImageToPhotosAlbum({
           filePath: res.tempFilePath,
           success: function (data) {
-            wx.showToast({
-              title: '保存成功',
-              icon: 'success',
-              duration: 2000
-            })
           },
           fail: function (err) {
             console.log(err);
             if (err.errMsg === "saveImageToPhotosAlbum:fail auth deny") {
               console.log("当初用户拒绝，再次发起授权")
+  
               wx.openSetting({
                 success(settingdata) {
                   console.log(settingdata)
@@ -148,7 +149,7 @@ Page({
   },
   // 选择银行卡支付
   getStatusCar(){
-    if (this.data.type == 5){
+    if (this.data.payway == 2){//判断是否为工商银行支付
       console.log(this.data.type)
       this.setData({
         type: 5

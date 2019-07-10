@@ -30,7 +30,7 @@ Page({
     var billItem = e.currentTarget.dataset.bill; 
     billItem.receivableDateStr = billItem.receivableDate
     wx.navigateTo({
-      url: '/pages/leaseBillDetail/leaseBillDetail?billItem=' + JSON.stringify(billItem),
+      url: '/pages/leaseBillDetail2/leaseBillDetail2?billItem=' + JSON.stringify(billItem),
     })
   },
   /**
@@ -109,6 +109,7 @@ Page({
                     this.data.payQueryArr.push(payQuery);
                   }
                 }
+                this.data.money = this.data.money.toFixed(2)
               }
             }
           }else{ //以后付款

@@ -72,15 +72,11 @@
       <!-- </block> -->
   </view>
 </block>
-
-
-
-
 <!-- 门禁权限 -->
 <block wx:if='{{isTenant == 1}}'>
   <view class='passCss' bindtap='passClick'>
     <image src='../../img/home/bb_sy_21mj@2x.png'></image>
   </view>
-</block>  
+</block>
 
 

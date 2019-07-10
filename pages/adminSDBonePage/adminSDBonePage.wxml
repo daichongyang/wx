@@ -1,53 +1,35 @@
 <!--pages/adminSDBonePage/adminSDBonePage.wxml-->
-<block wx:if='{{dataSource.length > 0}}'>
-  <view class='header'><text>房间信息</text><text>类型</text><text>上次读数</text><text>本次读数</text><text>抄表保存</text></view>
-  <scroll-view class='scrollView' scroll-y='true' enable-back-to-top='true'>
-  <block wx:for='{{dataSource}}' wx:key='key'>
-    <view class='itemBox'>
-
-      <view class='item'>
-        <view>{{item.houseName}}</view>
-        <view wx:if='{{item.tenantName[0] == null}}'>空房</view>
-        <view style='color:red;' wx:else>{{item.tenantName[0]}}</view>
-        <view>{{item.year}}-{{item.month}}</view>
-      </view>
-
-      <view class='item oneItem'>
-        <view>冷水表</view>
-        <view>电表</view>
-        <view>热水表</view>
-      </view>
-
-      <view class='item oneItem'>
-       <view wx:if='{{item.lastNum[0] == null}}'>无数据</view>
-        <view wx:else>{{item.lastNum[0]}}</view>
-        <view wx:if='{{item.lastNum[1] == null}}'>无数据</view>
-        <view wx:else>{{item.lastNum[1]}}</view>
-        <view wx:if='{{item.lastNum[2] == null}}'>无数据</view>
-        <view wx:else>{{item.lastNum[2]}}</view>
-      </view>
-      
-      <view class='item oneItem twoItem'>
-        <view wx:if='{{item.currentNum[0] == null}}'><input placeholder='输入读数' value='{{}}'></input></view>
-         <view wx:else><input placeholder='输入读数' value='{{item.currentNum[0]}}'></input></view>
-        <view wx:if='{{item.currentNum[1] == null}}'><input placeholder='输入读数' value='{{}}'></input></view>
-         <view wx:else><input placeholder='输入读数' value='{{item.currentNum[1]}}'></input></view>
-        <view wx:if='{{item.currentNum[2] == null}}'><input placeholder='输入读数' value='{{}}'></input></view>
-         <view wx:else><input placeholder='输入读数' value='{{item.currentNum[2]}}'></input></view>
-      </view>
-
-      
-       <view class='item'>
-        <view>{{text}}</view>
-        <view class='save'>保存</view>
-        <view>{{text}}</view>
-      </view>
-
+<block>
+  <view class='header'>
+    <view class='header_item1'>
+      <image class='choise_img' mode="widthFix" src='../../img/my/choise_car.png'></image>
+      <text>全选</text> 
     </view>
-  </block>
-  </scroll-view>
-
+    <view class='header_item2'>房间</view>
+    <view class='header_item3'>上次读数</view>
+    <view class='header_item4'>本次读数</view>
+    <view class='header_item5'></view>
+  </view>
+  <view class='list_box'>
+    <block wx:for='{{dataSource}}' wx:key='key'>
+      <view class='ul_item'>
+        <view class='li_item1'>
+          <image class='choise_img' mode="widthFix" src='../../img/my/choise_car.png'></image>
+          <!-- <image class='choise_img' mode="widthFix" src='{{type==5?"../../img/my/choisedCar.png":"../../img/my/choise_car.png"}}'></image> -->
+          <text>未抄</text>
+        </view>
+        <view class='li_item2'>1层101</view>
+        <view class='li_item3'>25.3°</view>
+        <view class='li_item4'>
+          <input placeholder='输入读数'></input>
+        </view>
+        <view class='li_item5'>
+          <text class='arrow-right'></text>
+        </view>
+      </view>
+    </block>
+  </view>
 </block>
-<block wx:else>
+<block wx:if="nodata">
   <view class='nodata'>{{nodata}}</view>
 </block>

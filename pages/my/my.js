@@ -27,9 +27,25 @@ Page({
   },
   // 监听是否点击了当前这个tabBar
   onTabItemTap(item) {
-    console.log(item)
-    wx.showToast({
-      title: 'tab点击',
+    // 监听是否有租约来显示右下角图标
+    wx.login({
+      success: res => {
+        // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        wx.request({
+          data: {
+            code: res.code,
+          },
+          url: utils.userAccessUrl,
+          success: res => {
+            console.log(res);
+            app.globalData.userInfo = res.data.data;
+            wx.setStorageSync("userInfo", app.globalData.userInfo);
+            if (app.globalData.userInfo.token) {
+              console.log("登录成功已经绑定手机号");
+            }
+          }
+        })
+      }
     })
 
   },

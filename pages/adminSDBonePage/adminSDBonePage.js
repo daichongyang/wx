@@ -1,6 +1,6 @@
 // pages/adminSDBonePage/adminSDBonePage.js
-var utils = require('../../utils/url.js');
 var util = require('../../utils/util.js');
+import { handwrittenList, handwrittenGenerate} from "../../utils/url.js"
 const app = getApp();
 Page({
 
@@ -10,7 +10,9 @@ Page({
   data: {
     dataSource:[],
     text:"   ",
-    nodata:''
+    nodata:'',
+    current:1,
+    devType:1,//1表示冷水表，2表示电表，4表示热水表
   },
 
   /**
@@ -19,43 +21,49 @@ Page({
   onLoad: function (options) {
     wx.setNavigationBarTitle({
       title: options.name,
-    })
-    this.loadDataSource(options.id);
+    }) 
+    this.handwrittenListt(options.apartmentId);
   },
-
-
-  //请求数据
-  loadDataSource: function (id) {
+  // 水电煤手抄表列表
+  handwrittenListt(apartmentId) {
     wx.showLoading({
       title: '正在加载...',
     })
-    wx.request({
-      method: "POST",
-      url: utils.adminhydroelectricshowAndUpAllDevUrl + id + '/1' + '/10',
-      header: {
-        "Authorization": app.globalData.userInfo.token,
-      },
-      success: res => {
-        console.log(res);
-        if (res.data.code == 200) {
-          wx.hideLoading();
-          if (!res.data.data.houseDevLists.length) {
-            this.setData({
-              nodata: '暂无数据...',
-            })
-            return;
-          }
+    let params={
+      apartmentId:apartmentId,
+      current: this.data.current,
+      size:10
+    }
+    handwrittenList(params).then(res => {
+      console.log(res)
+      if (res.data.code == 200) {
+        wx.hideLoading();
+        if (!res.data.data.records.length) {
           this.setData({
-            dataSource: res.data.data.houseDevLists,
+            nodata: '暂无数据...',
           })
-        } else {
-          wx.hideLoading();
-          wx.showToast({
-            title: res.data.msg,
-            icon: 'none',
-            duration: 1000
-          })
+          return;
         }
+        // 赛选需要的表类型
+        let _this = this
+        let arr = res.data.data.records.filter(item => {
+          for (let i = 0; i < item.handwritten.length; i++){
+            if (item.handwritten[i].devType == _this.data.devType){
+              this.data.dataSource.push(item.handwritten[i])
+            }
+          }
+        })
+        
+        this.setData({
+          dataSource: this.data.dataSource,
+        })
+        console.log(this.data.dataSource)
+      } else {
+        wx.showToast({
+          title: res.data.msg,
+          icon: 'none',
+          duration: 1000
+        })
       }
     })
   },
