@@ -25,6 +25,14 @@ Page({
     msgIndex: 0,
     isguanli:false
   },
+  // 监听是否点击了当前这个tabBar
+  onTabItemTap(item) {
+    console.log(item)
+    wx.showToast({
+      title: 'tab点击',
+    })
+
+  },
   //通知
   noticeClick: function () {
     console.log();

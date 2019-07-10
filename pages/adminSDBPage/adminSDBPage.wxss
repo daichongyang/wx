@@ -1,24 +1,36 @@
-/* pages/adminSDBPage/adminSDBPage.wxss */
+/* pages/znApartmentList/znApartmentList.wxss */
 page{
-  background: #f7f7f7;
+  background:#f7f7f7;
 }
-.box{
-  margin-top: 20rpx;
+.apartment_name{
+  color:#222222;
+  font-size:30rpx;
 }
-.noData{
-  text-align: center;
-  line-height: 200rpx;
-  font-size: 30rpx;
-  color: darkgray;
+.jiantou{
+  height:20rpx;
+  overflow: hidden;
 }
-.item{
-  border-bottom: 1rpx solid #e1e1e1;
-  background: white;
-  padding: 20rpx 30rpx;
+.apartment_address{
+  color:#888888;
+  font-size:26rpx;
 }
-.item text{
-  font-size: 30rpx;
+.zn_item{
+  background:#fff;
+  padding:34rpx 35rpx;
+  border-bottom:1px solid #f7f7f7;
 }
-.item text:nth-child(2){
-  float: right;
+.zn_item:nth-last{
+  border:0;
+}
+.jt{
+  float:right;
+}
+.peizhi{
+  color:#222222;
+  font-size:30rpx;
+  background:#fff;
+  padding:34rpx 35rpx;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
 }

@@ -4,7 +4,7 @@
   <view class='gray10'></view>
   <view class='header_cont'>
     <view class='sx_item'>
-      <picker bindchange='bindchangesxArray' value="0" range="{{sxArray}}">
+      <picker bindchange='bindLeaseStatuschange' value="index" range="{{statusArray}}">
         <view class='sx_item'>
           租约状态
           <text class='arrow-down'></text>
@@ -12,7 +12,7 @@
       </picker>
     </view>
     <view class='sx_item'>
-      <picker bindchange='bindchangeApartment' value="0" range="{{apartmentArr}}" range-key="{{'name'}}">
+      <picker bindchange='bindchangeApartment' value="index" range="{{contracArray}}">
         <view class='sx_item'>
           合同类型
           <text class='arrow-down'></text>
@@ -39,7 +39,7 @@
       </view>
       <view class="middle_container">
         <view class='content'>租期:{{item.startTime}}-{{item.endTime}}</view>
-        <view class='tenant'>签约人:{{item.tenant}}</view>
+        <view class='tenant'>签约人:{{item.creatorName}}</view>
         <view class='bqcontent'>{{item.contractType}}</view>
       </view>
       <view class='foot'>

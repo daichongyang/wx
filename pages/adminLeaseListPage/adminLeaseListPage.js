@@ -14,13 +14,23 @@ Page({
     current:1,
     dataList: [],
     status:0,
+    index: 0,
+    leaseStatus: 0,
+    statusArray: ["全部", "在租", "已退房"],
+    contracArray: ["电子合同", "纸质合同"]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.loadDataSourceList(this.data.current,this.data.status);
+    this.loadDataSourceList(this.data.current, this.data.leaseStatus);
+  },
+
+  bindLeaseStatuschange: function (e) {
+    this.data.dataList = [];
+    this.data.leaseStatus = e.detail.value;
+    this.loadDataSourceList(this.data.current, this.data.leaseStatus);
   },
 
   //请求数据预定
@@ -37,7 +47,8 @@ Page({
       data: {
         current: current,
         size: 10,
-        status:status
+        leaseStatus: status,
+        status:0
       },
       success: res => {
         console.log(res);
@@ -64,7 +75,6 @@ Page({
             } else if (obj.contractType == 1) {
               obj.contractType = "电子合同";
             }
-
             this.data.dataList.push(obj);
           }
           if (res.data.data.total > this.data.dataList.length) {
@@ -99,7 +109,7 @@ Page({
     this.setData({
       current: this.data.current,
     })
-    this.loadDataSourceList(this.data.current,this.data.status);
+    this.loadDataSourceList(this.data.current, this.data.leaseStatus);
   },
 
   // 租约详情

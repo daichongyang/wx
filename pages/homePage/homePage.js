@@ -104,7 +104,7 @@ Page({
         method: "POST",
         url: utils.noticeListRemindUrl,
         header: {
-          "Authorization": app.globalData.userInfo.token,  
+          "Authorization": app.globalData.userInfo.token,
         },
         success: res => {
           // console.log(utils.noticeListRemindUrl + '=============')

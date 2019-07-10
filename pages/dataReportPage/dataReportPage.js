@@ -30,11 +30,18 @@ Page({
     billFuture: 0,
     willExpired: 0,
     beExpired: 0,
-    billData: [],
-    waterData: [],
-    houseData: {},
-    startTime: "2000-01-01", 
-    endTime: null
+    billData: null, // 账单数据
+    waterData: null, // 流水数据
+    houseData: null, // 房源数据
+    totalStartTime: "2019-01-01", 
+    totalEndTime: null,
+    futureStartTime: "2019-01-01",
+    futureEndTime: null,
+    days: 30,
+    dayArray: [30, 60, 90],
+    index: 0,
+    startTime: "2000-01-01",
+    endTime: null 
   },
 
   // 总账单  房源数据 租约数据  日报月报 选择
@@ -46,11 +53,42 @@ Page({
     })
   },
 
+  getExpiredWithIndex: function (index) {
+    switch (index) {
+      case 0:
+        {
+          this.loadDataSourcezzd();
+        }
+        break;
+      case 1:
+        {
+          if (!this.data.houseData) {
+            this.getHouseData();
+          }
+        }
+        break;
+      case 2:
+        {
+          this.loadDataExpired();
+        }
+        break;
+      default:
+        {
+          if (!this.data.waterData) {
+           this.lstjClick();
+         }  
+        }
+        break;
+    }
+  },
+
   /**
    * 生命周期函数--监听页面加载 
    */
   onLoad: function (options) {
     this.setData({
+      totalEndTime: dateTool.formatTimeStamp(new Date() / 1000, "yyyy-MM-dd"),
+      futureEndTime: dateTool.formatTimeStamp(new Date() / 1000, "yyyy-MM-dd"),
       endTime: dateTool.formatTimeStamp(new Date() / 1000, "yyyy-MM-dd")
     })
     this.getSystemInfo();
@@ -82,18 +120,30 @@ Page({
 
   //总账单
   loadDataSourcezzd: function () {
-    //总账单
-    adminIndexbilltotal().then(res => {
+    this.totalBill();
+    this.futureBill();
+  },
+
+  //总账单明细
+  totalBill: function () {    
+    let reParams = {
+      startTime: new Date(this.data.totalStartTime).getTime(),
+      endTime: new Date(this.data.totalEndTime).getTime()
+    }
+    adminIndexbilltotal(reParams).then(res => {
       console.log(res);
       this.setData({
         billTotal: res.data.data
       })
     })
+  },
+
+  // 未来预计收入
+  futureBill: function () {
     let params = {
-      endTime: 1562917984099,
-      startTime: 1561621984099
+      futureStartTime: new Date(this.data.totalStartTime).getTime(),
+      futureEndTime: new Date(this.data.totalEndTime).getTime()
     }
-    // 未来预计收入
     adminIndexbillfuture(params).then(res => {
       console.log(res);
       this.setData({
@@ -102,8 +152,40 @@ Page({
     })
   },
 
-  bindDateChange: function (e) {
-    console.log(e.detail.value);
+  bindTotalChange: function (e) {
+    let str = e.currentTarget.dataset.str;
+    if (str == "star") {
+      this.data.totalStartTime = e.detail.value;
+    } else {
+      this.data.totalEndTime = e.detail.value;
+    } 
+    this.setData({
+      totalStartTime: this.data.totalStartTime,
+      totalEndTime: this.data.totalEndTime
+    })
+    this.totalBill();
+  },
+
+  bindFutureChange: function (e) {
+    let str = e.currentTarget.dataset.str;
+    if (str == "star") {
+      this.data.futureStartTime = e.detail.value;
+    } else {
+      this.data.futureEndTime = e.detail.value;
+    }
+    this.setData({
+      futureStartTime: this.data.futureStartTime,
+      futureEndTime: this.data.futureEndTime
+    })
+    this.futureBill();
+  },
+
+  bindDayChange: function (e) {
+    this.data.days = this.data.dayArray[e.detail.value];
+    this.setData({
+      days: this.data.days
+    })
+    this.willExpiredData();
   },
 
   // 房源数据
@@ -145,6 +227,96 @@ Page({
       context.fillText("已租房", 80, 50);
       context.draw();
     })
+  },
+
+  //租约数据
+  loadDataExpired: function () {
+    this.willExpiredData();
+    this.beExpiredData();
+  },
+
+  // 快到期合同
+  willExpiredData: function () {
+    let params = {
+      day: this.data.days
+    }
+    adminIndexWillExpired(params).then(res => {
+      console.log(res);
+      this.setData({
+        willExpired: res.data.data
+      })
+    })
+  },
+
+  // 已到期合同
+  beExpiredData: function () {
+    adminIndexBeExpired().then(res => {
+      console.log(res);
+      this.setData({
+        beExpired: res.data.data
+      })
+    })
+  },
+
+  // 流水统计
+  lstjClick: function () {
+    this.setData({
+      index: 0,
+    })
+    let params = {
+      apartmentId: 1,
+      flowReportType: 1,
+      size: 6,
+      current: 1,
+      paymentDate: this.data.dayIndex
+    }
+    getDataTableWithWater(params).then(res => {
+      this.setData({
+        waterData: res.data.data.records[0].statements
+      })
+    })
+  },
+
+  // 账单统计
+  zdtjClick: function () {
+    this.setData({
+      index: 1,
+    })
+    let params = {
+      apartmentId: 0,
+      flowReportType: 1,
+      size: 6,
+      current: 1,
+      paymentDate: this.data.dayIndex
+    }
+    getDataTableWithBill(params).then(res => {
+      this.setData({
+        billData: res.data.data.records[0].billReports
+      })
+    })
+  },
+
+  // 日报月报数据
+  dayClick: function () {
+    this.setData({
+      dayIndex: 0,
+    })
+    if (this.data.index == 0) {
+        this.lstjClick();
+    } else {
+        this.zdtjClick();
+    }
+  },
+
+  monthClick: function () {
+    this.setData({
+      dayIndex: 1,
+    })
+    if (this.data.index == 0) {
+      this.lstjClick();
+    } else {
+      this.zdtjClick();
+    }
   },
 
   getExpiredWithIndex: function(index) {

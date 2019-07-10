@@ -18,7 +18,14 @@ Page({
   onLoad: function (options) {
     this.loadDataSource(options.leaseId)
   },
-
+  // 查看账单详情
+  billItemSelectClick: function (e) {
+    var billItem = e.currentTarget.dataset.bill;
+    billItem.receivableDateStr = billItem.receivableDate
+    wx.navigateTo({
+      url: '/pages/leaseBillDetail/leaseBillDetail?billItem=' + JSON.stringify(billItem),
+    })
+  },
 
   //加载数据
   loadDataSource: function (leaseId) {

@@ -4,7 +4,7 @@
     <view class='header' wx:if='{{itemBox.detailVos.length!=0}}'>{{itemBox.startPayment}}</view>
 
     <block wx:for='{{itemBox.detailVos}}' wx:key='key'>
-      <view class='content'>
+      <view class='content' catchtap="billItemSelectClick" data-bill="{{item}}">
         <view><text class='content-left'>￥{{item.amountReceived}}</text><text class='content-mid'>{{item.costName}}</text><text class='content-right'>已支付</text></view>
         <view class='content-bootm'><text>{{itemBox.startPayment}} - {{itemBox.endPayment}}</text><text class='content-bootm-right'>{{item.receiptDate}}</text></view>
       </view>

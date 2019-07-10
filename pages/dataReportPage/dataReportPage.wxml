@@ -14,11 +14,11 @@
       <view class='zzdCss'>总账单</view>
       <view class='xqCssBox'>
         <view class='sjCssBOx'>
-          <picker class='sjCss' mode="date" value="{{date}}" start="{{startTime}}" bindchange="bindDateChange" end="{{endTime}}">
-            2019-01-01
+          <picker class='sjCss' data-str="star" mode="date" start="{{startTime}}" bindchange="bindTotalChange" end="{{endTime}}">
+            {{totalStartTime}}
           </picker>  
-          <picker class='sjCss' mode="date" value="{{date}}" start="{{startTime}}" bindchange="bindDateChange" end="{{endTime}}">
-            {{endTime}}
+          <picker class='sjCss' data-str="end" mode="date" start="{{startTime}}" bindchange="bindTotalChange" end="{{endTime}}">
+            {{totalEndTime}}
           </picker>  
         </view>
         <view class='jeCss'>{{billTotal}}元</view>
@@ -27,11 +27,11 @@
       <view class='zzdCss'>未来预计收入</view>
       <view class='xqCssBox'>
         <view class='sjCssBOx'>
-          <picker class='sjCss' mode="date" value="{{date}}" start="{{startTime}}" bindchange="bindDateChange" end="{{endTime}}">
-            2019-01-01
+          <picker class='sjCss' data-str="star" mode="date" start="{{startTime}}" bindchange="bindFutureChange" end="{{endTime}}">
+            {{futureStartTime}}
           </picker>  
-          <picker class='sjCss' mode="date" value="{{date}}" start="{{startTime}}" bindchange="bindDateChange" end="{{endTime}}">
-            {{endTime}}
+          <picker class='sjCss' data-str="end" mode="date" start="{{startTime}}" bindchange="bindFutureChange" end="{{endTime}}">
+            {{futureEndTime}}
           </picker>  
         </view>
         <view class='jeCss'>{{billFuture}}元</view>
@@ -75,11 +75,9 @@
        <view class='zzdCss'>快到期合同</view>
       <view class='xqCssBox'>
         <view class='sjCssBOx'>
-          <picker class='sjCss' mode="date" value="{{date}}" start="{{startTime}}" bindchange="bindDateChange" end="{{endTime}}">
-            2019-01-01
-          </picker>  
-          <picker class='sjCss' mode="date" value="{{date}}" start="{{startTime}}" bindchange="bindDateChange" end="{{endTime}}">
-            {{endTime}}
+          <view class='sjCss'>离到期</view>
+          <picker class='sjCss' value="{{index}}" range="{{dayArray}}" bindchange="bindDayChange">
+            {{days}}天
           </picker>  
         </view>
         <view class='jeCss'>{{willExpired}}个</view>

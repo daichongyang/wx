@@ -181,7 +181,8 @@ Page({
   // 关闭扫码支付
   closeSaoma(){
     this.setData({
-      saomazhifu: false
+      saomazhifu: false,
+      type: 1
     })
   },
   //更新交易结果""icbc专用
@@ -216,7 +217,7 @@ Page({
                 total: _this.data.payMoney,
                 rate: item.disRatio
               }
-              // 口算手续费
+              // 计算手续费
               getCharges(params).then(ress => {
                 console.log(ress)
                 if (ress.data.code == 200){
@@ -242,6 +243,7 @@ Page({
       }
     })
   },
+
   //支付
   payClick: function () {
     let params = {
@@ -343,6 +345,7 @@ Page({
       loadii: false,
     })
   },
+
   
   // // 选择银行卡支付
   // getStatusCar(){
