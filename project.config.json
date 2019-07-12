@@ -40,7 +40,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 10,
+			"current": 11,
 			"list": [
 				{
 					"id": -1,
@@ -117,6 +117,12 @@
 					"name": "水电表抄表",
 					"pathName": "pages/adminSDBPage/adminSDBPage",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "水电表详情",
+					"pathName": "pages/adminSDBonePage/adminSDBonePage",
 					"scene": null
 				}
 			]
