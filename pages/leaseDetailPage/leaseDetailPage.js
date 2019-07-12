@@ -31,11 +31,34 @@ Page({
     this.getLeaseWithIndex(this.data.selectIndex);
   },
 
-  // 历史账单
-  footClick: function () {
-    wx.navigateTo({
-      url: '/pages/leaseDetailBillHistory/leaseDetailBillHistory',
-    })
+  // 顶部foot点击
+  footClick: function (e) {
+    switch (e.currentTarget.dataset.item) {
+      case "history" : 
+        {
+          wx.navigateTo({
+            url: '/pages/leaseDetailBillHistory/leaseDetailBillHistory',
+          })
+        }
+        break;
+      case "renewal" : 
+        {
+
+        }
+        break;
+      case "addBill" : 
+        {
+          wx.navigateTo({
+            url: '/pages/leaseAddBillPage/leaseAddBillPage?leaseId=' + this.data.leaseId,
+          })
+        }
+        break;
+      default : 
+        {
+
+        }
+        break;
+    } 
   },
 
   /**
@@ -126,6 +149,7 @@ Page({
               item.isSelct = false;
               item.receivableDateStr = dateTool.formatTimeStamp(item.receivableDate / 1000, "yyyy.MM.dd");
               item.receiptDateStr = dateTool.formatTimeStamp(item.receiptDate / 1000, "yyyy.MM.dd");
+              item.payStatusStr = item.payStatus ? "已付款" : "未付款";
             })
             return item;
           })

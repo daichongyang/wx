@@ -183,6 +183,16 @@ const adminLeaseBills = (params) => {
   return requestApi("post", "/v1.0/admin/lease/bills/" + params.leaseId)
 }
 
+// 添加账单
+const adminAddLeaseBills = (params) => {
+  return requestApi("post", "/v1.0/admin/lease/bills/save", params)
+}
+
+// 账单项目
+const adminBillProject = () => {
+  return requestApi("post", "/v1.0/admin/account/config/1")
+}
+
 // 租约合同
 const adminLeaseContract = (params) => {
   return requestApi("post", "/v1.0/admin/lease/contract/" + params.leaseId)
@@ -382,7 +392,9 @@ module.exports = {
   adminIndexHouseData,
   adminLeaseDetail,
   adminLeaseBills,
-  adminLeaseContract
+  adminLeaseContract,
+  adminAddLeaseBills,
+  adminBillProject
 }
 
 

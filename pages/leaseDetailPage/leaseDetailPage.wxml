@@ -9,9 +9,9 @@
     </view>
     <view class='top_foot'>
       <text wx:if="{{selectIndex == 2}}" data-item="history" bindtap='footClick'>历史账单</text>
-      <text bindtap='footClick'>续租</text>
-      <text bindtap='footClick'>添加账单</text>
-      <text bindtap='footClick'>退房</text>
+      <text data-item="renewal" bindtap='footClick'>续租</text>
+      <text data-item="addBill" bindtap='footClick'>添加账单</text>
+      <text data-item="checkOut" bindtap='footClick'>退房</text>
     </view>
   </view>
 
@@ -86,7 +86,7 @@
                     <text class="bill_star_end">签约时间: {{item.receiptDateStr}}</text>
                   </view>
                   <view class="bill_right">
-                    <text>未支付</text> <text>{{item.receivableDateStr}}前</text>
+                    <text>{{item.payStatusStr}}</text> <text>{{item.receivableDateStr}}前</text>
                   </view>
                 </view>
               </view>
