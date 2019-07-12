@@ -167,29 +167,24 @@ Page({
     console.log("微信扫码支付")
     this.setData({
       type:7,
-      saomazhifu: true
     })
-    this.getMerchQrr()
   },
   // 支付宝扫码支付
   getSaomaZFB(){
     this.setData({
       type:6,
-      saomazhifu: true
     })
-    this.getMerchQrr()
   },
   // 关闭扫码支付
   closeSaoma(){
     this.setData({
       saomazhifu: false,
-      type: 1
     })
   },
   //更新交易结果""icbc专用
   updateTradeResultt(orderNo){
     let params={
-      houseId: this.data.houseId ,
+      houseId: this.data.houseId,
       orderNo: orderNo ,
     }
     updateTradeResult(params).then(res => {
@@ -247,6 +242,13 @@ Page({
 
   //支付
   payClick: function () {
+    if (this.data.type == 6 || this.data.type == 7) {//支付宝弹窗微信弹窗
+      this.setData({
+        saomazhifu: true
+      })
+      this.getMerchQrr()
+      return
+    }
     let params = {
       agent: this.data.agent,
       houseId: this.data.houseId,

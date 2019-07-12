@@ -14,6 +14,7 @@ page {
   position:relative;
 }
 .changetype{
+  height:100%;
   margin-left:22rpx;
   width: 115rpx;
   display:flex;
@@ -25,6 +26,10 @@ page {
   display:flex;
   align-items: center;
   justify-content: center;
+}
+.picker_top{
+  display:flex;
+  align-items: center;
 }
 .page_nav{
   height:95rpx;
@@ -121,7 +126,7 @@ page {
   position: fixed;
   top: 0;
   left: 0;
-  height: 95rpx;
+  height: 185rpx;
   width: 100%;
   z-index: 98;
   background:#f7f7f7;

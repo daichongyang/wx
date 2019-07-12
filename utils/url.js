@@ -23,9 +23,9 @@ let requestApi = function(method, url, data) {
 }
 
 // 我是管理员
-var httpUrl = "https://www.ubicell.cn/apartment";
+// var httpUrl = "https://www.ubicell.cn/apartment";
 // var httpUrl = "http://192.168.0.145:8080";
-// var httpUrl = "http://192.168.0.180:8080";
+var httpUrl = "http://192.168.0.180:8080";
 
 //交易流水报表-交易项目下拉列表
 const itemSelect = params => {
@@ -301,7 +301,21 @@ export const getCharges = params => {
 //房源管理-集中式房源-房间操作
 export const houseOperate = houseId => { return requestApi("post", '/v1.0/admin/house/operate/' + houseId) }
 
+//通用配置-水电煤配置-数据
+export const configMeterList = apartmentId => { return requestApi("post",'/v1.0/admin/config/meter/' + apartmentId) }
+
+//通用配置-水电煤配置-修改
+export const configMeterUpdate = params => { return requestApi("post",'/v1.0/admin/config/meter/update', params) }
+
+//获取开门密码
+export const getShowPassWord = () => { return requestApi("post", '/hydroelectric/getShowPassWord') }
+
+
+
 module.exports = {
+  getShowPassWord,
+  configMeterList,
+  configMeterUpdate,
   houseOperate,
   getCharges,
   itemSelect,

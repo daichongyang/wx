@@ -2,6 +2,7 @@
 const app = getApp();
 var utils = require('../../utils/url.js');
 var drawQrcode = require('../../utils/weapp.qrcode.js');
+import { getShowPassWord} from "../../utils/url.js"
 Page({
 
   /**
@@ -18,11 +19,9 @@ Page({
     doorList:[],
     qrCodeString:"",
     qrCodeIndex:0,
+    password:'',
+    cantrolPass:false,//控制查看密码
   },
-
-
-
-
   /**
    * 生命周期函数--监听页面加载
    */
@@ -40,8 +39,25 @@ Page({
         this.loadDataSource();
       },
     })
+    this.getShowPassWordd()
   },
-
+  // 改变密码显示
+  cantrolPasss(){
+    this.setData({
+      cantrolPass: !this.data.cantrolPass
+    })
+  },
+// 获取密码
+  getShowPassWordd(){
+    getShowPassWord().then(res => {
+      console.log(res)
+      if(res.data.code ==200){
+        this.setData({
+          password:res.data.data.split('')
+        })
+      }
+    })
+  },
   //请求数据
   loadDataSource:function(){
     wx.request({

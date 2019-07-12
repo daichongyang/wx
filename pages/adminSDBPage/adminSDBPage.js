@@ -11,6 +11,16 @@ Page({
     devtype: '',
     apartmentList: []
   },
+  // 监听输入的数据
+  bindinput(e){
+    console.log(e)
+  },
+  // 配置单价
+  goConfigMoney(){
+    wx.navigateTo({
+      url: '/pages/configMoney/configMoney',
+    })
+  },
   // 获取公寓下拉列表
   selectApartmentt() {
     selectApartment().then(res => {

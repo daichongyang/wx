@@ -3,12 +3,14 @@
   <view class='header'>
     <!-- 顶部搜索框 -->
     <view class='page_top'>
-      <view class='changetype'>
-        <text wx:if="{{devType==1}}">冷水表</text>
-        <text wx:if="{{devType==2}}">电表</text>
-        <text wx:if="{{devType==4}}">热水表</text>
-        <text class='arrow-down'></text>
-      </view>
+      <picker class='picker_top' bindchange="changeBiao" value="0" range-key="{{'name'}}" range="{{devTypeArr}}">
+        <view class='changetype'>
+          <text wx:if="{{devType==1}}">冷水表</text>
+          <text wx:if="{{devType==2}}">电表</text>
+          <text wx:if="{{devType==4}}">热水表</text>
+          <text class='arrow-down'></text>
+        </view>
+      </picker>
       <view class='changetype2'>
         <text>筛选</text>
         <text class='arrow-down'></text>
@@ -44,7 +46,7 @@
           <text wx:if="{{item.lastNum}}"> °</text>
         </view>
         <view class='li_item4'>
-          <input placeholder='输入读数' value="{{item.nowNum}}" bindinput='getnowNum' data-index="{{index}}"></input>
+          <input placeholder='输入读数' value="{{item.nowNum}}" bindinput='getnowNum' data-index="{{index}}" type='number'></input>
         </view>
         <view class='li_item5'>
           <text class='arrow-right'></text>
@@ -87,12 +89,12 @@
 
 
 
-<view>
-  <!-- <form bindsubmit="onSubmit" bindreset="formReset" report-submit="{{true}}">
+<!-- <view>
+  <form bindsubmit="onSubmit" bindreset="formReset" report-submit="{{true}}">
 
   <view class="btn-area">
     <button form-type="submit">Submit</button>
     <button form-type="reset">Reset</button>
   </view>
-</form> -->
-</view>
+</form>
+</view> -->

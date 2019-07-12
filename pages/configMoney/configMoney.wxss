@@ -1,0 +1,63 @@
+/* pages/configMoney/configMoney.wxss */
+page{
+  background:#f7f7f7;
+}
+.cont_top{
+  overflow: hidden;
+  padding-left:32rpx;
+  height:100rpx;
+  display:flex;
+  align-items: center;
+  background:#fff;
+}
+.gray10{
+  height:10rpx;
+  background:#f7f7f7;
+}
+.apartment_name{
+  color:#00c3b2;
+  font-size:30rpx;
+}
+.gray30{
+  height:30rpx;
+  background:#f7f7f7;
+}
+.cont_ul{
+  background:#fff;
+  font-size:30rpx;
+}
+.cont_li{
+  height:100rpx;
+  margin-left:34rpx;
+  border-bottom:1px solid #f7f7f7;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 34rpx;
+}
+.li_item{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.item_num input {
+  height: 100%;
+  font-size: 30rpx;
+}
+
+.item_num input::-webkit-input-placeholder {
+  text-align: center;
+  font-size: 30rpx;
+}
+
+.item_num {
+  text-align: center;
+  width: 153rpx;
+  display: inline-block;
+  border: 1px solid #00c3b2;
+  border-radius: 5px;
+  height:80rpx;
+  margin-right:20rpx;
+}
+

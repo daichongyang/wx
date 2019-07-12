@@ -1,0 +1,24 @@
+<!--pages/configMoney/configMoney.wxml-->
+<view class='contant'>
+  <view class='gray10'></view>
+  <picker bindchange="configMeterListt" value="0" range-key="{{'name'}}" range="{{apartmentList}}">
+    <view class='cont_top'>
+      <text class='apartment_name'>{{apartmentName}}</text>
+      <text class='arrow-down'></text>
+    </view>
+  </picker>
+  <view class='gray30'></view>
+  <view class='cont_ul'>
+    <view class='cont_li' wx:for="{{inforList}}" wx:key="key">
+      <view>{{item.name}}</view>
+      <view class='li_item'>
+        <view class='item_num'>
+          <input placeholder='输入价格' type='number' value='{{item.unitPrice}}' bindinput='bindinput' data-index="{{index}}"></input>
+        </view>
+        <view>元/{{item.unit}}</view>
+      </view>
+    </view>
+    <!-- ----------- -->
+  </view>
+  <button class='button' style='margin-top:40rpx;' bindtap='saveChange'>保存</button>
+</view>

@@ -95,3 +95,6 @@ view{
   background:#f7f7f7;
   height:10rpx;
 }
+image{
+  height:auto;
+}

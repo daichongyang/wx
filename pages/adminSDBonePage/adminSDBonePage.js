@@ -35,6 +35,7 @@ Page({
     dataSource:[],
     billArr:[],//生成订单
     createTypeArr: [{ createType: 0, name: '跟随账期' }, { createType: 1, name: '指定支付日期' }],//账单生成方式
+    devTypeArr: [{ devType: 1, name: '冷水表' }, { devType: 4, name: '热水表' }, { devType: 2, name: '电表' }],//账单生成方式
     text:"",
     nodata:'',
     current:1,
@@ -51,6 +52,15 @@ Page({
     value: [9999, 1, 1],
     apartmentId:'',
     showTime:false//控制时间选择器的显示与隐藏
+  },
+  // 查看表
+  changeBiao(event){
+    this.setData({
+      devType: this.data.devTypeArr[event.detail.value].devType,
+      dataSource: [],
+      current:1
+    })
+    this.handwrittenListt()
   },
   // 时间选择器
   bindChange: function (e) {
@@ -76,7 +86,7 @@ Page({
     if (event.detail.value == 0){
       this.setData({
         createType: this.data.createTypeArr[event.detail.value].createType,
-        payTime:''
+        payTime:'',
       })
       this.handwrittenGeneratee()
     }else{
@@ -174,10 +184,9 @@ Page({
           title: '提交成功',
         })
         this.setData({
-          dataSource: []
-        })
-        this.setData({
-          billArr: []
+          dataSource: [],
+          billArr: [],
+          current: 1
         })
         this.handwrittenListt();
       }else{

@@ -3,26 +3,16 @@ page{
   background: #f7f7f7
 }
 .headerCss{
-  margin-top: 10px;
-  height: 50px;
-  line-height: 50px;
+  padding: 80rpx 0;
   text-align: center;
-  font-size: 15px;
+  font-size: 30rpx;
   background: white;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis; 
-}
-.headerCss image{
-  width: 15px;
-  height: 15px;
 }
 
 .swiper{
   background: white;
   text-align: center;
 }
-
 
 .leftBtn{
   position: fixed;
@@ -47,16 +37,19 @@ page{
 .rightBtn image{
   width: 100%;
   height: 100%;
-
 }
-
+.buttonn{
+  margin-top:105rpx;
+  width:100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .buttonCss{
-  position: absolute;
-  bottom: 10px;
+  margin:0 auto;
   width: 720rpx;
   color: white;
   background: #1fc2b1;
-  left: 15rpx;
 }
 .textView{
   padding-left: 20px;
@@ -67,49 +60,61 @@ page{
 }
 
 .qrCodeCss{
-  width: 200px;
-  height: 200px;
+  width: 300rpx;
+  height: 300rpx;
   /* background: olivedrab; */
   margin: 0 auto;
   margin-top: 10px;
 }
-
+.cont_top{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+.apartment_dwon{
+  width:35rpx;
+}
 .mmOpenCss{
-  width: 540rpx;
-  height: 120rpx;
+  width: 428rpx;
+  height: 110rpx;
   margin: 0 auto;
   margin-top: 20rpx;
+  padding-bottom:10rpx;
   border-bottom:1rpx solid red;
   text-align: center;
   position: relative;
+  display:flex;
+  justify-content: space-between;
 }
-.mmOpenCss image{
-  width: 540rpx;
-  height: 110rpx;
+.password{
+  height:110rpx;
+  width:64rpx;
+  background:#dff3f2;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  border-radius:8px;
+  font-size:50rpx;
+  color: #4f8e8a;
 }
-.mmOpenCss view{
-  position: absolute;
-  line-height: 110rpx;
-  width: 540rpx;
-  top: 0;
-  font-size: 70rpx;
-  color: #7ba5a2;
-  text-align: center;
+.password image{
+  width:25rpx;
 }
-.mmOpenCss view text{
-  display: inline-block;
-  width: 90rpx;
-  height: 100%;
-  text-align: center;
+.yangjin{
+  position:absolute;
+  top:50%;
+  right:-60rpx;
+  margin-top:-13rpx;
+  width:36rpx;
+  padding:0 10rpx;
 }
 .mmOpenText{
   width: 100%;
-  margin-top: 10rpx;
+  padding: 25rpx 0;
   font-size: 13px;
   color: darkgray;
   text-align: center;
   letter-spacing:8px;
-  height: 200rpx;
 }
 
 .openListCss{

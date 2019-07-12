@@ -69,7 +69,8 @@
     "pages/leaseBillDetail/leaseBillDetail",
     "pages/leaseBillConfirm/leaseBillConfirm",
     "pages/apartmentDetails/apartmentDetails",
-    "pages/leaseBillDetail2/leaseBillDetail2"
+    "pages/leaseBillDetail2/leaseBillDetail2",
+    "pages/configMoney/configMoney"
   ],
   "window": {
     "backgroundTextStyle": "light",

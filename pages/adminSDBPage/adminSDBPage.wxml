@@ -2,7 +2,7 @@
 
 <block class='conter'>
   <view class='gray'></view>
-  <view class='peizhi'>
+  <view class='peizhi' bindtap='goConfigMoney'>
     <text>配置单价</text>  
     <text class='arrow-right'></text>
   </view>
