@@ -1,0 +1,78 @@
+/* pages/leaseCheckOutPage/leaseCheckOutPage.wxss */
+
+.gdViewCss{
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  height: 100rpx;
+  border-bottom: 1rpx solid #e1e1e1;
+  line-height: 100rpx;
+  background-color: white;
+}
+.left-text {
+  font-size: 30rpx;
+  color: #222222;
+}
+.riget-text{
+  float: right;
+  width: 75%;
+  text-align: right;
+  padding-right: 30rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; 
+  color: #222222;
+  font-size: 30rpx;
+}
+.dateCss{
+  width: 30%;
+}
+
+.middle {
+  padding: 20rpx;
+}
+.middle-left {
+  color: blue;
+  font-size: 32rpx;
+}
+.middle-content {
+  margin-top: 20rpx;
+  color: #777777;
+  font-size: 30rpx;
+  display: flex;
+  flex-direction: column;
+}
+.middle_send {
+  display: flex;
+  margin-top: 30rpx;
+}
+.middle_send text {
+  color: #222222;
+  font-size: 32rpx;
+  margin-left: 10rpx;
+}
+.img_view {
+  height: 100%;
+}
+.choise_img {
+  width:34rpx;
+  height: 34rpx;
+}
+.button-box{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: white;
+  text-align: center;
+}
+.button-one{
+  width: 95%;
+  color: white;
+  background: rgb(228, 161, 71);
+  margin: 20rpx;
+}
+.button-two {
+  width: 95%;
+  color: white;
+  background: #1fc2b1;
+  margin: 20rpx;
+}

@@ -41,11 +41,6 @@ Page({
           })
         }
         break;
-      case "renewal" : 
-        {
-
-        }
-        break;
       case "addBill" : 
         {
           wx.navigateTo({
@@ -55,7 +50,9 @@ Page({
         break;
       default : 
         {
-
+          wx.navigateTo({
+            url: '/pages/leaseCheckOutPage/leaseCheckOutPage?leaseId=' + this.data.leaseId,
+          })
         }
         break;
     } 
@@ -292,6 +289,7 @@ Page({
    */
   onShow: function () {  
     this.getLeaseBills();
+    this.getLeaseDetail();
   },
 
   /**

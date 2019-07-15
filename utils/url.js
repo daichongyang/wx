@@ -193,6 +193,21 @@ const adminBillProject = () => {
   return requestApi("post", "/v1.0/admin/account/config/1")
 }
 
+// 退房不结账
+const adminCheckOutAndNoClose = (params) => {
+  return requestApi("post", "/v1.0/admin/lease/checkout/confirm", params)
+}
+
+// 退房结账
+const adminCheckOutHouseClose = (params) => {
+  return requestApi("post", "/v1.0/admin/lease/checkout/settlement", params)
+}
+
+// 退房数据
+const adminCheckOutHouseData = (params) => {
+  return requestApi("post", "/v1.0/admin/lease/settlement/detail/" + params.leaseId)
+}
+
 // 租约合同
 const adminLeaseContract = (params) => {
   return requestApi("post", "/v1.0/admin/lease/contract/" + params.leaseId)
@@ -394,7 +409,10 @@ module.exports = {
   adminLeaseBills,
   adminLeaseContract,
   adminAddLeaseBills,
-  adminBillProject
+  adminBillProject,
+  adminCheckOutAndNoClose,
+  adminCheckOutHouseClose,
+  adminCheckOutHouseData
 }
 
 

@@ -9,9 +9,8 @@
     </view>
     <view class='top_foot'>
       <text wx:if="{{selectIndex == 2}}" data-item="history" bindtap='footClick'>历史账单</text>
-      <text data-item="renewal" bindtap='footClick'>续租</text>
       <text data-item="addBill" bindtap='footClick'>添加账单</text>
-      <text data-item="checkOut" bindtap='footClick'>退房</text>
+      <text wx:if="{{leaseDetail.status == 1}}" data-item="checkOut" bindtap='footClick'>退房</text>
     </view>
   </view>
 
