@@ -3,17 +3,17 @@
 
   <view class='gdViewCss'>
     <text class='left-text'>账单项目</text>
-    <picker  class='riget-text' mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">请选择 ▾
+    <picker  class='riget-text' mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">{{billProjectStr}} ▾
     </picker>
   </view>
 
   <view class='gdViewCss'>
-    <text class='left-text'>应收金额</text> <input bindinput='bindinputName'  placeholder='请输入收款金额' value='{{name}}' class='riget-text right-input'></input>
+    <text class='left-text'>应收金额</text> <input bindinput='bindinputName' placeholder='请输入收款金额' value='{{name}}' class='riget-text right-input'></input>
   </view>
 
   <view class='gdViewCss'>
     <text class='left-text'>所属账期</text>
-    <picker class='riget-text' model='selector' range='{{houseList}}' bindchange='houseBindchange'>请选择 ▾</picker>
+    <picker class='riget-text' model='selector' range='{{billPeriod}}' bindchange='periodBindchange'>{{billPeriodStr}} ▾</picker>
   </view>
 
   <view class='gdViewCss'>
@@ -39,7 +39,7 @@
   </view>
 
   <view class='button-box'>
-      <button bindtap='overClick'>提交</button>
+      <button bindtap='submitClick'>提交</button>
   </view>
 
 </view>

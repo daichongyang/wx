@@ -2,7 +2,8 @@
 var dateTool = require('../../utils/date.js');
 import {
   adminAddLeaseBills,
-  adminBillProject
+  adminBillProject,
+  adminLeaseBills
 } from "../../utils/url.js"
 Page({
 
@@ -10,6 +11,15 @@ Page({
    * 页面的初始数据
    */
   data: {
+    leaseBill: null, // 账单
+    accountReceivable: 0, //金额
+    receiptRemark: "", //备注
+    billPeriod: [], //所属账期
+    billPeriodStr: "请选择",
+    billsId: 0, 
+    billProjectStr: "请选择",
+    superId: 0,
+    subId: 0,
     multiArray: [],
     multiIndex: [0, 0],
     customItem: '全部',
@@ -24,18 +34,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.billProcet();
     this.setData({
       leaseId: options.leaseId,
       starTime: dateTool.formatTimeStamp(new Date() / 1000, "yyyy-MM-dd")
     })
+    this.billProcet();
+    this.getLeaseBills();
   },
 
   // 账单项目
   billProcet: function () {
     adminBillProject().then(res => {
-      console.log(res);
-
       if (res.data.code == 200) {
         this.setData({
           billProject: res.data.data.map(item => {
@@ -79,7 +88,6 @@ Page({
         this.setData({
           multiArray: [titleArray, subArray]
         })
-
       } else {
         wx.showToast({
           title: res.data.msg,
@@ -90,10 +98,50 @@ Page({
     })
   },
 
+  // 租约账单
+  getLeaseBills: function () {
+    let params = {
+      leaseId: this.data.leaseId
+    }
+    console.log(params);
+    adminLeaseBills(params).then(res => {
+      console.log(res);
+      if (res.data.code == 200) {
+        this.setData({
+          leaseBill: res.data.data.map(item => {
+            item.startDateStr = dateTool.formatTimeStamp(item.startDate / 1000, "yyyy.MM.dd");
+            item.endDateStr = dateTool.formatTimeStamp(item.endDate / 1000, "yyyy.MM.dd");
+            return item;
+          })
+        })
+        var periodArray = [];
+        this.data.leaseBill.map(item => {
+          periodArray.push(item.stageName + "(" + item.startDateStr + "-" + item.endDateStr + ")");
+          return item;
+        })
+        this.setData({
+          billPeriod: periodArray
+        })
+      } else {
+        wx.showToast({
+          title: res.data.msg,
+          icon: 'none',
+          duration: 1500
+        })
+      }
+    })
+  },
+
+  // 账单项目
   bindMultiPickerChange: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
+    var item = this.data.billProject[e.detail.value[0]];
+    var subItem = item.configVos[e.detail.value[1]];
+    var str = item.billTypeStr + "/" + subItem.item;
     this.setData({
-      multiIndex: e.detail.value
+      multiIndex: e.detail.value,
+      billProjectStr: str,
+      subId: subItem.id,
+      superId: item.billsType
     })
   },
 
@@ -118,9 +166,88 @@ Page({
         }
         data.multiIndex[1] = 0;
         break;
-        console.log(data.multiIndex);
     }
     this.setData(data);
+  },
+
+  bindinputName: function (e) {
+    this.setData({
+      accountReceivable: e.detail.value
+    })
+  },
+
+  bindinputTextareaClick: function (e) {
+    this.setData({
+      receiptRemark: e.detail.value
+    })
+  },
+
+  // 所属账期
+  periodBindchange: function (e) {
+    var item = this.data.leaseBill[e.detail.value];
+    this.setData({
+      billsId: item.billsId,
+      billPeriodStr: this.data.billPeriod[e.detail.value]
+    })
+  },
+
+  bindDateChange: function (e) {
+    this.setData({
+      starTime: e.detail.value
+    })
+  },
+
+  // 提交
+  submitClick: function () {
+    if (this.data.subId == 0 && this.data.superId == 0) {
+      wx.showToast({
+        title: '请选择账单项目',
+        icon: 'none',
+        duration: 1500
+      })
+    } else if (this.data.accountReceivable == 0) {
+      wx.showToast({
+        title: '请输入金额',
+        icon: 'none',
+        duration: 1500
+      })
+    } else if (this.data.billsId == 0) {
+      wx.showToast({
+        title: '请选择账期',
+        icon: 'none',
+        duration: 1500
+      })
+    } else {
+      let params = {
+        accountReceivable: this.data.accountReceivable,
+        billsId: this.data.billsId,
+        gmtCreate: new Date().getTime(),
+        receiptRemark: this.data.receiptRemark,
+        receivableDate: new Date(this.data.starTime).getTime(),
+        subId: this.data.subId,
+        superId: this.data.superId
+      }
+      adminAddLeaseBills(params).then(res => {
+        console.log(res);
+        if (res.data.code == 200) {
+          wx.showToast({
+            title: "添加成功",
+            icon: 'none',
+            duration: 1500
+          })
+          setTimeout(function () {
+            wx.navigateBack({
+            })
+          }, 1500)
+        } else {
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none',
+            duration: 1500
+          })
+        }
+      })
+    }
   },
 
   //添加照片
