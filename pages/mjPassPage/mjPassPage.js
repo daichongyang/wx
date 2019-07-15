@@ -22,6 +22,12 @@ Page({
     password:'',
     cantrolPass:false,//控制查看密码
   },
+  //入户密码修改
+  goSetUserPassward: function () {
+    wx.navigateTo({
+      url: '/pages/setUserPassward/setUserPassward'
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

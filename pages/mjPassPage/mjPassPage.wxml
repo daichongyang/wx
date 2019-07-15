@@ -6,7 +6,8 @@
 range="{{multiArray}}">
   <view class='cont_top'>
     <!-- <image class='apartment_dwon' mode="widthFix" src='../../img/pass/apartment_dwon.png'></image> -->
-    <text> {{title}}</text> 
+    <text> {{title}} </text>
+    <text class='arrow-down'></text>
   </view>
 </picker>
 
@@ -29,7 +30,8 @@ range="{{multiArray}}">
           <image wx:else mode="widthFix" bindtap='cantrolPasss' class='yangjin' src='../../img/pass/yangjin1.png'></image>
         </view>
         <!--  -->
-        <view class='mmOpenText'>修改密码</view></view>
+          <view class='mmOpenText' bindtap='goSetUserPassward'>修改密码</view>
+        </view>
         <view class='buttonn'>
           <button bindtap='refreshQrcodeClick' class='buttonCss'>刷新通行证</button>
         </view>

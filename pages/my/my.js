@@ -64,7 +64,7 @@ Page({
      
     }
   },
-  //支付房租 我的租约 智能水电表 保修保养  我的预约 我的预定 我的关注 我的发布
+  //我的账单 我的租约 智能水电表 保修保养  我的预约 我的预定 我的关注 我的发布
   contentClick: function (e) {
     console.log(e)
     var isLogin = this.isLogin();
@@ -88,9 +88,10 @@ Page({
       wx.navigateTo({
         url: '/pages/myLeasePage/myLeasePage',
       })
-    } else if (e.currentTarget.dataset.text == "支付房租") {
+    } else if (e.currentTarget.dataset.text == "我的账单") {
       wx.navigateTo({
-        url: '/pages/payHouseMoney/payHouseMoney',
+        // url: '/pages/payHouseMoney/payHouseMoney',
+        url: '/pages/myBills/myBills',
       })
     } else if (e.currentTarget.dataset.text == "智能水电表") {
       wx.navigateTo({

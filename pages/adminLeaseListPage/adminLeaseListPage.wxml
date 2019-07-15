@@ -28,7 +28,7 @@
 <scroll-view class='scrollView' scroll-y='true' enable-back-to-top='true'>
   <block  wx:for='{{dataList}}' wx:key='key' wx:for-index='id'>
     <view class='itemBox'>
-      <view class='titel'>
+      <view class='titel'> 
         <text class="houseName">{{item.houseName}}</text>
         <block wx:if="{{item.status == '签约成功'}}">
             <text class='titleRightOne'>{{item.status}}</text>

@@ -35,6 +35,14 @@ Page({
   },
   // 提交信息
   updateLockPassWordByPhonee(){
+    if (this.data.passWordNew.length!=6){
+      wx.showToast({
+        title: '密码长度不必须是6位',
+        duration: 2000,
+        icon: "none"
+      })
+      return
+    }
     if (this.data.passWordNew != this.data.passWordOld){
       wx.showToast({
         title: '两次输入密码不一致',
