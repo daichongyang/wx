@@ -70,7 +70,8 @@
     "pages/leaseBillConfirm/leaseBillConfirm",
     "pages/apartmentDetails/apartmentDetails",
     "pages/leaseAddBillPage/leaseAddBillPage",
-    "pages/leaseCheckOutPage/leaseCheckOutPage"
+    "pages/leaseCheckOutPage/leaseCheckOutPage",
+    "pages/leaseCheckOutHousePage/leaseCheckOutHousePage"
   ],
   "window": {
     "backgroundTextStyle": "light",

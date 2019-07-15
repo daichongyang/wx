@@ -1,0 +1,106 @@
+/* pages/leaseCheckOutHousePage/leaseCheckOutHousePage.wxss */
+/* pages/leaseAddBillPage/leaseAddBillPage.wxss */
+page{
+  background: #f7f7f7;
+}
+.swiper {
+  margin-top: 20rpx;
+  font-size: 30rpx;
+  background: white;
+}
+
+.middle-view {
+  padding-top: 20rpx;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  border-bottom: 1rpx solid #e1e1e1;
+}
+.content-view {
+  display: flex;
+  margin-top: 20rpx;
+  border-bottom: 1rpx solid #e1e1e1;
+}
+.content-item {
+  display: flex;
+}
+.content-right {
+  margin-left: 20rpx;
+}
+.delete-view {
+  margin-left: 20rpx;
+  font-size: 28rpx;
+}
+.amount-view {
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(218, 218, 218)
+}
+.amount-view text {
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+}
+
+.gdViewCss{
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  height: 100rpx;
+  border-bottom: 1rpx solid #e1e1e1;
+  line-height: 100rpx;
+}
+.left-text {
+  font-size: 30rpx;
+  color: #222222;
+}
+.riget-text{
+  float: right;
+  width: 75%;
+  text-align: right;
+  padding-right: 30rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; 
+  color: #222222;
+}
+.dateCss{
+  width: 30%;
+}
+.right-picker {
+ border: 1rpx solid #e1e1e1; 
+}
+.right-input{
+ border: 1rpx solid #e1e1e1;
+}
+
+.tdesc_title {
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+.tdesc-top {
+  width: 690rpx;
+  margin: 0 auto;
+  height: 200rpx;
+  padding-top: 5rpx;
+  border-bottom: 1rpx solid #e1e1e1;
+}
+.tdesc{
+  width: 690rpx;
+  margin: 0 auto;
+  height: 200rpx;
+  margin-top: 30rpx;
+}
+
+.button-box{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: white;
+  text-align: center;
+}
+
+.button-box button{
+  width: 95%;
+  color: white;
+  background: #1fc2b1;
+  margin: 20rpx;
+}

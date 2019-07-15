@@ -71,7 +71,9 @@ Page({
 
   // 退房结算
   checkOutHouseClose: function () {
-
+    wx.navigateTo({
+      url: '/pages/leaseCheckOutHousePage/leaseCheckOutHousePage?leaseId=' + this.data.leaseId,
+    })
   },
 
   /**
