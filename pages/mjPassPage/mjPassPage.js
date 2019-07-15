@@ -20,6 +20,7 @@ Page({
     qrCodeString:"",
     qrCodeIndex:0,
     password:'',
+    houseId:'',
     cantrolPass:false,//控制查看密码
   },
   //入户密码修改
@@ -45,7 +46,7 @@ Page({
         this.loadDataSource();
       },
     })
-    this.getShowPassWordd()
+    
   },
   // 改变密码显示
   cantrolPasss(){
@@ -55,7 +56,8 @@ Page({
   },
 // 获取密码
   getShowPassWordd(){
-    getShowPassWord().then(res => {
+    let houseId = this.data.houseId
+    getShowPassWord(houseId).then(res => {
       console.log(res)
       if(res.data.code ==200){
         this.setData({
@@ -86,12 +88,14 @@ Page({
           this.setData({
             houseList: res.data.data,
             doorList: res.data.data[0].doorEntities,
+            houseId: res.data.data[0].houseId,
             title: res.data.data[0].gyName + res.data.data[0].houseName,
             multiArray:this.data.multiArray,
           })
 
           //获取初始化二维码
           this.loadQrcodeStringSource(res.data.data[0].houseId);
+          this.getShowPassWordd()
         }
       }
     })
@@ -142,14 +146,18 @@ Page({
   },
   //选择房间完成
   bindchange:function(e){
+    console.log(e)
+    console.log(this.data.multiArray)
     var id = e.detail.value[0];
     console.log(id);
     this.setData({
       title:this.data.multiArray[0][id],
+      houseId: this.data.houseList[id].houseId,
       doorList: this.data.houseList[id].doorEntities,
       qrCodeIndex:id,
     })
     this.loadQrcodeStringSource(this.data.houseList[id].houseId);
+    this.getShowPassWordd()
   },
 
   //远程开门

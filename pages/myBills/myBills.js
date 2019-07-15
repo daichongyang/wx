@@ -189,7 +189,9 @@ Page({
       })
       if (this.data.isAll) {
         num += item.detailVos.length;
-        total += item.totalMoney;
+        for (let i = 0; i < item.detailVos.length;i++){
+          total += item.detailVos[i].accountReceivable;
+        }
       }
       return item;
     })

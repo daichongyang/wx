@@ -23,8 +23,8 @@ let requestApi = function(method, url, data) {
 }
 
 // 我是管理员
-var httpUrl = "https://www.ubicell.cn/apartment";
-// var httpUrl = "http://192.168.0.145:8080";
+// var httpUrl = "https://www.ubicell.cn/apartment";
+var httpUrl = "http://192.168.0.145:8080";
 // var httpUrl = "http://192.168.0.180:8080";
 
 //交易流水报表-交易项目下拉列表
@@ -308,7 +308,7 @@ export const configMeterList = apartmentId => { return requestApi("post",'/v1.0/
 export const configMeterUpdate = params => { return requestApi("post",'/v1.0/admin/config/meter/update', params) }
 
 //获取开门密码
-export const getShowPassWord = () => { return requestApi("post", '/hydroelectric/getShowPassWord') }
+export const getShowPassWord = (houseId) => { return requestApi("post", '/hydroelectric/getShowPassWord/' + houseId) }
 
 
 
