@@ -1,0 +1,45 @@
+<!--pages/leaseAddBillPage/leaseAddBillPage.wxml-->
+<view class='swiper'>
+
+  <view class='gdViewCss'>
+    <text class='left-text'>账单项目</text>
+    <picker  class='riget-text' mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">{{billProjectStr}} ▾
+    </picker>
+  </view>
+
+  <view class='gdViewCss'>
+    <text class='left-text'>应收金额</text> <input bindinput='bindinputName' placeholder='请输入收款金额' value='{{name}}' class='riget-text right-input'></input>
+  </view>
+
+  <view class='gdViewCss'>
+    <text class='left-text'>所属账期</text>
+    <picker class='riget-text' model='selector' range='{{billPeriod}}' bindchange='periodBindchange'>{{billPeriodStr}} ▾</picker>
+  </view>
+
+  <view class='gdViewCss'>
+    <text class='left-text'>应收款日期</text>
+    <picker class='riget-text dateCss' mode="date" value="{{date}}" start="{{starTime}}" bindchange="bindDateChange" end="{{endTime}}">{{starTime}} ▾</picker>    
+  </view>
+
+  <view class='imgBox'>
+    <view class="imgBox_title"><text class="left-text">照片凭证</text></view>
+    <scroll-view scroll-x>
+      <block wx:for='{{imgList}}' wx:key='key'>
+        <image bindtap='lookImageClick' data-id='{{index}}' aspectFit='true' class='img-imet' src='{{item}}'>
+        <view catchtap='deltelImage' class='deltelImage' data-id='{{index}}'>X</view>
+        </image>
+      </block>
+      <image class='img-imet' bindtap='addImageClick' src='../../img/my/add44@2x.png'></image>
+    </scroll-view>      
+   </view>
+
+  <view class='tdesc'>
+    <view class="tdesc_title"><text class="left-text">收款备注</text></view>
+    <textarea bindinput='bindinputTextareaClick' placeholder='请输入收款备注'></textarea>
+  </view>
+
+  <view class='button-box'>
+      <button bindtap='submitClick'>提交</button>
+  </view>
+
+</view>

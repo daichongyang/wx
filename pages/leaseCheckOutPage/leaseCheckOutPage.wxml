@@ -1,0 +1,29 @@
+<!--pages/leaseCheckOutPage/leaseCheckOutPage.wxml-->
+<view>
+ 
+  <view class='gdViewCss'>
+    <text class='left-text'>预计可入住时间</text>
+    <picker class='riget-text dateCss' mode="date" value="{{date}}" start="{{starTime}}" bindchange="bindDateChange" end="{{endTime}}">{{starTime}} ▾</picker>    
+  </view>
+
+  <view class="middle">
+    <view class="middle-left">温馨提示</view>
+    <view class="middle-content">
+      <text>1.退房后不可撤销</text>
+      <text>2.确认后将立刻退房，房源将在官网展示</text>
+      <text>3.与承租人沟通后，请及时结算账务</text>
+    </view>
+    <view class="middle_send">
+      <view class="img_view" bindtap="sendMessageClick">
+        <image class="choise_img" src="{{isSend ? '../../img/my/choisedCar.png' : '../../img/my/choise_car.png'}}"></image>
+      </view>
+      <text>将退房结账信息发送给承租人</text>
+    </view>
+  </view>
+
+  <view class='button-box'>
+      <button class="button-one" bindtap='checkOutAndNoCloseClick'>退房暂不结算</button>
+      <button class="button-two" bindtap='checkOutHouseClose'>退房并结算</button>
+  </view>
+
+</view>
