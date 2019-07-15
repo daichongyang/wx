@@ -1,7 +1,7 @@
 <!--pages/leaseBillDetail/leaseBillDetail.wxml-->
 <view>
   <view class="bill_top">
-    <text>未支付</text>
+    <text>{{billItem.payStatusStr}}</text>
     <view class="img_view"><image class="call_img" src="../../img/businessCircle/bb_sq_06@2x.png"></image></view>
   </view>
 
@@ -29,7 +29,7 @@
     </view>
      <view class="lease_container">
       <text>备注</text>
-      <text>逾期未付，滞纳金为租金的10%</text>
+      <text>{{billItem.receiptRemark}}</text>
     </view>
   </view>
 

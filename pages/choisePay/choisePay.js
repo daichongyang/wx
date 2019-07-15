@@ -378,7 +378,6 @@ Page({
     })
   },
 
-
   // // 选择银行卡支付
   // getStatusCar(){
   //   this.setData({
@@ -475,6 +474,7 @@ Page({
   //     })
   //   }
   // },
+
   bindingCarNext: function() {
     wx.navigateTo({
       url: '/pages/myBackCard1/myBackCard1'

@@ -23,8 +23,8 @@ let requestApi = function(method, url, data) {
 }
 
 // 我是管理员
-// var httpUrl = "https://www.ubicell.cn/apartment";
-var httpUrl = "http://192.168.0.145:8080";
+var httpUrl = "https://www.ubicell.cn/apartment";
+// var httpUrl = "http://192.168.0.145:8080";
 // var httpUrl = "http://192.168.0.180:8080";
 
 //交易流水报表-交易项目下拉列表
@@ -183,6 +183,31 @@ const adminLeaseBills = (params) => {
   return requestApi("post", "/v1.0/admin/lease/bills/" + params.leaseId)
 }
 
+// 添加账单
+const adminAddLeaseBills = (params) => {
+  return requestApi("post", "/v1.0/admin/lease/bills/save", params)
+}
+
+// 账单项目
+const adminBillProject = () => {
+  return requestApi("post", "/v1.0/admin/account/config/1")
+}
+
+// 退房不结账
+const adminCheckOutAndNoClose = (params) => {
+  return requestApi("post", "/v1.0/admin/lease/checkout/confirm", params)
+}
+
+// 退房结账
+const adminCheckOutHouseClose = (params) => {
+  return requestApi("post", "/v1.0/admin/lease/checkout/settlement", params)
+}
+
+// 退房数据
+const adminCheckOutHouseData = (params) => {
+  return requestApi("post", "/v1.0/admin/lease/settlement/detail/" + params.leaseId)
+}
+
 // 租约合同
 const adminLeaseContract = (params) => {
   return requestApi("post", "/v1.0/admin/lease/contract/" + params.leaseId)
@@ -196,6 +221,15 @@ const handwrittenList = params => { return requestApi("post",'/hydroelectric/han
 
 // 水电煤手动生成账单
 const handwrittenGenerate = params => { return requestApi("post",'/hydroelectric/handwritten/generate', params) }
+
+//通用配置-水电煤配置-数据
+export const configMeterList = apartmentId => { return requestApi("post",'/v1.0/admin/config/meter/' + apartmentId) }
+
+//通用配置-水电煤配置-修改
+export const configMeterUpdate = params => { return requestApi("post",'/v1.0/admin/config/meter/update', params) }
+
+//获取开门密码
+export const getShowPassWord = () => { return requestApi("post", '/hydroelectric/getShowPassWord') }
 
 // 数据报表/总账单
 const adminIndexbilltotal = (params) => {
@@ -299,18 +333,20 @@ export const getCharges = params => {
 }
 
 //房源管理-集中式房源-房间操作
-export const houseOperate = houseId => { return requestApi("post", '/v1.0/admin/house/operate/' + houseId) }
+// export const houseOperate = houseId => { return requestApi("post", '/v1.0/admin/house/operate/' + houseId) }
 
 //通用配置-水电煤配置-数据
-export const configMeterList = apartmentId => { return requestApi("post",'/v1.0/admin/config/meter/' + apartmentId) }
+// export const configMeterList = apartmentId => { return requestApi("post",'/v1.0/admin/config/meter/' + apartmentId) }
 
 //通用配置-水电煤配置-修改
-export const configMeterUpdate = params => { return requestApi("post",'/v1.0/admin/config/meter/update', params) }
+// export const configMeterUpdate = params => { return requestApi("post",'/v1.0/admin/config/meter/update', params) }
 
 //获取开门密码
-export const getShowPassWord = (houseId) => { return requestApi("post", '/hydroelectric/getShowPassWord/' + houseId) }
+// export const getShowPassWord = (houseId) => { return requestApi("post", '/hydroelectric/getShowPassWord/' + houseId) }
 
 
+//房源管理-集中式房源-房间操作
+export const houseOperate = houseId => { return requestApi("post", '/v1.0/admin/house/operate/' + houseId) }
 
 module.exports = {
   getShowPassWord,
@@ -403,7 +439,12 @@ module.exports = {
   adminIndexHouseData,
   adminLeaseDetail,
   adminLeaseBills,
-  adminLeaseContract
+  adminLeaseContract,
+  adminAddLeaseBills,
+  adminBillProject,
+  adminCheckOutAndNoClose,
+  adminCheckOutHouseClose,
+  adminCheckOutHouseData
 }
 
 
