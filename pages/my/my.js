@@ -25,6 +25,30 @@ Page({
     msgIndex: 0,
     isguanli:false
   },
+  // 监听是否点击了当前这个tabBar
+  onTabItemTap(item) {
+    // 监听是否有租约来显示右下角图标
+    wx.login({
+      success: res => {
+        // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        wx.request({
+          data: {
+            code: res.code,
+          },
+          url: utils.userAccessUrl,
+          success: res => {
+            console.log(res);
+            app.globalData.userInfo = res.data.data;
+            wx.setStorageSync("userInfo", app.globalData.userInfo);
+            if (app.globalData.userInfo.token) {
+              console.log("登录成功已经绑定手机号");
+            }
+          }
+        })
+      }
+    })
+
+  },
   //通知
   noticeClick: function () {
     console.log();
@@ -40,7 +64,7 @@ Page({
      
     }
   },
-  //支付房租 我的租约 智能水电表 保修保养  我的预约 我的预定 我的关注 我的发布
+  //我的账单 我的租约 智能水电表 保修保养  我的预约 我的预定 我的关注 我的发布
   contentClick: function (e) {
     console.log(e)
     var isLogin = this.isLogin();
@@ -64,9 +88,10 @@ Page({
       wx.navigateTo({
         url: '/pages/myLeasePage/myLeasePage',
       })
-    } else if (e.currentTarget.dataset.text == "支付房租") {
+    } else if (e.currentTarget.dataset.text == "我的账单") {
       wx.navigateTo({
-        url: '/pages/payHouseMoney/payHouseMoney',
+        // url: '/pages/payHouseMoney/payHouseMoney',
+        url: '/pages/myBills/myBills',
       })
     } else if (e.currentTarget.dataset.text == "智能水电表") {
       wx.navigateTo({

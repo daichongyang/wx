@@ -8,7 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    devtype:'',
+    devtype:'', 
     apartmentList:[]
   },
   // 获取公寓下拉列表

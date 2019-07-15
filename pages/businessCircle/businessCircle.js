@@ -16,6 +16,30 @@ Page({
     isTenant: "0",
     msgIndex: 0,
   },
+  // 监听是否点击了当前这个tabBar
+  onTabItemTap(item) {
+    // 监听是否有租约来显示右下角图标
+    wx.login({
+      success: res => {
+        // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        wx.request({
+          data: {
+            code: res.code,
+          },
+          url: utils.userAccessUrl,
+          success: res => {
+            console.log(res);
+            app.globalData.userInfo = res.data.data;
+            wx.setStorageSync("userInfo", app.globalData.userInfo);
+            if (app.globalData.userInfo.token) {
+              console.log("登录成功已经绑定手机号");
+            }
+          }
+        })
+      }
+    })
+
+  },
   //点击精选房源
   houseInfoClick: function (e) {
  

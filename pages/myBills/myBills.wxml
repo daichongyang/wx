@@ -1,0 +1,58 @@
+<!--pages/myBills/myBills.wxml-->
+<!-- 账单 -->
+<view>
+  <view class="bill_container">
+    <!-- 头部 -->
+    <view class='cont_top'>
+      <image class='apartment_dwon' mode='widthFix' src='../../img/pass/apartment_dwon.png'></image>
+      <picker class='picker_top' bindchange="changeHouse" value="0" range-key="{{'name'}}" range="{{reservationlist}}">
+        <view class='apartment_name'>{{houseName}}{{houseNumber}}</view>
+      </picker>
+      <view class='history'>历史账单</view>
+    </view>
+
+    <view class='leaseBox' wx:if="{{leaseBill.length!=0}}">
+      <block wx:for="{{leaseBill}}" wx:key="key" wx:for-index='itemId'>
+        <view class="bill_time">{{item.receiptDateStr}}</view>
+        <block wx:for="{{item.detailVos}}" wx:key="key" wx:for-index='id'>
+          <view class="bill_item">
+            <view class="img_view" data-item="{{itemId}}" data-id="{{id}}" bindtap="billSelectClick">
+              <image class="choise_img" src="{{item.isSelct ? '../../img/my/choisedCar.png' : '../../img/my/choise_car.png'}}"></image>
+            </view>
+            <view class="bill_left" data-item="{{itemId}}" data-id="{{id}}" bindtap="billItemSelectClick">
+              <view class="bill_middle">
+                <view class="bill_price">
+                  <text>¥{{item.accountReceivable}}</text>
+                  <text>{{item.costName}}</text>
+                </view>
+                <text class="bill_star_end">{{item.startDateStr}}-{{item.endDateStr}}</text>
+              </view>
+              <view class="bill_right">
+                <text>未支付</text>
+                <text>{{item.receivableDateStr}}前</text>
+              </view>
+            </view>
+          </view>
+        </block>
+      </block>
+    </view>
+    <block wx:else>
+      <view class='noData'>空空如也</view>
+    </block>
+    <!-- 支付 -->
+    <view class="bill_all">
+      <view class="select_view" bindtap="selectAllClick">
+        <view>
+          <image class="choise_img_all" src="{{isAll ? '../../img/my/choisedCar.png' : '../../img/my/choise_car.png'}}"></image>
+        </view>
+        <text class="select_all">全选</text>
+        <view class="select_label">
+          <text wx:if="{{selectBillNum == 0}}">未选择账单</text>
+          <text wx:else>已选择{{selectBillNum}}条账单</text>
+          <text>共 ¥{{moneyTotal}}</text>
+        </view>
+      </view>
+      <view class="bill_pay" bindtap='payClick'>支付</view>
+    </view>
+  </view>
+</view>

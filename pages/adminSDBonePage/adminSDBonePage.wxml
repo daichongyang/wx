@@ -1,53 +1,100 @@
 <!--pages/adminSDBonePage/adminSDBonePage.wxml-->
-<block wx:if='{{dataSource.length > 0}}'>
-  <view class='header'><text>房间信息</text><text>类型</text><text>上次读数</text><text>本次读数</text><text>抄表保存</text></view>
-  <scroll-view class='scrollView' scroll-y='true' enable-back-to-top='true'>
-  <block wx:for='{{dataSource}}' wx:key='key'>
-    <view class='itemBox'>
-
-      <view class='item'>
-        <view>{{item.houseName}}</view>
-        <view wx:if='{{item.tenantName[0] == null}}'>空房</view>
-        <view style='color:red;' wx:else>{{item.tenantName[0]}}</view>
-        <view>{{item.year}}-{{item.month}}</view>
+<block>
+  <view class='header'>
+    <!-- 顶部搜索框 -->
+    <view class='page_top'>
+      <picker class='picker_top' bindchange="changeBiao" value="0" range-key="{{'name'}}" range="{{devTypeArr}}">
+        <view class='changetype'>
+          <text wx:if="{{devType==1}}">冷水表</text>
+          <text wx:if="{{devType==2}}">电表</text>
+          <text wx:if="{{devType==4}}">热水表</text>
+          <text class='arrow-down'></text>
+        </view>
+      </picker>
+      <view class='changetype2'>
+        <text>筛选</text>
+        <text class='arrow-down'></text>
       </view>
-
-      <view class='item oneItem'>
-        <view>冷水表</view>
-        <view>电表</view>
-        <view>热水表</view>
+      <view class='sousou1'>
+        <image mode="widthFix" src='../../img/home/bb_sy_01@2x.png' bindtap='getEleDevInfoss'></image>
+        <input bindinput='getInputValue' class='inputss1' placeholder='房间号/租客'></input>
       </view>
-
-      <view class='item oneItem'>
-       <view wx:if='{{item.lastNum[0] == null}}'>无数据</view>
-        <view wx:else>{{item.lastNum[0]}}</view>
-        <view wx:if='{{item.lastNum[1] == null}}'>无数据</view>
-        <view wx:else>{{item.lastNum[1]}}</view>
-        <view wx:if='{{item.lastNum[2] == null}}'>无数据</view>
-        <view wx:else>{{item.lastNum[2]}}</view>
-      </view>
-      
-      <view class='item oneItem twoItem'>
-        <view wx:if='{{item.currentNum[0] == null}}'><input placeholder='输入读数' value='{{}}'></input></view>
-         <view wx:else><input placeholder='输入读数' value='{{item.currentNum[0]}}'></input></view>
-        <view wx:if='{{item.currentNum[1] == null}}'><input placeholder='输入读数' value='{{}}'></input></view>
-         <view wx:else><input placeholder='输入读数' value='{{item.currentNum[1]}}'></input></view>
-        <view wx:if='{{item.currentNum[2] == null}}'><input placeholder='输入读数' value='{{}}'></input></view>
-         <view wx:else><input placeholder='输入读数' value='{{item.currentNum[2]}}'></input></view>
-      </view>
-
-      
-       <view class='item'>
-        <view>{{text}}</view>
-        <view class='save'>保存</view>
-        <view>{{text}}</view>
-      </view>
-
     </view>
-  </block>
-  </scroll-view>
-
+    <!-- 结束 -->
+    <view class='header_box'>
+      <view class='header_item1' bindtap='changeAll'>
+        <image class='choise_img' mode="widthFix" src='{{chageall?"../../img/my/choisedCar.png":"../../img/my/choise_car.png"}}'></image>
+        <text>全选</text>
+      </view>
+      <view class='header_item2'>房间</view>
+      <view class='header_item3'>上次读数</view>
+      <view class='header_item4'>本次读数</view>
+      <view class='header_item5'></view>
+    </view>
+  </view>
+  <view class='height185'></view>
+  <view class='list_box'>
+    <block wx:for='{{dataSource}}' wx:key='key' wx:for-index="index">
+      <view class='ul_item'>
+        <view class='li_item1' data-index="{{index}}" data-type="{{item.type}}" bindtap="changetype">
+          <image class='choise_img' mode="widthFix" src='{{item.type?"../../img/my/choisedCar.png":"../../img/my/choise_car.png"}}'></image>
+          <text wx:if="{{item.status==0}}">未抄</text>
+          <text wx:if="{{item.status==1}}" class='li_item11'>已抄</text>
+        </view>
+        <view class='li_item2'>{{item.name}}</view>
+        <view class='li_item3'>{{item.lastNum}}
+          <text wx:if="{{item.lastNum}}"> °</text>
+        </view>
+        <view class='li_item4'>
+          <input placeholder='输入读数' value="{{item.nowNum}}" bindinput='getnowNum' data-index="{{index}}" type='number'></input>
+        </view>
+        <view class='li_item5'>
+          <text class='arrow-right'></text>
+        </view>
+      </view>
+    </block>
+  </view>
+  <!-- 底部按钮 -->
+  <view class='flooter'>
+    <view class='flooter_box'>
+      <button class='butt'>保存</button>
+      <picker bindchange="changecreateType" value="0" range-key="{{'name'}}" range="{{createTypeArr}}">
+        <view class="picker">
+          <button class='butt'>生成账单</button>
+        </view>
+      </picker>
+    </view>
+  </view>
+  <!-- 时间选择器 -->
+  <view class='choise_time' wx:if="{{showTime}}">
+    <picker-view indicator-style="height: 50px;color:#222222;" class='picker_p' value="{{value}}" bindchange="bindChange">
+      <picker-view-column>
+        <view wx:for="{{years}}" wx:key="key" style="line-height: 50px;text-align:center;">{{item}}年</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view wx:for="{{months}}" wx:key="key" style="line-height: 50px;text-align:center;">{{item}}月</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view wx:for="{{days}}" wx:key="key" style="line-height: 50px;text-align:center;">{{item}}日</view>
+      </picker-view-column>
+    </picker-view>
+    <view>
+      <button class='picker_button' bindtap='sureBillTime'>确定</button>
+    </view>
+  </view>
 </block>
-<block wx:else>
+<block wx:if="nodata">
   <view class='nodata'>{{nodata}}</view>
 </block>
+
+
+
+<!-- <view>
+  <form bindsubmit="onSubmit" bindreset="formReset" report-submit="{{true}}">
+
+  <view class="btn-area">
+    <button form-type="submit">Submit</button>
+    <button form-type="reset">Reset</button>
+  </view>
+</form>
+</view> -->

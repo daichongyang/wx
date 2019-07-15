@@ -28,7 +28,7 @@
       
       
       contentClickd' class='checkbox'  checked='{{item.payStatus == 0? true:false}}' value='{{index}}' disabled='true'>
-        <view class='content'>
+        <view class='content' catchtap="billItemSelectClick" data-bill="{{item}}">
           <view><text class='content-left'>￥{{item.accountReceivable}}</text><text class='content-mid'>{{item.costName}}</text><text class='content-right'>{{item.validStatus==0?(item.payStatus==0? '未支付':'已支付'):'坏账'}}</text></view>
           <view class='content-bootm'><text>{{itemBox.startPayment}} - {{itemBox.endPayment}}</text><text class='content-bootm-right'>{{item.receivableDate}}前</text></view>
         </view>
@@ -68,7 +68,7 @@
       <view class='header'>{{itemBox.startPayment}}</view>
       <block wx:for='{{itemBox.detailVos}}' wx:key='key'>
       <checkbox color='red' class='checkbox'  checked='{{item.superId == 1000? true:false}}' value='{{indexBox}}-{{index}}' disabled='{{item.payStatus == 1? true:false}}'>
-        <view class='content'>
+        <view class='content' catchtap="billItemSelectClick" data-bill="{{item}}">
           <view><text class='content-left'>￥{{item.accountReceivable}}</text><text class='content-mid'>{{item.costName}}</text><text class='content-right'>{{item.validStatus==0?(item.payStatus==0? '未支付':'已支付'):'坏账'}}</text></view>
           <view class='content-bootm'><text>{{itemBox.startPayment}} - {{itemBox.endPayment}}</text><text class='content-bootm-right'>{{item.receivableDate}}前</text></view>
         </view>

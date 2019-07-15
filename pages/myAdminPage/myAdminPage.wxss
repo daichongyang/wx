@@ -73,7 +73,7 @@ page{
   border-radius: 10rpx;
   background: white;
   position: relative;
-  box-shadow: 0px 0px 10px #c5cecd;
+  box-shadow: 0px 0px 10px #e6e9e8;
   margin-bottom:15rpx;
 }
 .item{

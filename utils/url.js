@@ -214,7 +214,22 @@ const adminLeaseContract = (params) => {
 }
 
 // 水电表抄表
-var adminhydroelectricshowAndUpAllDevUrl = httpUrl + "/hydroelectric/showAndUpAllDev/";
+// var adminhydroelectricshowAndUpAllDevUrl = httpUrl + "/hydroelectric/showAndUpAllDev/";
+
+// 水电煤手抄表列表
+const handwrittenList = params => { return requestApi("post",'/hydroelectric/handwritten/list', params) }
+
+// 水电煤手动生成账单
+const handwrittenGenerate = params => { return requestApi("post",'/hydroelectric/handwritten/generate', params) }
+
+//通用配置-水电煤配置-数据
+export const configMeterList = apartmentId => { return requestApi("post",'/v1.0/admin/config/meter/' + apartmentId) }
+
+//通用配置-水电煤配置-修改
+export const configMeterUpdate = params => { return requestApi("post",'/v1.0/admin/config/meter/update', params) }
+
+//获取开门密码
+export const getShowPassWord = () => { return requestApi("post", '/hydroelectric/getShowPassWord') }
 
 // 数据报表/总账单
 const adminIndexbilltotal = (params) => {
@@ -321,6 +336,9 @@ export const getCharges = params => {
 export const houseOperate = houseId => { return requestApi("post", '/v1.0/admin/house/operate/' + houseId) }
 
 module.exports = {
+  getShowPassWord,
+  configMeterList,
+  configMeterUpdate,
   houseOperate,
   getCharges,
   itemSelect,
@@ -395,7 +413,8 @@ module.exports = {
   adminLeaseListUrl,
   adminSelectUrl,
   adminPropertyGetRepairListUrl,
-  adminhydroelectricshowAndUpAllDevUrl,
+  handwrittenList,
+  handwrittenGenerate,
   adminIndexbilltotal,
   adminIndexbillfuture,
   wNativePay,

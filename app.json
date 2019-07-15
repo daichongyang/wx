@@ -71,7 +71,10 @@
     "pages/apartmentDetails/apartmentDetails",
     "pages/leaseAddBillPage/leaseAddBillPage",
     "pages/leaseCheckOutPage/leaseCheckOutPage",
-    "pages/leaseCheckOutHousePage/leaseCheckOutHousePage"
+    "pages/leaseCheckOutHousePage/leaseCheckOutHousePage",
+    "pages/leaseBillDetail2/leaseBillDetail2",
+    "pages/configMoney/configMoney",
+    "pages/myBills/myBills"
   ],
   "window": {
     "backgroundTextStyle": "light",

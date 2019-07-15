@@ -25,7 +25,14 @@ Page({
     tempArr:[],
     isHeiden:0
   },
-
+  // 查看账单详情
+  billItemSelectClick: function (e) {
+    var billItem = e.currentTarget.dataset.bill;
+    billItem.receivableDateStr = billItem.receivableDate
+    wx.navigateTo({
+      url: '/pages/leaseBillDetail2/leaseBillDetail2?billItem=' + JSON.stringify(billItem),
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -54,7 +61,7 @@ Page({
       header: {
         "Authorization": app.globalData.userInfo.token,
       },
-      method: "POST",
+      method: "POST", 
       success: res => {
         console.log(res);
         if (res.data.code == 200) {
@@ -102,6 +109,7 @@ Page({
                     this.data.payQueryArr.push(payQuery);
                   }
                 }
+                this.data.money = parseFloat(this.data.money).toFixed(2)
               }
             }
           }else{ //以后付款
@@ -319,7 +327,7 @@ Page({
 
 
   //选择账单支付
-  checkboxChange:function(e){
+  checkboxChange:function(e){ 
    if(this.data.allCount > e.detail.value.length){
      this.setData({
        chekboxAll:false,
