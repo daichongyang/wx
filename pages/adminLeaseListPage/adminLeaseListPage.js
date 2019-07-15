@@ -67,9 +67,11 @@ Page({
               obj.status = "待确认";
             } else if (obj.status == 1) {
               obj.status = "签约成功";
-            } else if (obj.status == 2) {
+            } else if (obj.status == 2 && obj.settleAccounts == 1) {
               obj.status = "已退房";
-            } 
+            } else if (obj.status == 2 && obj.settleAccounts == 0)  {
+              obj.status = "已退房(未结账)";
+            }  
             if (obj.contractType == 0) {
               obj.contractType = "纸字合同";
             } else if (obj.contractType == 1) {
@@ -131,7 +133,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.data.dataList = [];
+    this.loadDataSourceList(this.data.current, this.data.leaseStatus);
   },
 
   /**
