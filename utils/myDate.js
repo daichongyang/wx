@@ -60,6 +60,7 @@ const getDateArray = (timestampmillisecond) => {
   aArray[15] = Month + '.' + date + ' ' + ' ' + getHours + ':' + getMinutes
   aArray[16] = year + '.' + Month + '.' + date
   aArray[17] = year + '.' + Month + '.' + date + ' ' + getHours + ':' + getMinutes + ':' + getSeconds
+  aArray[18] = year + '年' + Month + '月' + date + '日'
 
   return aArray
 }

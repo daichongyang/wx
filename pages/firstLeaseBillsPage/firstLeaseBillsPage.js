@@ -27,7 +27,7 @@ Page({
   },
   // 查看账单详情
   billItemSelectClick: function (e) {
-    var billItem = e.currentTarget.dataset.bill; 
+    var billItem = e.currentTarget.dataset.bill;
     billItem.receivableDateStr = billItem.receivableDate
     wx.navigateTo({
       url: '/pages/leaseBillDetail2/leaseBillDetail2?billItem=' + JSON.stringify(billItem),
@@ -109,7 +109,7 @@ Page({
                     this.data.payQueryArr.push(payQuery);
                   }
                 }
-                this.data.money = this.data.money.toFixed(2)
+                this.data.money = parseFloat(this.data.money).toFixed(2)
               }
             }
           }else{ //以后付款

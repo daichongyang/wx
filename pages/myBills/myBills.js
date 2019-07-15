@@ -5,6 +5,7 @@ import {
   adminLeaseBills,
   adminLeaseContract
 } from "../../utils/url.js"
+import {getDateArray,} from "../../utils/myDate.js"
 var dateTool = require('../../utils/date.js');
 var utils = require('../../utils/url.js');
 var util = require('../../utils/util.js');
@@ -20,8 +21,10 @@ Page({
     showTitel: '',
     noShowTitel: '',
     current: 1,
-    dataList: [],
+    reservationlist: [],
     houseName:'',
+    houseNumber:'',
+    houseId:'',
     status: 0,
     leaseId: 0,
     tenantList: [], // 入住人信息
@@ -31,15 +34,42 @@ Page({
     isAll: false, // 全选
     selectBillNum: 0, // 已选择的账单
     moneyTotal: 0, // 总金额
+    payQueryArr: [],//已勾选的账单
     contractImg: null
   },
+  //点击去支付
+  payClick: function () {
+    if (!this.data.payQueryArr.length) {
+      wx.showToast({
+        title: '请选择支付项',
+        icon: 'none',
+        duration: 1000
+      })
+      return;
+    }
+    console.log(JSON.stringify(this.data.payQueryArr))
+    wx.request({
+      method: "POST",
+      url: utils.leaseBillsPayUrl,
+      header: {
+        "Authorization": app.globalData.userInfo.token,
+      },
+      data: JSON.stringify(this.data.payQueryArr),
 
-  // 底部点击事件
-  leaseBottomClick: function (e) {
-    this.setData({
-      selectIndex: e.currentTarget.dataset.item
+      success: res => {
+        console.log(res);
+        if(res.data.code == 200){
+          this.gochoisePay(res.data.data, this.data.houseId)
+        }
+      }
     })
-    this.getLeaseWithIndex(this.data.selectIndex);
+  },
+  // 支付页面
+  gochoisePay(orderId, houseId) {
+    let payMoney = this.data.moneyTotal
+    wx.navigateTo({
+      url: '/pages/choisePay/choisePay?orderId=' + orderId + '&houseId=' + houseId + '&payMoney=' + payMoney
+    })
   },
 
   // 历史账单
@@ -61,146 +91,88 @@ Page({
     // if (options.selectIndex != 0) {
     //   this.getLeaseWithIndex(this.data.selectIndex);
     // }
-    this.loadDataSourceList()
-    this.getLeaseBills()
+    this.loadDataSource()
+    
   },
   // 切换房间
   changeHouse(e){
     console.log(e)
     this.setData({
-      houseName: this.data.dataList[e.detail.value].houseName,
-      leaseId: this.data.dataList[e.detail.value].leaseId
+      houseName: this.data.reservationlist[e.detail.value].name,
+      leaseId: this.data.reservationlist[e.detail.value].leaseId,
+      houseId: this.data.reservationlist[e.detail.value].houseId,
+      houseNumber: this.data.reservationlist[e.detail.value].houseNumber,
     })
     this.getLeaseBills()
   },
-  //请求数据预定房间信息
-  loadDataSourceList: function () {
-    // wx.showLoading({
-    //   title: '正在加载...',
-    // })
+
+  //加载数据
+  getLeaseBills: function () {
+    wx.showLoading({
+      title: '正在加载...',
+    })
     wx.request({
-      method: "POST",
-      url: utils.adminLeaseListUrl,
+      url: utils.leaseBillsUrl + this.data.leaseId + '/0',
       header: {
         "Authorization": app.globalData.userInfo.token,
       },
-      data: {
-        current: this.data.current,
-        size: 10,
-        leaseStatus: this.data.status,
-        status: 0
-      },
+      method: "POST",
       success: res => {
-        console.log(res);
+        console.log(res); 
         if (res.data.code == 200) {
-          // wx.hideLoading();
-          for (let i = 0; i < res.data.data.records.length; i++) {
-            var obj = res.data.data.records[i];
-            var startTimeTemp = obj.startTime / 1000;
-            var startTime = util.formatTimeTwo(startTimeTemp, 'Y-M-D');
-            obj.startTime = startTime;
-
-            var endTimeTemp = obj.endTime / 1000;
-            var endTime = util.formatTimeTwo(endTimeTemp, 'Y-M-D');
-            obj.endTime = endTime;
-            if (obj.status == 0) {
-              obj.status = "待确认";
-            } else if (obj.status == 1) {
-              obj.status = "签约成功";
-            } else if (obj.status == 2) {
-              obj.status = "已退房";
-            }
-            if (obj.contractType == 0) {
-              obj.contractType = "纸字合同";
-            } else if (obj.contractType == 1) {
-              obj.contractType = "电子合同";
-            }
-            this.data.dataList.push(obj);
-            this.setData({
-              houseName: this.data.dataList[0].houseName,
-              leaseId: this.data.dataList[0].leaseId,
-              dataList: this.data.dataList
+          this.setData({
+            leaseBill: res.data.data.map(iitem => {
+              iitem.startDateStr = dateTool.formatTimeStamp(iitem.startPayment / 1000, "yyyy.MM.dd");
+              iitem.endDateStr = dateTool.formatTimeStamp(iitem.endPayment / 1000, "yyyy.MM.dd");
+              iitem.receiptDateStr = getDateArray(iitem.startPayment)[18];
+              iitem.detailVos.map(item => {
+                item.isSelct = false;
+                item.billsId = iitem.billsId;
+                item.startDateStr = iitem.startDateStr
+                item.endDateStr = iitem.endDateStr
+                item.receivableDateStr = dateTool.formatTimeStamp(item.receivableDate / 1000, "yyyy.MM.dd");
+              })
+              return iitem;
             })
-          }
-          // if (res.data.data.total > this.data.dataList.length) {
-          //   this.setData({
-          //     dataList: this.data.dataList,
-          //     showTitel: "点击加载更多...",
-          //     show: true,
-          //   })
-          // } else {
-          //   this.setData({
-          //     dataList: this.data.dataList,
-          //     show: false,
-          //     noShowTitel: '数据已全部加载完毕'
-          //   })
-          // }
-
+          })
         } else {
           wx.showToast({
             title: res.data.msg,
             icon: 'none',
             duration: 1500
           })
-
         }
+        wx.hideLoading();
       }
     })
   },
-
-  // 租约合同
-  getLeaseContract: function () {
-    let params = {
-      leaseId: this.data.leaseId
-    }
-    adminLeaseContract(params).then(res => {
-      console.log(e)
-      if (res.data.code == 200) {
-        this.setData({
-          contractImg: res.data.data.pictureList[0].picture
-        })
-      } else {
-        wx.showToast({
-          title: res.data.msg,
-          icon: 'none',
-          duration: 1500
-        })
-      }
+  //加载数据
+  loadDataSource: function () {
+    wx.showLoading({
+      title: '正在加载...',
     })
-  },
-
-  // 查看大图
-  contractImgClick: function () {
-    wx.previewImage({
-      urls: [this.data.contractImg],
-    })
-  },
-
-  // 租约账单
-  getLeaseBills: function () {
-    let params = {
-      leaseId: this.data.leaseId
-    }
-    adminLeaseBills(params).then(res => {
-      if (res.data.code == 200) {
-        this.setData({
-          leaseBill: res.data.data.map(item => {
-            item.startDateStr = dateTool.formatTimeStamp(item.startDate / 1000, "yyyy.MM.dd");
-            item.endDateStr = dateTool.formatTimeStamp(item.endDate / 1000, "yyyy.MM.dd");
-            item.bills.map(item => {
-              item.isSelct = false;
-              item.receivableDateStr = dateTool.formatTimeStamp(item.receivableDate / 1000, "yyyy.MM.dd");
-              item.receiptDateStr = dateTool.formatTimeStamp(item.receiptDate / 1000, "yyyy.MM.dd");
-            })
-            return item;
+    wx.request({
+      url: utils.leaseListUrl,
+      header: {
+        "Authorization": app.globalData.userInfo.token,
+      },
+      success: res => {
+        console.log(res);
+        wx.hideLoading();
+        if (res.data.code == 200) {
+          if (!res.data.data) {
+            return;
+          }
+          this.data.reservationlist = res.data.data
+          this.setData({
+            houseName: this.data.reservationlist[0].name,
+            leaseId: this.data.reservationlist[0].leaseId,
+            houseId: this.data.reservationlist[0].houseId,
+            houseNumber: this.data.reservationlist[0].houseNumber,
+            reservationlist: this.data.reservationlist
           })
-        })
-      } else {
-        wx.showToast({
-          title: res.data.msg,
-          icon: 'none',
-          duration: 1500
-        })
+          this.getLeaseBills()
+        }
       }
     })
   },
@@ -211,12 +183,12 @@ Page({
     var num = 0;
     var total = 0;
     this.data.leaseBill.map(item => {
-      item.bills.map(item => {
+      item.detailVos.map(item => {
         item.isSelct = this.data.isAll;
         return item;
       })
       if (this.data.isAll) {
-        num += item.bills.length;
+        num += item.detailVos.length;
         total += item.totalMoney;
       }
       return item;
@@ -231,20 +203,29 @@ Page({
 
   // 账单选择
   billSelectClick: function (e) {
+    console.log(e)
     let itemId = e.currentTarget.dataset.item;
     let index = e.currentTarget.dataset.id;
     var leaseBillItem = this.data.leaseBill[itemId];
-    var billItem = leaseBillItem.bills[index];
+    var billItem = leaseBillItem.detailVos[index];
     billItem.isSelct = !billItem.isSelct;
 
     var num = 0;
     var total = 0;
     var numTotal = 0;
+    this.data.payQueryArr=[]
     this.data.leaseBill.map(item => {
-      item.bills.map(item => {
+      item.detailVos.map(item => {
         if (item.isSelct) {
+          console.log(item)
           num += 1;
           total += item.accountReceivable;
+          let obj = {
+            billsCost: item.accountReceivable,
+            billsId: item.billsId,
+            pkId: item.pkId,
+          }
+          this.data.payQueryArr.push(obj)
         }
         numTotal += 1;
         return item;
@@ -258,12 +239,13 @@ Page({
       isAll: this.data.isAll,
       leaseBill: this.data.leaseBill
     })
+    console.log(this.data.payQueryArr)
   },
 
   // 查看账单详情
   billItemSelectClick: function (e) {
     var leaseBillItem = this.data.leaseBill[e.currentTarget.dataset.item];
-    var billItem = leaseBillItem.bills[e.currentTarget.dataset.id];
+    var billItem = leaseBillItem.detailVos[e.currentTarget.dataset.id];
     wx.navigateTo({
       url: '/pages/leaseBillDetail/leaseBillDetail?billItem=' + JSON.stringify(billItem),
     })
@@ -320,7 +302,69 @@ Page({
       }
     })
   },
+  //请求数据预定房间信息
+  loadDataSourceList: function () {
+    // wx.showLoading({
+    //   title: '正在加载...',
+    // })
+    wx.request({
+      method: "POST",
+      url: utils.adminLeaseListUrl,
+      header: {
+        "Authorization": app.globalData.userInfo.token,
+      },
+      data: {
+        current: this.data.current,
+        size: 10,
+        leaseStatus: this.data.status,
+        status: 0
+      },
+      success: res => {
+        console.log(res);
+        if (res.data.code == 200) {
+          // wx.hideLoading();
+          for (let i = 0; i < res.data.data.records.length; i++) {
+            var obj = res.data.data.records[i];
+            var startTimeTemp = obj.startTime / 1000;
+            var startTime = util.formatTimeTwo(startTimeTemp, 'Y-M-D');
+            obj.startTime = startTime;
 
+            var endTimeTemp = obj.endTime / 1000;
+            var endTime = util.formatTimeTwo(endTimeTemp, 'Y-M-D');
+            obj.endTime = endTime;
+            if (obj.status == 0) {
+              obj.status = "待确认";
+            } else if (obj.status == 1) {
+              obj.status = "签约成功";
+            } else if (obj.status == 2) {
+              obj.status = "已退房";
+            }
+            if (obj.contractType == 0) {
+              obj.contractType = "纸字合同";
+            } else if (obj.contractType == 1) {
+              obj.contractType = "电子合同";
+            }
+            this.data.reservationlist.push(obj);
+            this.setData({
+              houseName: this.data.reservationlist[e.detail.value].name,
+              leaseId: this.data.reservationlist[e.detail.value].leaseId,
+              houseId: this.data.reservationlist[e.detail.value].houseId,
+              houseNumber: this.data.reservationlist[e.detail.value].houseNumber,
+              reservationlist: this.data.reservationlist
+            })
+          }
+
+        } else {
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none',
+            duration: 1500
+          })
+
+        }
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
