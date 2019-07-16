@@ -120,6 +120,8 @@ var leaseBillsPayUrl = httpUrl + "/v1.0/web/lease/bills/pay";
 var leaseConfirmUrl = httpUrl + "/v1.0/web/lease/confirm/";
 //获取有权限的门禁设备
 var hydroelectricGetControlDevUrl = httpUrl + "/hydroelectric/getControlDev";
+//获取有权限的门禁设备
+var getUserHouseList = httpUrl + "/hydroelectric/getUserHouseList";
 //网络远程开门
 var hydroelectricOpenDoorUrl = httpUrl + "/hydroelectric/openDoor";
 //获取通行证二维码
@@ -208,6 +210,13 @@ const adminCheckOutHouseData = (params) => {
   return requestApi("post", "/v1.0/admin/lease/settlement/detail/" + params.leaseId)
 }
 
+
+// 退房下拉列表 1 退款  2 扣款
+const adminCheckOutSelectData = (params) => {
+  return requestApi("post", "/v1.0/admin/lease/out/cost/select/" + params.index)
+}
+
+
 // 租约合同
 const adminLeaseContract = (params) => {
   return requestApi("post", "/v1.0/admin/lease/contract/" + params.leaseId)
@@ -240,6 +249,65 @@ export const configMeterUpdate = params => {
 export const getShowPassWord = (houseId) => {
   return requestApi("post", '/hydroelectric/getShowPassWord/' + houseId)
 }
+// <<<<<<< HEAD
+
+// // 数据报表/总账单
+// const adminIndexbilltotal = (params) => {
+//   return requestApi("post", "/v1.0/admin/index/bill/total", params)
+// }
+// // 数据报表/房源数据
+// const adminIndexHouseData = (params) => {
+//   return requestApi("post", "/v1.0/admin/index/house/data", params)
+// }
+// // 数据报表/未来预计收入
+// const adminIndexbillfuture = (params) => {
+//   return requestApi("post", "/v1.0/admin/index/revenue/future", params)
+// }
+// // 数据报表/快到期合同
+// const adminIndexWillExpired = (params) => {
+//   return requestApi("post", "/v1.0/admin/index/contract/expired/" + params.day)
+// }
+// // 数据报表/已到期合同
+// const adminIndexBeExpired = (params) => {
+//   return requestApi("post", "/v1.0/admin/index/contract/expired", params)
+// }
+
+// // 数据报表 ---流水统计 
+// const getDataTableWithWater = (params) => {
+//   return requestApi("post", "/v1.0/admin/report/statements/list", params)
+// }
+
+// // 数据报表 ---账单统计 
+// const getDataTableWithBill = (params) => {
+//   return requestApi("post", "/v1.0/admin/report/bills/list", params)
+// }
+
+// // 流水账单 ---交易流水 
+// const getBusinessWater = (params) => {
+//   return requestApi("post", "/v1.0/admin/report/business/list", params)
+// }
+
+// // 用户设置支付密码
+// const setCardPassWord = (params) => {
+//   return requestApi("post", "/userCar/setCardPassWord/" + params.isNoPass + "/" + params.psw)
+// }
+
+// // 通过房间查询清分信息
+// const getDistributionByHouseId = (params) => {
+//   return requestApi("post", "/userCar/getDistributionByHouseId/" + params.houseId)
+// }
+
+// // 用户银行卡支付
+// const payByBankCar = (params) => {
+//   return requestApi("post", "/userCar/payByBankCar", params)
+// }
+
+// // 查询银行卡支付结果
+// const getCardPayStatus = (params) => {
+//   return requestApi("post", "/userCar/getCardPayStatus", params)
+// }
+
+// =======
 
 // 数据报表/总账单
 const adminIndexbilltotal = (params) => {
@@ -349,6 +417,7 @@ export const houseOperate = houseId => {
 
 module.exports = {
   getShowPassWord,
+  getUserHouseList,
   configMeterList,
   configMeterUpdate,
   houseOperate,
@@ -443,7 +512,8 @@ module.exports = {
   adminBillProject,
   adminCheckOutAndNoClose,
   adminCheckOutHouseClose,
-  adminCheckOutHouseData
+  adminCheckOutHouseData,
+  adminCheckOutSelectData
 }
 
 

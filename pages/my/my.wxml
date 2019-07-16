@@ -1,5 +1,6 @@
 <!-- 头像头部 -->
 <view style='background: white;'>
+<view class='gray'></view>
 <view  class='header'>
   <view class='header-left'>
    <image class='img' src='{{headerImage}}'></image>

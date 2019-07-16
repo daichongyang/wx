@@ -72,7 +72,7 @@ Page({
   loadDataSource:function(){
     wx.request({
       method: "POST",
-      url: utils.hydroelectricGetControlDevUrl,
+      url: utils.getUserHouseList,
       header: {
         "Authorization": app.globalData.userInfo.token,
       },

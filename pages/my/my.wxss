@@ -2,7 +2,7 @@ page{
   background: #f7f7f7;
 }
 .header{
-  margin-top: 20rpx;
+  /* margin-top: 20rpx; */
   background: white;
   width: 750rpx;
   height: 150rpx

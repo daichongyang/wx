@@ -272,10 +272,25 @@ Page({
   //支付
   payClick: function() {
     if (this.data.type == 6 || this.data.type == 7) { //支付宝弹窗微信弹窗
+      if (!this.data.aliUrl && this.data.type==6){
+        wx.showToast({
+          title: '房东还未上传支付宝收款码',
+          icon: 'none',
+          duration: 2000
+        })
+        return
+      }
+      if (!this.data.wxUrl && this.data.type == 7){
+        wx.showToast({
+          title: '房东还未上传微信收款码',
+          icon: 'none',
+          duration: 2000
+        })
+        return
+      }
       this.setData({
         saomazhifu: true
       })
-      this.getMerchQrr()
       return
     }
     let params = {
@@ -499,6 +514,7 @@ Page({
     this.getDistributionByHouseIdd()
     this.getBindUserCardInfoo()
     this.getPayTypee()
+    this.getMerchQrr()
   },
 
   /**
