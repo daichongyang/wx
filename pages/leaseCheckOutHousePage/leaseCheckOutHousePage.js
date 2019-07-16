@@ -1,6 +1,5 @@
 // pages/leaseCheckOutHousePage/leaseCheckOutHousePage.js
 import {
-  adminCheckOutHouseClose,
   adminCheckOutHouseData,
   adminCheckOutSelectData
 } from "../../utils/url.js"
@@ -267,7 +266,18 @@ Page({
         duration: 1500
       })
     } else {
-
+      let checktItem = {
+        costVos: [...this.data.refundArray, ...this.data.arrearsArray, ...this.data.deductionArray],
+        leaseId: this.data.leaseId,
+        pathway: this.data.pathway,
+        remark: this.data.remark,
+        returnCause: this.data.returnCause,
+        returnCost: this.data.returenCost,
+        badDebtCost: this.data.badDebtCost,
+      }
+      wx.navigateTo({
+        url: '/pages/leaseCheckOutConfirmPage/leaseCheckOutConfirmPage?checktItem=' + JSON.stringify(checktItem),
+      })
     }
   },
 
