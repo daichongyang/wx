@@ -21,7 +21,7 @@ Page({
     showTitel: '',
     noShowTitel: '',
     current: 1,
-    reservationlist: [],
+    reservationlist: [],//房间列表
     houseName:'',
     houseNumber:'',
     houseId:'',
@@ -35,7 +35,24 @@ Page({
     selectBillNum: 0, // 已选择的账单
     moneyTotal: 0, // 总金额
     payQueryArr: [],//已勾选的账单
-    contractImg: null
+    contractImg: null,
+    payStatus:'',//支付状态
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    // this.setData({
+    //   selectIndex: options.selectIndex,
+    //   leaseId: options.leaseId
+    // })
+    // this.getLeaseWithIndex(0);
+    // if (options.selectIndex != 0) {
+    //   this.getLeaseWithIndex(this.data.selectIndex);
+    // }
+    this.loadDataSource()
+
   },
   //点击去支付
   payClick: function () {
@@ -75,25 +92,10 @@ Page({
   // 历史账单
   footClick: function () {
     wx.navigateTo({
-      url: '/pages/leaseDetailBillHistory/leaseDetailBillHistory',
+      url: '/pages/lookingLeaseBillsPage/lookingLeaseBillsPage?leaseId=' + this.data.leaseId,
     })
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    // this.setData({
-    //   selectIndex: options.selectIndex,
-    //   leaseId: options.leaseId
-    // })
-    // this.getLeaseWithIndex(0);
-    // if (options.selectIndex != 0) {
-    //   this.getLeaseWithIndex(this.data.selectIndex);
-    // }
-    this.loadDataSource()
-    
-  },
   // 切换房间
   changeHouse(e){
     console.log(e)
@@ -106,7 +108,7 @@ Page({
     this.getLeaseBills()
   },
 
-  //加载数据
+  //账单列表
   getLeaseBills: function () {
     wx.showLoading({
       title: '正在加载...',
@@ -120,17 +122,30 @@ Page({
       success: res => {
         console.log(res); 
         if (res.data.code == 200) {
+          let _this = this
+          let total = 0
+          let num = 0
           this.setData({
-            leaseBill: res.data.data.map(iitem => {
+            leaseBill: res.data.data.map((iitem,index) => {
               iitem.startDateStr = dateTool.formatTimeStamp(iitem.startPayment / 1000, "yyyy.MM.dd");
               iitem.endDateStr = dateTool.formatTimeStamp(iitem.endPayment / 1000, "yyyy.MM.dd");
               iitem.receiptDateStr = getDateArray(iitem.startPayment)[18];
               iitem.detailVos.map(item => {
-                item.isSelct = false;
+                if (_this.data.payStatus == 0&&index == 0){
+                  item.isSelct = true;
+                  total += item.accountReceivable;
+                  num += 1;
+                }else{
+                  item.isSelct = false;
+                }
                 item.billsId = iitem.billsId;
                 item.startDateStr = iitem.startDateStr
                 item.endDateStr = iitem.endDateStr
                 item.receivableDateStr = dateTool.formatTimeStamp(item.receivableDate / 1000, "yyyy.MM.dd");
+              })
+              this.setData({
+                moneyTotal: Number(total).toFixed(2),
+                selectBillNum: num,
               })
               return iitem;
             })
@@ -146,7 +161,7 @@ Page({
       }
     })
   },
-  //加载数据
+  //公寓房间
   loadDataSource: function () {
     wx.showLoading({
       title: '正在加载...',
@@ -163,11 +178,15 @@ Page({
           if (!res.data.data) {
             return;
           }
-          this.data.reservationlist = res.data.data
+          this.data.reservationlist = res.data.data.filter(item=>{
+            item.houseName = item.name + item.houseNumber
+            return item
+          })
           this.setData({
             houseName: this.data.reservationlist[0].name,
             leaseId: this.data.reservationlist[0].leaseId,
             houseId: this.data.reservationlist[0].houseId,
+            payStatus: this.data.reservationlist[0].payStatus,
             houseNumber: this.data.reservationlist[0].houseNumber,
             reservationlist: this.data.reservationlist
           })
@@ -182,14 +201,21 @@ Page({
     this.data.isAll = !this.data.isAll;
     var num = 0;
     var total = 0;
-    this.data.leaseBill.map(item => {
+    let _this= this
+    this.data.leaseBill.map((item,index) => {
       item.detailVos.map(item => {
-        item.isSelct = this.data.isAll;
+        if(_this.data.payStatus == 0&& index == 0){
+          item.isSelct = true
+        }else{
+          item.isSelct = this.data.isAll;
+        }
         return item;
       })
       if (this.data.isAll) {
         num += item.detailVos.length;
-        total += item.totalMoney;
+        for (let i = 0; i < item.detailVos.length;i++){
+          total += item.detailVos[i].accountReceivable;
+        }
       }
       return item;
     })
@@ -201,20 +227,23 @@ Page({
     })
   },
 
-  // 账单选择
+  // 选择单个账单
   billSelectClick: function (e) {
     console.log(e)
     let itemId = e.currentTarget.dataset.item;
     let index = e.currentTarget.dataset.id;
     var leaseBillItem = this.data.leaseBill[itemId];
     var billItem = leaseBillItem.detailVos[index];
-    billItem.isSelct = !billItem.isSelct;
-
+    if (this.data.payStatus == 0 && itemId==0){
+      billItem.isSelct = true;
+    }else{
+      billItem.isSelct = !billItem.isSelct;
+    }
     var num = 0;
     var total = 0;
     var numTotal = 0;
     this.data.payQueryArr=[]
-    this.data.leaseBill.map(item => {
+    this.data.leaseBill.map((item) => {
       item.detailVos.map(item => {
         if (item.isSelct) {
           console.log(item)
@@ -247,7 +276,7 @@ Page({
     var leaseBillItem = this.data.leaseBill[e.currentTarget.dataset.item];
     var billItem = leaseBillItem.detailVos[e.currentTarget.dataset.id];
     wx.navigateTo({
-      url: '/pages/leaseBillDetail/leaseBillDetail?billItem=' + JSON.stringify(billItem),
+      url: '/pages/leaseBillDetail2/leaseBillDetail2?billItem=' + JSON.stringify(billItem),
     })
   },
 

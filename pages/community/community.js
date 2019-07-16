@@ -12,6 +12,12 @@ Page({
    */
   data: {
     isTenant: '',
+    city: "选择城市 ▾",
+    index: 0,
+    isBack: false,//返回时候判断是否选择过城市
+    cityModel: {},
+    houseIndexList: [],
+    msgIndex: 0,
   },
   // 监听是否点击了当前这个tabBar
   onTabItemTap(item) {
@@ -21,7 +27,7 @@ Page({
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
         wx.request({
           data: {
-            code: res.code,
+            code: res.code, 
           },
           url: utils.userAccessUrl,
           success: res => {
@@ -43,8 +49,32 @@ Page({
       url: '/pages/mjPassPage/mjPassPage',
     })
   },
+  //消息盒子
+  msgClick: function () {
+    wx.navigateTo({
+      url: '/pages/informationTypePage/informationTypePage',
+    })
+  },
+  //是否有消息判断
+  loadDataMsgSource: function () {
+    if (app.globalData.userInfo.token) {
+      wx.request({
+        method: "POST",
+        url: utils.noticeListRemindUrl,
+        header: {
+          "Authorization": app.globalData.userInfo.token,
+        },
+        success: res => {
+          console.log(res);
+          this.setData({
+            msgIndex: res.data.data,
+          })
+        }
+      })
+    }
 
 
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -54,6 +84,11 @@ Page({
         isTenant: app.globalData.userInfo.isTenant,
       })
     } 
+    var data = wx.getStorageSync("userInfo");
+    console.log(data)
+    console.log("*********")
+    app.globalData.userInfo = data;
+    this.loadDataMsgSource();
   },
 
   /**

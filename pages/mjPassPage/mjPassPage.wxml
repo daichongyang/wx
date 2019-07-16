@@ -1,75 +1,76 @@
 <!--pages/mjPassPage/mjPassPage.wxml-->
 
 <block wx:if='{{houseList.length}}'>
-
-<picker class='headerCss' bindchange='bindchange'bindtap='selcetdHouseClick'mode='multiSelector' value="{{multiIndex}}"
-range="{{multiArray}}">
-  <view class='cont_top'>
-    <!-- <image class='apartment_dwon' mode="widthFix" src='../../img/pass/apartment_dwon.png'></image> -->
-    <text> {{title}} </text>
-    <text class='arrow-down'></text>
-  </view>
-</picker>
+  <picker class='headerCss' bindchange='bindchange' bindtap='selcetdHouseClick' mode='multiSelector' value="{{multiIndex}}" range="{{multiArray}}">
+    <view class='cont_top'>
+      <!-- <image class='apartment_dwon' mode="widthFix" src='../../img/pass/apartment_dwon.png'></image> -->
+      <text> {{title}} </text>
+      <text class='arrow-down'></text>
+    </view>
+  </picker>
 
 
-<swiper  current='{{index}}' class='swiper' style='width: {{windowWidth}}px;height:{{windowHeight}}px'>
-  <swiper-item>
+  <swiper current='{{index}}' class='swiper' style='width: {{windowWidth}}px;height:{{windowHeight}}px'>
+    <swiper-item>
       <!-- <scroll-view scroll-y='true' style="width: 100%;height:100%" > -->
       <scroll-view scroll-y='true'>
-      <view hidden ='{{!qrCodeString.length}}'>
-        <canvas canvas-id='myQrcode' class='qrCodeCss'></canvas>
-        <view class='textView'>1.使用二维码在离闸机的二维码扫描器5公分外扫描即可打开闸机。</view>
-        <view class='textView'>2.为了保证你的使用安全性，系统会自动刷新二维码。</view>
-        <!-- 显示密码 -->
-        <view class='mmOpenCss'>
-          <view class='password' wx:for="{{6}}" wx:key="key"> 
-            <text wx:if="{{cantrolPass}}">{{password[index]}}</text>
-            <image wx:else mode="widthFix" src='../../img/pass/mizi.png'></image>
+        <view>
+          <view hidden='{{!qrCodeString.length}}'>
+            <canvas canvas-id='myQrcode' class='qrCodeCss'></canvas>
+            <view class='textView'>1.使用二维码在离闸机的二维码扫描器5公分外扫描即可打开闸机。</view>
+            <view class='textView'>2.为了保证你的使用安全性，系统会自动刷新二维码。</view>
           </view>
-          <image wx:if="{{cantrolPass}}" bindtap='cantrolPasss' mode="widthFix" class='yangjin' src='../../img/pass/yangjin.png'></image>
-          <image wx:else mode="widthFix" bindtap='cantrolPasss' class='yangjin' src='../../img/pass/yangjin1.png'></image>
+          <!-- 显示密码 -->
+          <view wx:if="{{password}}">
+            <view class='mmOpenCss'>
+              <view class='password' wx:for="{{6}}" wx:key="key">
+                <text wx:if="{{cantrolPass}}">{{password[index]}}</text>
+                <image wx:else mode="widthFix" src='../../img/pass/mizi.png'></image>
+              </view>
+              <image wx:if="{{cantrolPass}}" bindtap='cantrolPasss' mode="widthFix" class='yangjin' src='../../img/pass/yangjin.png'></image>
+              <image wx:else mode="widthFix" bindtap='cantrolPasss' class='yangjin' src='../../img/pass/yangjin1.png'></image>
+            </view>
+            <!--  -->
+            <view class='mmOpenText' bindtap='goSetUserPassward'>修改密码</view>
+          </view>
         </view>
-        <!--  -->
-          <view class='mmOpenText' bindtap='goSetUserPassward'>修改密码</view>
-        </view>
-        <view class='buttonn'>
+        <view class='buttonn' wx:if='{{qrCodeString}}'>
           <button bindtap='refreshQrcodeClick' class='buttonCss'>刷新通行证</button>
         </view>
-         <block wx:if = '{{!qrCodeString.length}}'>
-            <view class='openListCss'>该房间没有二维码通行证</view>
+        <block wx:if='{{!qrCodeString&&!password}}'>
+          <view class='openListCss'>该房间没有二维码通行证和开门密码</view>
         </block>
-    </scroll-view>
-  </swiper-item>
+      </scroll-view>
+    </swiper-item>
 
-  <swiper-item>
-    <scroll-view scroll-y='true' style="width: 100%;height:100%" >
-      <block wx:if='{{doorList.length}}'>
-        <block wx:for='{{doorList}}' wx:key='key'>
-          <view data-id='{{index}}' bindtap='openDoorClick' class='door-item'>
-            <image src='../../img/pass/bb_mj2_06@2x.png'></image>
-            <view class='item-bottom'>{{item.name}}</view>
-          </view>
+    <swiper-item>
+      <scroll-view scroll-y='true' style="width: 100%;height:100%">
+        <block wx:if='{{doorList.length}}'>
+          <block wx:for='{{doorList}}' wx:key='key'>
+            <view data-id='{{index}}' bindtap='openDoorClick' class='door-item'>
+              <image src='../../img/pass/bb_mj2_06@2x.png'></image>
+              <view class='item-bottom'>{{item.name}}</view>
+            </view>
+          </block>
         </block>
-      </block>
-      <block wx:else>
-        <view class='openListCss'>该房间没有开门列表</view>
-      </block>
-    </scroll-view>
-  </swiper-item>
+        <block wx:else>
+          <view class='openListCss'>该房间没有开门列表</view>
+        </block>
+      </scroll-view>
+    </swiper-item>
 
-</swiper>
+  </swiper>
 
-<view bindtap='leftClick' class='leftBtn'>
-  <image src='../../img/pass/bb_mj_01@2x.png'></image>
-</view>
+  <view bindtap='leftClick' class='leftBtn'>
+    <image src='../../img/pass/bb_mj_01@2x.png'></image>
+  </view>
 
-<view bindtap='rightClick' class='rightBtn'> 
-  <image src='../../img/pass/bb_mj_02@2x.png'></image>
-</view>
+  <view bindtap='rightClick' class='rightBtn'>
+    <image src='../../img/pass/bb_mj_02@2x.png'></image>
+  </view>
 
 </block>
 
-<block>
+<!-- <block>
   <view class='noHouseListCss'>您还没有门禁信息</view>
-</block>
-
+</block> -->

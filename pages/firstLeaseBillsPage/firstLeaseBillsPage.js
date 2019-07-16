@@ -217,7 +217,7 @@ Page({
       })
       return;
     }
-    console.log(JSON.stringify(this.data.payQueryArr))
+    // console.log(JSON.stringify(this.data.payQueryArr))
     wx.request({
       method: "POST",
       url: utils.leaseBillsPayUrl,
@@ -225,7 +225,6 @@ Page({
         "Authorization": app.globalData.userInfo.token,
       },
       data:JSON.stringify(this.data.payQueryArr),
-      
       success: res => {
         console.log(res);
         this.gochoisePay(res.data.data, this.data.houseId)

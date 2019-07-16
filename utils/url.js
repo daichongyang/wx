@@ -115,7 +115,7 @@ var leaseContractUrl = httpUrl + "/v1.0/web/lease/contract/";
 //租约账单
 var leaseBillsUrl = httpUrl + "/v1.0/web/lease/bills/";
 //账单支付
-var leaseBillsPayUrl = httpUrl + "/v1.0/web/lease/bills/pay"; 
+var leaseBillsPayUrl = httpUrl + "/v1.0/web/lease/bills/pay";
 //确认租约
 var leaseConfirmUrl = httpUrl + "/v1.0/web/lease/confirm/";
 //获取有权限的门禁设备
@@ -222,19 +222,29 @@ const adminLeaseContract = (params) => {
 // var adminhydroelectricshowAndUpAllDevUrl = httpUrl + "/hydroelectric/showAndUpAllDev/";
 
 // 水电煤手抄表列表
-const handwrittenList = params => { return requestApi("post",'/hydroelectric/handwritten/list', params) }
+const handwrittenList = params => {
+  return requestApi("post", '/hydroelectric/handwritten/list', params)
+}
 
 // 水电煤手动生成账单
-const handwrittenGenerate = params => { return requestApi("post",'/hydroelectric/handwritten/generate', params) }
+const handwrittenGenerate = params => {
+  return requestApi("post", '/hydroelectric/handwritten/generate', params)
+}
 
 //通用配置-水电煤配置-数据
-export const configMeterList = apartmentId => { return requestApi("post",'/v1.0/admin/config/meter/' + apartmentId) }
+export const configMeterList = apartmentId => {
+  return requestApi("post", '/v1.0/admin/config/meter/' + apartmentId)
+}
 
 //通用配置-水电煤配置-修改
-export const configMeterUpdate = params => { return requestApi("post",'/v1.0/admin/config/meter/update', params) }
+export const configMeterUpdate = params => {
+  return requestApi("post", '/v1.0/admin/config/meter/update', params)
+}
 
 //获取开门密码
-export const getShowPassWord = () => { return requestApi("post", '/hydroelectric/getShowPassWord') }
+export const getShowPassWord = (houseId) => {
+  return requestApi("post", '/hydroelectric/getShowPassWord/' + houseId)
+}
 
 // 数据报表/总账单
 const adminIndexbilltotal = (params) => {
@@ -324,7 +334,7 @@ export const getPayType = params => {
 
 // 更新交易结果
 export const updateTradeResult = params => {
-  return requestApi("post", '/merchWallet/updateTradeResult/'+ params.houseId+'/' + params.orderNo)
+  return requestApi("post", '/merchWallet/updateTradeResult/' + params.houseId + '/' + params.orderNo)
 }
 
 // 获取商户支付二维码
@@ -338,7 +348,9 @@ export const getCharges = params => {
 }
 
 //房源管理-集中式房源-房间操作
-export const houseOperate = houseId => { return requestApi("post", '/v1.0/admin/house/operate/' + houseId) }
+export const houseOperate = houseId => {
+  return requestApi("post", '/v1.0/admin/house/operate/' + houseId)
+}
 
 module.exports = {
   getShowPassWord,

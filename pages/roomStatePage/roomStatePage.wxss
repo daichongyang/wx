@@ -73,6 +73,7 @@ page{
 }
 .scrollViewOne{
   margin-top:110rpx;
+  overflow-y: auto;
 }
 .infor_item{
   margin:0 25rpx;

@@ -5,7 +5,7 @@
     <text>搜索你感兴趣的话题</text>
   </view>
   <image class='midimg' src='../../img/community/bb_hd_01@3x.png'></image>
-  <image class='rightimg' src='../../img/home/bb_sy_03@2x.png'></image>
+  <view bindtap='msgClick' class='header-right' ><image src='../../img/home/bb_sy_03@2x.png'></image><view hidden='{{msgIndex != 1}}'></view></view>
 </view>
 
 
@@ -15,7 +15,7 @@
     <view class='contentName'>一生无悔</view>
     <view class='contentTime'>49分钟前</view>
   </view>
-  <view class='descCss'>澳门中联办主任傅自应在致辞时说，新的一年对澳门来说具有特殊的意义，随着澳门回归祖国20周年及即将完成政府换届，澳门发展将进入新的阶段，也会迎来新的机遇。他勉励澳门要有创新精神，为共同推动澳门与内地深化合作，充分发挥“一国两制”的内在优势，大胆地闯、大胆地试，合力破解制度性的差异。</view>
+  <view class='descCss'>由于工作原因，盛世嘉园公寓转租，大套间，环境好， 联系方式：176xxxxxx77。</view>
 
 <view class='contentImageBox'>
   <image class='contenImage' src='../../img/community/bb_hd_03@2x.png'></image>
@@ -25,12 +25,12 @@
 <view class='footer'>
 
   <view class='actionbtn'>
-    <image src='../../img/community/bb_hd_05@2x.png'></image>
+    <image' mode='widthFix' src='../../img/community/bb_hd_05@2x.png'></image>
     <text>1688</text>
   </view>
 
   <view class='actionbtn'>
-    <image src='../../img/community/bb_hd_07@3x.png'></image>
+    <image' mode='widthFix' src='../../img/community/bb_hd_07@3x.png'></image>
     <text>82</text>
   </view>
 </view>

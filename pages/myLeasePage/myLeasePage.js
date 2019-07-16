@@ -104,7 +104,7 @@ Page({
   lookBillClick:function(e){
     var obj = this.data.reservationlist[e.currentTarget.dataset.id];
     wx.navigateTo({
-      url: '/pages/firstLeaseBillsPage/firstLeaseBillsPage?leaseId=' + obj.leaseId + '&firstPay=' + 0 + '&layout=' + obj.layout + '&rentCost=' + obj.rentCost + '&houseId=' + obj.houseId,
+      url: '/pages/firstLeaseBillsPage/firstLeaseBillsPage?leaseId=' + obj.leaseId + '&firstPay=' + 0 + '&layout=' + obj.layout + '&rentCost=' + obj.rentCost + '&houseId=' + obj.houseId + '&payStatus=' + obj.payStatus, 
     })
   },
 

@@ -20,6 +20,7 @@ Page({
     qrCodeString:"",
     qrCodeIndex:0,
     password:'',
+    houseId:'',
     cantrolPass:false,//控制查看密码
   },
   //入户密码修改
@@ -36,16 +37,13 @@ Page({
       success: res => {
         console.log(res);
         var windowWidth = res.windowWidth;
-        var windowHeight = res.windowHeight - 60;
+        var windowHeight = res.windowHeight - 95;
         this.setData({
           windowWidth: windowWidth,
           windowHeight: windowHeight,
         })
-        //请求原始数据
-        this.loadDataSource();
       },
     })
-    this.getShowPassWordd()
   },
   // 改变密码显示
   cantrolPasss(){
@@ -55,16 +53,21 @@ Page({
   },
 // 获取密码
   getShowPassWordd(){
-    getShowPassWord().then(res => {
+    let houseId = this.data.houseId
+    getShowPassWord(houseId).then(res => {
       console.log(res)
       if(res.data.code ==200){
         this.setData({
           password:res.data.data.split('')
         })
+      }else{
+        this.setData({
+          password:''
+        })
       }
     })
   },
-  //请求数据
+  //房间列表
   loadDataSource:function(){
     wx.request({
       method: "POST",
@@ -86,12 +89,15 @@ Page({
           this.setData({
             houseList: res.data.data,
             doorList: res.data.data[0].doorEntities,
+            houseId: res.data.data[0].houseId,
             title: res.data.data[0].gyName + res.data.data[0].houseName,
             multiArray:this.data.multiArray,
           })
 
           //获取初始化二维码
           this.loadQrcodeStringSource(res.data.data[0].houseId);
+          // 锁密码
+          this.getShowPassWordd()
         }
       }
     })
@@ -142,14 +148,18 @@ Page({
   },
   //选择房间完成
   bindchange:function(e){
+    console.log(e)
+    console.log(this.data.multiArray)
     var id = e.detail.value[0];
     console.log(id);
     this.setData({
       title:this.data.multiArray[0][id],
+      houseId: this.data.houseList[id].houseId,
       doorList: this.data.houseList[id].doorEntities,
       qrCodeIndex:id,
     })
     this.loadQrcodeStringSource(this.data.houseList[id].houseId);
+    this.getShowPassWordd()
   },
 
   //远程开门
@@ -210,7 +220,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    //请求原始数据
+    this.loadDataSource();
   },
 
   /**

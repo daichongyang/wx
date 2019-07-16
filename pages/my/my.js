@@ -135,7 +135,7 @@ Page({
       wx.navigateTo({
         url: '/pages/myAdminPage/myAdminPage',
       })
-    } 
+    }
   },
   // 登录绑定手机号
   headerClick:function(){
@@ -323,6 +323,7 @@ Page({
   onPullDownRefresh: function () {
     this.loadCenterMsg();
     this.loadDataMsgSource();
+    this.isAdministrator();
     wx.stopPullDownRefresh();
     if (!app.globalData.userInfo) {
       this.loadCode();

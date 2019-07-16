@@ -89,8 +89,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let obj = JSON.parse(options.paramss) || []
+    obj = obj.filter(item => {
+      item.name = item.gyName +" "+ item.houseName
+      return item
+    })
     this.setData({
-      optionss: JSON.parse(options.paramss)||[]
+      optionss: obj
     })
     console.log(this.data.optionss)
   },
