@@ -139,6 +139,9 @@ Page({
     adminLeaseBills(params).then(res => {
       if (res.data.code == 200) {
         this.setData({
+          isAll: false, 
+          selectBillNum: 0, 
+          moneyTotal: 0, 
           leaseBill: res.data.data.map(item => {
             item.startDateStr = dateTool.formatTimeStamp(item.startDate / 1000, "yyyy.MM.dd");
             item.endDateStr = dateTool.formatTimeStamp(item.endDate / 1000, "yyyy.MM.dd");
@@ -146,7 +149,7 @@ Page({
               item.isSelct = false;
               item.receivableDateStr = dateTool.formatTimeStamp(item.receivableDate / 1000, "yyyy.MM.dd");
               item.receiptDateStr = dateTool.formatTimeStamp(item.receiptDate / 1000, "yyyy.MM.dd");
-              item.payStatusStr = item.payStatus ? "已付款" : "未付款";
+              item.payStatusStr = item.validStatus == 0 ? (item.payStatus == 0 ? '未支付' : '已支付') : '坏账';
             })
             return item;
           })

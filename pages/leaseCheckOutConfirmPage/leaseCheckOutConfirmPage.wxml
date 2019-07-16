@@ -1,0 +1,30 @@
+<!--pages/leaseCheckOutConfirmPage/leaseCheckOutConfirmPage.wxml-->
+<view>
+
+   <view class='gdViewCss'>
+    <text class='left-text'>退还金额</text> <text class='riget-text right-input'>{{checktItem.returnCost}}</text>
+  </view>
+   <view class='gdViewCss'>
+    <text class='left-text'>合计坏账</text> <text class='riget-text right-input'>{{checktItem.badDebtCost}}</text>
+  </view>
+
+  <view class="middle">
+    <view class="middle-left">温馨提示</view>
+    <view class="middle-content">
+      <text>1.确认操作不能撤销，请确保无误</text>
+      <text>2.确认操作后不可以再对租约进行操作，如添加账单等</text>
+    </view>
+    <view class="middle_send">
+      <view class="img_view" bindtap="sendMessageClick">
+        <image class="choise_img" src="{{isSend ? '../../img/my/choisedCar.png' : '../../img/my/choise_car.png'}}"></image>
+      </view>
+      <text>将退房结账信息发送给承租人</text>
+    </view>
+  </view>
+
+  <view class='button-box'>
+      <button class="button-two" bindtap='confirmClick'>确认</button>
+  </view>
+
+</view>
+

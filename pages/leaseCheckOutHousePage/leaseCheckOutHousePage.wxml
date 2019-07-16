@@ -1,10 +1,9 @@
 <!--pages/leaseCheckOutHousePage/leaseCheckOutHousePage.wxml-->
-<!--pages/leaseAddBillPage/leaseAddBillPage.wxml-->
 <view class='swiper'>
 
   <view class='tdesc-top'>
     <view class="tdesc_title"><text class="left-text">退房原因</text></view>
-    <textarea bindinput='bindinputTextareaClick' placeholder='请输入内容'></textarea>
+    <textarea class="textview" data-item="return" bindinput='bindinputTextareaClick' placeholder='请输入内容'></textarea>
   </view>
 
   <view class='middle-view'>
@@ -13,46 +12,55 @@
     <view class="content-view">
       <view>退款</view>
       <view class="content-right">
-        <block wx:for="{{3}}" wx:key="key">
-        <view class="content-item">
-          <picker class='right-picker' model='selector' range='{{paymentArray}}' bindchange='paymentChange'>{{refundStr}} ▾</picker>
-          <input bindinput='bindinputName' placeholder='金额' value='{{name}}' class='right-input'></input>
-          <view class="delete-view">删除</view>
+        <view wx:if="{{refundArray.length != 0}}">
+          <block wx:for="{{refundArray}}" wx:key="key" wx:for-index='id'>
+          <view class="content-item">
+            <picker class='right-picker' model='selector' range='{{refundSelectArray}}' data-index="{{id}}" bindchange='refundChange'>{{item.name}} ▾</picker>
+            <input data-index="{{id}}" bindinput='bindinputRefund' placeholder='金额' value='{{item.cost}}' class='right-input'></input>元
+            <view class="delete-view" data-index="{{id}}" bindtap="refundDeleteClick">删除</view>
+          </view>
+          </block>
         </view>
-        </block>
-        <view>添加退款</view>
+        <view wx:else class="none-view">暂无退款，可添加退款</view>
+        <view class="add-button" bindtap="addRefundClick">添加退款</view>
       </view>
     </view>
 
     <view class="content-view">
       <view>欠款</view>
       <view class="content-right"> 
-        <block wx:for="{{3}}" wx:key="key">
-        <view class="content-item">
-          <picker class='right-picker' model='selector' range='{{paymentArray}}' bindchange='paymentChange'>{{refundStr}} ▾</picker>
-          <input bindinput='bindinputName' placeholder='金额' value='{{name}}' class='right-input'></input>
+        <view wx:if="{{arrearsArray.length != 0}}">
+          <block wx:for="{{arrearsArray}}" wx:key="key">
+          <view class="content-item">
+            <view class="arrears-content">{{item.name}}</view>
+            <view class="arrears-money">{{item.cost}}</view>元
+          </view>
+          </block>
         </view>
-        </block>
+        <view wx:else class="none-view">无欠款</view>
       </view>
-    </view>
+    </view> 
 
     <view class="content-view">
       <view>扣款</view>
       <view class="content-right">
-        <block wx:for="{{3}}" wx:key="key">
-          <view class="content-item">
-            <picker class='right-picker' model='selector' range='{{paymentArray}}' bindchange='paymentChange'>{{refundStr}} ▾</picker>
-            <input bindinput='bindinputName' placeholder='金额' value='{{name}}' class='right-input'></input>
-            <view>删除</view>
-          </view>
-        </block>
-        <view>添加扣款</view>
+        <view wx:if="{{deductionArray.length != 0}}">
+          <block wx:for="{{deductionArray}}" wx:key="key" wx:for-index='id'>
+            <view class="content-item">
+              <picker class='right-picker' model='selector' range='{{deductionSelectArray}}' data-index="{{id}}" bindchange='deductionChange'>{{item.name}} ▾</picker>
+              <input bindinput='bindinputDeduction' placeholder='金额' data-index="{{id}}" value='{{item.cost}}' class='right-input'></input>元
+              <view class="delete-view" data-index="{{id}}" bindtap="deductionDeleteClick">删除</view>
+            </view>
+          </block>
+        </view>
+        <view wx:else class="none-view">暂无扣款，可添加扣款</view>
+        <view class="add-button" bindtap="addDeductionClick">添加扣款</view>
       </view>
     </view>
 
     <view class="amount-view">
-      <text>合计应退还:</text>
-      <text>合计坏账:</text>
+      <text>合计应退还: {{returenCost}}</text>
+      <text>合计坏账: {{badDebtCost}}</text>
     </view>
   </view>
 
@@ -60,14 +68,13 @@
     <text class='left-text'>付款途径</text>
     <picker class='riget-text' model='selector' range='{{paymentArray}}' bindchange='paymentChange'>{{paymentStr}} ▾</picker>
   </view>
-
-  <view class='tdesc'>
+  <view class='tdesc-bottom'>
     <view class="tdesc_title"><text class="left-text">备注</text></view>
-    <textarea bindinput='bindinputTextareaClick' placeholder='请输入内容'></textarea>
+    <textarea class="textview" data-item="remark" bindinput='bindinputTextareaClick' placeholder='请输入内容'></textarea>
   </view>
 
   <view class='button-box'>
-      <button bindtap='submitClick'>下一步</button>
+      <button disabled="{{isDisabled}}" class="button-select" bindtap='nextClick'>下一步</button>
   </view>
 
 </view>
