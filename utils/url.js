@@ -208,6 +208,11 @@ const adminCheckOutHouseData = (params) => {
   return requestApi("post", "/v1.0/admin/lease/settlement/detail/" + params.leaseId)
 }
 
+// 退房下拉列表 1 退款  2 扣款
+const adminCheckOutSelectData = (params) => {
+  return requestApi("post", "/v1.0/admin/lease/out/cost/select/" + params.index)
+}
+
 // 租约合同
 const adminLeaseContract = (params) => {
   return requestApi("post", "/v1.0/admin/lease/contract/" + params.leaseId)
@@ -431,7 +436,8 @@ module.exports = {
   adminBillProject,
   adminCheckOutAndNoClose,
   adminCheckOutHouseClose,
-  adminCheckOutHouseData
+  adminCheckOutHouseData,
+  adminCheckOutSelectData
 }
 
 

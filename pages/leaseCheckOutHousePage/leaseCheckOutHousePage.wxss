@@ -1,5 +1,4 @@
 /* pages/leaseCheckOutHousePage/leaseCheckOutHousePage.wxss */
-/* pages/leaseAddBillPage/leaseAddBillPage.wxss */
 page{
   background: #f7f7f7;
 }
@@ -8,7 +7,9 @@ page{
   font-size: 30rpx;
   background: white;
 }
-
+.textview {
+  height: 150rpx;
+}
 .middle-view {
   padding-top: 20rpx;
   margin-left: 30rpx;
@@ -22,13 +23,26 @@ page{
 }
 .content-item {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20rpx;
 }
 .content-right {
   margin-left: 20rpx;
 }
+.none-view {
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
 .delete-view {
   margin-left: 20rpx;
   font-size: 28rpx;
+  background-color: #1fc2b1;
+  color: white;
+  width: 80rpx;
+  height: 40rpx;
+  text-align: center;
+  line-height: 40rpx;
 }
 .amount-view {
   margin-top: 20rpx;
@@ -40,7 +54,17 @@ page{
   margin-top: 10rpx;
   margin-bottom: 10rpx;
 }
-
+.add-button {
+  background-color: #1fc2b1;
+  width: 150rpx;
+  height: 44rpx;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: white;
+  line-height: 44rpx;
+}
 .gdViewCss{
   margin-left: 30rpx;
   margin-right: 30rpx;
@@ -67,11 +91,30 @@ page{
 }
 .right-picker {
  border: 1rpx solid #e1e1e1; 
+ width: 250rpx;
+ height: 58rpx;
+ line-height: 58rpx;
 }
 .right-input{
  border: 1rpx solid #e1e1e1;
+ width: 150rpx;
+ margin-left: 20rpx;
 }
-
+.arrears-content {
+ border: 1rpx solid #e1e1e1; 
+ width: 150rpx;
+ height: 58rpx;
+ line-height: 58rpx;
+ background-color: #f7f7f7;
+}
+.arrears-money {
+ border: 1rpx solid #e1e1e1;
+ width: 150rpx;
+ margin-left: 20rpx;
+ height: 58rpx;
+ line-height: 58rpx;
+ background-color: #f7f7f7;
+}
 .tdesc_title {
   margin-top: 20rpx;
   margin-bottom: 20rpx;
@@ -89,7 +132,10 @@ page{
   height: 200rpx;
   margin-top: 30rpx;
 }
-
+.tdesc-bottom {
+  margin-bottom: 200rpx;
+  padding-left: 20rpx;
+}
 .button-box{
   position: fixed;
   bottom: 0;
@@ -97,8 +143,7 @@ page{
   background: white;
   text-align: center;
 }
-
-.button-box button{
+.button-select {
   width: 95%;
   color: white;
   background: #1fc2b1;
