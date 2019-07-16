@@ -60,7 +60,7 @@
 
           <block wx:elif='{{item.status == 1 && item.payStatus == 1}}'>
             <view  class='jxfy ckxq-box'>
-              <view bindtap='lookBillClick' data-id='{{index}}' class='ckxq'>查看账单</view>
+              <view bindtap='lookBillClick' data-id='{{index}}' data-paystatus="{{item.payStatus}}" class='ckxq'>查看账单</view>
               <view bindtap='lookContractClick' data-id='{{index}}' class='ckxq chxq-two'>查看合同</view>
               <view bindtap='reservationDetailsClick' data-id='{{index}}' class='ckxq chxq-three'>租约详情</view>
             </view>
@@ -68,7 +68,7 @@
 
            <block wx:elif='{{item.status == 2}}'>
             <view  class='jxfy ckxq-box'>
-              <view bindtap='lookBillClick' data-id='{{index}}' class='ckxq'>查看账单</view>
+              <view bindtap='lookBillClick' data-id='{{index}}' data-paystatus="{{item.payStatus}}" class='ckxq'>查看账单</view>
               <view bindtap='lookContractClick' data-id='{{index}}' class='ckxq chxq-two'>查看合同</view>
               <view bindtap='reservationDetailsClick' data-id='{{index}}' class='ckxq chxq-three'>租约详情</view>
             </view>

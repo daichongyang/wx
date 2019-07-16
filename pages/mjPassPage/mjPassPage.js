@@ -37,13 +37,11 @@ Page({
       success: res => {
         console.log(res);
         var windowWidth = res.windowWidth;
-        var windowHeight = res.windowHeight - 60;
+        var windowHeight = res.windowHeight - 95;
         this.setData({
           windowWidth: windowWidth,
           windowHeight: windowHeight,
         })
-        //请求原始数据
-        this.loadDataSource();
       },
     })
 
@@ -63,10 +61,14 @@ Page({
         this.setData({
           password:res.data.data.split('')
         })
+      }else{
+        this.setData({
+          password:''
+        })
       }
     })
   },
-  //请求数据
+  //房间列表
   loadDataSource:function(){
     wx.request({
       method: "POST",
@@ -95,6 +97,7 @@ Page({
 
           //获取初始化二维码
           this.loadQrcodeStringSource(res.data.data[0].houseId);
+          // 锁密码
           this.getShowPassWordd()
         }
       }
@@ -218,7 +221,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    //请求原始数据
+    this.loadDataSource();
   },
 
   /**

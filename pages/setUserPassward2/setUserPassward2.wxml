@@ -7,7 +7,7 @@
           <input placeholder='请输入新密码' bindinput='getpassWordNew'></input>
         </view>
         <!-- 选择公寓 -->
-        <picker bindchange="bindPickerChange" value="{{index}}" range="{{optionss}}" range-key="{{'gyName'}}">
+        <picker bindchange="bindPickerChange" value="{{index}}" range="{{optionss}}" range-key="{{'name'}}">
           <view class='picker green' bindtap=''>请选择公寓</view>
         </picker>
       </view>

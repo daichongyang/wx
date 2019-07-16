@@ -55,7 +55,7 @@
         <text class='smallText'>(无服务费)</text>
       </view>
       <view class='saomaImg'>
-        <image class='ewmimg' src='{{type==7?wxUrl:aliUrl}}'></image>
+        <image class='ewmimg' mode='widthFix' src='{{type==7?wxUrl:aliUrl}}'></image>
       </view>
       <button class='button baocun' bindtap='save'>保存收款码图片</button>
       <view class='tishi_box'>

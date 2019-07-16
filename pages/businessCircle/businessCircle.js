@@ -17,7 +17,7 @@ Page({
     msgIndex: 0,
   },
   // 监听是否点击了当前这个tabBar
-  onTabItemTap(item) {
+  onTabItemTap(item) { 
     // 监听是否有租约来显示右下角图标
     wx.login({
       success: res => {
