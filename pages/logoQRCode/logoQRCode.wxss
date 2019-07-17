@@ -13,6 +13,11 @@ page{
   margin-top:40rpx;
   margin-bottom:10rpx;
 }
+.showagent{
+  font-size:30rpx;
+  margin-bottom:10rpx;
+  color:#e1e1e1;
+}
 .logoQRCode {
   background: #fff;
   display: flex;

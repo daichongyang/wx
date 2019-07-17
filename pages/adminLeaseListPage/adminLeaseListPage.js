@@ -24,6 +24,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options)
     this.loadDataSourceList(this.data.current, this.data.leaseStatus);
   },
 
@@ -118,7 +119,7 @@ Page({
   ydXqClick: function (e) {
     var obj = this.data.dataList[e.currentTarget.dataset.id];
     wx.navigateTo({
-      url: '/pages/leaseDetailPage/leaseDetailPage?selectIndex=' + e.currentTarget.dataset.index + '&leaseId=' + obj.leaseId,
+      url: '/pages/leaseDetailPage/leaseDetailPage?selectIndex=' + e.currentTarget.dataset.index + '&leaseId=' + obj.leaseId + '&houseId=' + obj.houseId,
     })
   },
 

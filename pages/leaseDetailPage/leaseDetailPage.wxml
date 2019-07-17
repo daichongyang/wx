@@ -67,7 +67,7 @@
               <text>共 ¥{{moneyTotal}}</text>
             </view>
           </view>
-          <view class="bill_pay">收款</view>
+          <view class="bill_pay" bindtap='platformBillss'>收款</view>
         </view>
         <block wx:for="{{leaseBill}}" wx:key="key" wx:for-index='itemId'>
           <view>

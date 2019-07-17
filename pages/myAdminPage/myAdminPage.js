@@ -9,7 +9,7 @@ Page({
   data: {
     adminTodo:{}
   },
-
+ 
   //管理员点击业务明细
   adminClick:function(e){
     var title = e.currentTarget.dataset.data;
@@ -37,7 +37,7 @@ Page({
       })
     } else if (title == '租约') {
       wx.navigateTo({
-        url: '/pages/adminLeaseListPage/adminLeaseListPage',
+        url: '/pages/adminLeaseListPage/adminLeaseListPage?a=1&b=2&c=3&d=4&e=5',
         success: function (res) { },
         fail: function (res) { },
         complete: function (res) { },

@@ -23,9 +23,9 @@ let requestApi = function(method, url, data) {
 }
 
 // 我是管理员
-var httpUrl = "https://www.ubicell.cn/apartment";
+// var httpUrl = "https://www.ubicell.cn/apartment";
 // var httpUrl = "http://192.168.0.145:8080";
-// var httpUrl = "http://192.168.0.180:8080";
+var httpUrl = "http://192.168.0.180:8080";
 
 //交易流水报表-交易项目下拉列表
 const itemSelect = params => {
@@ -63,7 +63,7 @@ const verifyCode = (params) => {
 }
 // 原生扫码支付
 let wNativePay = (params) => {
-  return requestApi("post", "/icbc/wNativePay/" + params.orderId + "/" + params.payType)
+  return requestApi("post", "/icbc/wNativePay", params)
 }
 // 城市选择请求接口
 var locationUrl = httpUrl + "/v1.0/web/house/location";
@@ -415,8 +415,16 @@ export const houseOperate = houseId => {
   return requestApi("post", '/v1.0/admin/house/operate/' + houseId)
 }
 
+// 账单支付
+export const platformBills = params => { return requestApi("post",'/platformOrderController/platform/bills', params) }
+
+// 更新线下交易结果
+export const updateOfflineTradeResult = params => { return requestApi("post","/merchWallet/updateOfflineTradeResult/" + params.houseId + "/" + params.orderNo) }
+
 module.exports = {
+  updateOfflineTradeResult,
   getShowPassWord,
+  platformBills,
   getUserHouseList,
   configMeterList,
   configMeterUpdate,
