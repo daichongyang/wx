@@ -43,6 +43,7 @@ page{
 
 .todoBox{
   margin-top: 10rpx;
+  margin-bottom:40rpx;
 }
 
 .todoTitle{
@@ -100,4 +101,28 @@ page{
   margin-top:50rpx;
   margin-bottom:5rpx;
   background:#f7f7f7;
+}
+.tabar_foot{
+  position: fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:98rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size:20rpx;
+  background:#fff;
+  border-top:1px solid #f7f7f7;
+}
+.tabar_foot image{
+  margin-bottom:10rpx;
+}
+.tabar_li{
+  flex: 1;
+  text-align: center;
+}
+.fangtaitu{
+  width:42rpx;
+  margin:0 auto;
 }

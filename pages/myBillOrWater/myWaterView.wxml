@@ -81,7 +81,7 @@
         <view class='water_item'>
           <view class='water_left'>
             <view class='bottom_left'>
-              <view class='waterlist_title'>{{item.billType}}</view>
+              <view class='waterlist_title'>{{item.billsItem}}</view>
               <view class='waterlist_time'>{{item.billTime}}</view>
             </view>
             <view class='waterlist_name'>{{item.owner}}</view>

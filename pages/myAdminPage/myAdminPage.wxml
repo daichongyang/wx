@@ -142,8 +142,16 @@
   <view class='footer'>没有更多了</view>
 
 </view>
-
-
-  
-
 </scroll-view>
+<!-- 底部tabar -->
+<view class='tabar_foot'>
+  <view class='tabar_li'>
+    <view><image mode="widthFix" class='fangtaitu' src='../../img/my/fangtaitu.png'></image></view>
+    <view>首页</view>
+  </view>
+  <view class='tabar_li'>
+    <view><image mode="widthFix" class='fangtaitu' src='../../img/my/fangtaitu.png'></image></view>
+    <view>消息</view>
+  </view>
+</view>
+

@@ -54,11 +54,11 @@ Page({
     current:1,
     size:10,
     type:0,
-    date1: getDateArray()[7],
+    date1: getDateArray(new Date().getTime() - 24 * 60 * 60 * 1000)[7],
     date2: getDateArray()[7],
     end: getDateArray()[7],//限制结束时间
-    startTime: new Date().getTime(),
-    endTime: new Date().getTime() + 99999,
+    startTime: new Date().getTime() - 24 * 60 * 60 * 1000,
+    endTime: new Date().getTime(),
     levelCost: 0,//交易项目
     levelGroup: 0,//交易项目
     levelItem: 0,//交易项目
@@ -238,7 +238,8 @@ Page({
     })
   },
   // 选择账单列表/交易流水
-  changeSelectState: function (e) {    
+  changeSelectState: function (e) {
+    this.data.current=1
     var title = e.currentTarget.dataset.title;
     if (title == "bill") {
       this.setData({
@@ -284,12 +285,13 @@ Page({
               waterVO: data
             })
           }else{
-            this.data.waterVO.push(data)
+            this.data.waterVO=this.data.waterVO.concat(data);//合并数组
           }
           this.setData({
             waterData: res.data.data.records[0]||[],
             waterVO: this.data.waterVO
           })
+          console.log(this.data.waterVO)
         }else{
           if (this.data.current == 1) {
             console.log("current:" + this.data.current)
@@ -355,7 +357,11 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    this.setData({
+      current: this.data.current+1
+    })
+    console.log(this.data.current)
+    this.getWaterDataInfo()
   },
 
   /**
