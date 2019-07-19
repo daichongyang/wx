@@ -249,65 +249,6 @@ export const configMeterUpdate = params => {
 export const getShowPassWord = (houseId) => {
   return requestApi("post", '/hydroelectric/getShowPassWord/' + houseId)
 }
-// <<<<<<< HEAD
-
-// // 数据报表/总账单
-// const adminIndexbilltotal = (params) => {
-//   return requestApi("post", "/v1.0/admin/index/bill/total", params)
-// }
-// // 数据报表/房源数据
-// const adminIndexHouseData = (params) => {
-//   return requestApi("post", "/v1.0/admin/index/house/data", params)
-// }
-// // 数据报表/未来预计收入
-// const adminIndexbillfuture = (params) => {
-//   return requestApi("post", "/v1.0/admin/index/revenue/future", params)
-// }
-// // 数据报表/快到期合同
-// const adminIndexWillExpired = (params) => {
-//   return requestApi("post", "/v1.0/admin/index/contract/expired/" + params.day)
-// }
-// // 数据报表/已到期合同
-// const adminIndexBeExpired = (params) => {
-//   return requestApi("post", "/v1.0/admin/index/contract/expired", params)
-// }
-
-// // 数据报表 ---流水统计 
-// const getDataTableWithWater = (params) => {
-//   return requestApi("post", "/v1.0/admin/report/statements/list", params)
-// }
-
-// // 数据报表 ---账单统计 
-// const getDataTableWithBill = (params) => {
-//   return requestApi("post", "/v1.0/admin/report/bills/list", params)
-// }
-
-// // 流水账单 ---交易流水 
-// const getBusinessWater = (params) => {
-//   return requestApi("post", "/v1.0/admin/report/business/list", params)
-// }
-
-// // 用户设置支付密码
-// const setCardPassWord = (params) => {
-//   return requestApi("post", "/userCar/setCardPassWord/" + params.isNoPass + "/" + params.psw)
-// }
-
-// // 通过房间查询清分信息
-// const getDistributionByHouseId = (params) => {
-//   return requestApi("post", "/userCar/getDistributionByHouseId/" + params.houseId)
-// }
-
-// // 用户银行卡支付
-// const payByBankCar = (params) => {
-//   return requestApi("post", "/userCar/payByBankCar", params)
-// }
-
-// // 查询银行卡支付结果
-// const getCardPayStatus = (params) => {
-//   return requestApi("post", "/userCar/getCardPayStatus", params)
-// }
-
-// =======
 
 // 数据报表/总账单
 const adminIndexbilltotal = (params) => {
@@ -421,7 +362,22 @@ export const platformBills = params => { return requestApi("post",'/platformOrde
 // 更新线下交易结果
 export const updateOfflineTradeResult = params => { return requestApi("post","/merchWallet/updateOfflineTradeResult/" + params.houseId + "/" + params.orderNo) }
 
+//消息标记为已读--管理端
+export const markMessage = messageId => { return requestApi("post",'/v1.0/admin/message/mark/' + messageId) }
+//删除消息--管理端
+export const deleteMessage = params => { return requestApi("post",'/v1.0/admin/message/delete', params) }
+
+//消息列表--管理端
+export const messageList = params => { return requestApi("post",'/v1.0/admin/message/list', params) }
+
+// 未读条数提醒
+export const messageUnread = params => { return requestApi("post",'/v1.0/admin/message/unread', params) }
+
 module.exports = {
+  messageUnread,
+  markMessage,
+  deleteMessage,
+  messageList,
   updateOfflineTradeResult,
   getShowPassWord,
   platformBills,

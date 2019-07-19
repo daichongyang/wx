@@ -75,7 +75,9 @@
     "pages/leaseBillDetail2/leaseBillDetail2",
     "pages/configMoney/configMoney",
     "pages/myBills/myBills",
-    "pages/leaseCheckOutConfirmPage/leaseCheckOutConfirmPage"
+    "pages/leaseCheckOutConfirmPage/leaseCheckOutConfirmPage",
+    "pages/manageInforList/manageInforList",
+    "pages/manageInforLi/manageInforLi"
   ],
   "window": {
     "backgroundTextStyle": "light",

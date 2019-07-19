@@ -1,0 +1,12 @@
+<!--pages/manageInforLi/manageInforLi.wxml-->
+<view class='swiper'>
+  <view class='header'><text class='left'>{{title}}</text></view>
+  <block wx:for='{{inforArr}}' wx:key='key' wx:for-item="item">
+    <view class='item' data-item='{{item}}' bindtap='readNoticee'>
+      <view >{{item.gmtCreate}}</view>
+      <view >{{item.content}}</view>
+      <view wx:if="{{item.isRead == 0}}" class='reddian'></view>
+    </view>
+  </block>
+</view>
+

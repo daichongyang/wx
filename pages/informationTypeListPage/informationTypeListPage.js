@@ -23,7 +23,7 @@ Page({
           }
           return item
         })
-        this.setData({
+        this.setData({ 
           arr: newObj,
         })
       }

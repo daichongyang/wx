@@ -1,0 +1,51 @@
+<!--pages/manageInforList/manageInforList.wxml-->
+<view bindtap='msgListClick' data-id='0' class='item'>
+  <view class='img_view'>
+    <image src='../../img/msg/bb_wdxx_01@2x.png'></image>
+    <view class='biaoji' wx:if="{{noRead.financeNum != 0}}">{{noRead.financeNum}}</view>
+  </view>
+  <view class='item-top' >财务消息</view>
+  <!-- <view class='item-right' >{{gmtCreate1}}</view> -->
+  <view class='item-bottom'>{{noRead.financeNum != 0?"您有未读信息，请注意查看":"无"}}</view>
+</view>
+
+<view bindtap='msgListClick' data-id='1' class='item'>
+  <view class='img_view'>
+    <image src='../../img/msg/bb_wdxx_05@2x.png'></image>
+    <view class='biaoji' wx:if="{{noRead.leaseNum != 0}}">{{noRead.leaseNum}}</view>
+  </view>
+  <view class='item-top' >租约消息</view>
+  <!-- <view class='item-right' >{{gmtCreate2}}</view> -->
+  <view class='item-bottom'>{{noRead.leaseNum != 0?"您有未读信息，请注意查看":"无"}}</view>
+</view>
+
+<view bindtap='msgListClick' data-id='2' class='item'>
+  <view class='img_view'>
+  <image src='../../img/msg/bb_wdxx_08@2x.png'></image>
+    <view class='biaoji' wx:if="{{noRead.houseNum != 0}}">{{noRead.houseNum}}</view>
+  </view>
+  <view class='item-top' >房源消息</view>
+  <!-- <view class='item-right' >{{gmtCreate3}}</view> -->
+  <view class='item-bottom'>{{noRead.houseNum != 0?"您有未读信息，请注意查看":"无"}}</view>
+</view>
+
+<view bindtap='msgListClick' data-id='3' class='item'>
+  <view class='img_view'>
+    <image src='../../img/msg/bb_wdxx_10@2x.png'></image>
+    <view class='biaoji' wx:if="{{noRead.serviceNum != 0}}">{{noRead.serviceNum}}</view>
+  </view>
+  <view class='item-top' >服务消息</view>
+  <!-- <view class='item-right' >{{gmtCreate4}}</view> -->
+  <view class='item-bottom'>{{noRead.serviceNum != 0?"您有未读信息，请注意查看":"无"}}</view>
+</view>
+
+<view bindtap='msgListClick' data-id='4' class='item'>
+  <view class='img_view'>
+    <image src='../../img/msg/bb_wdxx_12@2x.png'></image>
+    <view class='biaoji' wx:if="{{noRead.sysNum != 0}}">{{noRead.sysNum}}</view>
+  </view>
+  <view class='item-top' >系统信息</view>
+  <!-- <view class='item-right' >{{gmtCreate5}}</view> -->
+  <view class='item-bottom'>{{noRead.sysNum != 0?"您有未读信息，请注意查看":"无"}}</view>
+</view>
+ 

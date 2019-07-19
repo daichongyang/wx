@@ -149,7 +149,7 @@
     <view><image mode="widthFix" class='fangtaitu' src='../../img/my/fangtaitu.png'></image></view>
     <view>首页</view>
   </view>
-  <view class='tabar_li'>
+  <view class='tabar_li' bindtap='goManageInforList'>
     <view><image mode="widthFix" class='fangtaitu' src='../../img/my/fangtaitu.png'></image></view>
     <view>消息</view>
   </view>

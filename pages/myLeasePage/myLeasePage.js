@@ -9,7 +9,6 @@ Page({
    */
   data: {
     reservationlist: [],
-    refresh:false,
   },
 
   /**
@@ -26,7 +25,7 @@ Page({
       title: '正在加载...',
     })
     wx.request({
-      url: utils.leaseListUrl,
+      url: utils.leaseListUrl+"/0",
       header: {
         "Authorization": app.globalData.userInfo.token,
       },
@@ -39,7 +38,6 @@ Page({
           }
           this.setData({
             reservationlist:res.data.data,
-            refresh:false,
           })
         }
       }

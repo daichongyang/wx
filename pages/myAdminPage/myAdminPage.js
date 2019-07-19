@@ -100,7 +100,12 @@ Page({
       }
     })
   },
-
+  // 管理端信息列表
+  goManageInforList(){
+    wx.navigateTo({
+      url: '/pages/manageInforList/manageInforList',
+    })
+  },
   bindscrolltoupper:function(){
     // wx.startPullDownRefresh({
       

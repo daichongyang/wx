@@ -28,7 +28,7 @@
                 <text class="bill_star_end">{{item.startDateStr}}-{{item.endDateStr}}</text>
               </view>
               <view class="bill_right">
-                <text>未支付</text>
+                <text>{{item.validStatus==0?(item.payStatus==0? '未支付':'已支付'):'坏账'}}</text>
                 <text>{{item.receivableDateStr}}前</text>
               </view>
             </view>

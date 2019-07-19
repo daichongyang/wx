@@ -131,8 +131,9 @@ Page({
               iitem.endDateStr = dateTool.formatTimeStamp(iitem.endPayment / 1000, "yyyy.MM.dd");
               iitem.receiptDateStr = getDateArray(iitem.startPayment)[18];
               iitem.detailVos.map(item => {
-                if (_this.data.payStatus == 0&&index == 0){
-                  item.isSelct = true;
+                if (item.validStatus == 0 && item.payStatus == 1){
+                  console.log(index)
+                  item.isSelct = false;
                   total += item.accountReceivable;
                   num += 1;
                 }else{
@@ -167,7 +168,7 @@ Page({
       title: '正在加载...',
     })
     wx.request({
-      url: utils.leaseListUrl,
+      url: utils.leaseListUrl+"/1",
       header: {
         "Authorization": app.globalData.userInfo.token,
       },
@@ -204,8 +205,8 @@ Page({
     let _this= this
     this.data.leaseBill.map((item,index) => {
       item.detailVos.map(item => {
-        if(_this.data.payStatus == 0&& index == 0){
-          item.isSelct = true
+        if (item.validStatus == 0&&item.payStatus == 1){
+          item.isSelct = false
         }else{
           item.isSelct = this.data.isAll;
         }
@@ -234,8 +235,8 @@ Page({
     let index = e.currentTarget.dataset.id;
     var leaseBillItem = this.data.leaseBill[itemId];
     var billItem = leaseBillItem.detailVos[index];
-    if (this.data.payStatus == 0 && itemId==0){
-      billItem.isSelct = true;
+    if (billItem.validStatus == 0 && billItem.payStatus == 1){
+      billItem.isSelct = false;
     }else{
       billItem.isSelct = !billItem.isSelct;
     }
