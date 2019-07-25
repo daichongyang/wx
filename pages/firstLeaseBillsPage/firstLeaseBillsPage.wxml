@@ -9,7 +9,7 @@
 
 
 <!-- <!-- 第一次进入该方法 --> 
-<block wx:if='{{firstPay == 1}}'>
+<block wx:if='{{firstPay == 1}}'> 
 <checkbox-group bindchange="checkboxChange">
 <block wx:for='{{lszdList}}'  wx:key='key' wx:for-item='itemBox'>
     <view class='zdxx-box'>

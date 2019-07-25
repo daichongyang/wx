@@ -1,6 +1,6 @@
 // pages/roomStatePage/roomStatePage.js
 var utils = require('../../utils/url.js');
-import { selectApartment } from "../../utils/url.js"
+import { selectApartment, houseOperate } from "../../utils/url.js"
 const app = getApp();
 Page({
 
@@ -140,6 +140,7 @@ Page({
       }
     })
   },
+
   goapartmentDetails(e){
     console.log(e)
     let houseId = e.currentTarget.dataset.houseid
@@ -147,7 +148,30 @@ Page({
       url: '/pages/apartmentDetails/apartmentDetails?houseId=' + houseId,
     })
   },
-  
+  // 租约详情
+  goMyLeaseDetails2(e){
+    let houseId = e.currentTarget.dataset.houseid
+    let leaseId = ''
+    houseOperate(houseId).then(res => {
+      console.log(res)
+      if (res.data.code == 200) {
+        leaseId = res.data.data.leaseInfo.leaseId
+        if (leaseId) {
+          wx.navigateTo({
+            url: '/pages/myLeaseDetails2/myLeaseDetails2?leaseId=' + leaseId + '&houseId=' + houseId,
+          })
+        } else {
+          wx.showToast({
+            title: "还未签订租约",
+            icon: 'none',
+            duration: 1500
+          })
+        }
+      }
+    })
+
+
+  },
 
   /**
    * 生命周期函数--监听页面加载

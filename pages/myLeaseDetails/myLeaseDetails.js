@@ -3,12 +3,14 @@
 const app = getApp();
 var utils = require('../../utils/url.js');
 var util = require('../../utils/util.js');
+import { customerName } from "../../utils/url.js"
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    name:'',
     reservation: {},
     reservationDetails: {},
   },
@@ -25,8 +27,19 @@ Page({
     })
     console.log(this.data.reservation);
     this.loadreservationDetails(jsonData.leaseId);
+    this.getcustomerName(jsonData.houseId);
   },
-
+  getcustomerName(houseId) {//获取房东名称
+    console.log(houseId)
+    customerName(houseId).then(res => {
+      console.log(res)
+      if (res.data.code == 200) {
+        this.setData({
+          name: res.data.data
+        })
+      }
+    })
+  },
   //加载详情
   loadreservationDetails: function (leaseId) {
     wx.request({

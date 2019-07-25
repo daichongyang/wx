@@ -44,6 +44,7 @@ Page({
     let params={
       current: this.data.current,
       devType: this.data.devType,
+      size: this.data.size,
       gyId: this.data.gyId,
       devType: this.data.devType,
       sn:this.data.sn

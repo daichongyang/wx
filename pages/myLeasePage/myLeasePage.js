@@ -18,7 +18,6 @@ Page({
     this.loadDataSource();
   },
 
-  
   //加载数据
   loadDataSource: function () {
     wx.showLoading({

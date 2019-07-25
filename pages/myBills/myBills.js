@@ -209,6 +209,14 @@ Page({
           item.isSelct = false
         }else{
           item.isSelct = this.data.isAll;
+          if(item.isSelct){
+            let obj = {
+              billsCost: item.accountReceivable,
+              billsId: item.billsId,
+              pkId: item.pkId,
+            }
+            _this.data.payQueryArr.push(obj)
+          }
         }
         return item;
       })
@@ -224,7 +232,8 @@ Page({
       moneyTotal: Number(total).toFixed(2),
       selectBillNum: num,
       isAll: this.data.isAll,
-      leaseBill: this.data.leaseBill
+      leaseBill: this.data.leaseBill,
+      payQueryArr: this.data.payQueryArr
     })
   },
 

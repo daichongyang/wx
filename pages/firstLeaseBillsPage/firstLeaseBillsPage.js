@@ -149,6 +149,7 @@ Page({
           })
         }
         wx.hideLoading();
+        this.lookAllZdClick()
       }
     })
   },

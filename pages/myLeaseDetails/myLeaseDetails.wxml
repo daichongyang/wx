@@ -49,7 +49,7 @@
         <view class='clear_fix'><view class='Detail-left'>付款方式</view><view class='Detail-right'>{{reservationDetails.payType}}</view></view>
         <view class='clear_fix'><view class='Detail-left'>租金</view><view class='Detail-right'>{{reservationDetails.rentCost}}元/月</view></view>
         <view class='clear_fix'><view class='Detail-left'>房屋押金</view><view class='Detail-right'>{{reservationDetails.depositCost}}元</view></view>
-        <view class='clear_fix'><view class='Detail-left'>电器押金</view><view class='Detail-right'></view></view>
+        <!-- <view class='clear_fix'><view class='Detail-left'>电器押金</view><view class='Detail-right'></view></view> -->
         <view class='clear_fix'><view class='Detail-left'>下期收租日</view><text class='Detail-right'>{{reservationDetails.nextTime}}</text></view>
       </view>
 
@@ -63,7 +63,7 @@
 
          <view class='reservationDetail-item'>
           <view class='heaerTitle' style='font-weight: bold'>房东信息</view>
-          <view class='clear_fix'><view class='Detail-left'>姓名</view><view class='Detail-right'></view></view>
+          <view class='clear_fix'><view class='Detail-left'>姓名</view><view class='Detail-right'>{{name}}</view></view>
       </view>
 
         <view class='reservationDetail-item reservationDetail-three'>

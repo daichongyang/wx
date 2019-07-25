@@ -8,7 +8,7 @@
         <view class='sx_item'>
           业务状态
           <text class='arrow-down'></text>
-          </view>
+        </view>
       </picker>
     </view>
     <view class='sx_item'>
@@ -16,7 +16,7 @@
         <view class='sx_item'>
           全部公寓
           <text class='arrow-down'></text>
-          </view>
+        </view>
       </picker>
     </view>
     <view class='sx_item'>出租状态
@@ -112,7 +112,7 @@
                         <view class='caozuo_item3_ownerName'>{{houseInfor.ownerName}}</view>
                         <view class='caozuo_item3_Btn'>
                           <view class='codeBtn' bindtap='goapartmentDetails' data-houseId="{{houseItem.houseId}}">房源详情</view>
-                          <view class='codeBtn' wx:if="{{houseInfor.isRent==1}}">租约详情</view>
+                          <view class='codeBtn' wx:if="{{houseInfor.isRent==1}}" bindtap='goMyLeaseDetails2' data-houseId="{{houseItem.houseId}}" data-leaseId="{{houseItem.leaseId}}">租约详情</view>
                           <view class='codeBtn btn_green' wx:if="{{houseInfor.isRent==0}}">租客登记</view>
                         </view>
                       </view>
@@ -168,7 +168,7 @@
                         <view class='caozuo_item3_ownerName'>{{houseInfor.ownerName}}</view>
                         <view class='caozuo_item3_Btn'>
                           <view class='codeBtn' bindtap='goapartmentDetails' data-houseId="{{houseItem.houseId}}">房源详情</view>
-                          <view class='codeBtn' wx:if="{{houseInfor.isRent==1}}">租约详情</view>
+                          <view class='codeBtn' wx:if="{{houseInfor.isRent==1}}" bindtap='goMyLeaseDetails2' data-houseId="{{houseItem.houseId}}" data-leaseId="{{houseItem.leaseId}}">租约详情</view>
                           <view class='codeBtn btn_green' wx:if="{{houseInfor.isRent==0}}">租客登记</view>
                         </view>
                       </view>
@@ -218,13 +218,13 @@
                             <view class='house_style_day'> 合同已到期{{sItem.day}}天</view>
                           </view>
                         </block>
-                      </view> 
+                      </view>
                       <!-- 租客和房源详情和租约详情和。。。。 -->
                       <view class='caozuo_item3'>
                         <view class='caozuo_item3_ownerName'>{{houseInfor.ownerName}}</view>
                         <view class='caozuo_item3_Btn'>
                           <view class='codeBtn' bindtap='goapartmentDetails' data-houseId="{{houseItem.houseId}}">房源详情</view>
-                          <view class='codeBtn' wx:if="{{houseInfor.isRent==1}}">租约详情</view>
+                          <view class='codeBtn' wx:if="{{houseInfor.isRent==1}}" bindtap='goMyLeaseDetails2' data-houseId="{{houseItem.houseId}}" data-leaseId="{{houseItem.leaseId}}">租约详情</view>
                           <view class='codeBtn btn_green' wx:if="{{houseInfor.isRent==0}}">租客登记</view>
                         </view>
                       </view>
@@ -234,7 +234,7 @@
                 </view>
 
               </view>
-        
+
             </block>
             <!-- 使用弹性布局 -->
             <view class='houseItemDis' wx:if="{{floorItem.houses.length % 3 != 0}}"></view>
@@ -249,4 +249,3 @@
     </block>
   </view>
 </view>
-
