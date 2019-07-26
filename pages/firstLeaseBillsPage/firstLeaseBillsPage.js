@@ -23,7 +23,8 @@ Page({
     allCount:0,//全部count
     allZdcount:0,//没有点开全部的 count
     tempArr:[],
-    isHeiden:0
+    isHeiden:0,
+    status:'',//房间状态
   },
   // 查看账单详情
   billItemSelectClick: function (e) {
@@ -44,10 +45,12 @@ Page({
       leaseId: options.leaseId,
       firstPay: options.firstPay,
       rentCost:options.rentCost,
-      houseId: options.houseId
+      houseId: options.houseId,
+      status: options.status
     })
     //账单信息
     this.loadDataSource(options.leaseId);
+    // this.histeryBill(options.leaseId);
     console.log(this.data.houseId)
   },
 
@@ -139,7 +142,6 @@ Page({
             payQueryArr: this.data.payQueryArr,
             allZdcount: this.data.allZdcount,
             allCount:this.data.allCount,
-
           })
         }else{
           wx.showToast({
@@ -149,7 +151,7 @@ Page({
           })
         }
         wx.hideLoading();
-        this.lookAllZdClick()
+        // this.lookAllZdClick()
       }
     })
   },
@@ -229,76 +231,6 @@ Page({
       success: res => {
         console.log(res);
         this.gochoisePay(res.data.data, this.data.houseId)
-        // wx.request({
-        //   method: "POST",
-        //   url: utils.wechatPaycreateUrl + res.data.data + '/' + this.data.houseId,
-        //   header: {
-        //     "Authorization": app.globalData.userInfo.token,
-        //   },
-        //   success:res => {
-        //     if (res.data.code != 200) {
-        //       wx.showToast({
-        //         title: res.data.msg,
-        //         icon: 'none',
-        //         duration: 2000
-        //       })
-        //     } else {
-        //       wx.requestPayment({
-        //         timeStamp: res.data.data.timeStamp,
-        //         nonceStr: res.data.data.nonceStr,
-        //         package: res.data.data.package,
-        //         signType: res.data.data.signType,
-        //         paySign: res.data.data.paySign,
-        //         success: res => {
-        //           wx.showToast({
-        //             title: '支付成功',
-        //             icon: 'none',
-        //             duration: 2000
-        //           })
-        //           if (this.data.firstPay == 1) {
-        //             let pages = getCurrentPages();
-        //             let prevPage = pages[pages.length - 2];
-        //             console.log(prevPage)
-        //             if (prevPage.route == "pages/myLeasePage/myLeasePage") {
-        //               prevPage.setData({
-        //                 refresh:true,
-        //               })
-        //               wx.navigateBack({
-        //                 detail: 1,
-        //               })
-        //             }
-        //           } else {
-        //             //晚上加的代码
-        //             this.setData({
-        //               lszdList: [],
-        //               lszdAllList: [],
-        //               flag: true,
-        //               chekboxAll: false,
-        //               chekZdCount: 0,
-        //               money: 0,
-        //               payQueryArr: [],
-        //               allCount: 0,//全部count
-        //               allZdcount: 0,//没有点开全部的 count
-        //               tempArr: [],
-        //               isHeiden: 0
-        //             })
-        //             this.loadDataSource(this.data.leaseId);
-        //             //晚上加的代码
-        //           }
-        //         },
-        //         fail: res => {
-        //           wx.showToast({
-        //             title: '支付失败',
-        //             icon: 'none',
-        //             duration: 1000
-        //           })
-        //         },
-
-        //       })
-        //     }
-        //   }
-        // })
-     
       }
     })
   },
@@ -387,7 +319,52 @@ Page({
     })
     
   },
+  //历史账单
+  histeryBill: function (leaseId) {
+    wx.showLoading({
+      title: '正在加载...',
+    })
+    wx.request({
+      url: utils.leaseBillsUrl + leaseId + '/1',
+      header: {
+        "Authorization": app.globalData.userInfo.token,
+      },
+      method: "POST",
+      success: res => {
+        if (res.data.code == 200) {
+          console.log(res);
+          var dada = res.data.data;
+          wx.hideLoading();
+          if (!dada) {
+            return;
+          }
+          for (let i = 0; i < dada.length; i++) {
+            var startPayment = util.formatTimeTwo(dada[i].startPayment / 1000, 'Y/M/D');
+            var endPayment = util.formatTimeTwo(dada[i].endPayment / 1000, 'Y/M/D');
+            var gmtCreate = util.formatTimeTwo(dada[i].gmtCreate / 1000, 'Y/M/D');
+            dada[i].startPayment = startPayment;
+            dada[i].endPayment = endPayment;
+            dada[i].gmtCreate = gmtCreate;
+            for (let j = 0; j < dada[i].detailVos.length; j++) {
+              var receiptDate = util.formatTimeTwo(dada[i].detailVos[j].receiptDate / 1000, 'Y/M/D h:m');
+              dada[i].detailVos[j].receiptDate = receiptDate
+            }
+          }
+          this.setData({
+            lszdList: res.data.data
+          })
+        } else {
+          wx.hideLoading();
+          wx.showToast({
+            title: '加载失败',
+            icon: 'none',
+            duration: 1000
+          })
 
+        }
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

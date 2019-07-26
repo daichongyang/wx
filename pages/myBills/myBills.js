@@ -5,7 +5,9 @@ import {
   adminLeaseBills,
   adminLeaseContract
 } from "../../utils/url.js"
-import {getDateArray,} from "../../utils/myDate.js"
+import {
+  getDateArray,
+} from "../../utils/myDate.js"
 var dateTool = require('../../utils/date.js');
 var utils = require('../../utils/url.js');
 var util = require('../../utils/util.js');
@@ -21,10 +23,10 @@ Page({
     showTitel: '',
     noShowTitel: '',
     current: 1,
-    reservationlist: [],//房间列表
-    houseName:'',
-    houseNumber:'',
-    houseId:'',
+    reservationlist: [], //房间列表
+    houseName: '',
+    houseNumber: '',
+    houseId: '',
     status: 0,
     leaseId: 0,
     tenantList: [], // 入住人信息
@@ -34,28 +36,22 @@ Page({
     isAll: false, // 全选
     selectBillNum: 0, // 已选择的账单
     moneyTotal: 0, // 总金额
-    payQueryArr: [],//已勾选的账单
+    payQueryArr: [], //已勾选的账单
     contractImg: null,
-    payStatus:'',//支付状态
+    payStatus: '', //支付状态
+    status: '',
+    lszdList: [],
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    // this.setData({
-    //   selectIndex: options.selectIndex,
-    //   leaseId: options.leaseId
-    // })
-    // this.getLeaseWithIndex(0);
-    // if (options.selectIndex != 0) {
-    //   this.getLeaseWithIndex(this.data.selectIndex);
-    // }
+  onLoad: function(options) {
     this.loadDataSource()
-
+    
   },
   //点击去支付
-  payClick: function () {
+  payClick: function() {
     if (!this.data.payQueryArr.length) {
       wx.showToast({
         title: '请选择支付项',
@@ -75,7 +71,7 @@ Page({
 
       success: res => {
         console.log(res);
-        if(res.data.code == 200){
+        if (res.data.code == 200) {
           this.gochoisePay(res.data.data, this.data.houseId)
         }
       }
@@ -90,26 +86,29 @@ Page({
   },
 
   // 历史账单
-  footClick: function () {
+  footClick: function() {
     wx.navigateTo({
       url: '/pages/lookingLeaseBillsPage/lookingLeaseBillsPage?leaseId=' + this.data.leaseId,
     })
   },
 
   // 切换房间
-  changeHouse(e){
+  changeHouse(e) {
     console.log(e)
     this.setData({
       houseName: this.data.reservationlist[e.detail.value].name,
       leaseId: this.data.reservationlist[e.detail.value].leaseId,
       houseId: this.data.reservationlist[e.detail.value].houseId,
       houseNumber: this.data.reservationlist[e.detail.value].houseNumber,
+      status: this.data.reservationlist[e.detail.value].status,
     })
+    console.log(this.data.status)
     this.getLeaseBills()
+    this.histeryBill()
   },
 
   //账单列表
-  getLeaseBills: function () {
+  getLeaseBills: function() {
     wx.showLoading({
       title: '正在加载...',
     })
@@ -120,23 +119,27 @@ Page({
       },
       method: "POST",
       success: res => {
-        console.log(res); 
+        console.log(res);
         if (res.data.code == 200) {
           let _this = this
           let total = 0
           let num = 0
           this.setData({
-            leaseBill: res.data.data.map((iitem,index) => {
+            leaseBill: res.data.data.map((iitem, index) => {
               iitem.startDateStr = dateTool.formatTimeStamp(iitem.startPayment / 1000, "yyyy.MM.dd");
               iitem.endDateStr = dateTool.formatTimeStamp(iitem.endPayment / 1000, "yyyy.MM.dd");
               iitem.receiptDateStr = getDateArray(iitem.startPayment)[18];
               iitem.detailVos.map(item => {
-                if (item.validStatus == 0 && item.payStatus == 1){
+                if (item.validStatus == 0 && item.payStatus == 1) {
                   console.log(index)
                   item.isSelct = false;
+                  // total += item.accountReceivable;
+                  // num += 1;
+                } else if (index == 0 && _this.data.payStatus == 0) { //待确认状态，默认必须勾选
+                  item.isSelct = true;
                   total += item.accountReceivable;
                   num += 1;
-                }else{
+                } else {
                   item.isSelct = false;
                 }
                 item.billsId = iitem.billsId;
@@ -163,12 +166,12 @@ Page({
     })
   },
   //公寓房间
-  loadDataSource: function () {
+  loadDataSource: function() {
     wx.showLoading({
       title: '正在加载...',
     })
     wx.request({
-      url: utils.leaseListUrl+"/1",
+      url: utils.leaseListUrl + "/0",
       header: {
         "Authorization": app.globalData.userInfo.token,
       },
@@ -179,7 +182,7 @@ Page({
           if (!res.data.data) {
             return;
           }
-          this.data.reservationlist = res.data.data.filter(item=>{
+          this.data.reservationlist = res.data.data.filter(item => {
             item.houseName = item.name + item.houseNumber
             return item
           })
@@ -189,27 +192,37 @@ Page({
             houseId: this.data.reservationlist[0].houseId,
             payStatus: this.data.reservationlist[0].payStatus,
             houseNumber: this.data.reservationlist[0].houseNumber,
+            status: this.data.reservationlist[0].status,
             reservationlist: this.data.reservationlist
           })
           this.getLeaseBills()
+          this.histeryBill()
         }
       }
     })
   },
 
   // 全选
-  selectAllClick: function () {
+  selectAllClick: function() {
     this.data.isAll = !this.data.isAll;
     var num = 0;
     var total = 0;
-    let _this= this
-    this.data.leaseBill.map((item,index) => {
+    let _this = this
+    this.data.leaseBill.map((item, index) => {
       item.detailVos.map(item => {
-        if (item.validStatus == 0&&item.payStatus == 1){
+        if (item.validStatus == 0 && item.payStatus == 1) {
           item.isSelct = false
-        }else{
+        } else if (index == 0 && _this.data.payStatus == 0) {
+          item.isSelct = true
+          let obj = {
+            billsCost: item.accountReceivable,
+            billsId: item.billsId,
+            pkId: item.pkId,
+          }
+          _this.data.payQueryArr.push(obj)
+        } else {
           item.isSelct = this.data.isAll;
-          if(item.isSelct){
+          if (item.isSelct) {
             let obj = {
               billsCost: item.accountReceivable,
               billsId: item.billsId,
@@ -221,9 +234,22 @@ Page({
         return item;
       })
       if (this.data.isAll) {
-        num += item.detailVos.length;
-        for (let i = 0; i < item.detailVos.length;i++){
-          total += item.detailVos[i].accountReceivable;
+        for (let i = 0; i < item.detailVos.length; i++) {
+          if (item.detailVos[i].validStatus == 0 && item.detailVos[i].payStatus == 1) { //已支付
+
+          } else {
+            num++;
+            total += item.detailVos[i].accountReceivable;
+          }
+
+        }
+      } else if (index == 0 && _this.data.payStatus == 0) { //待确认支付
+        for (let i = 0; i < item.detailVos.length; i++) {
+          if (item.detailVos[i].validStatus == 0 && item.detailVos[i].payStatus == 1) { //已支付
+          } else {
+            num++;
+            total += item.detailVos[i].accountReceivable;
+          }
         }
       }
       return item;
@@ -238,21 +264,24 @@ Page({
   },
 
   // 选择单个账单
-  billSelectClick: function (e) {
+  billSelectClick: function(e) {
     console.log(e)
     let itemId = e.currentTarget.dataset.item;
     let index = e.currentTarget.dataset.id;
     var leaseBillItem = this.data.leaseBill[itemId];
     var billItem = leaseBillItem.detailVos[index];
-    if (billItem.validStatus == 0 && billItem.payStatus == 1){
+    if (billItem.validStatus == 0 && billItem.payStatus == 1) {
       billItem.isSelct = false;
-    }else{
+    } else if (itemId == 0 && this.data.payStatus == 0) {
+      billItem.isSelct = true;
+    } else {
       billItem.isSelct = !billItem.isSelct;
     }
+
     var num = 0;
     var total = 0;
     var numTotal = 0;
-    this.data.payQueryArr=[]
+    this.data.payQueryArr = []
     this.data.leaseBill.map((item) => {
       item.detailVos.map(item => {
         if (item.isSelct) {
@@ -282,122 +311,53 @@ Page({
   },
 
   // 查看账单详情
-  billItemSelectClick: function (e) {
+  billItemSelectClick: function(e) {
     var leaseBillItem = this.data.leaseBill[e.currentTarget.dataset.item];
     var billItem = leaseBillItem.detailVos[e.currentTarget.dataset.id];
     wx.navigateTo({
       url: '/pages/leaseBillDetail2/leaseBillDetail2?billItem=' + JSON.stringify(billItem),
     })
   },
-
-  // 租约详情
-  getLeaseDetail: function () {
-    let params = {
-      leaseId: this.data.leaseId
-    }
-    adminLeaseDetail(params).then(res => {
-      if (res.data.code == 200) {
-
-        var signList = res.data.data.signList;
-        signList.signTimeStr = dateTool.formatTimeStamp(signList.signTime / 1000);
-        if (signList.contractType == 0) {
-          signList.contractTypeStr = "纸字合同";
-        } else if (signList.contractType == 1) {
-          signList.contractTypeStr = "电子合同";
-        }
-
-        var leaseDetail = res.data.data;
-        leaseDetail.startTimeStr = dateTool.formatTimeStamp(leaseDetail.startTime / 1000, "yyyy.MM.dd");
-        leaseDetail.endTimeStr = dateTool.formatTimeStamp(leaseDetail.endTime / 1000, "yyyy.MM.dd");
-        if (leaseDetail.status == 0) {
-          leaseDetail.statusStr = "待确认";
-        } else if (leaseDetail.status == 1) {
-          leaseDetail.statusStr = "签约成功";
-        } else if (leaseDetail.status == 2) {
-          leaseDetail.statusStr = "已退房";
-        }
-        if (leaseDetail.idNumberType == 0) {
-          leaseDetail.idNumberTypeStr = "身份证";
-        }
-
-        this.setData({
-          signList: signList,
-          tenantList: res.data.data.tenantList.map(item => {
-            if (item.isLease) {
-              item.leaseType = "在住";
-            } else {
-              item.leaseType = "已退房";
-            }
-            return item;
-          }),
-          leaseDetail: leaseDetail
-        })
-      } else {
-        wx.showToast({
-          title: res.data.msg,
-          icon: 'none',
-          duration: 1500
-        })
-      }
+  //历史账单
+  histeryBill: function() {
+    wx.showLoading({
+      title: '正在加载...',
     })
-  },
-  //请求数据预定房间信息
-  loadDataSourceList: function () {
-    // wx.showLoading({
-    //   title: '正在加载...',
-    // })
     wx.request({
-      method: "POST",
-      url: utils.adminLeaseListUrl,
+      url: utils.leaseBillsUrl + this.data.leaseId + '/1',
       header: {
         "Authorization": app.globalData.userInfo.token,
       },
-      data: {
-        current: this.data.current,
-        size: 10,
-        leaseStatus: this.data.status,
-        status: 0
-      },
+      method: "POST",
       success: res => {
-        console.log(res);
         if (res.data.code == 200) {
-          // wx.hideLoading();
-          for (let i = 0; i < res.data.data.records.length; i++) {
-            var obj = res.data.data.records[i];
-            var startTimeTemp = obj.startTime / 1000;
-            var startTime = util.formatTimeTwo(startTimeTemp, 'Y-M-D');
-            obj.startTime = startTime;
-
-            var endTimeTemp = obj.endTime / 1000;
-            var endTime = util.formatTimeTwo(endTimeTemp, 'Y-M-D');
-            obj.endTime = endTime;
-            if (obj.status == 0) {
-              obj.status = "待确认";
-            } else if (obj.status == 1) {
-              obj.status = "签约成功";
-            } else if (obj.status == 2) {
-              obj.status = "已退房";
-            }
-            if (obj.contractType == 0) {
-              obj.contractType = "纸字合同";
-            } else if (obj.contractType == 1) {
-              obj.contractType = "电子合同";
-            }
-            this.data.reservationlist.push(obj);
-            this.setData({
-              houseName: this.data.reservationlist[e.detail.value].name,
-              leaseId: this.data.reservationlist[e.detail.value].leaseId,
-              houseId: this.data.reservationlist[e.detail.value].houseId,
-              houseNumber: this.data.reservationlist[e.detail.value].houseNumber,
-              reservationlist: this.data.reservationlist
-            })
+          console.log(res);
+          var dada = res.data.data;
+          wx.hideLoading();
+          if (!dada) {
+            return;
           }
-
+          for (let i = 0; i < dada.length; i++) {
+            var startPayment = util.formatTimeTwo(dada[i].startPayment / 1000, 'Y/M/D');
+            var endPayment = util.formatTimeTwo(dada[i].endPayment / 1000, 'Y/M/D');
+            var gmtCreate = util.formatTimeTwo(dada[i].gmtCreate / 1000, 'Y/M/D');
+            dada[i].startPayment = startPayment;
+            dada[i].endPayment = endPayment;
+            dada[i].gmtCreate = gmtCreate;
+            for (let j = 0; j < dada[i].detailVos.length; j++) {
+              var receiptDate = util.formatTimeTwo(dada[i].detailVos[j].receiptDate / 1000, 'Y/M/D h:m');
+              dada[i].detailVos[j].receiptDate = receiptDate
+            }
+          }
+          this.setData({
+            lszdList: res.data.data
+          })
         } else {
+          wx.hideLoading();
           wx.showToast({
-            title: res.data.msg,
+            title: '加载失败',
             icon: 'none',
-            duration: 1500
+            duration: 1000
           })
 
         }
@@ -407,49 +367,49 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })

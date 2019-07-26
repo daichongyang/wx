@@ -144,6 +144,7 @@ Page({
       futureStartTime: new Date(this.data.totalStartTime).getTime(),
       futureEndTime: new Date(this.data.totalEndTime).getTime()
     }
+    console.log(params)
     adminIndexbillfuture(params).then(res => {
       console.log(res);
       this.setData({

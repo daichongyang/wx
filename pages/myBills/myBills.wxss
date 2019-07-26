@@ -182,8 +182,18 @@ page {
 .choise_img {
   width:34rpx;
   height: 34rpx;
-  padding-left: 32rpx;
-  padding-top: 51rpx;
+  margin-left: 32rpx;
+  margin-top: 51rpx;
+  position:relative;
+}
+.imggray{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius:5rpx;
 }
 .bill_left {
   display: flex;
@@ -262,4 +272,50 @@ page {
   text-align: center;
   line-height: 100rpx;
   border-top: 4rpx solid #e5e5e5;
+}
+.lszd-box{
+  margin-top: 30rpx;
+  background: white;
+}
+.header{
+  padding-left: 30rpx;
+  padding-bottom: 10rpx;
+  font-size: 35rpx;
+  color: darkgray;
+  background: #f7f7f7
+}
+.content{
+  font-size: 30rpx;
+  padding-top: 25rpx;
+  padding-bottom: 25rpx;
+  padding-left: 30rpx;
+ border-bottom: 1rpx solid #e1e1e1
+}
+.content-left{
+  font-size: 35rpx;
+  font-weight: bold;
+}
+.content-right{
+  font-size: 35rpx;
+  float: right;
+  margin-right: 30rpx;
+}
+.content-bootm{
+  margin-top: 10rpx;
+  color: darkgray
+}
+.content-bootm-right{
+  float: right;
+  margin-right: 30rpx;
+}
+.content-mid{
+  margin-left: 10rpx;
+}
+
+.noLszd{
+  color: darkgray;
+  width: 100%;
+  height: 300rpx;
+  line-height: 300rpx;
+  text-align: center;
 }

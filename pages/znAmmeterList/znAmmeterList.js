@@ -1,7 +1,6 @@
 // pages/znAmmeterList/znAmmeterList.js
 
 import { getEleDevInfos } from "../../utils/url.js"
-let inforArr = []
 Page({
 
   /**
@@ -14,6 +13,7 @@ Page({
     gyId: '',
     size: 10,//一个页面的条数
     inforList:[],//列表数组
+    inforArr:[],//列表数组
     sn: '',//水电表标识
     isinfor:false,//判断是否还有数据加载
     showTCC:false
@@ -29,6 +29,7 @@ Page({
     let obj = e.currentTarget.dataset
     this.setData({
       devType: e.currentTarget.dataset.devtype,
+      inforArr:[],
       showTCC:false
     })
     this.getEleDevInfoss()
@@ -59,7 +60,7 @@ Page({
           } else if (item.onlineStatus === 1) {
             item.devTypeName = '在线'
           }
-          inforArr.push(item)
+          this.data.inforArr.push(item)
           return item
         })
         // 判断是否可以下拉加载
@@ -67,13 +68,14 @@ Page({
           this.setData({
             isinfor:false
           })
+          return
         }else{
           this.setData({
             isinfor: true
           })
         }
         this.setData({
-          inforList: inforArr
+          inforList: this.data.inforArr
         })
       }else{
         wx.showToast({
@@ -96,6 +98,7 @@ Page({
     wx.setNavigationBarTitle({
       title: options.name,
     })
+    console.log(this.data.inforList)
     this.getEleDevInfoss()
   },
 
@@ -142,6 +145,7 @@ Page({
       this.setData({
         current:this.data.current + 1
       })
+      this.getEleDevInfoss()
     }
   },
 

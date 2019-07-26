@@ -17,7 +17,9 @@
         <block wx:for="{{item.detailVos}}" wx:key="key" wx:for-index='id'>
           <view class="bill_item">
             <view class="img_view" data-item="{{itemId}}" data-id="{{id}}" bindtap="billSelectClick">
-              <image class="choise_img" src="{{item.isSelct ? '../../img/my/choisedCar.png' : '../../img/my/choise_car.png'}}"></image>
+              <image class="choise_img" src="{{item.isSelct ? '../../img/my/choisedCar.png' : '../../img/my/choise_car.png'}}">
+              <view class='imggray' wx:if="{{item.validStatus == 0 && item.payStatus == 1}}"></view>
+              </image>
             </view>
             <view class="bill_left" data-item="{{itemId}}" data-id="{{id}}" bindtap="billItemSelectClick">
               <view class="bill_middle">
@@ -37,10 +39,10 @@
       </block>
     </view>
     <block wx:else>
-      <view class='noData'>空空如也</view>
+      <view class='noData' wx:if="{{status!=2}}">空空如也</view>
     </block>
     <!-- 支付 -->
-    <view class="bill_all">
+    <view class="bill_all" wx:if="{{status!=2}}">
       <view class="select_view" bindtap="selectAllClick">
         <view>
           <image class="choise_img_all" src="{{isAll ? '../../img/my/choisedCar.png' : '../../img/my/choise_car.png'}}"></image>
@@ -56,3 +58,20 @@
     </view>
   </view>
 </view>
+<!-- 历史账单 -->
+<block wx:for='{{lszdList}}'  wx:key='key' wx:for-item='itemBox' wx:if="{{status==2}}">
+  <view class='lszd-box'>
+    <view class='header' wx:if='{{itemBox.detailVos.length!=0}}'>{{itemBox.startPayment}}</view>
+
+    <block wx:for='{{itemBox.detailVos}}' wx:key='key'>
+      <view class='content' catchtap="billItemSelectClick" data-bill="{{item}}">
+        <view><text class='content-left'>￥{{item.amountReceived}}</text><text class='content-mid'>{{item.costName}}</text><text class='content-right'>已支付</text></view>
+        <view class='content-bootm'><text>{{itemBox.startPayment}} - {{itemBox.endPayment}}</text><text class='content-bootm-right'>{{item.receiptDate}}</text></view>
+      </view>
+    </block>
+  </view>
+</block>
+
+<block wx:if='{{lszdList.length==0&&leaseBill.length==0}}'>
+    <view class='noLszd'>空空如也</view>
+</block>

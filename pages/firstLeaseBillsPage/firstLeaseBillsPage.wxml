@@ -8,14 +8,14 @@
 
 
 
-<!-- <!-- 第一次进入该方法 --> 
-<block wx:if='{{firstPay == 1}}'> 
-<checkbox-group bindchange="checkboxChange">
-<block wx:for='{{lszdList}}'  wx:key='key' wx:for-item='itemBox'>
-    <view class='zdxx-box'>
-      <view class='header'>{{itemBox.startPayment}}</view>
-      <block wx:for='{{itemBox.detailVos}}' wx:key='key'>
-      <checkbox color='re
+<!-- <!-- 第一次进入该方法 -->
+<block wx:if='{{firstPay == 1&&status!=2}}'>
+  <checkbox-group bindchange="checkboxChange">
+    <block wx:for='{{lszdList}}' wx:key='key' wx:for-item='itemBox'>
+      <view class='zdxx-box'>
+        <view class='header'>{{itemBox.startPayment}}</view>
+        <block wx:for='{{itemBox.detailVos}}' wx:key='key'>
+          <checkbox color='re
       
       
       
@@ -27,33 +27,42 @@
       
       
       
-      contentClickd' class='checkbox'  checked='{{item.payStatus == 0? true:false}}' value='{{index}}' disabled='true'>
-        <view class='content' catchtap="billItemSelectClick" data-bill="{{item}}">
-          <view><text class='content-left'>￥{{item.accountReceivable}}</text><text class='content-mid'>{{item.costName}}</text><text class='content-right'>{{item.validStatus==0?(item.payStatus==0? '未支付':'已支付'):'坏账'}}</text></view>
-          <view class='content-bootm'><text>{{itemBox.startPayment}} - {{itemBox.endPayment}}</text><text class='content-bootm-right'>{{item.receivableDate}}前</text></view>
-        </view>
-         </checkbox>
-      </block>
-    </view>
-</block> 
-</checkbox-group>
+      contentClickd' class='checkbox' checked='{{item.payStatus == 0? true:false}}' value='{{index}}' disabled='true'>
+            <view class='content' catchtap="billItemSelectClick" data-bill="{{item}}">
+              <view>
+                <text class='content-left'>￥{{item.accountReceivable}}</text>
+                <text class='content-mid'>{{item.costName}}</text>
+                <text class='content-right'>{{item.validStatus==0?(item.payStatus==0? '未支付':'已支付'):'坏账'}}</text>
+              </view>
+              <view class='content-bootm'>
+                <text>{{itemBox.startPayment}} - {{itemBox.endPayment}}</text>
+                <text class='content-bootm-right'>{{item.receivableDate}}前</text>
+              </view>
+            </view>
+          </checkbox>
+        </block>
+      </view>
+    </block>
+  </checkbox-group>
 
-<view hidden='{{flag}}' class='lookZdView'><text bindtap='lookAllZdClick'>查看所有未来账单▾</text></view>
+  <view hidden='{{flag}}' class='lookZdView'>
+    <text bindtap='lookAllZdClick'>查看所有未来账单▾</text>
+  </view>
 
-<view class='footheight'></view>
+  <view class='footheight'></view>
 
   <block wx:if='{{lszdList.length}}'>
-  <view class='flexheight'>
-    <checkbox-group bindchange="allcheckboxChange">
-      <checkbox color='red' class='chekboxAll' checked='{{chekboxAll}}' disabled='true'>全选</checkbox>
-    </checkbox-group>
-    <view class='chekZdCount'>已选择{{chekZdCount}}条账单</view>
-    <view class='money'>共￥{{money}}</view>
-    <view bindtap='payClick' class='payclass'>支付</view>
-  </view>
+    <view class='flexheight'>
+      <checkbox-group bindchange="allcheckboxChange">
+        <checkbox color='red' class='chekboxAll' checked='{{chekboxAll}}' disabled='true'>全选</checkbox>
+      </checkbox-group>
+      <view class='chekZdCount'>已选择{{chekZdCount}}条账单</view>
+      <view class='money'>共￥{{money}}</view>
+      <view bindtap='payClick' class='payclass'>支付</view>
+    </view>
   </block>
   <block wx:else>
-  <view class='noLszdList'>没有多余账单</view>
+    <view class='noLszdList'>没有多余账单</view>
   </block>
 
 
@@ -62,40 +71,71 @@
 
 <!-- 不是第一次进入该方法 -->
 <block wx:else>
-<checkbox-group bindchange="checkboxChange">
-<block wx:for='{{lszdList}}'  wx:key='key' wx:for-item='itemBox' wx:for-index='indexBox'>
-    <view class='zdxx-box'>
-      <view class='header'>{{itemBox.startPayment}}</view>
-      <block wx:for='{{itemBox.detailVos}}' wx:key='key'>
-      <checkbox color='red' class='checkbox'  checked='{{item.superId == 1000? true:false}}' value='{{indexBox}}-{{index}}' disabled='{{item.payStatus == 1? true:false}}'>
-        <view class='content' catchtap="billItemSelectClick" data-bill="{{item}}">
-          <view><text class='content-left'>￥{{item.accountReceivable}}</text><text class='content-mid'>{{item.costName}}</text><text class='content-right'>{{item.validStatus==0?(item.payStatus==0? '未支付':'已支付'):'坏账'}}</text></view>
-          <view class='content-bootm'><text>{{itemBox.startPayment}} - {{itemBox.endPayment}}</text><text class='content-bootm-right'>{{item.receivableDate}}前</text></view>
-        </view>
-         </checkbox>
-      </block>
-    </view>
-</block>
-</checkbox-group>
+  <checkbox-group bindchange="checkboxChange">
+    <block wx:for='{{lszdList}}' wx:key='key' wx:for-item='itemBox' wx:for-index='indexBox'>
+      <view class='zdxx-box'>
+        <view class='header'>{{itemBox.startPayment}}</view>
+        <block wx:for='{{itemBox.detailVos}}' wx:key='key'>
+          <checkbox color='red' class='checkbox' checked='{{item.superId == 1000? true:false}}' value='{{indexBox}}-{{index}}' disabled='{{item.payStatus == 1? true:false}}'>
+            <view class='content' catchtap="billItemSelectClick" data-bill="{{item}}">
+              <view>
+                <text class='content-left'>￥{{item.accountReceivable}}</text>
+                <text class='content-mid'>{{item.costName}}</text>
+                <text class='content-right'>{{item.validStatus==0?(item.payStatus==0? '未支付':'已支付'):'坏账'}}</text>
+              </view>
+              <view class='content-bootm'>
+                <text>{{itemBox.startPayment}} - {{itemBox.endPayment}}</text>
+                <text class='content-bootm-right'>{{item.receivableDate}}前</text>
+              </view>
+            </view>
+          </checkbox>
+        </block>
+      </view>
+    </block>
+  </checkbox-group>
 
-<view hidden='{{flag}}' class='lookZdView'><text bindtap='lookAllZdClick'>查看所有未来账单▾</text></view>
-<view class='footheight'></view>
+  <view hidden='{{flag}}' class='lookZdView'>
+    <text bindtap='lookAllZdClick'>查看所有未来账单▾</text>
+  </view>
+  <view class='footheight'></view>
 
   <block wx:if='{{lszdList.length}}'>
-  <view class='flexheight'>
-    <checkbox-group bindchange="allcheckboxChange">
-      <checkbox color='red' class='chekboxAll' checked='{{chekboxAll}}'>全选</checkbox>
-    </checkbox-group>
-    <view class='chekZdCount'>已选择{{chekZdCount}}条账单</view>
-    <view class='money'>共￥{{money}}</view>
-    <view bindtap='payClick' class='payclass'>支付</view>
-  </view>
+    <view class='flexheight'>
+      <checkbox-group bindchange="allcheckboxChange">
+        <checkbox color='red' class='chekboxAll' checked='{{chekboxAll}}'>全选</checkbox>
+      </checkbox-group>
+      <view class='chekZdCount'>已选择{{chekZdCount}}条账单</view>
+      <view class='money'>共￥{{money}}</view>
+      <view bindtap='payClick' class='payclass'>支付</view>
+    </view>
   </block>
   <block wx:else>
-  <view class='noLszdList'>没有多余账单</view>
+    <view class='noLszdList'>没有多余账单</view>
   </block>
 
 
 </block>
+<!-- 历史账单 -->
+<!-- <block wx:for='{{lszdList}}' wx:key='key' wx:for-item='itemBox' wx:if="{{status==2}}">
+  <view class='lszd-box'>
+    <view class='header' wx:if='{{itemBox.detailVos.length!=0}}'>{{itemBox.startPayment}}</view>
 
+    <block wx:for='{{itemBox.detailVos}}' wx:key='key'>
+      <view class='content' catchtap="billItemSelectClick" data-bill="{{item}}">
+        <view>
+          <text class='content-left'>￥{{item.amountReceived}}</text>
+          <text class='content-mid'>{{item.costName}}</text>
+          <text class='content-right'>已支付</text>
+        </view>
+        <view class='content-bootm'>
+          <text>{{itemBox.startPayment}} - {{itemBox.endPayment}}</text>
+          <text class='content-bootm-right'>{{item.receiptDate}}</text>
+        </view>
+      </view>
+    </block>
+  </view>
+</block>
 
+<block wx:if='{{!lszdList.length&&status==2}}'>
+  <view class='noLszd'>空空如也</view>
+</block> -->

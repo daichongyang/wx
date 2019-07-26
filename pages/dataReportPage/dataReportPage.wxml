@@ -27,10 +27,10 @@
       <view class='zzdCss'>未来预计收入</view>
       <view class='xqCssBox'>
         <view class='sjCssBOx'>
-          <picker class='sjCss' data-str="star" mode="date" start="{{startTime}}" bindchange="bindFutureChange" end="{{endTime}}">
+          <picker class='sjCss' data-str="star" mode="date" start="{{futureStartTime}}" bindchange="bindFutureChange">
             {{futureStartTime}}
           </picker>  
-          <picker class='sjCss' data-str="end" mode="date" start="{{startTime}}" bindchange="bindFutureChange" end="{{endTime}}">
+          <picker class='sjCss' data-str="end" mode="date" start="{{futureStartTime}}" bindchange="bindFutureChange">
             {{futureEndTime}}
           </picker>  
         </view>

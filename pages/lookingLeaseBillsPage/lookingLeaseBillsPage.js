@@ -31,7 +31,7 @@ Page({
   loadDataSource: function (leaseId) {
     wx.showLoading({
       title: '正在加载...',
-    })
+    }) 
     wx.request({
       url: utils.leaseBillsUrl + leaseId + '/1' ,
       header: {
