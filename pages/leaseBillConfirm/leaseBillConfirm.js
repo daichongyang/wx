@@ -121,7 +121,6 @@ Page({
         receiptRemark: this.data.receiptRemark,
         stage: this.data.billItem.stage
       }
-
       adminConfirmIncome(params).then(res => {
         console.log(res);
         if (res.data.code == 200) {
