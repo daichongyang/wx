@@ -218,6 +218,11 @@ const adminLeaseContract = (params) => {
   return requestApi("post", "/v1.0/admin/lease/contract/" + params.leaseId)
 }
 
+// 确认收款
+const adminConfirmIncome = (params) => {
+  return requestApi("post", "/v1.0/admin/bills/income", params)
+}
+
 // 水电表抄表
 // var adminhydroelectricshowAndUpAllDevUrl = httpUrl + "/hydroelectric/showAndUpAllDev/";
 
@@ -449,7 +454,8 @@ module.exports = {
   adminCheckOutAndNoClose,
   adminCheckOutHouseClose,
   adminCheckOutHouseData,
-  adminCheckOutSelectData
+  adminCheckOutSelectData,
+  adminConfirmIncome
 }
 
 

@@ -3,16 +3,20 @@
 
   <view class='gdViewCss'>
     <text class='left-text'>收款方式</text>
-    <picker class='riget-text' model='selector' range='{{houseList}}' bindchange='houseBindchange'>请选择 ▾</picker>
+    <picker class='riget-text' model='selector' range='{{paymentArray}}' bindchange='paymentChange'>{{paymentStr}} ▾</picker>
   </view>
 
   <view class='gdViewCss'>
-    <text class='left-text'>收款金额</text> <text class='riget-text right-input'>{{accountReceivable}}</text>
+    <text class='left-text'>收款金额</text> <text class='riget-text right-input'>{{billItem.accountReceivable}}</text>
   </view>
 
   <view class='gdViewCss'>
     <text class='left-text'>收款日期</text>
     <picker class='riget-text dateCss' mode="date" value="{{date}}" start="{{startTime}}" bindchange="bindDateChange" end="{{endTime}}">{{endTime}} ▾</picker>    
+  </view>
+
+  <view class='gdViewCss'>
+    <text class='left-text'>收款编号</text> <input bindinput='bindinputName' placeholder='请输入收款编号' value='{{name}}' class='riget-text right-input'></input>
   </view>
 
   <view class='imgBox'>

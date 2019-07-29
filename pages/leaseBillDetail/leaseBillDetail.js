@@ -5,21 +5,34 @@ Page({
    * 页面的初始数据
    */
   data: {
-    billItem: null // 账单详情
+    billItem: null, // 账单详情
+    isHidden: false
   },
 
-  bottomClick: function () {
-    wx.navigateTo({
-      url: '/pages/leaseBillConfirm/leaseBillConfirm?accountReceivable=' + this.data.billItem.accountReceivable,
-    })
+  bottomClick: function (e) {
+    switch (e.currentTarget.dataset.item) {
+      case "confirm":
+      {
+          wx.navigateTo({
+            url: '/pages/leaseBillConfirm/leaseBillConfirm?billItem=' + JSON.stringify(this.data.billItem)
+          })
+      }
+        break;
+      default:
+        break;
+    } 
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var item = JSON.parse(options.billItem);
+    console.log(item);
+    var isHidden = item.validStatus == 0 ? (item.payStatus == 0 ? true : false) : false;
     this.setData({
-      billItem: JSON.parse(options.billItem)
+      billItem: JSON.parse(options.billItem),
+      isHidden: isHidden
     })
   },
 

@@ -35,7 +35,7 @@
 
   <view class="lease_bottom">
     <text bindtap="bottomClick">更多</text>
-    <text bindtap="bottomClick">催账</text>
-    <text bindtap="bottomClick">确认收款</text>
+    <text wx:if="{{isHidden}}" bindtap="bottomClick">催账</text>
+    <text wx:if="{{isHidden}}" data-item="confirm" bindtap="bottomClick">确认收款</text>
   </view>
 </view>

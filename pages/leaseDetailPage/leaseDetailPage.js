@@ -223,6 +223,8 @@ Page({
   billItemSelectClick: function (e) {
     var leaseBillItem = this.data.leaseBill[e.currentTarget.dataset.item];
     var billItem = leaseBillItem.bills[e.currentTarget.dataset.id];
+    billItem.billsId = leaseBillItem.billsId;
+    billItem.stage = leaseBillItem.stage;
     wx.navigateTo({
       url: '/pages/leaseBillDetail/leaseBillDetail?billItem=' + JSON.stringify(billItem),
     })

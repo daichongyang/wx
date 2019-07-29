@@ -44,8 +44,38 @@ Page({
     endTime: null 
   },
 
+  /**
+   * 生命周期函数--监听页面加载 
+   */
+  onLoad: function (options) {
+    this.setData({
+      totalStartTime: this.getBeforeMonthTime(dateTool.formatTimeStamp(new Date() / 1000, "yyyy-MM-dd")),
+      futureStartTime: dateTool.formatTimeStamp(new Date() / 1000, "yyyy-MM-dd"),
+      totalEndTime: dateTool.formatTimeStamp(new Date() / 1000, "yyyy-MM-dd"),
+      futureEndTime: this.getNextMonthTime(dateTool.formatTimeStamp(new Date() / 1000, "yyyy-MM-dd")),
+      endTime: dateTool.formatTimeStamp(new Date() / 1000, "yyyy-MM-dd"),
+    })
+    this.getSystemInfo();
+  },
+
+  //获取屏幕尺寸
+  getSystemInfo:function(){
+    wx.getSystemInfo({
+      success: res => {
+        console.log(res);
+        var windowWidth = res.windowWidth;
+        var windowHeight = res.windowHeight - 45;
+        this.setData({
+          windowWidth: windowWidth,
+          windowHeight: windowHeight,
+        })
+        this.loadDataSourcezzd();
+      },
+    })
+  },
+
   // 总账单  房源数据 租约数据  日报月报 选择
-  chooseTypeClick:function(e){
+  chooseTypeClick: function (e) {
     this.getExpiredWithIndex(e.currentTarget.dataset.id);
     this.setData({
       id: e.currentTarget.dataset.id,
@@ -75,39 +105,11 @@ Page({
       default:
         {
           if (!this.data.waterData) {
-           this.lstjClick();
-         }  
+            this.lstjClick();
+          }
         }
         break;
     }
-  },
-
-  /**
-   * 生命周期函数--监听页面加载 
-   */
-  onLoad: function (options) {
-    this.setData({
-      totalEndTime: dateTool.formatTimeStamp(new Date() / 1000, "yyyy-MM-dd"),
-      futureEndTime: dateTool.formatTimeStamp(new Date() / 1000, "yyyy-MM-dd"),
-      endTime: dateTool.formatTimeStamp(new Date() / 1000, "yyyy-MM-dd")
-    })
-    this.getSystemInfo();
-  },
-
-  //获取屏幕尺寸
-  getSystemInfo:function(){
-    wx.getSystemInfo({
-      success: res => {
-        console.log(res);
-        var windowWidth = res.windowWidth;
-        var windowHeight = res.windowHeight - 45;
-        this.setData({
-          windowWidth: windowWidth,
-          windowHeight: windowHeight,
-        })
-        this.loadDataSourcezzd();
-      },
-    })
   },
 
   //左右滑动
@@ -130,6 +132,7 @@ Page({
       startTime: new Date(this.data.totalStartTime).getTime(),
       endTime: new Date(this.data.totalEndTime).getTime()
     }
+    console.log(reParams);
     adminIndexbilltotal(reParams).then(res => {
       console.log(res);
       this.setData({
@@ -141,9 +144,10 @@ Page({
   // 未来预计收入
   futureBill: function () {
     let params = {
-      futureStartTime: new Date(this.data.totalStartTime).getTime(),
-      futureEndTime: new Date(this.data.totalEndTime).getTime()
+      futureStartTime: new Date(this.data.futureStartTime).getTime(),
+      futureEndTime: new Date(this.data.futureEndTime).getTime()
     }
+    console.log(params);
     adminIndexbillfuture(params).then(res => {
       console.log(res);
       this.setData({
@@ -319,31 +323,6 @@ Page({
     }
   },
 
-  getExpiredWithIndex: function(index) {
-   switch (index) {
-     case 0:
-       {
-         this.loadDataSourcezzd();
-       }
-       break;
-     case 1:
-       {
-         this.getHouseData();
-       }
-       break;
-     case 2:
-       {
-         this.loadDataExpired();
-       }
-       break;
-     default:
-       {
-         this.lstjClick();
-       }
-       break;
-   }
-  },
-
   //租约数据
   loadDataExpired: function () {
     // 快到期合同
@@ -477,27 +456,40 @@ Page({
     }
   },
 
-//租约数据
-loadDataExpired: function () {
-  // 快到期合同
-  let params = {
-    day: 60
-  }
-  adminIndexWillExpired(params).then(res => {
-    console.log(res);
-    this.setData({
-      willExpired: res.data.data
+  //租约数据
+  loadDataExpired: function () {
+    // 快到期合同
+    let params = {
+      day: 60
+    }
+    adminIndexWillExpired(params).then(res => {
+      console.log(res);
+      this.setData({
+        willExpired: res.data.data
+      })
     })
-  })
-  // 已到期合同
-  adminIndexBeExpired().then(res => {
-    console.log(res);
-    this.setData({
-      beExpired: res.data.data
+    // 已到期合同
+    adminIndexBeExpired().then(res => {
+      console.log(res);
+      this.setData({
+        beExpired: res.data.data
+      })
     })
-  })
-},
+  },
+  
+  // 获取前一个月时间
+  getBeforeMonthTime: function(date) {
+    let monthDate = new Date(date);
+    let newDate = new Date(monthDate.getTime() - 24 * 60 * 60 * 1000 * monthDate.getDate());
+    return dateTool.formatTimeStamp(newDate / 1000, "yyyy-MM-dd");
+  },
 
+  // 获取后一个月时间
+  getNextMonthTime: function (date) {
+    let monthDate = new Date(date);
+    let newDate = new Date(monthDate.getTime() + 24 * 60 * 60 * 1000 * monthDate.getDate());
+    return dateTool.formatTimeStamp(newDate / 1000, "yyyy-MM-dd");
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

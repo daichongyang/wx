@@ -1,14 +1,22 @@
 // pages/leaseBillConfirm/leaseBillConfirm.js
 var dateTool = require('../../utils/date.js');
+import {
+  adminConfirmIncome
+} from "../../utils/url.js"
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    paymentArray: ["线上", "现金", "支付宝转账", "微信转账", "银行转账", "POS刷卡", "其他", "对私银行转账"],
+    paymentStr: "请选择",
+    pathway: -1, // 付款方式
     imgList: [], //图片数组
-    accountReceivable: 0, // 收款金额
     startTime: "2000-01-01", 
+    receiptRemark: "",
+    receiptNumber: "",
+    billItem: null,
     endTime: null // 收款日期
   },
 
@@ -64,7 +72,7 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      accountReceivable: options.accountReceivable,
+      billItem: JSON.parse(options.billItem),
       endTime: dateTool.formatTimeStamp(new Date() / 1000, "yyyy-MM-dd")
     })
   },
@@ -74,6 +82,68 @@ Page({
     this.setData({
       endTime: e.detail.value
     })
+  },
+
+  paymentChange: function (e) {
+    this.setData({
+      paymentStr: this.data.paymentArray[e.detail.value],
+      pathway: e.detail.value
+    })
+  },
+
+  bindinputName: function (e) {
+    this.setData({
+      receiptNumber: e.detail.value
+    })
+  },
+
+  bindinputTextareaClick: function (e) {
+    this.setData({
+      receiptRemark: e.detail.value
+    })
+  },
+
+  overClick: function () {
+    if (this.data.pathway == -1) {
+      wx.showToast({
+        title: '请选择收款方式',
+        icon: 'none',
+        duration: 1500
+      })
+    } else {
+      let params = {
+        amountReceived: this.data.billItem.accountReceivable,
+        billsId: this.data.billItem.billsId,
+        paymentType: this.data.pathway,
+        pkId: this.data.billItem.pkId,
+        receiptDate: new Date(this.data.endTime).getTime(),
+        receiptNumber: this.data.receiptNumber,
+        receiptRemark: this.data.receiptRemark,
+        stage: this.data.billItem.stage
+      }
+
+      adminConfirmIncome(params).then(res => {
+        console.log(res);
+        if (res.data.code == 200) {
+          wx.showToast({
+            title: "收款成功",
+            icon: 'none',
+            duration: 1500
+          })
+          setTimeout(function () {
+            wx.navigateBack({
+              delta: 3
+            })
+          }, 1500)
+        } else {
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none',
+            duration: 1500
+          })
+        }
+      })
+    }
   },
 
   /**
